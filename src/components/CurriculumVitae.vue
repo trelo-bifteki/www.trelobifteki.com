@@ -230,6 +230,7 @@ export default {
 
 .route-cv__personal-information {
   background-color: var(--color-theme-white);
+  border-bottom: 1px solid var(--color-theme-orange);
   display: flex;
   flex-direction: column;
   justify-content: center;
