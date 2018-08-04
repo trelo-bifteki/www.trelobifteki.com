@@ -1,11 +1,11 @@
 <script>
-import skill from './skill';
 import JobItem from './JobItem';
+import SkillItem from './SkillItem';
 
 export default {
   name: 'CurriculumVitae',
   components: {
-    skill,
+    SkillItem,
     JobItem,
   },
   computed: {
@@ -110,11 +110,11 @@ export default {
         Skills &amp; proficiency
       </h2>
       <div class="route-cv__skills route-cv__panel-container">
-        <skill
+        <SkillItem
           v-for="(skill, index) in skills"
           v-bind:skill="skill"
           v-bind:key="index"
-        ></skill>
+        ></SkillItem>
       </div>
     </section>
   </div>
@@ -139,11 +139,12 @@ export default {
 .route-cv__current-job {
   font-size: var(--font-size-l);
   margin-bottom: var(--space);
+  text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
   text-transform: uppercase;
 }
 
 .route-cv__heading {
-  color: var(--color-orange);
+  color: var(--color-theme-orange);
   font-size: var(--font-size-l);
   margin: var(--space-l);
 }
@@ -204,8 +205,8 @@ export default {
 }
 
 .route-cv__personal-information {
-  background: #f3f3f3;
-  border-bottom: 2px solid var(--color-orange);
+  background: var(--color-theme-gray);
+  color: var(--color-theme-white);
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'skill',
+  name: 'SkillItem',
   props: {
     skill: {
       type: Object,
@@ -28,7 +28,9 @@ export default {
   </div>
 </template>
 
-<style scoped>
+<style>
+
+@import '../assets/common.css';
 
 .skill {
   display: flex;
@@ -42,7 +44,7 @@ export default {
 }
 
 .skill__progress {
-  background-color: #e9ecef;
+  background-color: var(--color-theme-white);
   border-radius: .25rem;
   font-size: .75rem;
   height: 1rem;
@@ -52,8 +54,8 @@ export default {
 }
 
 .skill__progress-bar {
-  background-color: #007bff;
-  color: #fff;
+  background-color: var(--color-theme-orange);
+  color: var(--color-theme-white);
   display: flex;
   justify-content: center;
 }
