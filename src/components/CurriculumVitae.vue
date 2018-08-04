@@ -47,7 +47,7 @@ export default {
   <div class="route-cv">
     <section class="route-cv__personal-information">
       <div class="route-cv__avatar">
-        <img src="../assets/avatar.jpg"
+        <img src="../assets/avatar-small.jpg"
           alt="avatar"
           class="route-cv__avatar-image">
       </div>

@@ -18,9 +18,16 @@ export default {
       <i class="icon-whatsapp"></i>
       +49 1723 990194
     </a>
-    <a href="https://www.facebook.com/trelobifteki" target="_blank">
+    <a
+      href="https://www.facebook.com/trelobifteki"
+      target="_blank"
+    >
       <i class="icon-facebook-official"></i>
       trelobifteki
+    </a>
+    <a href="mailto:lambrospd at gmail.com">
+      <i class="icon-mail"></i>
+      lambrospd at gmail
     </a>
   </div>
 </template>
