@@ -1,0 +1,19 @@
+@custom-media --viewport-medium (width <= 768px);
+
+:root {
+  --background-color: #F1F3FA;
+  --color-background-green: #B96D40;
+  --highlight-color: #5A7391;
+  --border-color-light: #F0F4F7;
+  --color-orange: #cf8a05;
+  --color-gray: #555;
+
+  --space: 1rem;
+  --space-s: 0.5rem;
+  --space-l: 1.5rem;
+  --space-xl: 2rem;
+
+  --font-size-l: 120%;
+  --font-size-xl: 180%;
+
+}

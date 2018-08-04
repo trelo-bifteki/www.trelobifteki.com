@@ -1,0 +1,25 @@
+[{
+  "company": "Check24 Vergleichsportal Finanzen GmbH",
+  "description": "Bringing solutions for frontend and backend components for a mortgage comparison portal. Implementing administration tools and end-user applications for comparing mortgages.",
+  "time": "2016 - today",
+  "title": "Fullstack developer",
+  "points": "Working experience on the following technologies: Java, Javascript, Sass, bower, gulp, Spring framework, gradle, AngularJS, ElasticSearch"
+}, {
+  "company": "Tyntec GmbH",
+  "description": "Bringing solutions for frontend and backend components for routing systems. Delivering administration tools for managing and monitoring SMS traffic.",
+  "time": "2013 - 2016",
+  "title": "Java EE software developer",
+  "points": "Working experience on the following technologies: Java, Javascript, CSS, AngularJS, Primefaces, JSF, J2EE, Spring framework, Postgresql, Bootstrap, Google material design, GIT, python"
+}, {
+  "title": "Services Engineer",
+  "company": "Ericsson Hellas",
+  "time": "2008 - 2013",
+  "description": "Working as an external consultant for Ericsson Hellas. Bringing solutions using J2EE and Web technologies in telecommunication industry focusing on the IPTV services",
+  "points": "Working experience on the following technologies: IPTV, Java, Javascript, CSS, HTML5, J2EE, Spring framework, Subversion, MySQL, bash, python, perl"
+}, {
+  "title": "Website developer and designer",
+  "company": "University of Piraeus Greece - Department of Informatics",
+  "time": "2015 - 2016",
+  "description": "Assigned to a university project to develop and design the website of the Informatics department, where I was studying",
+  "points": "Working experience on the following technologies: Drupal, MySQL, Javascript, HTML, CSS"
+}]
