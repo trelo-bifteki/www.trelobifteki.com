@@ -4,6 +4,7 @@ export default {
   state: {
     blogPosts: [],
     count: 0,
+    education: [],
     skills: [],
     jobs: [],
     interests: [],
@@ -19,6 +20,9 @@ export default {
     updateBlogPosts: (state, blogPosts) => {
       state.blogPosts = [...blogPosts];
     },
+    updateEducation: (state, education) => {
+      state.education = [...education];
+    },
     updateSkills: (state, skills) => {
       state.skills = [...skills];
     },
@@ -33,6 +37,14 @@ export default {
     },
   },
   actions: {
+    refreshEducation({ commit }) {
+      return new Promise((resolve) => {
+        axios.get('static/education.json').then((response) => {
+          commit('updateEducation', response.data);
+          resolve(response.data);
+        });
+      });
+    },
     refreshInterests({ commit }) {
       return new Promise((resolve) => {
         axios.get('static/interests.json').then((response) => {

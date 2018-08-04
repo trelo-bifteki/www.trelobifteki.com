@@ -12,9 +12,12 @@
   --space-s: 0.5rem;
   --space-l: 1.5rem;
   --space-xl: 2rem;
+  --space-xxl: 3rem;
 
-  --font-size-l: 120%;
-  --font-size-xl: 180%;
+  --font-size-ml: 110%;
+  --font-size-l: 130%;
+  --font-size-xl: 140%;
+  --font-size-xxl: 180%;
 
   --color-theme-white: #F8F8F7;
   --color-theme-orange: #E69D50;

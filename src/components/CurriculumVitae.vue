@@ -1,10 +1,12 @@
 <script>
 import JobItem from './JobItem';
 import SkillItem from './SkillItem';
+import EducationItem from './EducationItem';
 
 export default {
   name: 'CurriculumVitae',
   components: {
+    EducationItem,
     SkillItem,
     JobItem,
   },
@@ -21,10 +23,14 @@ export default {
     interests() {
       return this.$store.state.interests;
     },
+    education() {
+      return this.$store.state.education;
+    },
   },
   methods: {
   },
   mounted() {
+    this.$store.dispatch('refreshEducation');
     this.$store.dispatch('refreshInterests');
     this.$store.dispatch('refreshJobs');
     this.$store.dispatch('refreshPersonalInfo');
@@ -98,9 +104,11 @@ export default {
         Education
       </h2>
       <div class="route-cv__panel-container route-cv__panel-container--padding">
-        <article>
-          Ena to xelidoni
-        </article>
+        <EducationItem
+          v-for="(item, index) in education"
+          v-bind:item="item"
+          v-bind:key="index"
+        ></EducationItem>
       </div>
     </section>
 
