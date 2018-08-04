@@ -1,16 +1,18 @@
 <script>
 import BioSummary from './BioSummary';
+import EducationItem from './EducationItem';
 import JobItem from './JobItem';
 import SkillItem from './SkillItem';
-import EducationItem from './EducationItem';
+import SocialLinks from './SocialLinks';
 
 export default {
   name: 'CurriculumVitae',
   components: {
     BioSummary,
     EducationItem,
-    SkillItem,
     JobItem,
+    SkillItem,
+    SocialLinks,
   },
   computed: {
     personalInfo() {
@@ -59,10 +61,7 @@ export default {
           {{ personalInfo.title }} @ {{ personalInfo.currentCompany }}
         </h2>
 
-        <div class="route-cv__summary">
-          <p>
-          </p>
-        </div>
+        <SocialLinks></SocialLinks>
       </div>
     </section>
 
@@ -155,10 +154,9 @@ export default {
 }
 
 .route-cv__current-job {
-  color: beige;
+  color: #666;
   font-size: var(--font-size-ml);
   margin-bottom: var(--space);
-  text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
   text-transform: uppercase;
 }
 
@@ -169,10 +167,10 @@ export default {
 }
 
 .route-cv__fullname {
+  color: var(--color-theme-orange);
   font-size: var(--font-size-xl);
   margin-bottom: var(--space-s);
   text-transform: uppercase;
-  text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
 }
 
 .route-cv__interests {
@@ -230,8 +228,7 @@ export default {
 }
 
 .route-cv__personal-information {
-  background: var(--color-theme-gray);
-  color: var(--color-theme-white);
+  background-color: var(--color-theme-white);
   display: flex;
   flex-direction: column;
   justify-content: center;
