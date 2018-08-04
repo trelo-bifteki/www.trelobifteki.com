@@ -1,4 +1,5 @@
 <script>
+import BioSummary from './BioSummary';
 import JobItem from './JobItem';
 import SkillItem from './SkillItem';
 import EducationItem from './EducationItem';
@@ -6,6 +7,7 @@ import EducationItem from './EducationItem';
 export default {
   name: 'CurriculumVitae',
   components: {
+    BioSummary,
     EducationItem,
     SkillItem,
     JobItem,
@@ -70,16 +72,7 @@ export default {
         Summary
       </h2>
       <article class="route-cv__panel-container route-cv__panel-container--padding">
-        <p class="route-cv__summary-paragraph">
-          Full stack software developer focused on web &amp; technologies and
-          backend infrastructure. My interests include software development,
-          system integration and services delivery.
-        </p>
-        <p class="route-cv__summary-paragraph">
-          Great experience in J2EE and Spring Technologies. Working with Java EE  technologies
-          for routing platforms and designing UI application as administrative and end-user
-           applications.
-        </p>
+          <BioSummary></BioSummary>
       </article>
     </section>
 
@@ -151,7 +144,7 @@ export default {
   margin-bottom: var(--space);
   margin-left: auto;
   margin-right: auto;
-  max-width: 10rem;
+  width: 10rem;
   text-align: center;
 }
 
@@ -163,7 +156,7 @@ export default {
 
 .route-cv__current-job {
   color: beige;
-  font-size: var(--font-size-l);
+  font-size: var(--font-size-ml);
   margin-bottom: var(--space);
   text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
   text-transform: uppercase;
@@ -259,7 +252,7 @@ export default {
 }
 
 .route-cv__personal-information-container {
-  max-width: 70rem;
+  flex-grow: 1;
 }
 
 @media screen and (width >=768px)  {
@@ -284,6 +277,10 @@ export default {
 
   .route-cv__panel-container {
     width: 75%;
+  }
+
+  .route-cv__personal-information-container {
+    max-width: 70rem;
   }
 
   .route-cv__avatar {
