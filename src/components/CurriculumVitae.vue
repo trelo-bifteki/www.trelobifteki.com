@@ -187,7 +187,7 @@ export default {
 }
 
 .route-cv__panel {
-  border-top: 1px solid #DCDCDC;
+  border-top: 1px solid var(--color-theme-gray-light);
   display: flex;
   flex-direction: row;
   max-width: 80rem;
@@ -195,7 +195,7 @@ export default {
   margin-right: auto;
 }
 
-.route-cv__panel:first {
+.route-cv__panel:first-child {
   border-top: 0;
 }
 
