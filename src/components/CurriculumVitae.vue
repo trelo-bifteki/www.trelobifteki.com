@@ -242,7 +242,7 @@ export default {
   max-width: 70rem;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (width >=768px)  {
   .route-cv__avatar {
       margin-bottom: 0;
       margin-left: 0;

@@ -58,7 +58,7 @@ export default {
   justify-content: center;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (width <768px) {
   .skill {
     flex-direction: column;
   }
