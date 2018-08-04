@@ -69,7 +69,7 @@ export default {
 
     <section class="route-cv__panel">
       <h2 class="route-cv__heading route-cv__panel-label">
-        <i class="route-cv__icon route-cv__icon--heart glyphicon glyphicon-heart"></i>
+        <i class="route-cv__icon icon-heart"></i>
         Interests
       </h2>
 
@@ -79,6 +79,7 @@ export default {
           v-for="(interest, index) in interests"
           v-bind:key="index"
         >
+          <i class="route-cv__interest-icon icon-heart"></i>
           {{ interest }}
         </li>
       </ul>
@@ -86,7 +87,7 @@ export default {
 
     <section class="route-cv__panel">
       <h2 class="route-cv__heading route-cv__panel-label">
-        <i class="route-cv__icon route-cv__icon--heart glyphicon glyphicon-briefcase"></i>
+        <i class="route-cv__icon icon-briefcase"></i>
         Work experience
       </h2>
       <div class="route-cv__jobs route-cv__panel-container">
@@ -100,7 +101,7 @@ export default {
 
     <section class="route-cv__panel">
       <h2 class="route-cv__heading route-cv__panel-label">
-        <i class="route-cv__icon route-cv__icon--heart glyphicon glyphicon-briefcase"></i>
+        <i class="route-cv__icon icon-graduation-cap"></i>
         Education
       </h2>
       <div class="route-cv__panel-container route-cv__panel-container--padding">
@@ -114,7 +115,7 @@ export default {
 
     <section class="route-cv__panel">
       <h2 class="route-cv__heading route-cv__panel-label">
-        <i class="route-cv__icon glyphicon glyphicon-tower"></i>
+        <i class="route-cv__icon icon-star"></i>
         Skills &amp; proficiency
       </h2>
       <div class="route-cv__skills route-cv__panel-container">
@@ -152,7 +153,7 @@ export default {
 }
 
 .route-cv__heading {
-  color: var(--color-theme-orange);
+  color: var(--color-theme-red);
   font-size: var(--font-size-l);
   margin: var(--space-l);
 }
@@ -178,11 +179,13 @@ export default {
   padding: var(--space);
 }
 
+.route-cv__interest-icon {
+  color: var(--color-theme-red);
+  margin-right: var(--space-s)
+}
+
 .route-cv__icon {
-  border-radius: 50%;
-  background: var(--highlight-color);
-  color: white;
-  font-size: 65%;
+  color: var(--color-theme-red);
   margin-right: var(--space);
 }
 
