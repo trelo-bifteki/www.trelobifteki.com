@@ -59,12 +59,28 @@ export default {
 
         <div class="route-cv__summary">
           <p>
-            Full stack software developer focused on web &amp; technologies and
-            backend infrastructure. My interests include software development,
-            system integration and services delivery.
           </p>
         </div>
       </div>
+    </section>
+
+    <section class="route-cv__panel">
+      <h2 class="route-cv__heading route-cv__panel-label">
+        <i class="route-cv__interest-icon icon-user"></i>
+        Summary
+      </h2>
+      <article class="route-cv__panel-container route-cv__panel-container--padding">
+        <p class="route-cv__summary-paragraph">
+          Full stack software developer focused on web &amp; technologies and
+          backend infrastructure. My interests include software development,
+          system integration and services delivery.
+        </p>
+        <p class="route-cv__summary-paragraph">
+          Great experience in J2EE and Spring Technologies. Working with Java EE  technologies
+          for routing platforms and designing UI application as administrative and end-user
+           applications.
+        </p>
+      </article>
     </section>
 
     <section class="route-cv__panel">
@@ -236,6 +252,10 @@ export default {
 
 .route-cv__jobs {
   padding: var(--space);
+}
+
+.route-cv__summary-paragraph {
+  margin-bottom: var(--space);
 }
 
 .route-cv__personal-information-container {

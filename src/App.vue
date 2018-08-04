@@ -21,7 +21,11 @@ html,
 body {
   background-color: #FFF;
   color: #222;
-  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-family:  Helvetica, Arial, sans-serif;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
 }
 
 </style>

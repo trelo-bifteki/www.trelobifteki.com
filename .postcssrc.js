@@ -8,6 +8,8 @@ module.exports = {
     "postcss-preset-env":  {
       "stage": 2,
     },
-    "postcss-custom-properties": {},
+    "postcss-custom-properties": {
+      "preserve": "computed",
+    },
   }
 }
