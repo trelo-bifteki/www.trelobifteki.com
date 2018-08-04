@@ -31,8 +31,6 @@ export default {
 
 <style>
 
-@import '../assets/common.css';
-
 .education {
   margin-top:  var(--space-xxl);
 }
@@ -54,6 +52,7 @@ export default {
 }
 
 .education__title {
+  color: var(--color-theme-red);
   font-size: var(--font-size-l);
   margin-bottom: var(--space-s);
 }

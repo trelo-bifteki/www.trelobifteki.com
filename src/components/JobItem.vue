@@ -38,8 +38,6 @@ export default {
 
 <style>
 
-@import '../assets/common.css';
-
 .job {
   margin-bottom: 3rem;
 }
@@ -62,6 +60,7 @@ export default {
 }
 
 .job__title {
+  color: var(--color-theme-red);
   font-size: 120%;
   margin-bottom: var(--space-s);
 }

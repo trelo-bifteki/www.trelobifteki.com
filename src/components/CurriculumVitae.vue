@@ -131,11 +131,11 @@ export default {
 
 <style>
 
-@import '../assets/common.css';
-
 .route-cv__avatar {
-  margin-right: var(--space-l);
-  max-width: 15rem;
+  margin-bottom: var(--space);
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 10rem;
   text-align: center;
 }
 
@@ -146,6 +146,7 @@ export default {
 }
 
 .route-cv__current-job {
+  color: beige;
   font-size: var(--font-size-l);
   margin-bottom: var(--space);
   text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
@@ -155,7 +156,7 @@ export default {
 .route-cv__heading {
   color: var(--color-theme-red);
   font-size: var(--font-size-l);
-  margin: var(--space-l);
+  margin: var(--space);
 }
 
 .route-cv__fullname {
@@ -192,7 +193,8 @@ export default {
 .route-cv__panel {
   border-top: 1px solid var(--color-theme-gray-light);
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: center;
   max-width: 80rem;
   margin-left: auto;
   margin-right: auto;
@@ -202,13 +204,16 @@ export default {
   border-top: 0;
 }
 
+.route-cv__panel:first {
+  border-top: 0;
+}
+
 .route-cv__panel-label {
-  width: 25%;
+  width: auto;
 }
 
 .route-cv__panel-container {
   display: block;
-  width: 75%;
 }
 
 .route-cv__panel-container--padding {
@@ -222,6 +227,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   padding: var(--space-l);
+  text-align: center;
 }
 
 .route-cv__skills {
@@ -237,8 +243,27 @@ export default {
 }
 
 @media screen and (min-width: 768px) {
+  .route-cv__avatar {
+      margin-bottom: 0;
+      margin-left: 0;
+      margin-right: var(--space-l);
+  }
+
   .route-cv__personal-information {
     flex-direction: row;
+    text-align: left;
+  }
+
+  .route-cv__panel {
+    flex-direction: row;
+  }
+
+  .route-cv__panel-label {
+    width: 25%;
+  }
+
+  .route-cv__panel-container {
+    width: 75%;
   }
 
   .route-cv__avatar {

@@ -30,8 +30,6 @@ export default {
 
 <style>
 
-@import '../assets/common.css';
-
 .skill {
   display: flex;
   flex-direction: row;
