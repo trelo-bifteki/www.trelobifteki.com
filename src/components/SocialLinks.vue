@@ -6,11 +6,19 @@ export default {
 
 <template>
   <div class="social-links">
-    <a href="https://github.com/trelo-bifteki" target="_blank" >
+    <a
+      href="https://github.com/trelo-bifteki"
+       target="_blank"
+       rel="noopener"
+    >
       <i class="icon-github"></i>
       trelo-bifteki
     </a>
-    <a href="https://twitter.com/trelobifteki" target="_blank">
+    <a
+      href="https://twitter.com/trelobifteki"
+      target="_blank"
+      rel="noopener"
+  >
       <i class="icon-twitter"></i>
       trelobifteki
     </a>
@@ -21,6 +29,7 @@ export default {
     <a
       href="https://www.facebook.com/trelobifteki"
       target="_blank"
+      rel="noopener"
     >
       <i class="icon-facebook-official"></i>
       trelobifteki
