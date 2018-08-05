@@ -67,7 +67,7 @@ export default {
 
     <section class="route-cv__panel">
       <h2 class="route-cv__heading route-cv__panel-label">
-        <i class="route-cv__interest-icon icon-user"></i>
+        <i class="route-cv__icon icon-user"></i>
         Summary
       </h2>
       <article class="route-cv__panel-container route-cv__panel-container--padding">
@@ -162,7 +162,7 @@ export default {
 }
 
 .route-cv__heading {
-  color: var(--color-theme-red);
+  color: var(--color-theme-orange);
   font-size: var(--font-size-l);
   margin: var(--space);
 }
@@ -194,7 +194,7 @@ export default {
 }
 
 .route-cv__icon {
-  color: var(--color-theme-red);
+  color: var(--color-theme-orange);
   margin-right: var(--space);
 }
 

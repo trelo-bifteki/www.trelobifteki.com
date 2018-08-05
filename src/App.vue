@@ -21,7 +21,8 @@ html,
 body {
   background-color: #FFF;
   color: #222;
-  font-family:  Helvetica, Arial, sans-serif;
+  font-family:  system-ui,Helvetica, Arial, sans-serif;
+  font-size: 100%;
 }
 
 *, *:before, *:after {

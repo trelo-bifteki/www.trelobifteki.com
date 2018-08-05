@@ -1,6 +1,11 @@
 <script>
 export default {
   name: 'BioSummary',
+  data() {
+    return {
+      showMore: false,
+    };
+  },
 };
 </script>
 
