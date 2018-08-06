@@ -8,6 +8,10 @@
 .icon-home:before { content: '\e806'; } /* '' */
 .icon-mail:before { content: '\e807'; } /* '' */
 .icon-ok:before { content: '\e808'; } /* '' */
+.icon-down-open:before { content: '\e809'; } /* '' */
+.icon-up-open:before { content: '\e80a'; } /* '' */
+.icon-down-dir:before { content: '\e80b'; } /* '' */
+.icon-up-dir:before { content: '\e80c'; } /* '' */
 .icon-twitter:before { content: '\f099'; } /* '' */
 .icon-facebook:before { content: '\f09a'; } /* '' */
 .icon-github-circled:before { content: '\f09b'; } /* '' */
@@ -19,6 +23,8 @@
 .icon-help:before { content: '\f128'; } /* '' */
 .icon-info:before { content: '\f129'; } /* '' */
 .icon-ok-squared:before { content: '\f14a'; } /* '' */
+.icon-sort-name-up:before { content: '\f15d'; } /* '' */
+.icon-sort-name-down:before { content: '\f15e'; } /* '' */
 .icon-instagram:before { content: '\f16d'; } /* '' */
 .icon-linux:before { content: '\f17c'; } /* '' */
 .icon-bank:before { content: '\f19c'; } /* '' */
