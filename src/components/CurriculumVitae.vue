@@ -139,6 +139,10 @@ export default {
 
 <style>
 
+.route-cv {
+  font-size: 1.15rem;
+}
+
 .route-cv__avatar {
   margin-bottom: var(--space);
   margin-left: auto;

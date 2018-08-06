@@ -16,6 +16,7 @@ export default {
 
 @import 'reset-css';
 @import 'assets/common.css';
+@import 'assets/button.css';
 
 html,
 body {

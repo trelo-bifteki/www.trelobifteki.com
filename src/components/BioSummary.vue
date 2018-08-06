@@ -6,6 +6,11 @@ export default {
       showMore: false,
     };
   },
+  methods: {
+    toggle() {
+      this.showMore = !this.showMore;
+    },
+  },
 };
 </script>
 
@@ -26,26 +31,53 @@ export default {
       AngularJS, VueJS, Primefaces / Richfaces and GWT.
     </p>
 
-    <p>
-      Great experience UNIX scripting, database development and Java technologies. Good
-      experience in RDBMS and UNIX administration and open-source technologies
-      (Postgres, MySQL, Oracle, Linux, firewalling, Apache).
-    </p>
+    <transition name="slide">
+      <div v-if="showMore">
+        <p>
+          Great experience UNIX scripting, database development and Java technologies. Good
+          experience in RDBMS and UNIX administration and open-source technologies
+          (Postgres, MySQL, Oracle, Linux, firewalling, Apache).
+        </p>
 
-    <p>
-      Working as Full stack developer for CHECK24 Vergleichsportal GmbH and developing
-      backend and UI components using Microservices architecture.
-    </p>
+        <p>
+          Working as Full stack developer for CHECK24 Vergleichsportal GmbH and developing
+          backend and UI components using Microservices architecture.
+        </p>
 
-    <p>
-      Worked as external consultant for Ericsson Hellas. Bachelor's degree in Informatics and
-      oriented in Information Systems.
-    </p>
+        <p>
+          Worked as external consultant for Ericsson Hellas. Bachelor's degree in Informatics and
+          oriented in Information Systems.
+        </p>
 
-    <p>
-      Working in spare time for website development and experimenting with new
-      technlogies (e.g. VueJs, Material Design, Sass)
-    </p>
+        <p>
+          Working in spare time for website development and experimenting with new
+          technlogies (e.g. VueJs, Material Design, Sass)
+        </p>
+      </div>
+    </transition>
+
+    <button
+      class="button button--plain"
+      v-on:click="toggle"
+      >
+      <span v-if="showMore">
+        Show less
+      </span>
+      <span v-else>
+        Show more
+      </span>
+      <transition name="slide">
+        <i
+          class="icon-up-open"
+           v-if="showMore"
+        ></i>
+        <i
+          class="icon-down-open"
+           v-else
+        ></i>
+      </transition>
+
+    </button>
   </article>
 </template>
 
@@ -54,4 +86,30 @@ export default {
     margin-botom: 1rem;
     margin-bottom: var(--space);
   }
+
+  button {
+    background-color: none;
+    border-top: 1px solid var(--color-theme-gray-light);
+    color: var(--color-girl-party-pink);
+    padding: var(--space-s);
+    width: 100%;
+  }
+
+.slide-enter-active, .slide-leave-active {
+  transition: opacity .5s ease;
+}
+
+.slide-enter, .slide-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
+.rotate-enter-active, .slide-leave-active {
+  transition: transform .5s ease;
+  transform: rotate(0);
+}
+
+.rotate-enter, .rotate-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  transform: rotate(180);
+}
+
 </style>
