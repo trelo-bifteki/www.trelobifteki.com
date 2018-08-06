@@ -1,9 +1,11 @@
 <script>
+import NavigationBar from '@/components/NavigationBar';
 import SocialLinks from './components/SocialLinks';
 
 export default {
   name: 'App',
   components: {
+    NavigationBar,
     SocialLinks,
   },
 };
@@ -11,6 +13,14 @@ export default {
 
 <template>
   <div id="app">
+    <header class="header">
+      <div class="header__container">
+        <NavigationBar></NavigationBar>
+        <div class="header__title">
+          Lampros Papadimitriou
+        </div>
+      </div>
+    </header>
     <div class="index__container">
       <router-view/>
     </div>
@@ -49,6 +59,27 @@ body {
 
 *, *:before, *:after {
   box-sizing: border-box;
+}
+
+.header {
+  align-items: center;
+  background: #3C3F50;
+  color: #F1F3FA;
+}
+
+.header__container {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80rem;
+}
+
+.header__title {
+  flex-grow: 1;
+  font-size: 120%;
+  text-align: right;
 }
 
 .footer {
