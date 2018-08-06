@@ -91,6 +91,7 @@ export default {
     background-color: none;
     border-top: 1px solid var(--color-theme-gray-light);
     color: var(--color-girl-party-pink);
+    cursor: pointer;
     font-size: 1rem;
     padding: var(--space-s);
     width: 100%;
