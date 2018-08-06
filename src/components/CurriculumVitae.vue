@@ -2,8 +2,8 @@
 import BioSummary from './BioSummary';
 import EducationItem from './EducationItem';
 import JobItem from './JobItem';
+import PersonalInformation from './PersonalInformation';
 import SkillItem from './SkillItem';
-import SocialLinks from './SocialLinks';
 
 export default {
   name: 'CurriculumVitae',
@@ -11,8 +11,8 @@ export default {
     BioSummary,
     EducationItem,
     JobItem,
+    PersonalInformation,
     SkillItem,
-    SocialLinks,
   },
   computed: {
     personalInfo() {
@@ -45,25 +45,7 @@ export default {
 
 <template>
   <div class="route-cv">
-    <section class="route-cv__personal-information">
-      <div class="route-cv__avatar">
-        <img src="../assets/avatar-small.jpg"
-          alt="avatar"
-          class="route-cv__avatar-image">
-      </div>
-
-      <div class="route-cv__personal-information-container">
-        <h1 class="route-cv__fullname">
-          {{ personalInfo.fullname }}
-        </h1>
-
-        <h2 class="route-cv__current-job">
-          {{ personalInfo.title }} @ {{ personalInfo.currentCompany }}
-        </h2>
-
-        <SocialLinks></SocialLinks>
-      </div>
-    </section>
+    <PersonalInformation></PersonalInformation>
 
     <section class="route-cv__panel">
       <h2 class="route-cv__heading route-cv__panel-label">
@@ -143,39 +125,10 @@ export default {
   font-size: 1.15rem;
 }
 
-.route-cv__avatar {
-  margin-bottom: var(--space);
-  margin-left: auto;
-  margin-right: auto;
-  width: 10rem;
-  text-align: center;
-}
-
-.route-cv__avatar-image {
-  border: 2px solid transparent;
-  box-shadow: 2px 4px 12px 0px rgba(0,0,0,0.5);
-  border-radius: 200px;
-  max-width: 100%;
-}
-
-.route-cv__current-job {
-  color: #666;
-  font-size: var(--font-size-ml);
-  margin-bottom: var(--space);
-  text-transform: uppercase;
-}
-
 .route-cv__heading {
   color: var(--color-theme-orange);
   font-size: var(--font-size-l);
   margin: var(--space);
-}
-
-.route-cv__fullname {
-  color: var(--color-theme-orange);
-  font-size: var(--font-size-xl);
-  margin-bottom: var(--space-s);
-  text-transform: uppercase;
 }
 
 .route-cv__interests {
@@ -232,16 +185,6 @@ export default {
   padding: var(--space);
 }
 
-.route-cv__personal-information {
-  background-color: var(--color-theme-white);
-  border-bottom: 1px solid var(--color-theme-orange);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: var(--space-l);
-  text-align: center;
-}
-
 .route-cv__skills {
   padding: var(--space);
 }
@@ -254,22 +197,7 @@ export default {
   margin-bottom: var(--space);
 }
 
-.route-cv__personal-information-container {
-  flex-grow: 1;
-}
-
 @media screen and (width >=768px)  {
-  .route-cv__avatar {
-      margin-bottom: 0;
-      margin-left: 0;
-      margin-right: var(--space-l);
-  }
-
-  .route-cv__personal-information {
-    flex-direction: row;
-    text-align: left;
-  }
-
   .route-cv__panel {
     flex-direction: row;
   }
@@ -280,14 +208,6 @@ export default {
 
   .route-cv__panel-container {
     width: 75%;
-  }
-
-  .route-cv__personal-information-container {
-    max-width: 70rem;
-  }
-
-  .route-cv__avatar {
-    max-width: 10rem;
   }
 }
 </style>
