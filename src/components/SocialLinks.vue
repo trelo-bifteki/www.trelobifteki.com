@@ -12,7 +12,13 @@ export default {
        rel="noopener"
     >
       <i class="icon-github"></i>
-      trelo-bifteki
+    </a>
+    <a
+      href="https://www.linkedin.com/in/lampros-papadimitriou-85379b43"
+      target="_blank"
+      rel="noopener"
+    >
+      <i class="icon-linkedin-squared"></i>
     </a>
     <a
       href="https://twitter.com/trelobifteki"
@@ -20,38 +26,29 @@ export default {
       rel="noopener"
   >
       <i class="icon-twitter"></i>
-      trelobifteki
     </a>
     <a href="tel:+491723990194">
       <i class="icon-whatsapp"></i>
-      +49 1723 990194
     </a>
-    <a
-      href="https://www.facebook.com/trelobifteki"
-      target="_blank"
-      rel="noopener"
-    >
-      <i class="icon-facebook-official"></i>
-      trelobifteki
-    </a>
-    <a href="mailto:lambrospd at gmail.com">
+    <a href="mailto:lambrospd@gmail.com">
       <i class="icon-mail"></i>
-      lambrospd at gmail
     </a>
   </div>
 </template>
 
 <style scoped>
 div {
-  align-items: center;
-  display: flex;
-  flex-direction: row;
+  display: block;
 }
 
  a {
    text-decoration: none;
    font-size: 110%;
    margin-right: 1rem;
+ }
+
+ a:hover {
+   text-decoration: underline;
  }
 
 a:first-child {
@@ -73,17 +70,9 @@ a:nth-child(5) {
   color: #BA2766;
 }
 
-@media screen and (width < 768px) {
+@media screen and (max-width<= 768px) {
   div {
-    flex-direction: column;
-  }
-
-  a {
-    margin-bottom: 1rem;
-  }
-
-  a:last-child {
-    margin-bottom: 0;
+    text-align: center;
   }
 }
 </style>

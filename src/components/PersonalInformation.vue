@@ -71,6 +71,24 @@ export default {
   max-width: 100%;
 }
 
+.personal-information__avatar-image:hover {
+  animation: wigglewiggle 2s infinite;
+}
+
+@keyframes wigglewiggle {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
 
 .personal-information__fullname {
   color: var(--color-theme-orange);

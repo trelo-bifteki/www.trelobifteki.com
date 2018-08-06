@@ -61,12 +61,12 @@ export default {
       v-on:click="toggle"
       >
       <span v-if="showMore">
-        Show less
+       less
       </span>
       <span v-else>
-        Show more
+         more
       </span>
-      <transition name="slide">
+      <transition name="rotate">
         <i
           class="icon-up-open"
            v-if="showMore"
@@ -91,6 +91,7 @@ export default {
     background-color: none;
     border-top: 1px solid var(--color-theme-gray-light);
     color: var(--color-girl-party-pink);
+    font-size: 1rem;
     padding: var(--space-s);
     width: 100%;
   }
@@ -105,11 +106,11 @@ export default {
 
 .rotate-enter-active, .slide-leave-active {
   transition: transform .5s ease;
-  transform: rotate(0);
+  transform: rotate(0deg);
 }
 
 .rotate-enter, .rotate-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  transform: rotate(180);
+  transform: rotate(180deg);
 }
 
 </style>
