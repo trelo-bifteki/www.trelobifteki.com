@@ -13,25 +13,56 @@ export default {
 
       return date.toLocaleDateString();
     },
+    link() {
+      return `blog/${this.post.id}`;
+    },
   },
 };
 </script>
 
 <template>
-  <div>
-    <h3>
-      {{ formattedDate }}
-    </h3>
-    <h2>
-      {{ post.title }}
-    </h2>
-  </div>
+  <router-link class="article" :to="link">
+    <div>
+      <h3>
+        {{ formattedDate }}
+      </h3>
+      <h2>
+        {{ post.title }}
+      </h2>
+    </div>
+  </router-link>
 </template>
 
 <style scoped>
 
 h2 {
   font-size: var(--font-size-xl);
+}
+
+.article {
+  background-color: var(--color-theme-orange);
+  color: #333;
+  padding: 5rem 3rem;
+  text-align: center;
+  width: 50%;
+}
+
+.article:first-child {
+  background-color: #f6f4f7;
+}
+
+.article:nth-child(2) {
+  background-color: #fcfafd;
+}
+
+.article:nth-child(3) {
+  background-color: #f2f0f3;
+}
+
+@media screen and (width <= 768px) {
+  .article {
+    width: 100%;
+  }
 }
 
 </style>
