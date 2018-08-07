@@ -1,6 +1,11 @@
 <script>
+import PostSummary from './PostSummary';
+
 export default {
   name: 'BlogView',
+  components: {
+    PostSummary,
+  },
   computed: {
     posts() {
       return this.$store.state.BlogStore.posts;
@@ -14,19 +19,28 @@ export default {
 
 <template>
   <div class="blog-view">
-    <h1>Blog</h1>
+    <h1>
+      <i class="icon-heart"></i>
+      Blog
+    </h1>
     <section>
-      <article
+      <router-link
+        class="article"
         v-for="(post) in posts"
         v-bind:key="post.id"
+        to="blog"
       >
-        <h2>{{ post.title }}</h2>
-      </article>
+        <PostSummary v-bind:post="post"></PostSummary>
+      </router-link>
     </section>
   </div>
 </template>
 
 <style scoped>
+
+a {
+  text-decoration: none;
+}
 
 div {
   margin-left: auto;
@@ -36,20 +50,15 @@ div {
 
 h1 {
   font-size: var(--font-size-xxl);
-  padding: var(--space-l) 0;
-}
-
-h2 {
-  font-size: var(--font-size-xl);
+  padding: var(--space-l) var(--space);
 }
 
 section {
   display: flex;
   flex-wrap: wrap;
-  margin: 3rem 0;
 }
 
-article {
+.article {
   background-color: var(--color-theme-orange);
   color: #333;
   padding: 5rem 3rem;
@@ -57,16 +66,22 @@ article {
   width: 50%;
 }
 
-article:first-child {
+.article:first-child {
   background-color: #f6f4f7;
 }
 
-article:nth-child(2) {
+.article:nth-child(2) {
   background-color: #fcfafd;
 }
 
-article:nth-child(3) {
+.article:nth-child(3) {
   background-color: #f2f0f3;
+}
+
+@media screen and (width <= 768px) {
+  .article {
+    width: 100%;
+  }
 }
 
 </style>
