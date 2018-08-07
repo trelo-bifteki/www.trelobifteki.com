@@ -18,7 +18,7 @@ export default {
         <router-link
           to="blog"
         >
-          <span>Blog</span>
+          Blog
         </router-link>
       </li>
       <li><a>&nbsp;</a></li>
@@ -39,7 +39,7 @@ li {
   display: block;
   min-width: 5rem;
   text-align: center;
-  transition: background 0.2s ease, width 0.3s ease;
+  transition: background 0.2s ease, width 0.3s ease, transform 0.2s ease;
   transform: skew(-20deg);  /* SKEW */
 }
 
@@ -83,6 +83,10 @@ li:hover{
 
   a {
     transform: skew(0deg);
+  }
+
+  nav {
+    overflow: hidden;
   }
 }
 </style>

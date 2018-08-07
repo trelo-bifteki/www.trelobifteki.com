@@ -1,6 +1,10 @@
 import axios from 'axios';
+import BlogStore from './blog.store';
 
 export default {
+  modules: {
+    BlogStore,
+  },
   state: {
     blogPosts: [],
     count: 0,
