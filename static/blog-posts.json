@@ -1,17 +1,17 @@
 [{
-  "id": "amazing-post-1",
-  "title": "Blog post #1",
+  "id": "case-refactoring-actions-pattern",
+  "title": "Refactoring actions using patterns",
   "heading": "This is another test",
   "created": 1521498900,
   "url": "/data/post/1.html"
 }, {
-  "id": 2,
-  "title": "Blog post #2",
+  "id": "case-refactoring-sql-queries",
+  "title": "Refactoring complicated SQL queries using damn simple query builder",
   "heading": "this is a test",
   "created": 1521498900
 }, {
-  "id": 3,
-  "title": "This is an amazing blog post",
+  "id": "security-spring-boot-angular",
+  "title": "Security in web applications (Spring Boot + Angular)",
   "heading": "this is a test",
   "created": 1521498900
 }]

@@ -32,7 +32,6 @@ export default {
             <i class="footer__heart icon-heart"></i>
           </div>
           <div>
-
             Wanna check code? Visit
             <a
                class="link__github"
