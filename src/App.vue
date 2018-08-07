@@ -27,16 +27,22 @@ export default {
     <footer class="footer">
       <div class="footer__container">
         <div class="footer__footnote">
-        Made with <i class="footer__heart icon-heart"></i>
-        Wanna check code? Visit
-        <a
-           class="link__github"
-           href="https://github.com/trelo-bifteki/www.trelobifteki.com"
-           rel="noreferrer"
-        >
-          <i class="icon-github"></i>
-        </a>
-      </div>
+          <div>
+            Made with
+            <i class="footer__heart icon-heart"></i>
+          </div>
+          <div>
+
+            Wanna check code? Visit
+            <a
+               class="link__github"
+               href="https://github.com/trelo-bifteki/www.trelobifteki.com"
+               rel="noreferrer"
+            >
+              <i class="icon-github"></i>
+            </a>
+          </div>
+        </div>
         <SocialLinks></SocialLinks>
       </div>
     </footer>
@@ -65,6 +71,7 @@ body {
   align-items: center;
   background: #3C3F50;
   color: #F1F3FA;
+  padding: 0 2rem;
 }
 
 .header__container {
@@ -99,6 +106,8 @@ body {
 }
 
 .footer__footnote {
+  display: flex;
+  flex-direction: row;
   flex-grow: 1;
 }
 
@@ -111,11 +120,23 @@ body {
 }
 
 @media screen and (width <= 576px) {
+  .header__title {
+    display: none;
+  }
+
   .footer__container {
     flex-direction: column;
   }
+
   .footer__footnote {
+    flex-direction: column;
     margin-bottom: 1rem;
+  }
+}
+
+@media screen and (width <= 768px) {
+  .header {
+    padding: 0;
   }
 }
 

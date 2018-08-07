@@ -30,15 +30,21 @@ export default {
 
 <style scoped>
 
+ul {
+  display: flex;
+  flex-direction: row;
+}
+
 li {
-  display:inline-block;
+  display: block;
   min-width: 5rem;
   text-align: center;
-  transition: background 0.2s;
+  transition: background 0.2s ease, width 0.3s ease;
   transform: skew(-20deg);  /* SKEW */
 }
 
 a {
+  color: #3C3F50;
   display:block;
   text-decoration:none;
   padding: 1rem;
@@ -67,6 +73,16 @@ li:nth-child(5) {
 }
 
 li:hover{
-  background:#ddd;
+  background: #ddd;
+}
+
+@media screen and (width < 768px) {
+  li {
+    transform: skew(0deg);
+  }
+
+  a {
+    transform: skew(0deg);
+  }
 }
 </style>
