@@ -9,14 +9,14 @@ export default {
     <ul>
       <li>
         <router-link
-          to="cv"
+          to="/cv"
         >
           CV
         </router-link>
       </li>
       <li>
         <router-link
-          to="blog"
+          to="/blog"
         >
           Blog
         </router-link>

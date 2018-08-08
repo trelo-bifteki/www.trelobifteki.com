@@ -19,6 +19,9 @@ export default {
         <div class="header__title">
           Lampros Papadimitriou
         </div>
+        <div class="header__logo">
+          <img class="header__logo-image" src="./assets/trelobifteki.jpg" alt="logo">
+        </div>
       </div>
     </header>
     <div class="index__container">
@@ -73,6 +76,17 @@ body {
   padding: 0 2rem;
 }
 
+.header__logo {
+  margin-left: 1rem;
+  height: 3rem;
+}
+
+.header__logo-image {
+  border-radius: 50%;
+  max-height: 100%;
+  max-width: 100%;
+}
+
 .header__container {
   align-items: center;
   display: flex;
@@ -80,6 +94,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   max-width: 80rem;
+  padding-left: 1rem;
 }
 
 .header__title {
@@ -123,6 +138,10 @@ body {
     display: none;
   }
 
+  .header__logo {
+    display: none;
+  }
+
   .footer__container {
     flex-direction: column;
   }
@@ -137,6 +156,11 @@ body {
   .header {
     padding: 0;
   }
+
+  .header__container {
+    padding-left: 0;
+  }
+
 }
 
 </style>

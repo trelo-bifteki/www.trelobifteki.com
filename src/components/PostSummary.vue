@@ -23,12 +23,12 @@ export default {
 <template>
   <router-link class="article" :to="link">
     <div>
-      <h3>
-        {{ formattedDate }}
-      </h3>
       <h2>
         {{ post.title }}
       </h2>
+      <h3>
+        {{ formattedDate }}
+      </h3>
     </div>
   </router-link>
 </template>

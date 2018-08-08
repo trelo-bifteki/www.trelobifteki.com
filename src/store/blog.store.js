@@ -19,4 +19,7 @@ export default {
       });
     },
   },
+  getters: {
+    getById: state => id => state.posts.find(post => post.id === id),
+  },
 };
