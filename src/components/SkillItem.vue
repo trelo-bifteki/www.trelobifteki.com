@@ -56,6 +56,13 @@ export default {
   color: var(--color-theme-white);
   display: flex;
   justify-content: center;
+  animation: circawiggle 3s infinite;
+}
+
+@keyframes circawiggle {
+  0% {
+    padding-right: 0;
+  }
 }
 
 @media screen and (width <768px) {

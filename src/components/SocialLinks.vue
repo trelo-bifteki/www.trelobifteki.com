@@ -42,32 +42,56 @@ div {
 }
 
  a {
-   text-decoration: none;
+   border-radius: 50%;
    font-size: 110%;
    margin-right: 1rem;
- }
-
- a:hover {
-   text-decoration: underline;
+   text-decoration: none;
+   transition: background-color 0.33s ease-in-out;
  }
 
 a:first-child {
   color: #459E42;
 }
+
+a:first-child:hover {
+  background-color: #459E42;
+  color: #FAFAFD;
+}
+
 a:nth-child(2) {
   color: #F7C931;
+}
+
+a:nth-child(2):hover {
+  background-color: #F7C931;
+  color: #FAFAFD;
 }
 
 a:nth-child(3) {
   color: #F97C39;
 }
 
+a:nth-child(3):hover {
+  background-color: #F97C39;
+  color: #FAFAFD;
+}
+
 a:nth-child(4) {
   color: #E52D98;
 }
 
+a:nth-child(4):hover {
+  background-color: #E52D98;
+  color: #FAFAFD;
+}
+
 a:nth-child(5) {
   color: #BA2766;
+}
+
+a:nth-child(5):hover {
+  background-color: #BA2766;
+  color: #FAFAFD;
 }
 
 @media screen and (max-width<= 768px) {
