@@ -16,11 +16,16 @@ export default {
 
       return date.toLocaleDateString();
     },
+    postContent() {
+      return this.$store.state.BlogStore.postContent;
+    },
   },
   mounted() {
     this.$store.dispatch('refreshPosts').then(() => {
       const id = this.$route.params.id;
       this.post = this.$store.getters.getById(id);
+      this.$store.commit('updatePost', this.post);
+      this.$store.dispatch('refreshPostContent');
     });
   },
 };
@@ -30,6 +35,8 @@ export default {
   <article>
     <h1>{{ post.title }}</h1>
     <h2>{{ formattedDate }}</h2>
+    <section v-html="postContent">
+    </section>
   </article>
 </template>
 
@@ -51,5 +58,9 @@ h2 {
   font-size: var(--font-size-l);
   margin: var(--space);
   color: var(--color-theme-gray);
+}
+
+section {
+  padding: var(--space);
 }
 </style>
