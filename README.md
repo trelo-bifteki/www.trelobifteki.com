@@ -1,4 +1,6 @@
 # www.trelobifteki.com
+[![Build Status](https://www.travis-ci.org/trelo-bifteki/www.trelobifteki.com.svg?branch=master)](https://www.travis-ci.org/trelo-bifteki/www.trelobifteki.com)
+
 Frontend application for my personal website as a PoC
 
 ## Build Setup
