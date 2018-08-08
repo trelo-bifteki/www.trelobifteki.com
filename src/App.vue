@@ -56,6 +56,7 @@ export default {
 @import 'reset-css';
 @import 'assets/common.css';
 @import 'assets/button.css';
+@import 'assets/blog-content';
 
 html,
 body {

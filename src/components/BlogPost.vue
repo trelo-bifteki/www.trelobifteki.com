@@ -35,7 +35,7 @@ export default {
   <article>
     <h1>{{ post.title }}</h1>
     <h2>{{ formattedDate }}</h2>
-    <section v-html="postContent">
+    <section v-html="postContent" class="blog-content">
     </section>
   </article>
 </template>

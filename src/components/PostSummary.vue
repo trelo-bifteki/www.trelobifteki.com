@@ -36,7 +36,13 @@ export default {
 <style scoped>
 
 h2 {
+  color: var(--color-theme-lila);
   font-size: var(--font-size-xl);
+  padding-bottom: 1rem;
+}
+
+h3 {
+  color: var(--color-theme-red);
 }
 
 .article {
@@ -44,6 +50,7 @@ h2 {
   color: #333;
   padding: 5rem 3rem;
   text-align: center;
+  transition: background-color .33s ease;
   width: 50%;
 }
 
@@ -57,6 +64,14 @@ h2 {
 
 .article:nth-child(3) {
   background-color: #f2f0f3;
+}
+
+.article:hover {
+  background-color: var(--color-theme-orange);
+}
+
+.article:hover h3 {
+  color: var(--color-theme-white);
 }
 
 @media screen and (width <= 768px) {

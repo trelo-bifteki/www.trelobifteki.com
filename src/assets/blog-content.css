@@ -1,0 +1,13 @@
+.blog-content {
+  font-size: 1.2rem;
+}
+.blog-content h2 {
+  font-size: 120%;
+  color: var(--color-theme-red);
+  margin: var(--space) 0;
+}
+
+
+.blog-content p {
+  margin: var(--space) 0;
+}

@@ -40,9 +40,11 @@ a {
 }
 
 div {
+  font-size: 1.3rem;
   margin-left: auto;
   margin-right: auto;
   max-width: 80rem;
+  padding-bottom: 5rem;
 }
 
 h1 {
