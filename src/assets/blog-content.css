@@ -11,3 +11,11 @@
 .blog-content p {
   margin: var(--space) 0;
 }
+
+.blog-content ul {
+  list-style-type: disc;
+}
+
+.blog-content li {
+  margin-left: var(--space-l);
+}
