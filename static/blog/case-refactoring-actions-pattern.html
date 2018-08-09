@@ -22,5 +22,60 @@
 <p>
   Adapting and refactoring this solution had a great impact in the database and
   all actions. A single renaming / refactoring on the database schema needed
-  to update all queries stored in the tables
+  to update all queries stored in the tables. This refactoring took me over 3 days to find and
+  adapt all queries stored
 </p>
+
+<h2>Refactoring</h2>
+
+<h3>1st  step - Define business code</h3>
+
+<p>
+  I was definitely sure that I needed to find a solution that SQL queries should go back
+  in the source code and services bean.  This way the code and backend will translate all
+  operations in the database into real business operations. Instead of maintaining
+</p>
+
+<pre>
+  <code lang="sql">
+  UPDATE operator SET enabled = false WHERE ID = 1;
+</code>
+</pre>
+
+<p>We should wrap this query into reusable code</p>
+
+<pre>
+  <code lang="Java">
+public interface OperatorService {
+
+  /**
+   * Disable a specific operator by ID
+   */
+  void  disableById(final Long id);
+
+}
+</code>
+</pre>
+
+<h3>2nd step - The strategy pattern</h3>
+
+<p>
+  After understanding that actions could also include "sub-actions" inside them, I started
+  thinking about the command pattern. This will allow me to write composite commands
+  and organize code much better.
+</p>
+
+<pre>
+  <code lang="java">
+  public interface NetworkCommand {
+
+    /**
+     * Check if this ycommand is available for this network
+     */
+    boolean supports(final Network network);
+
+    void execute(final Network network);
+
+  }
+  </code>
+</pre>

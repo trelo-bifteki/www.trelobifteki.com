@@ -1,12 +1,12 @@
 .blog-content {
   font-size: 1.2rem;
 }
+
 .blog-content h2 {
   font-size: 120%;
   color: var(--color-theme-red);
-  margin: var(--space) 0;
+  margin: var(--space-xl) 0;
 }
-
 
 .blog-content p {
   margin: var(--space) 0;
@@ -18,4 +18,13 @@
 
 .blog-content li {
   margin-left: var(--space-l);
+}
+
+.blog-content pre {
+  background-color: var(--color-theme-gray-light);
+  border-radius: 5px;
+  font-size:1rem;
+  margin: var(--space-l) 0;
+  padding: var(--space);
+  overflow: hidden;
 }
