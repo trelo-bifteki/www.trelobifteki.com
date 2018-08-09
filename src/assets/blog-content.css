@@ -8,6 +8,11 @@
   margin: var(--space-xl) 0;
 }
 
+.blog-content h3 {
+  color: var(--color-theme-lila);
+  margin: var(--space-l) 0;
+}
+
 .blog-content p {
   margin: var(--space) 0;
 }

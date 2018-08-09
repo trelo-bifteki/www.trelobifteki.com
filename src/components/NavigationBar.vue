@@ -91,7 +91,6 @@ li:nth-child(6) {
 
 li:hover{
   min-width: 7rem;
-  background: #ddd;
 }
 
 .navigation-bar__home {

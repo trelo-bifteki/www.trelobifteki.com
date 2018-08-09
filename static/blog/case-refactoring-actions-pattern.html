@@ -37,15 +37,15 @@
 </p>
 
 <pre>
-  <code lang="sql">
-  UPDATE operator SET enabled = false WHERE ID = 1;
+<code lang="sql">
+UPDATE operator SET enabled = false WHERE ID = 1;
 </code>
 </pre>
 
 <p>We should wrap this query into reusable code</p>
 
 <pre>
-  <code lang="Java">
+<code lang="Java">
 public interface OperatorService {
 
   /**
@@ -66,16 +66,42 @@ public interface OperatorService {
 </p>
 
 <pre>
-  <code lang="java">
-  public interface NetworkCommand {
+<code lang="java">
+public interface NetworkCommand {
 
-    /**
-     * Check if this ycommand is available for this network
-     */
-    boolean supports(final Network network);
+  /**
+   * Check if this command is available for this network
+   */
+  boolean supports(final Network network);
 
-    void execute(final Network network);
+  void execute(final Network network);
 
-  }
-  </code>
+}
+</code>
+</pre>
+
+<p>
+  Method <strong>supports</strong> checks if this action is allow to be executed.
+</p>
+
+<pre>
+<code>
+
+@Component
+public class ActivateNetwork implements NetworkCommand {
+
+@Autowired
+private OperatorService operatorService;
+
+@Override
+public boolean supports(final Network network) {
+  return true;
+}
+
+@Override
+public void execute(final Network network)
+
+}
+
+</code>
 </pre>
