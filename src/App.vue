@@ -20,7 +20,6 @@ export default {
           Lampros Papadimitriou
         </div>
         <div class="header__logo">
-          <img class="header__logo-image" src="./assets/trelobifteki.jpg" alt="logo">
         </div>
       </div>
     </header>

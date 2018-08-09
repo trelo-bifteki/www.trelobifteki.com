@@ -48,6 +48,7 @@ div {
 }
 
 h1 {
+  color: var(--color-theme-orange);
   font-size: var(--font-size-xxl);
   padding: var(--space-l) var(--space);
 }
@@ -55,6 +56,7 @@ h1 {
 section {
   display: flex;
   flex-wrap: wrap;
+  padding-top: 2rem;
 }
 
 </style>

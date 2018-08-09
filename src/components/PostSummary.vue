@@ -70,7 +70,7 @@ h3 {
   background-color: var(--color-theme-orange);
 }
 
-.article:hover h3 {
+.article:hover h2 {
   color: var(--color-theme-white);
 }
 
