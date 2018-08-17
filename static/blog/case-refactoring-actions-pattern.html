@@ -7,7 +7,7 @@
 </p>
 
 <p>
-  The tech team was having issues with the code related with this feature. They did the
+  The tech team was having before issues with the code related with this feature. They did the
   following refactoring:
 </p>
 
@@ -25,6 +25,15 @@
   to update all queries stored in the tables. This refactoring took me over 3 days to find and
   adapt all queries stored
 </p>
+
+<pre><code lang="sql">
+
+id | action_name  |
+---+--------------+	
+ 1 | open network |
+---+--------------+
+
+</code></pre>
 
 <h2>Refactoring</h2>
 
@@ -57,7 +66,7 @@ public interface OperatorService {
 </code>
 </pre>
 
-<h3>2nd step - The strategy pattern</h3>
+<h3>2nd step - The actions mechanism</h3>
 
 <p>
   After understanding that actions could also include "sub-actions" inside them, I started
@@ -105,3 +114,15 @@ public void execute(final Network network)
 
 </code>
 </pre>
+
+<p>
+  This pattern used differs actually from the command pattern, since all actions
+  are stateless. The good part is that this way I can use dependency injection
+  and organize my beans. The bad part is that rollback cannot be implemented and
+  was removed.
+</p>
+
+<p>
+  The fact was that rollback was not used anymore by users and all actions were
+  "circular" and someone could revert changes by actions
+</p>
