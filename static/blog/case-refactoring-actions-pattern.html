@@ -28,12 +28,41 @@
 
 <pre><code lang="sql">
 
+action
+-------------------
 id | action_name  |
 ---+--------------+	
  1 | open network |
 ---+--------------+
 
+action_sql
+---+------------------------------------------------+
+id | acton_sql                                      |
+---+------------------------------------------------+
+ 1 | UPDATE network SET enabled = 1 WHERE ID = :1   |
+ 2 | UPDATE operator SET enabled = 1 WHERE ID = :2  |
+---+------------------------------------------------+
+
+action_action_sql
+---+-----------+---------------+
+id | action_id | action_sql_id |
+---+-----------+---------------+
+ 1 | 1         | 1             |
+ 2 | 1         | 2             |
+---+-----------+---------------+
+
 </code></pre>
+
+<p>
+  The schema above seems easy at first sight, but after we add 50 actions with over 200 SQL queries
+  and many groups and inter-dependencies, it becomes very hard to maintain since all adaptations need
+  to be done in the database.
+</p>
+
+<p>
+  At the end, developers built a UI in order to maintain this database schema. But still, changes in actions
+  took days and maintainability was low.
+</p>
 
 <h2>Refactoring</h2>
 
@@ -76,39 +105,51 @@ public interface OperatorService {
 
 <pre>
 <code lang="java">
-public interface NetworkCommand {
-
-  /**
-   * Check if this command is available for this network
-   */
-  boolean supports(final Network network);
-
-  void execute(final Network network);
-
+public interface NetworkAction {
+	
+	@NonNull
+	String getLabel();
+	
+	boolean supports(@NonNull final Network network);
+	
+	void execute(@NonNull final Network network);
 }
+
 </code>
 </pre>
 
 <p>
-  Method <strong>supports</strong> checks if this action is allow to be executed.
+  The <i>supports</i> method checks if the action is available for the network provided.
+  A simple implementation of the interface above would be the following:
 </p>
 
 <pre>
 <code>
 
 @Component
-public class ActivateNetwork implements NetworkCommand {
+public class DisableNetworkAction implements NetworkAction {
 
-@Autowired
-private OperatorService operatorService;
+	private final NetworkService networkService;
+	
+	@Override
+	public String getLabel() {
+		return "Disable network";
+	}
 
-@Override
-public boolean supports(final Network network) {
-  return true;
-}
+	
+	public DisableNetworkAction(final NetworkService networkService) {
+		this.networkService = networkService;
+	}
+	
+	@Override
+	public boolean supports(final Network network) {
+		return !network.isDisabled();
+	}
 
-@Override
-public void execute(final Network network)
+	@Override
+	public void execute(Network network) {
+		networkService.disableById(network.getId());
+	}
 
 }
 
@@ -124,5 +165,10 @@ public void execute(final Network network)
 
 <p>
   The fact was that rollback was not used anymore by users and all actions were
-  "circular" and someone could revert changes by actions
+  "circular" and someone could revert changes by actions. This way I was able
+  to convince business to remove this feature
 </p>
+
+<h3>3rd step - conditions builder</h3>
+
+
