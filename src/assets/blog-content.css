@@ -1,5 +1,6 @@
 .blog-content {
   font-size: 1.2rem;
+  margin-bottom: 5rem;
 }
 
 .blog-content h2 {
@@ -10,6 +11,7 @@
 
 .blog-content h3 {
   color: var(--color-theme-lila);
+  font-size: 110%;
   margin: var(--space-l) 0;
 }
 
@@ -22,7 +24,7 @@
 }
 
 .blog-content li {
-  margin-left: var(--space-l);
+  margin: var(--space-s) var(--space-l);
 }
 
 .blog-content pre {
