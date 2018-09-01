@@ -20,7 +20,7 @@ export default {
   actions: {
     refreshPosts({ commit }) {
       return new Promise((resolve) => {
-        axios.get('static/blog-posts.json').then((response) => {
+        axios.get('/static/blog-posts.json').then((response) => {
           commit('updatePosts', response.data);
           resolve(response.data);
         });
@@ -28,7 +28,7 @@ export default {
     },
     refreshPostContent(context) {
       return new Promise((resolve) => {
-        axios.get(`static/blog/${context.state.post.id}.html`).then((response) => {
+        axios.get(`/static/blog/${context.state.post.id}.html`).then((response) => {
           context.commit('updatePostContent', response.data);
           resolve(response.data);
         });

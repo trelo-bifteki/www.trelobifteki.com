@@ -1,4 +1,7 @@
 'use strict'
+// This line should go at the top of the file where other 'imports' live in
+const PrerenderSpaPlugin = require('prerender-spa-plugin')
+
 const path = require('path')
 const utils = require('./utils')
 const webpack = require('webpack')
@@ -48,7 +51,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       filename: utils.assetsPath('css/[name].[contenthash].css'),
       // Setting the following option to `false` will not extract CSS from codesplit chunks.
       // Their CSS will instead be inserted dynamically with style-loader when the codesplit chunk has been loaded by webpack.
-      // It's currently set to `true` because we are seeing that sourcemaps are included in the codesplit bundle as well when it's `false`, 
+      // It's currently set to `true` because we are seeing that sourcemaps are included in the codesplit bundle as well when it's `false`,
       // increasing file size: https://github.com/vuejs-templates/webpack/issues/1110
       allChunks: true,
     }),
@@ -110,6 +113,20 @@ const webpackConfig = merge(baseWebpackConfig, {
       async: 'vendor-async',
       children: true,
       minChunks: 3
+    }),
+
+    // prerender SPA plugin
+    new PrerenderSpaPlugin({
+      // Path to compiled app
+      staticDir: path.join(__dirname, '../dist'),
+      // List of endpoints you wish to prerender
+      routes: [
+         '/',
+          '/blog',
+          '/cv',
+          '/blog/case-refactoring-actions-pattern',
+         '/blog/case-refactoring-sql-queries'
+      ]
     }),
 
     // copy custom static assets
