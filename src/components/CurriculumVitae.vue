@@ -106,7 +106,7 @@ export default {
     <section class="route-cv__panel">
       <h2 class="route-cv__heading route-cv__panel-label">
         <i class="route-cv__icon icon-star"></i>
-        Skills &amp; proficiency
+        Skills
       </h2>
       <div class="route-cv__skills route-cv__panel-container">
         <SkillItem

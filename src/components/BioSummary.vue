@@ -98,7 +98,8 @@ export default {
   }
 
 .slide-enter-active, .slide-leave-active {
-  transition: opacity .5s ease;
+  transition: opacity .5s ease-in-out;
+  opacity: 1;
 }
 
 .slide-enter, .slide-leave-to /* .fade-leave-active below version 2.1.8 */ {

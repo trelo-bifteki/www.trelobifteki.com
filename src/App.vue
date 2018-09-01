@@ -1,9 +1,11 @@
 <script>
+import NavigationBar from '@/components/NavigationBar';
 import SocialLinks from './components/SocialLinks';
 
 export default {
   name: 'App',
   components: {
+    NavigationBar,
     SocialLinks,
   },
 };
@@ -11,22 +13,37 @@ export default {
 
 <template>
   <div id="app">
+    <header class="header">
+      <div class="header__container">
+        <NavigationBar></NavigationBar>
+        <div class="header__title">
+          Lampros Papadimitriou
+        </div>
+        <div class="header__logo">
+        </div>
+      </div>
+    </header>
     <div class="index__container">
       <router-view/>
     </div>
     <footer class="footer">
       <div class="footer__container">
         <div class="footer__footnote">
-        Made with <i class="footer__heart icon-heart"></i>
-        Wanna check code? Visit
-        <a
-           class="link__github"
-           href="https://github.com/trelo-bifteki/www.trelobifteki.com"
-           rel="noreferrer"
-        >
-          <i class="icon-github"></i>
-        </a>
-      </div>
+          <div>
+            Made with
+            <i class="footer__heart icon-heart"></i>
+          </div>
+          <div>
+            Wanna check code? Visit
+            <a
+               class="link__github"
+               href="https://github.com/trelo-bifteki/www.trelobifteki.com"
+               rel="noreferrer"
+            >
+              <i class="icon-github"></i>
+            </a>
+          </div>
+        </div>
         <SocialLinks></SocialLinks>
       </div>
     </footer>
@@ -38,6 +55,7 @@ export default {
 @import 'reset-css';
 @import 'assets/common.css';
 @import 'assets/button.css';
+@import 'assets/blog-content';
 
 html,
 body {
@@ -49,6 +67,40 @@ body {
 
 *, *:before, *:after {
   box-sizing: border-box;
+}
+
+.header {
+  align-items: center;
+  background: #3C3F50;
+  color: #F1F3FA;
+  padding: 0 2rem;
+}
+
+.header__logo {
+  margin-left: 1rem;
+  height: 3rem;
+}
+
+.header__logo-image {
+  border-radius: 50%;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.header__container {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80rem;
+  padding-left: 1rem;
+}
+
+.header__title {
+  flex-grow: 1;
+  font-size: 120%;
+  text-align: right;
 }
 
 .footer {
@@ -68,6 +120,8 @@ body {
 }
 
 .footer__footnote {
+  display: flex;
+  flex-direction: row;
   flex-grow: 1;
 }
 
@@ -80,12 +134,33 @@ body {
 }
 
 @media screen and (width <= 576px) {
+  .header__title {
+    display: none;
+  }
+
+  .header__logo {
+    display: none;
+  }
+
   .footer__container {
     flex-direction: column;
   }
+
   .footer__footnote {
+    flex-direction: column;
     margin-bottom: 1rem;
   }
+}
+
+@media screen and (width <= 768px) {
+  .header {
+    padding: 0;
+  }
+
+  .header__container {
+    padding-left: 0;
+  }
+
 }
 
 </style>

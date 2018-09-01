@@ -1,0 +1,252 @@
+<h2>Summary</h2>
+
+<p>
+  At the company I was working there was a specific application and "mechanism" for
+  performing specific decisions / actions. These actions had several conditions in order to
+  be invoked and it more than one action could be performed with a single one.
+</p>
+
+<p>
+  The tech team was having before issues with the code related with this feature. They did the
+  following refactoring:
+</p>
+
+<ul>
+  <li>Moved all action into the database</li>
+  <li>Created a UI for administrating these actions</li>
+  <li>An action could also belong to a group</li>
+</ul>
+
+<h2>Problem</h2>
+
+<p>
+  Adapting and refactoring this solution had a great impact in the database and
+  all actions. A single renaming / refactoring on the database schema needed
+  to update all queries stored in the tables. This refactoring took me over 3 days to find and
+  adapt all queries stored
+</p>
+
+<pre><code lang="sql">
+
+action
+-------------------
+id | action_name  |
+---+--------------+
+ 1 | open network |
+---+--------------+
+
+action_sql
+---+------------------------------------------------+
+id | acton_sql                                      |
+---+------------------------------------------------+
+ 1 | UPDATE network SET enabled = 1 WHERE ID = :1   |
+ 2 | UPDATE operator SET enabled = 1 WHERE ID = :2  |
+---+------------------------------------------------+
+
+action_action_sql
+---+-----------+---------------+
+id | action_id | action_sql_id |
+---+-----------+---------------+
+ 1 | 1         | 1             |
+ 2 | 1         | 2             |
+---+-----------+---------------+
+
+</code></pre>
+
+<p>
+  The schema above seems easy at first sight, but after we add 50 actions with over 200 SQL queries
+  and many groups and inter-dependencies, it becomes very hard to maintain since all adaptations need
+  to be done in the database.
+</p>
+
+<p>
+  At the end, developers built a UI in order to maintain this database schema. But still, changes in actions
+  took days and maintainability was low.
+</p>
+
+<h2>Refactoring</h2>
+
+<h3>1st  step - Define business code</h3>
+
+<p>
+  I was definitely sure that I needed to find a solution that SQL queries should go back
+  in the source code and services bean.  This way the code and backend will translate all
+  operations in the database into real business operations. Instead of maintaining
+</p>
+
+<pre>
+<code lang="sql">
+UPDATE operator SET enabled = false WHERE ID = 1;
+</code>
+</pre>
+
+<p>We should wrap this query into reusable code</p>
+
+<pre>
+<code lang="Java">
+public interface OperatorService {
+
+  /**
+   * Disable a specific operator by ID
+   */
+  void  disableById(final Long id);
+
+}
+</code>
+</pre>
+
+<h3>2nd step - The actions mechanism</h3>
+
+<p>
+  After understanding that actions could also include "sub-actions" inside them, I started
+  thinking about the command pattern. This will allow me to write composite commands
+  and organize code much better.
+</p>
+
+<pre>
+<code lang="java">
+public interface NetworkAction {
+
+	@NonNull
+	String getLabel();
+
+	boolean supports(@NonNull final Network network);
+
+	void execute(@NonNull final Network network);
+}
+
+</code>
+</pre>
+
+<p>
+  The <i>supports</i> method checks if the action is available for the network provided.
+  A simple implementation of the interface above would be the following:
+</p>
+
+<pre>
+<code>
+
+@Component
+public class DisableNetworkAction implements NetworkAction {
+
+	private final NetworkService networkService;
+
+	@Override
+	public String getLabel() {
+		return "Disable network";
+	}
+
+
+	public DisableNetworkAction(final NetworkService networkService) {
+		this.networkService = networkService;
+	}
+
+	@Override
+	public boolean supports(final Network network) {
+		return !network.isDisabled();
+	}
+
+	@Override
+	public void execute(Network network) {
+		networkService.disableById(network.getId());
+	}
+
+}
+
+</code>
+</pre>
+
+<p>
+  This pattern used differs actually from the command pattern, since all actions
+  are stateless. The good part is that this way I can use dependency injection
+  and organize my beans. The bad part is that rollback cannot be implemented and
+  was removed.
+</p>
+
+<p>
+  The fact was that rollback was not used anymore by users and all actions were
+  "circular" and someone could revert changes by actions. This way I was able
+  to convince business to remove this feature
+</p>
+
+<h3>3rd step - conditions builder</h3>
+
+<p>
+  After building complicated actions I noticed that the conditions were getting
+  complicated with many sub conditions and over 5 lines of boolean expressions.
+  In order to make this more readable, I tried to utilize a <b>builder</b> for
+  conditions to transform expressions into a domain-specific language.
+</p>
+
+<p>
+  After refactoring, a complicated action was looking like the example below:
+</p>
+
+<pre><code lang="java">
+public class ShutdownNetworkAction implements NetworkAction {
+
+	private final SetStatusClosedNetworkAction setStatusClosedNetworkAction;
+	private final DisableNetworkAction disableNetworkAction;
+
+	@Autowired
+	public ShutdownNetworkAction(final SetStatusClosedNetworkAction setStatusClosedNetworkAction, final DisableNetworkAction disableNetworkAction) {
+		this.disableNetworkAction = disableNetworkAction;
+		this.setStatusClosedNetworkAction = setStatusClosedNetworkAction;
+	}
+
+	@Override
+	public String getLabel() {
+		return "Shutdown network";
+	}
+
+	@Override
+	public boolean supports(Network network) {
+		return ConditionBuilder.create(network)
+				.isValid()
+				.supportAll(disableNetworkAction, setStatusClosedNetworkAction)
+				.build();
+	}
+
+	@Override
+	public void execute(Network network) {
+		setStatusClosedNetworkAction.execute(network);
+		disableNetworkAction.execute(network);
+	}
+
+}
+</code></pre>
+
+<h2>Summary</h2>
+
+<p>
+  Here are few thoughts from what I learned from this refactoring
+</p>
+
+<ul>
+  <li>Business code belongs in services and need to be reusable</li>
+  <li>No queries shall be stored in database schema.</li>
+  <li>
+    If data are not modified by end-users, maybe it is not a good idea to
+    store them in database.
+  </li>
+  <li>
+    A <b>command pattern</b> can help a lot when actions can be composite
+    and consist of more sub-actions
+  </li>
+  <li>
+    <b>Builder pattern</b> can help you build your own domain-specific language
+  </li>
+
+<p>
+  After introducing these refactorings, it became very easy to introduce changes
+  in datbase. All changes were isolated in Entity beans and maybe in a Service
+  bean (maximum in 2-3 classes). Actions were adaptable and easy to modify.
+  Building new complicated actions was as much fun as building with Lego bricks
+</p>
+
+<p>
+  The most important lesson is being careful with refactoring. This part was
+  redesigned in the past 2 times already. Before introducing breaking changes
+  into code, it needs to be tested first and covered and then think twice if
+  it will really bring benefits in code
+</p>
