@@ -23,13 +23,13 @@ public class OperatorController {
 	} else if (!nameInputField.isEmpty() && !classificationField.isEmpty()) {
       return operatorRepository.findByNameAndClassification(nameInputField, classificationField);
     } else if (!nameInputField.isEmpty()) {
-      return operatorRepository.findByName
+      return operatorRepository.findByName(nameInputField);
     } else {
       return Collections.emptyList();
     }
   }
 }
-	
+
 </code></pre>
 
 <p>
@@ -49,7 +49,7 @@ public class OperatorController {
 </p>
 
 <p>
-  The method would look now like this: 
+  The method would look now like this:
 </p>
 
 
@@ -68,15 +68,26 @@ public class OperatorService {
     if (fields.contains("name") && fields.contains("classification") && fields.contains("availability")) {
       final Classification classification = (Classification) fields.get("classification");
       final Availability availability = (Availability) fields.get("availability");
-      final String name = fields.get("name").toString();	
+      final String name = fields.get("name").toString();
       return operatorRepository.findByNameAndClassificationAndAvailability(name,
-        classification, availability);	
+        classification, availability);
+    } else if (fields.contains("name") && fields.contains("classification")) {
+      return operatorRepository.findByNameAndClassification(name, classification);
+    } else if (...) {
+      ....
+    } else {
+      ...
     }
   }
 
 }
-	
+
 </code></pre>
+
+<p>
+  Still the main trouble is this control structure that has no sense and feels like a boilerplate
+  code. 
+</p>
 
 <p>
   In the beginning I moved all fields into a simple map. If clauses were still infecting
@@ -100,7 +111,54 @@ public class OperatorService {
 
 <pre><code lang="java">
 
-select().from(OperatorEntity.class).where(OperatorEntity_.name).isEqualToIgnoreCase("test").findOne();
+select().from(OperatorEntity.class).where(OperatorEntity_.name)
+   .isEqualToIgnoreCase("test")
+   .findOne();
 
 </code></pre>
 
+On top of this builder, I was able to wrap it with a <i>QueryBuilder</i> that checks nulls
+and dynamically builds the query accordingly
+
+<pre><code lang="java">
+
+SearchQueryBuilder
+  .fromFields(fields)
+  .resultingEntityClass(OperatorEntity.class)
+  .where(OperatorEntity_.name)
+  .isEqualToIgnoreCase("name")
+  .findOne
+
+</code></pre>
+
+After this refactoring, the final code was looking something like this:
+
+<pre><code lang="java">
+
+
+  public class OperatorService {
+
+    private final OperatorRepository operatorRepository;
+    private final OperatorEntityToOperatorConverter converter;
+
+    @Autowired
+    public OperatorService(final OperatorRepository operatorRepository,
+      final OperatorEntityToOperatorConverter converter) {
+      this.operatorRepository = operatorRepository;
+      this.converter = converter;
+    }
+
+    public List<Operator> search(final Map&lt;String, Serializable&gt; fields) {
+      return SearchQueryBuilder.fromFields(fields)
+        .resultingEntityClass(OperatorEntity.class)
+        .where(OperatorEntity_.name).isEqualToIgnoreCase("name")
+        .and(OperatorEntity_.classification).isEqualByObject("classification")
+        .and(OperatorEntity_.availability).isEqualToObject("availability")
+        .map(OperatorEntityToOperatorConverter::convert)
+        .find();
+    }
+  }
+
+</code></pre>
+
+<p>Much better, right?</p>
