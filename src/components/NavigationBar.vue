@@ -9,7 +9,7 @@ export default {
     <ul>
       <li>
       <router-link class="navigation-bar__home" to="/">
-          <img class="logo" src="../assets/trelobifteki.jpg" alt="logo">
+          <img class="logo" src="../assets/trelobifteki-small.jpg" alt="logo">
         </router-link>
       <li>
         <router-link
