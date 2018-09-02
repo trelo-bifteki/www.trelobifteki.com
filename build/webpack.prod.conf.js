@@ -15,6 +15,15 @@ const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const FontelloPlugin = require('fontello-webpack-plugin');
 const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
+const SitemapPlugin = require('sitemap-webpack-plugin').default;
+
+const routes =  [
+   '/',
+    '/blog',
+    '/cv',
+    '/blog/case-refactoring-actions-pattern',
+   '/blog/case-refactoring-sql-queries'
+];
 
 const env = process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
@@ -133,14 +142,10 @@ const webpackConfig = merge(baseWebpackConfig, {
       staticDir: path.join(__dirname, '../dist'),
       captureAfterTime: 1000,
       // List of endpoints you wish to prerender
-      routes: [
-         '/',
-          '/blog',
-          '/cv',
-          '/blog/case-refactoring-actions-pattern',
-         '/blog/case-refactoring-sql-queries'
-      ]
+      routes
     }),
+
+    new SitemapPlugin('https://www.trelobifteki.com', routes),
 
     // copy custom static assets
     new CopyWebpackPlugin([

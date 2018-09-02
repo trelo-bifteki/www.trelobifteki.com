@@ -69,6 +69,7 @@
     "selenium-server": "^3.0.1",
     "semver": "^5.3.0",
     "shelljs": "^0.7.6",
+    "sitemap-webpack-plugin": "^0.5.1",
     "uglifyjs-webpack-plugin": "^1.1.1",
     "url-loader": "^1.0.1",
     "vue-jest": "^1.0.2",
