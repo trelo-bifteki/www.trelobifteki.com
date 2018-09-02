@@ -86,7 +86,10 @@ const webpackConfig = merge(baseWebpackConfig, {
     }),
     // fontello fonts
     new FontelloPlugin({
-      config: require('../config/fontello-config.json')
+      config: require('../config/fontello-config.json'),
+      output: {
+        font:"/fonts/[name].[ext]",
+      }
     }),
     // inline sources
     new HtmlWebpackInlineSourcePlugin(),
