@@ -48,6 +48,7 @@
     "eslint-plugin-vue": "^4.0.0",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^1.1.4",
+    "fontello-webpack-plugin": "^0.4.8",
     "friendly-errors-webpack-plugin": "^1.6.1",
     "html-webpack-inline-source-plugin": "0.0.10",
     "html-webpack-plugin": "^2.30.1",
