@@ -14,7 +14,7 @@ export default {
       return date.toLocaleDateString();
     },
     link() {
-      return `blog/${this.post.id}`;
+      return `/blog/${this.post.id}`;
     },
   },
 };
