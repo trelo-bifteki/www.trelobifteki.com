@@ -43,7 +43,7 @@ export default {
   actions: {
     refreshEducation({ commit }) {
       return new Promise((resolve) => {
-        axios.get('static/education.json').then((response) => {
+        axios.get('/static/education.json').then((response) => {
           commit('updateEducation', response.data);
           resolve(response.data);
         });
@@ -51,7 +51,7 @@ export default {
     },
     refreshInterests({ commit }) {
       return new Promise((resolve) => {
-        axios.get('static/interests.json').then((response) => {
+        axios.get('/static/interests.json').then((response) => {
           commit('updateInterests', response.data);
           resolve(response.data);
         });
@@ -59,7 +59,7 @@ export default {
     },
     refreshJobs({ commit }) {
       return new Promise((resolve) => {
-        axios.get('static/jobs.json').then((response) => {
+        axios.get('/static/jobs.json').then((response) => {
           commit('updateJobs', response.data);
           resolve(response.data);
         });
@@ -67,7 +67,7 @@ export default {
     },
     refreshSkills({ commit }) {
       return new Promise((resolve) => {
-        axios.get('static/skills.json').then((response) => {
+        axios.get('/static/skills.json').then((response) => {
           commit('updateSkills', response.data);
           resolve(response.data);
         });
@@ -75,7 +75,7 @@ export default {
     },
     refreshPersonalInfo({ commit }) {
       return new Promise((resolve) => {
-        axios.get('static/personal-info.json').then((response) => {
+        axios.get('/static/personal-info.json').then((response) => {
           commit('updatePersonalInfo', response.data);
           resolve(response.data);
         });
