@@ -28,47 +28,39 @@ export default {
   </div>
 </template>
 
-<style>
+<style lang="scss">
+
+@import "../assets/variables.scss";
 
 .skill {
   display: flex;
   flex-direction: row;
-  margin: var(--space) 0;
-}
+  margin: $space 0;
 
-.skill__label {
-  min-width: 20rem;
-  margin-right: var(--space);
-}
-
-.skill__progress {
-  background-color: var(--color-theme-white);
-  border-radius: .25rem;
-  font-size: .75rem;
-  height: 1rem;
-  display: flex;
-  flex-grow: 1;
-  overflow: hidden;
-}
-
-.skill__progress-bar {
-  background-color: var(--color-theme-orange);
-  color: var(--color-theme-white);
-  display: flex;
-  justify-content: center;
-  animation: circawiggle 3s infinite;
-}
-
-@keyframes circawiggle {
-  0% {
-    padding-right: 0;
+  &__label {
+    min-width: 20rem;
+    margin-right: $space;
   }
-}
 
-@media screen and (width <768px) {
-  .skill {
+  &__progress {
+    background-color: $color-theme-white;
+    border-radius: .25rem;
+    font-size: .75rem;
+    height: 1rem;
+    display: flex;
+    flex-grow: 1;
+    overflow: hidden;
+  }
+
+  &__progress-bar {
+    background-color: $color-theme-orange;
+    color: $color-theme-white;
+    display: flex;
+    justify-content: center;
+  }
+
+  @media screen and (max-width: $breakpoint-medium) {
     flex-direction: column;
   }
 }
-
 </style>
