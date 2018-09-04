@@ -32,35 +32,36 @@ export default {
 </script>
 
 <template>
-  <article>
-    <h1>{{ post.title }}</h1>
-    <h2>{{ formattedDate }}</h2>
-    <section v-html="postContent" class="blog-content">
-    </section>
+  <article class="blog-post">
+    <h1 class="blog-post__title">{{ post.title }}</h1>
+    <h2 class="blog-post__created">{{ formattedDate }}</h2>
+    <section
+      v-html="postContent"
+      class="blog-post__content blog-content"
+    ></section>
   </article>
 </template>
 
-<style scoped>
+<style lang="scss">
 
-article {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 80rem;
+@import "../assets/variables.scss";
+
+.blog-post {
+  margin: 0 auto;
+  padding: 0 15px;
+  max-width: 1310px;
+
+  &__title {
+    font-size: $font-size-xxl;
+    margin: $space 0;
+    color: $color-theme-orange;
+  }
+
+  &__created {
+    font-size: $font-size-xl;
+    margin: $space 0;
+    color: $color-theme-gray;
+  }
 }
 
-h1 {
-  font-size: var(--font-size-xxl);
-  margin: var(--space);
-  color: var(--color-theme-orange);
-}
-
-h2 {
-  font-size: var(--font-size-l);
-  margin: var(--space);
-  color: var(--color-theme-gray);
-}
-
-section {
-  padding: var(--space);
-}
 </style>
