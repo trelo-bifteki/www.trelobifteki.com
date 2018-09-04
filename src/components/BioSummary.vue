@@ -57,7 +57,7 @@ export default {
     </transition>
 
     <button
-      class="button button--plain"
+      class="bio-summary__more-button"
       v-on:click="toggle"
       >
       <span v-if="showMore">
@@ -81,20 +81,27 @@ export default {
   </article>
 </template>
 
-<style scoped>
-  p {
-    margin-botom: 1rem;
-    margin-bottom: var(--space);
-  }
+<style lang="scss">
 
-  button {
-    background-color: none;
-    border-top: 1px solid var(--color-theme-gray-light);
-    color: var(--color-girl-party-pink);
-    cursor: pointer;
-    font-size: 1rem;
-    padding: var(--space-s);
-    width: 100%;
+  @import "../assets/variables.scss";
+
+  .bio-summary {
+    &  p {
+      margin: $space 0;
+    }
+
+    &__more-button {
+      background-color: transparent;
+      border-top: 1px solid $color-theme-gray-light;
+      border-left: none;
+      border-bottom: none;
+      border-right: none;
+      color: $color-girl-party-pink;
+      cursor: pointer;
+      font-size: 1rem;
+      padding: $space;
+      width: 100%;
+    }
   }
 
 .slide-enter-active, .slide-leave-active {
