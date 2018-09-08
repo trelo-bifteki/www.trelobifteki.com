@@ -44,93 +44,95 @@ export default {
   </section>
 </template>
 
-<style scoped>
+<style lang="scss">
+
+@import "../assets/variables.scss";
 
 .personal-information {
-  background-color: var(--color-theme-white);
-  border-bottom: 1px solid var(--color-theme-orange);
+  background-color: $color-theme-white;
+  border-bottom: 1px solid $color-theme-orange;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: var(--space-l);
+  padding: $space-l;
   text-align: center;
-}
 
-.personal-information__avatar {
-  margin-bottom: var(--space);
-  margin-left: auto;
-  margin-right: auto;
-  width: 10rem;
-  text-align: center;
-}
-
-.personal-information__avatar-image {
-  border: 2px solid transparent;
-  box-shadow: 2px 4px 12px 0px rgba(0,0,0,0.5);
-  border-radius: 200px;
-  max-width: 100%;
-}
-
-.personal-information__avatar-image:hover {
-  animation: wigglewiggle 2s infinite;
-}
-
-@keyframes wigglewiggle {
-  0% {
-    transform: rotate(0deg);
-  }
-  25% {
-    transform: rotate(5deg);
-  }
-  75% {
-    transform: rotate(-5deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
-}
-
-.personal-information__fullname {
-  color: var(--color-theme-orange);
-  font-size: var(--font-size-xl);
-  margin-bottom: var(--space-s);
-  text-transform: uppercase;
-}
-
-.personal-information__current-job {
-  color: #666;
-  font-size: var(--font-size-ml);
-  margin-bottom: var(--space);
-  text-transform: uppercase;
-}
-
-.personal-information__container {
-  flex-grow: 1;
-  padding-top: 1rem;
-}
-
-.personal-information__location {
-  color: #666;
-  margin: var(--space) 0;
-}
-
-@media screen and (width >=768px) {
-
-.personal-information {
-  flex-direction: row;
-  text-align: left;
-}
-
-  .personal-information__avatar {
-    margin-bottom: 0;
-    margin-left: 0;
-    margin-right: var(--space-l);
+  &__avatar {
+    margin-bottom: $space;
+    margin-left: auto;
+    margin-right: auto;
+    width: 10rem;
+    text-align: center;
   }
 
-  .personal-information__container {
-    max-width: 70rem;
-    padding-top: 0;
-    padding-left: var(--space-xl);
+  &__avatar-image {
+    border: 2px solid transparent;
+    box-shadow: 2px 4px 12px 0px rgba(0,0,0,0.5);
+    border-radius: 200px;
+    max-width: 100%;
+
+    &:hover {
+      animation: wigglewiggle 2s infinite;
+    }
+  }
+
+  &__fullname {
+    color: $color-theme-orange;
+    font-size: $font-size-xl;
+    margin-bottom: $space-s;
+    text-transform: uppercase;
+  }
+
+  &__current-job {
+    color: $color-theme-lila;
+    font-size: $font-size-ml;
+    margin-bottom: $space;
+    text-transform: uppercase;
+  }
+
+  &__location {
+    color: $color-theme-lila;
+    margin: $space 0;
+
+  }
+
+  &__container {
+    flex-grow: 1;
+    padding-top: 1rem;
+  }
+
+  @keyframes wigglewiggle {
+    0% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(5deg);
+    }
+    75% {
+      transform: rotate(-5deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .personal-information {
+    flex-direction: row;
+    text-align: left;
+
+    &__avatar {
+      margin-bottom: 0;
+      margin-left: 0;
+      margin-right: $space-l;
+    }
+
+    &__container {
+      max-width: 70rem;
+      padding-top: 0;
+      padding-left: $space-xl;
+    }
   }
 }
 
