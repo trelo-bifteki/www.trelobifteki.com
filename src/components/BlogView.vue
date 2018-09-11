@@ -19,12 +19,13 @@ export default {
 
 <template>
   <div class="blog-view">
-    <h1>
+    <h1 class="blog-view__headline">
       <i class="icon-heart"></i>
       Blog
     </h1>
-    <section>
+    <section class="blog-view__container">
       <PostSummary
+        class="blog-view__post"
         v-for="(post) in posts"
         v-bind:post="post"
         v-bind:key="post.id"
@@ -33,30 +34,36 @@ export default {
   </div>
 </template>
 
-<style scoped>
+<style lang="scss">
 
-a {
-  text-decoration: none;
-}
+@import "../assets/variables.scss";
 
-div {
-  font-size: 1.3rem;
+.blog-view {
   margin-left: auto;
   margin-right: auto;
-  max-width: 80rem;
-  padding-bottom: 5rem;
-}
+  max-width: 1310px;
+  padding: 0 15px;
 
-h1 {
-  color: var(--color-theme-orange);
-  font-size: var(--font-size-xxl);
-  padding: var(--space-l) var(--space);
-}
+  &__headline {
+    color: $color-theme-orange;
+    font-size: $font-size-xxl;
+    padding: $space-l 0;
+  }
 
-section {
-  display: flex;
-  flex-wrap: wrap;
-  padding-top: 2rem;
+  &__post {
+    font-size: 1.3rem;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 80rem;
+    padding-bottom: 5rem;
+    text-decoration: none;
+  }
+
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 2rem;
+  }
 }
 
 </style>
