@@ -1,4 +1,4 @@
-import axios from 'axios';
+import request from 'superagent';
 
 export default {
   state: {
@@ -19,20 +19,20 @@ export default {
   },
   actions: {
     refreshPosts({ commit }) {
-      return new Promise((resolve) => {
-        axios.get('/static/blog-posts.json').then((response) => {
-          commit('updatePosts', response.data);
-          resolve(response.data);
+      return request
+        .get('/static/blog-posts.json')
+        .then(({ body }) => {
+          commit('updatePosts', body);
+          return body;
         });
-      });
     },
     refreshPostContent(context) {
-      return new Promise((resolve) => {
-        axios.get(`/static/blog/${context.state.post.id}.html`).then((response) => {
-          context.commit('updatePostContent', response.data);
-          resolve(response.data);
+      return request
+        .get(`/static/blog/${context.state.post.id}.html`)
+        .then(({ text }) => {
+          context.commit('updatePostContent', text);
+          return text;
         });
-      });
     },
   },
   getters: {

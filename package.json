@@ -18,7 +18,6 @@
     "url": "git+https://github.com/trelo-bifteki/www.trelobifteki.com.git"
   },
   "dependencies": {
-    "axios": "^0.18.0",
     "reset-css": "^4.0.1",
     "superagent": "^3.8.3",
     "vue": "^2.5.2",
