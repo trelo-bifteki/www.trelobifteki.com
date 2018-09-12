@@ -90,7 +90,6 @@ export default {
       background-color: $color-rainbow-lila;
     }
 
-
   }
 }
 

@@ -1,4 +1,4 @@
-import axios from 'axios';
+import request from 'superagent';
 import BlogStore from './blog.store';
 
 export default {
@@ -42,44 +42,44 @@ export default {
   },
   actions: {
     refreshEducation({ commit }) {
-      return new Promise((resolve) => {
-        axios.get('/static/education.json').then((response) => {
-          commit('updateEducation', response.data);
-          resolve(response.data);
+      return request
+        .get('static/education.json')
+        .end((error, response) => {
+          commit('updateEducation', response.body);
+          return response;
         });
-      });
     },
     refreshInterests({ commit }) {
-      return new Promise((resolve) => {
-        axios.get('/static/interests.json').then((response) => {
-          commit('updateInterests', response.data);
-          resolve(response.data);
+      return request
+        .get('static/interests.json')
+        .end((error, response) => {
+          commit('updateInterests', response.body);
+          return response;
         });
-      });
     },
     refreshJobs({ commit }) {
-      return new Promise((resolve) => {
-        axios.get('/static/jobs.json').then((response) => {
-          commit('updateJobs', response.data);
-          resolve(response.data);
+      return request
+        .get('/static/jobs.json')
+        .end((err, response) => {
+          commit('updateJobs', response.body);
+          return response;
         });
-      });
     },
     refreshSkills({ commit }) {
-      return new Promise((resolve) => {
-        axios.get('/static/skills.json').then((response) => {
-          commit('updateSkills', response.data);
-          resolve(response.data);
+      return request
+        .get('/static/skills.json')
+        .end((error, response) => {
+          commit('updateSkills', response.body);
+          return response;
         });
-      });
     },
     refreshPersonalInfo({ commit }) {
-      return new Promise((resolve) => {
-        axios.get('/static/personal-info.json').then((response) => {
-          commit('updatePersonalInfo', response.data);
-          resolve(response.data);
+      return request
+        .get('/static/personal-info.json')
+        .end((error, response) => {
+          commit('updatePersonalInfo', response.body);
+          return response;
         });
-      });
     },
   },
 };
