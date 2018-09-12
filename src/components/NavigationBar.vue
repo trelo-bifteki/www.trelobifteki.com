@@ -9,7 +9,7 @@ export default {
     <ul>
       <li>
       <router-link class="navigation-bar__home" to="/">
-          <img class="logo" src="../assets/trelobifteki-small.jpg" alt="logo">
+          <img class="logo" src="../assets/trelobifteki-small.png" alt="logo">
         </router-link>
       <li>
         <router-link
@@ -48,12 +48,37 @@ export default {
     text-align: center;
     transition: background 0.2s ease, transform 0.33s ease, min-width 0.33s ease-in-out;
     transform: skew(-20deg);  /* SKEW */
+
+    &:first-child {
+      background-color: pink;
+    }
+
+    &:nth-child(2) {
+      background-color:  #459E42;
+    }
+
+    &:nth-child(3) {
+      background-color: #F97C39;
+    }
+
+    &:nth-child(4) {
+      background-color:  #F7C931;
+    }
+
+    &:nth-child(5) {
+        background-color: #E52D98;
+      }
+
+      &:hover{
+        min-width: 7rem;
+      }
   }
 
   a {
+    color: $color-black;
     display:block;
-    text-decoration:none;
     padding: $space;
+    text-decoration: none;
     font-size: $font-size-ml;
     transform: skew(20deg); /* INVERSE SKEW */
   }
@@ -63,36 +88,8 @@ export default {
     max-height: 3rem;
   }
 
-  li:first-child {
-    background-color: pink
-  }
-
-  li:first-child:hover {
-    background-color: pink;
-  }
-
-  li:nth-child(2) {
-    background-color:  #459E42;
-  }
-
-  li:nth-child(3) {
-    background-color: #F97C39;
-  }
-
-  li:nth-child(4) {
-    background-color:  #F7C931;
-  }
-
-  li:nth-child(5) {
-    background-color: #E52D98;
-  }
-
   li:nth-child(6) {
     background-color: #BA2766;
-  }
-
-  li:hover{
-    min-width: 7rem;
   }
 
   .navigation-bar__home {

@@ -9,6 +9,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 const FontelloPlugin = require('fontello-webpack-plugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 const portfinder = require('portfinder');
 
 const HOST = process.env.HOST
@@ -61,6 +62,9 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     // fontello fonts
     new FontelloPlugin({
       config: require('../config/fontello-config.json')
+    }),
+    new StyleLintPlugin({
+      files: ['src/**/*.{vue,htm,html,css,sss,less,scss,sass}'],
     }),
     // copy custom static assets
     new CopyWebpackPlugin([

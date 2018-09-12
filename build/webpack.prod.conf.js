@@ -14,6 +14,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const FontelloPlugin = require('fontello-webpack-plugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
 const SitemapPlugin = require('sitemap-webpack-plugin').default;
 
@@ -143,6 +144,10 @@ const webpackConfig = merge(baseWebpackConfig, {
       captureAfterTime: 1000,
       // List of endpoints you wish to prerender
       routes
+    }),
+
+    new StyleLintPlugin({
+      files: ['src/**/*.{vue,htm,html,css,sss,less,scss,sass}'],
     }),
 
     new SitemapPlugin('https://www.trelobifteki.com', routes),

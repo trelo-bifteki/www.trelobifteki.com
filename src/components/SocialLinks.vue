@@ -7,6 +7,7 @@ export default {
 <template>
   <div class="social-links">
     <a
+      class="social-links__item"
       href="https://github.com/trelo-bifteki"
        target="_blank"
        rel="noopener"
@@ -14,6 +15,7 @@ export default {
       <i class="icon-github"></i>
     </a>
     <a
+      class="social-links__item"
       href="https://www.linkedin.com/in/lampros-papadimitriou-85379b43"
       target="_blank"
       rel="noopener"
@@ -36,65 +38,63 @@ export default {
   </div>
 </template>
 
-<style scoped>
-div {
-  display: block;
+<style lang="scss">
+
+@import '../assets/variables.scss';
+
+.social-links {
+  & > a {
+    border-radius: 50%;
+    font-size: 110%;
+    margin-right: $space;
+    text-decoration: none;
+    transition: background-color 0.33s ease-in-out;
+
+    &:first-child {
+      color: $color-rainbow-green;
+    }
+
+    &:nth-child(2) {
+      color: $color-rainbow-yellow;
+    }
+
+    &:nth-child(3) {
+      color: $color-rainbow-orange;
+    }
+
+    &:nth-child(4) {
+      color: $color-rainbow-lila;
+    }
+
+    &:nth-child(5) {
+      color: $color-rainbow-red;
+    }
+
+    &:first-child:hover {
+      color: $color-rainbow-white;
+      background-color: $color-rainbow-green;
+    }
+
+    &:nth-child(2):hover {
+      color:  $color-rainbow-white;
+      background-color: $color-rainbow-yellow;
+    }
+
+    &:nth-child(3):hover {
+      color:  $color-rainbow-white;
+      background-color: $color-rainbow-orange;
+    }
+
+    &:nth-child(4):hover {
+      color:  $color-rainbow-white;
+      background-color: $color-rainbow-lila;
+    }
+
+
+  }
 }
 
- a {
-   border-radius: 50%;
-   font-size: 110%;
-   margin-right: 1rem;
-   text-decoration: none;
-   transition: background-color 0.33s ease-in-out;
- }
-
-a:first-child {
-  color: #459E42;
-}
-
-a:first-child:hover {
-  background-color: #459E42;
-  color: #FAFAFD;
-}
-
-a:nth-child(2) {
-  color: #F7C931;
-}
-
-a:nth-child(2):hover {
-  background-color: #F7C931;
-  color: #FAFAFD;
-}
-
-a:nth-child(3) {
-  color: #F97C39;
-}
-
-a:nth-child(3):hover {
-  background-color: #F97C39;
-  color: #FAFAFD;
-}
-
-a:nth-child(4) {
-  color: #E52D98;
-}
-
-a:nth-child(4):hover {
-  background-color: #E52D98;
-  color: #FAFAFD;
-}
-
-a:nth-child(5) {
-  color: #BA2766;
-}
-
-a:nth-child(5):hover {
-  background-color: #BA2766;
-  color: #FAFAFD;
-}
-
-@media screen and (max-width<= 768px) {
+@media screen and (max-width: $breakpoint-medium) {
   div {
     text-align: center;
   }

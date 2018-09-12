@@ -119,35 +119,35 @@ export default {
   </div>
 </template>
 
-<style>
+<style  lang="scss">
+
+@import '../assets/variables.scss';
 
 .route-cv {
   font-size: 1.15rem;
-}
 
-.route-cv__heading {
-  color: var(--color-theme-orange);
-  font-size: var(--font-size-l);
-  margin: var(--space);
-}
+  &__heading {
+    color: $color-theme-orange;
+    font-size: $font-size-l;
+    margin:$space;
+  }
 
-.route-cv__interests {
-  box-sizing: border-box;
-  flex-grow: 1;
-  list-style-type: disc;
-  margin: var(--space) var(--space) var(--space) 0;
-  padding: 0;
-}
+  &__interests {
+    flex-grow: 1;
+    list-style-type: disc;
+    margin: $space $space $space 0;
+    padding: 0;
+  }
 
-.route-cv__interest {
-  box-sizing: border-box;
-  list-style-type: none;
-  padding: var(--space);
-}
+  &__interest {
+    list-style-type: none;
+    padding: $space;
+  }
 
-.route-cv__interest-icon {
-  color: var(--color-theme-red);
-  margin-right: var(--space-s)
+  &__interest-icon {
+    color: $color-theme-red;
+    margin-right: $space-s;
+  }
 }
 
 .route-cv__icon {
@@ -163,18 +163,14 @@ export default {
   max-width: 80rem;
   margin-left: auto;
   margin-right: auto;
-}
 
-.route-cv__panel:first-child {
-  border-top: 0;
-}
+  &:first-child {
+    border-top: 0;
+  }
 
-.route-cv__panel:first {
-  border-top: 0;
-}
-
-.route-cv__panel-label {
-  width: auto;
+  &__panel-label {
+    width: auto;
+  }
 }
 
 .route-cv__panel-container {
@@ -197,7 +193,7 @@ export default {
   margin-bottom: var(--space);
 }
 
-@media screen and (width >=768px)  {
+@media screen and (min-width: 768px)  {
   .route-cv__panel {
     flex-direction: row;
   }
