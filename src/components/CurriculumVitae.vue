@@ -151,12 +151,12 @@ export default {
 }
 
 .route-cv__icon {
-  color: var(--color-theme-orange);
-  margin-right: var(--space);
+  color: $color-theme-orange;
+  margin-right: $space;
 }
 
 .route-cv__panel {
-  border-top: 1px solid var(--color-theme-gray-light);
+  border-top: 1px solid $color-theme-gray-light;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -178,19 +178,19 @@ export default {
 }
 
 .route-cv__panel-container--padding {
-  padding: var(--space);
+  padding: $space;
 }
 
 .route-cv__skills {
-  padding: var(--space);
+  padding: $space;
 }
 
 .route-cv__jobs {
-  padding: var(--space);
+  padding: $space;
 }
 
 .route-cv__summary-paragraph {
-  margin-bottom: var(--space);
+  margin-bottom: $space;
 }
 
 @media screen and (min-width: 768px)  {
