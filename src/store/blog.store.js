@@ -2,6 +2,7 @@ import request from 'superagent';
 
 export default {
   state: {
+    selectedPostId: '',
     posts: [],
     post: {},
     postContent: '',
@@ -16,22 +17,23 @@ export default {
     updatePostContent: (state, content) => {
       state.postContent = content;
     },
+    updateSelectedPostId: (state, content) => {
+      state.selectedPostId = content;
+    },
   },
   actions: {
     refreshPosts({ commit }) {
       return request
         .get('/static/blog-posts.json')
-        .then(({ body }) => {
-          commit('updatePosts', body);
-          return body;
+        .end((error, response) => {
+          commit('updatePosts', response.body);
         });
     },
     refreshPostContent(context) {
       return request
-        .get(`/static/blog/${context.state.post.id}.html`)
-        .then(({ text }) => {
-          context.commit('updatePostContent', text);
-          return text;
+        .get(`/static/blog/${context.state.selectedPostId}.html`)
+        .end((error, response) => {
+          context.commit('updatePostContent', response.text);
         });
     },
   },

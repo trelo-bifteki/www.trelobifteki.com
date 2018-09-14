@@ -4,13 +4,14 @@ export default {
   name: 'BlogPost',
   data() {
     return {
-      post: {
-        title: 'Unknown post',
-        created: 0,
-      },
     };
   },
   computed: {
+    post() {
+      const selectedPostId = this.$route.params.id;
+      const result = this.$store.state.BlogStore.posts.find(post => post.id === selectedPostId);
+      return result || {};
+    },
     formattedDate() {
       const date = new Date(this.post.created * 1000);
 
@@ -21,12 +22,10 @@ export default {
     },
   },
   mounted() {
-    this.$store.dispatch('refreshPosts').then(() => {
-      const id = this.$route.params.id;
-      this.post = this.$store.getters.getById(id);
-      this.$store.commit('updatePost', this.post);
-      this.$store.dispatch('refreshPostContent');
-    });
+    const selectedPostId = this.$route.params.id;
+    this.$store.commit('updateSelectedPostId', selectedPostId);
+    this.$store.dispatch('refreshPosts');
+    this.$store.dispatch('refreshPostContent');
   },
 };
 </script>
