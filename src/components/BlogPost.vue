@@ -9,8 +9,12 @@ export default {
   computed: {
     post() {
       const selectedPostId = this.$route.params.id;
-      const result = this.$store.state.BlogStore.posts.find(post => post.id === selectedPostId);
-      return result || {};
+      const posts = this.$store.state.BlogStore.posts;
+      const selectedPosts = posts.filter(post => post.id === selectedPostId);
+
+      return selectedPosts.length
+        ? selectedPosts[0]
+        : {};
     },
     formattedDate() {
       const date = new Date(this.post.created * 1000);
