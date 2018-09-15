@@ -29,36 +29,37 @@ export default {
   </article>
 </template>
 
-<style>
+<style lang="scss">
+
+@import "../assets/variables.scss";
 
 .education {
-  margin-top:  var(--space-xxl);
-}
+  margin-top: $space-xxl;
 
-.education__row {
-  color: var(--color-gray);
-  display: flex;
-  flex-direction: row;
-  margin-bottom: var(--space);
-}
+  &__row {
+    color: $color-gray;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: $space;
+  }
 
-.education__subtitle {
-  flex-grow: 1;
-  font-size: var(--font-size-ml);
-}
+  &__subtitle {
+    flex-grow: 1;
+    font-size: $font-size-ml;
+  }
 
-.education__timeline {
-  font-style: italic;
-}
+  &__timeline {
+    font-style: italic;
+  }
 
-.education__title {
-  color: var(--color-theme-red);
-  font-size: var(--font-size-l);
-  margin-bottom: var(--space-s);
-}
+  &__title {
+    color: $color-theme-red;
+    font-size: $font-size-l;
+    margin-bottom: $space-s;
+  }
 
-.education:first-child {
-  margin-top: 0;
+  &:first-child {
+    margin-top: 0;
+  }
 }
-
 </style>

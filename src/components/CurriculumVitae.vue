@@ -160,9 +160,10 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 80rem;
+  max-width: 1310px;
   margin-left: auto;
   margin-right: auto;
+  padding: 0 15px;
 
   &:first-child {
     border-top: 0;
@@ -193,7 +194,7 @@ export default {
   margin-bottom: $space;
 }
 
-@media screen and (min-width: 768px)  {
+@media screen and (min-width: $breakpoint-medium)  {
   .route-cv__panel {
     flex-direction: row;
   }
