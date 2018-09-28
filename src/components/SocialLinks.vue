@@ -91,10 +91,8 @@ export default {
     }
 
   }
-}
 
-@media screen and (max-width: $breakpoint-medium) {
-  div {
+  @media screen and (max-width: $breakpoint-medium) {
     text-align: center;
   }
 }
