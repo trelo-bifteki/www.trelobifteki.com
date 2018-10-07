@@ -75,10 +75,10 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
 
-  &__filler {
-    flex-grow: 1;
-  }
+.app__filler {
+  flex: 1 1 auto;
 }
 
 .header {
