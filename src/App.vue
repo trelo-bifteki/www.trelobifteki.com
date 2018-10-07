@@ -12,7 +12,10 @@ export default {
 </script>
 
 <template>
-  <div id="app">
+  <div
+    id="app"
+    class="app"
+  >
     <header class="header">
       <div class="header__container">
         <NavigationBar></NavigationBar>
