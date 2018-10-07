@@ -26,6 +26,8 @@ export default {
     <div class="index__container">
       <router-view/>
     </div>
+    <div  class="app__filler">
+    </div>
     <footer class="footer">
       <div class="footer__container">
         <div class="footer__footnote">
@@ -67,6 +69,16 @@ body {
 
 *, *:before, *:after {
   box-sizing: border-box;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  &__filler {
+    flex-grow: 1;
+  }
 }
 
 .header {
