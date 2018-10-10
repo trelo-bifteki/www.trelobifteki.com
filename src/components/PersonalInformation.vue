@@ -38,8 +38,15 @@ export default {
         <i class="icon-map"></i>
         Munich, Bavaria, Germany
       </p>
-
-      <SocialLinks></SocialLinks>
+      <div class="personal-information__links">
+        <SocialLinks></SocialLinks>
+        <a
+          class="personal-information__cv-pdf"
+          href="/static/resume-en-Lampros_Papadimitriou.pdf"
+        >
+          <i class="icon-file-pdf"></i>
+        </a>
+      </div>
     </div>
   </section>
 </template>
@@ -76,6 +83,10 @@ export default {
     }
   }
 
+  &__cv-pdf {
+    color: $color-theme-lila-accent;
+  }
+
   &__fullname {
     color: $color-theme-orange;
     font-size: $font-size-xl;
@@ -89,6 +100,10 @@ export default {
     margin-bottom: $space;
     text-transform: uppercase;
   }
+
+&__links {
+  display: flex;
+}
 
   &__location {
     color: $color-theme-lila;

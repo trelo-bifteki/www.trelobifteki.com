@@ -43,7 +43,7 @@ export default {
   actions: {
     refreshEducation({ commit }) {
       return request
-        .get('static/education.json')
+        .get('/static/education.json')
         .end((error, response) => {
           commit('updateEducation', response.body);
           return response;
@@ -51,7 +51,7 @@ export default {
     },
     refreshInterests({ commit }) {
       return request
-        .get('static/interests.json')
+        .get('/static/interests.json')
         .end((error, response) => {
           commit('updateInterests', response.body);
           return response;
