@@ -116,6 +116,31 @@ export default {
         ></SkillItem>
       </div>
     </section>
+
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Person",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Munich",
+        "addressRegion": "CO",
+        "postalCode": "81241",
+        "streetAddress": "Gräfstr. 139"
+      },
+      "email": "mailto:lambrospd@gmail.com",
+      "jobTitle": "Full-stack software developer",
+      "name": "Lampros Papadimitriou",
+      "gender": "male",
+      "nationality": "Greek",
+      "url": "https://www.trelobifteki.com",
+      "sameAs" : [
+        "https://github.com/trelo-bifteki",
+        "https://www.linkedin.com/in/lampros-papadimitriou-85379b43",
+        "https://twitter.com/trelobifteki"
+      ]
+    }
+</script>
   </div>
 </template>
 
