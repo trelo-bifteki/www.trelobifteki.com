@@ -17,6 +17,7 @@ const FontelloPlugin = require('fontello-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
 const SitemapPlugin = require('sitemap-webpack-plugin').default;
+const RobotsTxtPlugin = require('robotstxt-webpack-plugin').default;
 
 const routes =  [
    '/',
@@ -25,6 +26,10 @@ const routes =  [
     '/blog/case-refactoring-actions-pattern',
    '/blog/case-refactoring-sql-queries'
 ];
+
+const robotsTxtConfig = {
+
+}
 
 const env = process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
