@@ -28,8 +28,26 @@ const routes =  [
 ];
 
 const robotsTxtConfig = {
-
-}
+  policy: [
+      {
+        userAgent: "Googlebot",
+        allow: "/",
+        crawlDelay: 2
+      },
+      {
+        userAgent: "OtherBot",
+        allow: "/",
+        crawlDelay: 2
+      },
+      {
+        userAgent: "*",
+        allow: "/",
+        crawlDelay: 10,
+      }
+    ],
+    sitemap: "http://www.trelobifteki.com/sitemap.xml",
+    host: "http://www.trelobifteki.com"
+};
 
 const env = process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
@@ -164,7 +182,10 @@ const webpackConfig = merge(baseWebpackConfig, {
         to: config.build.assetsSubDirectory,
         ignore: ['.*']
       }
-    ])
+    ]),
+
+    // generate robots.txt
+    new RobotsTxtPlugin(robotsTxtConfig),
   ]
 })
 
