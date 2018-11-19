@@ -1,7 +1,9 @@
 const SitemapPlugin = require('sitemap-webpack-plugin').default;
 const RobotsTxtPlugin = require('robotstxt-webpack-plugin').default;
 const FontelloPlugin = require('fontello-webpack-plugin');
+const PrerenderSpaPlugin = require('prerender-spa-plugin');
 const fontelloConfig = require('./fontello.config');
+const path = require('path');
 
 const routes =  [
    '/',
@@ -43,6 +45,10 @@ module.exports = {
       // generate robots.txt
       new RobotsTxtPlugin(robotsTxtConfig),
       new SitemapPlugin('https://www.trelobifteki.com', routes),
+      new PrerenderSpaPlugin({
+        staticDir: path.join(__dirname, 'dist'),
+        routes,
+      }),
     ]
   }
 };
