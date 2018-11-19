@@ -1,6 +1,7 @@
 <script>
+import 'reset-css';
 import NavigationBar from '@/components/NavigationBar';
-import SocialLinks from './components/SocialLinks';
+import SocialLinks from '@/components/SocialLinks';
 
 export default {
   name: 'App',
@@ -57,16 +58,15 @@ export default {
 
 <style>
 
-@import 'reset-css';
 @import 'assets/common.css';
 @import 'assets/button.css';
-@import 'assets/blog-content';
+@import 'assets/blog-content.css';
 
 html,
 body {
   background-color: #FFF;
   color: #222;
-  font-family:  system-ui,Helvetica, Arial, sans-serif;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
   font-size: 100%;
 }
 

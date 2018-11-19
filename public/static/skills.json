@@ -1,0 +1,25 @@
+[{
+  "label": "Javascript",
+  "level": 95
+}, {
+  "label": "Java",
+  "level": 95
+}, {
+  "label": "HTML5 & CSS3",
+  "level": 95
+}, {
+  "label": "Spring framework",
+  "level": 90
+}, {
+  "label": "AngularJS Framework",
+  "level": 85
+}, {
+  "label": "Postgresql",
+  "level": 80
+}, {
+  "label": "Linux",
+  "level": 75
+}, {
+  "label": "Python",
+  "level": 70
+}]

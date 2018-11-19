@@ -96,7 +96,7 @@ export default {
     padding: 0;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: $breakpoint-medium) {
     li {
       transform: skew(0deg);
     }
@@ -113,6 +113,9 @@ export default {
       overflow: hidden;
     }
   }
-}
 
+  @media screen and (max-width: $breakpoint-small) {
+    overflow: hidden;
+  }
+}
 </style>
