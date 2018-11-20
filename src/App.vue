@@ -5,6 +5,10 @@ import SocialLinks from '@/components/SocialLinks';
 
 export default {
   name: 'App',
+  metaInfo: {
+    title: 'Default title',
+    titleTemplate: '%s | My Awesome Webapp',
+  },
   components: {
     NavigationBar,
     SocialLinks,
