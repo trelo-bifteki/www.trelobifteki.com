@@ -3,6 +3,9 @@ import PostSummary from './PostSummary';
 
 export default {
   name: 'BlogView',
+  metaInfo: {
+    title: 'Blog',
+  },
   components: {
     PostSummary,
   },

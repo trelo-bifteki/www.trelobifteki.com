@@ -47,6 +47,7 @@ module.exports = {
       new SitemapPlugin('https://www.trelobifteki.com', routes),
       new PrerenderSpaPlugin({
         staticDir: path.join(__dirname, 'dist'),
+        renderAfterTime: 5000,
         routes,
       }),
     ]
