@@ -6,8 +6,8 @@ import SocialLinks from '@/components/SocialLinks';
 export default {
   name: 'App',
   metaInfo: {
-    title: 'Default title',
-    titleTemplate: '%s | My Awesome Webapp',
+    title: 'CV',
+    titleTemplate: '%s | Lampros Papadimitriou trelobifteki',
   },
   components: {
     NavigationBar,
