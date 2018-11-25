@@ -41,6 +41,7 @@ export default {
 <style lang="scss">
 
 @import '../assets/variables.scss';
+@import '../scss/breakpoints';
 
 .social-links {
   & > a {
@@ -92,7 +93,7 @@ export default {
 
   }
 
-  @media screen and (max-width: $breakpoint-medium) {
+  @include media-breakpoint-medium {
     text-align: center;
   }
 }

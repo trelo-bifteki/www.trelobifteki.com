@@ -31,6 +31,7 @@ export default {
 <style lang="scss">
 
 @import "../assets/variables.scss";
+@import "../scss/breakpoints";
 
 .skill {
   display: flex;
@@ -59,7 +60,7 @@ export default {
     justify-content: center;
   }
 
-  @media screen and (max-width: $breakpoint-medium) {
+  @include media-breakpoint-medium {
     flex-direction: column;
   }
 }

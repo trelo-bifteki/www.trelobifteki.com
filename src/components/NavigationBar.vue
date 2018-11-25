@@ -35,6 +35,7 @@ export default {
 <style lang="scss">
 
 @import "../assets/variables.scss";
+@import "../scss/breakpoints";
 
 .navigation-bar {
   ul {
@@ -96,7 +97,7 @@ export default {
     padding: 0;
   }
 
-  @media screen and (max-width: $breakpoint-medium) {
+  @include media-breakpoint-medium {
     li {
       transform: skew(0deg);
     }
@@ -114,7 +115,7 @@ export default {
     }
   }
 
-  @media screen and (max-width: $breakpoint-small) {
+  @include media-breakpoint-small {
     overflow: hidden;
   }
 }

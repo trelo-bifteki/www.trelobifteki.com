@@ -147,6 +147,7 @@ export default {
 <style  lang="scss">
 
 @import '../assets/variables.scss';
+@import '../scss/breakpoints';
 
 .route-cv {
   font-size: 1.15rem;
@@ -155,6 +156,12 @@ export default {
     color: $color-theme-orange;
     font-size: $font-size-l;
     margin:$space;
+  }
+
+
+  &__icon {
+    color: $color-theme-orange;
+    margin-right: $space;
   }
 
   &__interests {
@@ -173,29 +180,24 @@ export default {
     color: $color-theme-red;
     margin-right: $space-s;
   }
-}
 
-.route-cv__icon {
-  color: $color-theme-orange;
-  margin-right: $space;
-}
+  &__panel {
+    border-top: 1px solid $color-theme-gray-light;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 1310px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 15px;
 
-.route-cv__panel {
-  border-top: 1px solid $color-theme-gray-light;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  max-width: 1310px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 15px;
+    &:first-child {
+      border-top: 0;
+    }
 
-  &:first-child {
-    border-top: 0;
-  }
-
-  &__panel-label {
-    width: auto;
+    &__panel-label {
+      width: auto;
+    }
   }
 }
 
@@ -219,7 +221,7 @@ export default {
   margin-bottom: $space;
 }
 
-@media screen and (min-width: $breakpoint-medium)  {
+@include media-breakpoint-medium {
   .route-cv__panel {
     flex-direction: row;
   }

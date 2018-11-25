@@ -1,0 +1,16 @@
+$breakpoint-small: 576px; // mobile devices
+$breakpoint-medium: 768px;
+$breakpoint-large: 992px; // tablet devices
+$breakpoint-xl: 1200px; // desktop
+
+@mixin media-breakpoint-small {
+  @media only screen and (max-width: $breakpoint-small) {
+      @content;
+  }
+}
+
+@mixin media-breakpoint-medium {
+  @media only screen and (max-width: $breakpoint-medium) {
+      @content;
+  }
+}
