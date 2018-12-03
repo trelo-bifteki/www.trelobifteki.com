@@ -54,6 +54,7 @@ export default {
 <style lang="scss">
 
 @import "../assets/variables.scss";
+@import "../scss/breakpoints";
 
 .personal-information {
   background-color: $color-theme-white;
@@ -130,12 +131,15 @@ export default {
       transform: rotate(0deg);
     }
   }
+
+  @include media-breakpoint-not-medium {
+    flex-direction: row;
+    text-align: left;
+  }
 }
 
 @media screen and (min-width: 768px) {
   .personal-information {
-    flex-direction: row;
-    text-align: left;
 
     &__avatar {
       margin-bottom: 0;

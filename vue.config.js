@@ -35,21 +35,28 @@ const robotsTxtConfig = {
     host: "http://www.trelobifteki.com"
 };
 
+
+let plugins = [
+  new FontelloPlugin({
+    config: fontelloConfig,
+  }),
+];
+
+if (process.env.NODE_ENV === 'production') {
+  plugins = [
+    ...plugins,
+    new RobotsTxtPlugin(robotsTxtConfig),
+    new SitemapPlugin('https://www.trelobifteki.com', routes),
+    new PrerenderSpaPlugin({
+      staticDir: path.join(__dirname, 'dist'),
+      renderAfterTime: 5000,
+      routes,
+    }),
+  ];
+}
+
 module.exports = {
   configureWebpack: {
-    plugins: [
-      // fontello fonts
-      new FontelloPlugin({
-        config: fontelloConfig,
-      }),
-      // generate robots.txt
-      new RobotsTxtPlugin(robotsTxtConfig),
-      new SitemapPlugin('https://www.trelobifteki.com', routes),
-      new PrerenderSpaPlugin({
-        staticDir: path.join(__dirname, 'dist'),
-        renderAfterTime: 5000,
-        routes,
-      }),
-    ]
+    plugins,
   }
 };

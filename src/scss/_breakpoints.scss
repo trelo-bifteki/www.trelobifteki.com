@@ -14,3 +14,9 @@ $breakpoint-xl: 1200px; // desktop
       @content;
   }
 }
+
+@mixin media-breakpoint-not-medium {
+  @media only screen and (min-width: $breakpoint-medium) {
+      @content;
+  }
+}

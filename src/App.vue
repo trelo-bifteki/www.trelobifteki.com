@@ -60,16 +60,18 @@ export default {
   </div>
 </template>
 
-<style>
+<style lang="scss">
 
 @import 'assets/common.css';
 @import 'assets/button.css';
 @import 'assets/blog-content.css';
+@import 'scss/breakpoints';
+@import 'scss/variables';
 
 html,
 body {
-  background-color: #FFF;
-  color: #222;
+  background-color: $color-white;
+  color: $color-gray-darkest;
   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
   font-size: 100%;
 }
@@ -82,10 +84,10 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-}
 
-.app__filler {
-  flex: 1 1 auto;
+  &__filler {
+    flex: 1 1 auto;
+  }
 }
 
 .header {
@@ -152,7 +154,7 @@ body {
   color: var(--color-theme-orange);
 }
 
-@media screen and (width <= 576px) {
+@include media-breakpoint-small {
   .header__title {
     display: none;
   }
@@ -171,7 +173,7 @@ body {
   }
 }
 
-@media screen and (width <= 768px) {
+@include media-breakpoint-medium {
   .header {
     padding: 0;
   }
