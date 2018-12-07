@@ -92,14 +92,14 @@ body {
 
 .header {
   align-items: center;
-  background: #3C3F50;
-  color: #F1F3FA;
-  padding: 0 2rem;
+  background: $color-header-background;
+  color: $color-header-foreground;
+  padding: 0 $space-xl;
 }
 
 .header__logo {
-  margin-left: 1rem;
-  height: 3rem;
+  margin-left: $space;
+  height: $space-xxl;
 }
 
 .header__logo-image {
@@ -125,10 +125,10 @@ body {
 }
 
 .footer {
-  background: #3C3F50;
-  color: #F1F3FA;
+  background: $color-header-background;
+  color: $color-header-foreground;
   display: block;
-  padding: var(--space);
+  padding: $space;
 }
 
 .footer__container {
@@ -147,11 +147,11 @@ body {
 }
 
 .footer__heart {
-  color: var(--color-theme-red);
+  color: $color-theme-red
 }
 
 .link__github {
-  color: var(--color-theme-orange);
+  color: $color-theme-orange;
 }
 
 @include media-breakpoint-small {
@@ -169,7 +169,7 @@ body {
 
   .footer__footnote {
     flex-direction: column;
-    margin-bottom: 1rem;
+    margin-bottom: $space;
   }
 }
 
