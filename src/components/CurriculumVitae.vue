@@ -221,7 +221,7 @@ export default {
   margin-bottom: $space;
 }
 
-@include media-breakpoint-medium {
+@include media-breakpoint-not-medium {
   .route-cv__panel {
     flex-direction: row;
   }
