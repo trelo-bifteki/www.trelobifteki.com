@@ -10,7 +10,7 @@
 </script>
 
 <template>
-  <div class="main-footer">
+  <footer class="main-footer">
     <div class="main-footer__container">
       <div class="main-footer__footnote">
         <div>
@@ -30,7 +30,7 @@
       </div>
       <SocialLinks />
     </div>
-  </div>
+  </footer>
 </template>
 
 <style lang="scss">
