@@ -1,6 +1,7 @@
 <script>
 import 'reset-css';
-import NavigationBar from '@/components/NavigationBar';
+import MainFooter from '@/components/MainFooter';
+import MainHeader from '@/components/MainHeader';
 import SocialLinks from '@/components/SocialLinks';
 
 export default {
@@ -10,7 +11,8 @@ export default {
     titleTemplate: '%s | Lampros Papadimitriou trelobifteki',
   },
   components: {
-    NavigationBar,
+    MainFooter,
+    MainHeader,
     SocialLinks,
   },
 };
@@ -21,21 +23,13 @@ export default {
     id="app"
     class="app"
   >
-    <header class="header">
-      <div class="header__container">
-        <NavigationBar></NavigationBar>
-        <div class="header__title">
-          Lampros Papadimitriou
-        </div>
-        <div class="header__logo">
-        </div>
-      </div>
-    </header>
+    <MainHeader />
     <div class="index__container">
       <router-view/>
     </div>
     <div  class="app__filler">
     </div>
+    <MainFooter />
     <footer class="footer">
       <div class="footer__container">
         <div class="footer__footnote">
@@ -90,40 +84,6 @@ body {
   }
 }
 
-.header {
-  align-items: center;
-  background: $color-header-background;
-  color: $color-header-foreground;
-  padding: 0 $space-xl;
-}
-
-.header__logo {
-  margin-left: $space;
-  height: $space-xxl;
-}
-
-.header__logo-image {
-  border-radius: 50%;
-  max-height: 100%;
-  max-width: 100%;
-}
-
-.header__container {
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 80rem;
-  padding-left: 1rem;
-}
-
-.header__title {
-  flex-grow: 1;
-  font-size: 120%;
-  text-align: right;
-}
-
 .footer {
   background: $color-header-background;
   color: $color-header-foreground;
@@ -155,14 +115,6 @@ body {
 }
 
 @include media-breakpoint-small {
-  .header__title {
-    display: none;
-  }
-
-  .header__logo {
-    display: none;
-  }
-
   .footer__container {
     flex-direction: column;
   }
@@ -171,17 +123,6 @@ body {
     flex-direction: column;
     margin-bottom: $space;
   }
-}
-
-@include media-breakpoint-medium {
-  .header {
-    padding: 0;
-  }
-
-  .header__container {
-    padding-left: 0;
-  }
-
 }
 
 </style>
