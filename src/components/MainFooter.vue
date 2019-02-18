@@ -12,6 +12,22 @@
 <template>
   <div class="main-footer">
     <div class="main-footer__container">
+      <div class="main-footer__footnote">
+        <div>
+          Made with
+          <i class="main-footer__heart icon-heart" />
+        </div>
+        <div>
+          Wanna check code? Visit
+          <a
+            class="main-footer__github"
+            href="https://github.com/trelo-bifteki/www.trelobifteki.com"
+            rel="noreferrer"
+          >
+            <i class="icon-github" />
+          </a>
+        </div>
+      </div>
       <SocialLinks />
     </div>
   </div>
@@ -34,6 +50,29 @@
       align-items: center;
       display: flex;
       flex-direction: row;
+
+      @include media-breakpoint-small {
+        flex-direction: column;
+      }
+    }
+
+    &__footnote {
+      display: flex;
+      flex-direction: row;
+      flex-grow: 1;
+
+      @include media-breakpoint-small {
+        flex-direction: column;
+        margin-bottom: $space;
+      }
+    }
+
+    &__heart {
+      color: $color-theme-red;
+    }
+
+    &__github {
+      color: $color-theme-orange;
     }
   }
 </style>
