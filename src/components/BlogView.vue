@@ -65,7 +65,7 @@ export default {
   &__container {
     display: flex;
     flex-wrap: wrap;
-    padding-top: 2rem;
+    padding: $space-xl 0;
   }
 }
 

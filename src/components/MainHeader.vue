@@ -35,6 +35,11 @@ export default {
       padding: 0;
     }
 
+    @include media-breakpoint-small {
+      overflow-x: hidden;
+      width: 100%;
+    }
+
     &__container {
       @include container;
 

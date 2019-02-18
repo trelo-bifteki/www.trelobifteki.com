@@ -21,63 +21,65 @@ export default {
 </script>
 
 <template>
-  <router-link class="article" :to="link">
+  <router-link
+    class="post-summary"
+    :to="link"
+  >
     <div>
-      <h2>
+      <h2 class="post-summary__title">
         {{ post.title }}
       </h2>
-      <h3>
+      <h3 class="post-summary__date">
         {{ formattedDate }}
       </h3>
     </div>
   </router-link>
 </template>
 
-<style scoped>
+<style lang="scss">
+  @import "../scss/variables";
+  @import "../scss/breakpoints";
 
-h2 {
-  color: var(--color-theme-lila);
-  font-size: var(--font-size-xl);
-  padding-bottom: 1rem;
-}
+  .post-summary {
+    $root: &;
 
-h3 {
-  color: var(--color-theme-red);
-}
+    background-color: $color-theme-orange;
+    color: #333;
+    padding: 5rem 3rem;
+    text-align: center;
+    transition: background-color .33s ease;
+    width: 50%;
 
-.article {
-  background-color: var(--color-theme-orange);
-  color: #333;
-  padding: 5rem 3rem;
-  text-align: center;
-  transition: background-color .33s ease;
-  width: 50%;
-}
+    @include media-breakpoint-medium {
+        width: 100%;
+    }
 
-.article:first-child {
-  background-color: #f6f4f7;
-}
+    &__title {
+      color: $color-theme-lila;
+      font-size: $font-size-xl;
+      padding-bottom: $space;
 
-.article:nth-child(2) {
-  background-color: #fcfafd;
-}
+      @at-root #{$root}:hover & {
+        color: $color-theme-white;
+      }
+    }
 
-.article:nth-child(3) {
-  background-color: #f2f0f3;
-}
+    &__date {
+      color: $color-theme-red;
+    }
 
-.article:hover {
-  background-color: var(--color-theme-orange);
-}
+    &:nth-child(even) {
+      background-color: #f6f4f7;
+    }
 
-.article:hover h2 {
-  color: var(--color-theme-white);
-}
+    &:nth-child(odd) {
+      background-color: #fcfafd;
+    }
 
-@media screen and (width <= 768px) {
-  .article {
-    width: 100%;
+    &:hover {
+      background-color: $color-theme-orange;
+      color: $color-theme-white;
+    }
   }
-}
 
 </style>
