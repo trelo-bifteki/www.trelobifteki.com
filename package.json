@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "prismjs": "^1.15.0",
     "reset-css": "^4.0.1",
     "superagent": "^4.1.0",
     "vue": "^2.5.21",

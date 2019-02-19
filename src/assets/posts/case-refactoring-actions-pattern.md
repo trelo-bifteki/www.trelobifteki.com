@@ -146,34 +146,34 @@ After refactoring, a complicated action was looking like the example below:
 ```java
 public class ShutdownNetworkAction implements NetworkAction {
 
-	private final SetStatusClosedNetworkAction setStatusClosedNetworkAction;
-	private final DisableNetworkAction disableNetworkAction;
+  private final SetStatusClosedNetworkAction setStatusClosedNetworkAction;
+  private final DisableNetworkAction disableNetworkAction;
 
-	@Autowired
-	public ShutdownNetworkAction(final SetStatusClosedNetworkAction setStatusClosedNetworkAction, final DisableNetworkAction disableNetworkAction) {
-		this.disableNetworkAction = disableNetworkAction;
-		this.setStatusClosedNetworkAction = setStatusClosedNetworkAction;
-	}
+  @Autowired
+  public ShutdownNetworkAction(final SetStatusClosedNetworkAction setStatusClosedNetworkAction,
+                               final DisableNetworkAction disableNetworkAction) {
+    this.disableNetworkAction = disableNetworkAction;
+    this.setStatusClosedNetworkAction = setStatusClosedNetworkAction;
+  }
 
-	@Override
-	public String getLabel() {
-		return "Shutdown network";
-	}
+  @Override
+  public String getLabel() {
+    return "Shutdown network";
+  }
 
-	@Override
-	public boolean supports(Network network) {
-		return ConditionBuilder.create(network)
-				.isValid()
-				.supportAll(disableNetworkAction, setStatusClosedNetworkAction)
-				.build();
-	}
+  @Override
+  public boolean supports(Network network) {
+    return ConditionBuilder.create(network)
+      .isValid()
+      .supportAll(disableNetworkAction, setStatusClosedNetworkAction)
+      .build();
+  }
 
-	@Override
-	public void execute(Network network) {
-		setStatusClosedNetworkAction.execute(network);
-		disableNetworkAction.execute(network);
-	}
-
+  @Override
+  public void execute(Network network) {
+    setStatusClosedNetworkAction.execute(network);
+    disableNetworkAction.execute(network);
+  }
 }
 ```
 

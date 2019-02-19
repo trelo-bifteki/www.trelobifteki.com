@@ -122,7 +122,7 @@ After this refactoring, the final code was looking something like this:
       this.converter = converter;
     }
 
-    public List<Operator> search(final Map&lt;String, Serializable&gt; fields) {
+    public List<Operator> search(final Map<String, Serializable> fields) {
       return SearchQueryBuilder.fromFields(fields)
         .resultingEntityClass(OperatorEntity.class)
         .where(OperatorEntity_.name).isEqualToIgnoreCase("name")

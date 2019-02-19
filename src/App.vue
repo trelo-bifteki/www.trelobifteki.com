@@ -32,9 +32,9 @@ export default {
 
 <style lang="scss">
 
-@import 'assets/common.css';
-@import 'assets/button.css';
-@import 'assets/blog-content.css';
+@import 'assets/common';
+@import 'assets/button';
+@import 'assets/blog-content';
 @import 'scss/variables';
 
 html,

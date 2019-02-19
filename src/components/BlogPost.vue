@@ -1,10 +1,12 @@
 <script>
+import Prism from 'prismjs';
+import 'prismjs/components/prism-java.min.js'
 
 export default {
   name: 'BlogPost',
   data() {
     return {
-      markdown: '',
+      content: '',
     };
   },
   computed: {
@@ -22,18 +24,15 @@ export default {
 
       return date.toLocaleDateString();
     },
-    postContent() {
-      return this.$store.state.BlogStore.postContent;
-    },
   },
-  mounted() {
+  created() {
     const selectedPostId = this.$route.params.id;
     const loader = import(`html-loader!../assets/posts/${selectedPostId}.md`);
     this.$store.commit('updateSelectedPostId', selectedPostId);
     this.$store.dispatch('refreshPosts');
-    this.$store.dispatch('refreshPostContent');
     loader.then(module => {
-      this.markdown = module.default;
+      this.content = module.default;
+      setTimeout(() => Prism.highlightAll(), 300); // TODO find the right place
     });
   },
 };
@@ -44,7 +43,7 @@ export default {
     <h1 class="blog-post__title">{{ post.title }}</h1>
     <h2 class="blog-post__created">{{ formattedDate }}</h2>
     <section
-      v-html="markdown"
+      v-html="content"
       class="blog-post__content blog-content"
     ></section>
   </article>
@@ -52,7 +51,8 @@ export default {
 
 <style lang="scss">
 
-@import "../assets/variables.scss";
+@import '~prismjs/themes/prism-okaidia';
+@import "../assets/variables";
 
 .blog-post {
   margin: 0 auto;
