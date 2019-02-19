@@ -28,7 +28,7 @@ export default {
   },
   mounted() {
     const selectedPostId = this.$route.params.id;
-    const loader = import(`html-loader!../assets/${selectedPostId}.md`);
+    const loader = import(`html-loader!../assets/posts/${selectedPostId}.md`);
     this.$store.commit('updateSelectedPostId', selectedPostId);
     this.$store.dispatch('refreshPosts');
     this.$store.dispatch('refreshPostContent');
