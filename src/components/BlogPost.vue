@@ -4,6 +4,7 @@ export default {
   name: 'BlogPost',
   data() {
     return {
+      markdown: '',
     };
   },
   computed: {
@@ -27,9 +28,13 @@ export default {
   },
   mounted() {
     const selectedPostId = this.$route.params.id;
+    const loader = import(`html-loader!../assets/${selectedPostId}.md`);
     this.$store.commit('updateSelectedPostId', selectedPostId);
     this.$store.dispatch('refreshPosts');
     this.$store.dispatch('refreshPostContent');
+    loader.then(module => {
+      this.markdown = module.default;
+    });
   },
 };
 </script>
@@ -39,7 +44,7 @@ export default {
     <h1 class="blog-post__title">{{ post.title }}</h1>
     <h2 class="blog-post__created">{{ formattedDate }}</h2>
     <section
-      v-html="postContent"
+      v-html="markdown"
       class="blog-post__content blog-content"
     ></section>
   </article>

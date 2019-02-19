@@ -58,5 +58,13 @@ if (process.env.NODE_ENV === 'production') {
 module.exports = {
   configureWebpack: {
     plugins,
-  }
+  },
+  chainWebpack: config => {
+    config.module
+      .rule('markdown')
+      .test(/.md$/)
+      .use('html-loader')
+      .loader('markdown-loader')
+      .end();
+  },
 };
