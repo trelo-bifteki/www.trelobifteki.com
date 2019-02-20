@@ -7,6 +7,7 @@ export default {
   data() {
     return {
       content: '',
+      isContentLoaded: false,
     };
   },
   computed: {
@@ -32,8 +33,13 @@ export default {
     this.$store.dispatch('refreshPosts');
     loader.then(module => {
       this.content = module.default;
-      setTimeout(() => Prism.highlightAll(), 300); // TODO find the right place
+      this.isContentLoaded = true;
     });
+  },
+  updated() {
+    if (this.isContentLoaded) {
+      Prism.highlightAll();
+    }
   },
 };
 </script>
