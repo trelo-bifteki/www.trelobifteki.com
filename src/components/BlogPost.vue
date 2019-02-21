@@ -39,6 +39,7 @@ export default {
   updated() {
     if (this.isContentLoaded) {
       Prism.highlightAll();
+      this.isContentLoaded = false;
     }
   },
 };
