@@ -44,12 +44,12 @@ id | action_id | action_sql_id |
 ---+-----------+---------------+
 ```
 
-The schema above seems easy at first sight, but after we add 50 actions with over 200 SQL queries
-and many groups and inter-dependencies, it becomes very hard to maintain since all adaptations needo
-to be done in the database.
+The schema above seems easy at first sight, but after we add 50 actions with over 200 SQL
+queries and many groups and inter-dependencies, it becomes very hard to maintain since all
+adaptations need to be done in the database.
 
-At the end, developers built a UI in order to maintain this database schema. But still, changes in actions
-took days and maintainability was low.
+At the end, developers built a UI in order to maintain this database schema. But still, changes
+in actions took days and maintainability was low.
 
 ## Refactoring
 
