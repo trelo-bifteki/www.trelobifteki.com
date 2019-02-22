@@ -1,13 +1,20 @@
 <script>
+import BlogContent from './BlogContent';
 import Prism from 'prismjs';
-import 'prismjs/components/prism-java.min.js'
+import 'prismjs/components/prism-java.min.js';
+import SpinningLoader from './SpinningLoader';
 
 export default {
   name: 'BlogPost',
+  components: {
+    BlogContent,
+    SpinningLoader,
+  },
   data() {
     return {
       content: '',
       isContentLoaded: false,
+      isLoading: false,
     };
   },
   computed: {
@@ -31,9 +38,14 @@ export default {
     const loader = import(`html-loader!../assets/posts/${selectedPostId}.md`);
     this.$store.commit('updateSelectedPostId', selectedPostId);
     this.$store.dispatch('refreshPosts');
+    this.isLoading = true;
     loader.then(module => {
       this.content = module.default;
       this.isContentLoaded = true;
+    }).catch(() => {
+      this.content = 'Unable to find post';
+    }).finally(() => {
+      this.isLoading = false;
     });
   },
   updated() {
@@ -46,13 +58,22 @@ export default {
 </script>
 
 <template>
-  <article class="blog-post">
+  <div
+    class="blog-post blog-post--loading"
+    v-if="isLoading"
+  >
+    <SpinningLoader />
+  </div>
+  <article
+    class="blog-post"
+    v-else
+  >
     <h1 class="blog-post__title">{{ post.title }}</h1>
     <h2 class="blog-post__created">{{ formattedDate }}</h2>
-    <section
-      v-html="content"
-      class="blog-post__content blog-content"
-    ></section>
+    <BlogContent
+      class="blog-post__content"
+      :content="content"
+    />
   </article>
 </template>
 
@@ -63,7 +84,7 @@ export default {
 
 .blog-post {
   margin: 0 auto;
-  padding: 0 15px;
+  padding: 1.5rem;
   max-width: 1310px;
 
   &__title {
@@ -76,6 +97,14 @@ export default {
     font-size: $font-size-xl;
     margin: $space 0;
     color: $color-theme-gray;
+  }
+
+  &--loading {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 30rem;
+    text-align: center;
   }
 }
 

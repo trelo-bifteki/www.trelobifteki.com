@@ -34,14 +34,13 @@ export default {
 
 @import 'assets/common';
 @import 'assets/button';
-@import 'assets/blog-content';
 @import 'scss/variables';
 
 html,
 body {
   background-color: $color-white;
   color: $color-gray-darkest;
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+  font-family: $font-family-base;
   font-size: 100%;
   line-height: 1.3;
 }
