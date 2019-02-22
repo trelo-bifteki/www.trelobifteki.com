@@ -3,14 +3,13 @@
   "title": "Refactoring actions using patterns",
   "heading": "This is another test",
   "created": 1521498900,
-  "url": "/data/post/1.html"
 }, {
   "id": "case-refactoring-sql-queries",
   "title": "Refactoring complicated SQL queries using damn simple query builder",
   "heading": "this is a test",
   "created": 1521498900
 }, {
-  "id": "howto-write-ticket",
+  "id": "howto-write-tickets",
   "title": "Howto write tickets",
   "created": 1550866387
 }]
