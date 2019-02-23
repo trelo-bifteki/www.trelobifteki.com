@@ -45,7 +45,7 @@ export default {
 
 <template>
   <div class="route-cv">
-    <PersonalInformation></PersonalInformation>
+    <PersonalInformation />
 
     <section class="route-cv__panel">
       <h2 class="route-cv__heading route-cv__panel-label">
@@ -53,7 +53,7 @@ export default {
         Summary
       </h2>
       <article class="route-cv__panel-container route-cv__panel-container--padding">
-          <BioSummary></BioSummary>
+          <BioSummary />
       </article>
     </section>
 
@@ -146,8 +146,9 @@ export default {
 
 <style  lang="scss">
 
-@import '../assets/variables.scss';
+@import '../scss/variables';
 @import '../scss/breakpoints';
+@import '../scss/fluid';
 
 .route-cv {
   font-size: 1.15rem;
@@ -182,14 +183,12 @@ export default {
   }
 
   &__panel {
+    @include body-container;
+
     border-top: 1px solid $color-theme-gray-light;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-width: 1310px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 15px;
 
     &:first-child {
       border-top: 0;
