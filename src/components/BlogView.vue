@@ -13,6 +13,9 @@ export default {
     posts() {
       return this.$store.state.BlogStore.posts;
     },
+    visiblePosts() {
+      return this.posts.filter(post => post.isVisible);
+    }
   },
   mounted() {
     this.$store.dispatch('refreshPosts');
@@ -29,7 +32,7 @@ export default {
     <section class="blog-view__container">
       <PostSummary
         class="blog-view__post"
-        v-for="(post) in posts"
+        v-for="(post) in visiblePosts"
         v-bind:post="post"
         v-bind:key="post.id"
       ></PostSummary>
