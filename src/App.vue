@@ -42,7 +42,7 @@ body {
   color: $color-gray-darkest;
   font-family: $font-family-base;
   font-size: 100%;
-  line-height: 1.3;
+  line-height: 1.5;
 }
 
 *, *:before, *:after {

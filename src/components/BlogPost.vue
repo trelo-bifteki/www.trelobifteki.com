@@ -80,22 +80,19 @@ export default {
 <style lang="scss">
 
 @import '~prismjs/themes/prism-okaidia';
-@import "../assets/variables";
+@import "../scss/variables";
+@import "../scss/fluid";
 
 .blog-post {
-  margin: 0 auto;
-  padding: 1.5rem;
-  max-width: 1310px;
+  @include body-container;
+
+  padding: $space-l $body-container-padding;
 
   &__title {
-    font-size: $font-size-xxl;
-    margin: $space 0;
     color: $color-theme-orange;
   }
 
   &__created {
-    font-size: $font-size-xl;
-    margin: $space 0;
     color: $color-theme-gray;
   }
 

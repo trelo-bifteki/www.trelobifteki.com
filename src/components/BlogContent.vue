@@ -19,14 +19,32 @@
   @import "../scss/variables";
 
   .blog-content {
+    margin-bottom: 5rem;
 
     & h2 {
-      font-size: 120%;
-      color: var(--color-theme-red);
-      margin: var(--space-xl) 0;
+      color: $color-theme-red;
     }
+
+    & h3 {
+      color: $color-theme-lila;
+    }
+
     & p {
-      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      margin-bottom: $space-l;
+      list-style-type: disc;
+    }
+
+    li {
+      margin: $space-s $space-l;
+    }
+
+    pre[class*="language-"] {
+      font-family: $font-family-monospace;
+      margin: $space 0;
     }
   }
 </style>

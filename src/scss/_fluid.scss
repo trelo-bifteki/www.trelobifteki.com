@@ -1,5 +1,15 @@
+$body-container-padding: 1.5rem !default;
+$container-width: 80rem !default;
+
 @mixin container {
   margin-left: auto;
   margin-right: auto;
-  max-width: 80rem;
+  max-width: $container-width;
+}
+
+@mixin body-container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $container-width + 2*$body-container-padding;
+  padding: 0 $body-container-padding;
 }
