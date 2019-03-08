@@ -1,5 +1,6 @@
 <script>
 import PostSummary from './PostSummary';
+import SpinningLoader from './SpinningLoader';
 
 export default {
   name: 'BlogView',
@@ -8,6 +9,12 @@ export default {
   },
   components: {
     PostSummary,
+    SpinningLoader,
+  },
+  data() {
+    return {
+      isLoading: false,
+    };
   },
   computed: {
     posts() {
@@ -17,8 +24,12 @@ export default {
       return this.posts.filter(post => post.isVisible);
     }
   },
-  mounted() {
-    this.$store.dispatch('refreshPosts');
+  created() {
+    this.isLoading = true;
+    this.$store.dispatch('refreshPosts')
+      .finally(() => {
+        this.isLoading = false;
+      });
   },
 };
 </script>
@@ -29,7 +40,16 @@ export default {
       <i class="icon-heart"></i>
       Blog
     </h1>
-    <section class="blog-view__container">
+    <div
+      class="blog-view__spinner"
+      v-if="isLoading"
+    >
+      <SpinningLoader />
+    </div>
+    <section
+      class="blog-view__container"
+      v-if="!isLoading"
+    >
       <PostSummary
         class="blog-view__post"
         v-for="(post) in visiblePosts"
@@ -63,6 +83,14 @@ export default {
     max-width: 80rem;
     padding-bottom: 5rem;
     text-decoration: none;
+  }
+
+  &__spinner {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      min-height: 10rem;
+      text-align: center;
   }
 
   &__container {
