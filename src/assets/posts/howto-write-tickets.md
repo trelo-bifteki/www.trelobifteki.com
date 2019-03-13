@@ -70,7 +70,71 @@ The issue can be reproduced as following:
 APP is not working.
 ```
 
+### Add test criteria
+
+Apart from how to reproduce an issue, steps are very important for QA (quality
+assurance). If you are not resolving a bug, you need to provide a way
+how to test this new feature you are implementing.
+
+### Add implementation notes
+
+Before working on a ticket, it is important to discuss with developers
+and write down, __how__ this ticket is going to be implemented.
+
+These notes can be very useful during code review or later, since you provide
+some important insights how this solution works. This area can also be useful
+for the developers themselves, in order to remember what has been discussed.
+
 ### Your manager is part of your team - not your customer
 
 Simple as that! If someone wants to be a part of a team, it is also important
-to support the others where they lack. I am not personally expecting 
+to support the others where they lack.
+
+I agree that each role has responsibilities and tickets . 
+
+
+### Complete example
+
+This is a complete example that I may use as a template when I write tickets:
+
+```markdown
+Description
+-----------
+
+Customers are unable to check currently in their shopping cart, how many items
+in total it contains. Having this information in their cart is valuable, in
+oder to check if they will also rent a car for transporting them or not.
+
+Acceptance criteria:
+--------------------
+
+* Add in shopping cart summary view the total amount of item it contains
+  - label: "Total items" (font-size: 13px, color: blue, line-height: 1.5)
+  - value: (font-size: 13px, color: black, line-height: 1.5)
+
+
+QA test criteria:
+--------------
+Please perform the end-to-end test below: 
+
+* Open shopping application
+* Enter cart summary view page: /app/shopping-cart/
+* Check the value marked in element ID: "shopping-cart-total-items"
+* Text stored in element shall always contain the total items stored in shopping cart
+
+Implementation notes:
+---------------------
+
+## Backend ##
+
+* Extend ShoppingCart model to also include "totalItems" property (long, nonnull)
+* Extend ShoppingCartService to also calculate required field mentioned above
+* Extend OpenAPI documentation
+
+
+## Frontend ##
+
+* Extend ShoppingCartOverview component and add new field
+
+
+```
