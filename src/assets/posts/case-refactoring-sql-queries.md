@@ -2,7 +2,7 @@
 
 An administrating application included an "advanced search" query for finding routes.
 There were around 10 search criteria that could be combined together.
-Also this query was "touching" around 10 tables in the database.
+Also this query was using around 10 tables in the database.
 
 Previous code was looking something like this before:
 
