@@ -14,11 +14,11 @@ a __solution__ but never describes the actual __problem__.
 It is even more dangerous, if a ticket actually suggests only a __technical
 solution__ without describing the actual issue. On top of that, if this ticket
 has been written by a manager or someone with low technical background, it will be
-revised most probably by the developers.
+revised most probably by developers.
 
 It is very important to describe the actual problem inside the ticket, since a
 feature implementation needs to be reasoned. People need to understand the scope
-of this ticket and also get a bigger picture.
+of this ticket and also get the big picture.
                                         
 #### A no go example:
 
@@ -50,7 +50,7 @@ Acceptance criteria
 
 When writing / describing a bug ticket, we need to pay attention to the
 information we provide to support team. It is also __very__ helpful, if we
-write down the steps how this problem was caused.
+write down the steps how this problem can be reproduced.
 
 #### Good example
 
