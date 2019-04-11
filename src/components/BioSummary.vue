@@ -104,21 +104,27 @@ export default {
     }
   }
 
-.slide-enter-active, .slide-leave-active {
-  transition: opacity .5s ease-in-out;
-  opacity: 1;
+.slide-enter-active,
+.slide-leave-active {
+  transition: transform .33s  ease-out;
+  height: auto;
+  transform: scaleY(1);
+  transform-origin: top;
 }
 
-.slide-enter, .slide-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
+.slide-enter,
+.slide-leave-to {
+  transform: scaleY(0);
 }
 
-.rotate-enter-active, .slide-leave-active {
+.rotate-enter-active,
+.rotate-leave-active {
   transition: transform .5s ease;
   transform: rotate(0deg);
 }
 
-.rotate-enter, .rotate-leave-to /* .fade-leave-active below version 2.1.8 */ {
+.rotate-enter,
+.rotate-leave-to {
   transform: rotate(180deg);
 }
 
