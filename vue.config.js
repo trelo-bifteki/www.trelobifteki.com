@@ -10,7 +10,8 @@ const routes =  [
     '/blog',
     '/cv',
     '/blog/case-refactoring-actions-pattern',
-   '/blog/case-refactoring-sql-queries'
+    '/blog/case-refactoring-sql-queries',
+    '/blog/howto-write-tickets',
 ];
 
 const robotsTxtConfig = {
