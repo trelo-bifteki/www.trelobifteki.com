@@ -151,7 +151,7 @@ export default {
 @import '../scss/fluid';
 
 .route-cv {
-  font-size: 1.15rem;
+  font-size: $font-size-ml;
 
   &__heading {
     color: $color-theme-orange;

@@ -86,8 +86,8 @@ export default {
   @import "../assets/variables.scss";
 
   .bio-summary {
-    &  p {
-      margin: $space 0;
+    & p {
+      margin-bottom: $space;
     }
 
     &__more-button {
