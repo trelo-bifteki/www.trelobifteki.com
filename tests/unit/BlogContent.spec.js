@@ -14,6 +14,6 @@ describe('BlogContent', () => {
     const wrapper = createWrapper('Hello');
     expect(
       wrapper.find('.blog-content').text()
-    ).toEqual('Hello');
+    ).toBe('Hello');
   });
 });
