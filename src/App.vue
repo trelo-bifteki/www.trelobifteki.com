@@ -1,5 +1,6 @@
 <script>
 import 'reset-css';
+import CookieNotification from '@/components/CookieNotification'
 import MainFooter from '@/components/MainFooter';
 import MainHeader from '@/components/MainHeader';
 
@@ -10,6 +11,7 @@ export default {
     titleTemplate: '%s | Lampros Papadimitriou trelobifteki',
   },
   components: {
+    CookieNotification,
     MainFooter,
     MainHeader,
   },
