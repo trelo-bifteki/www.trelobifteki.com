@@ -36,38 +36,41 @@ export default {
   </article>
 </template>
 
-<style>
+<style lang="scss">
+
+@import "../assets/variables.scss";
 
 .job {
-  margin-bottom: 3rem;
+  margin-bottom: $space-xl;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &__company {
+    font-size: $font-size-ml;
+    flex-grow: 1;
+    margin-bottom: $space;
+  }
+
+  &__description {
+    margin-bottom: $space;
+  }
+
+  &__time {
+    font-style: italic;
+  }
+
+  &__title {
+    color: $color-theme-red;
+    font-size: $font-size-l;
+    margin-bottom: $space;
+  }
+
+  &__upper-row {
+    display: flex;
+    color: $color-gray;
+  }
 }
 
-.job:last-child {
-  margin-bottom: 0;
-}
-
-.job__company {
-  font-size: 110%;
-  flex-grow: 1;
-}
-
-.job__description {
-  margin: var(--space) 0;
-}
-
-.job__time {
-  font-style: italic;
-}
-
-.job__title {
-  color: var(--color-theme-red);
-  font-size: 120%;
-  margin-bottom: var(--space-s);
-}
-
-.job__upper-row {
-  display: flex;
-
-  color: var(--color-gray);
-}
 </style>
