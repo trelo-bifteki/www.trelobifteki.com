@@ -26,6 +26,7 @@
       accept() {
         this.$ga.enable();
         this.acceptGdpr();
+        this.$ga.page(this.$router);
         this.isVisible = false;
       },
       deny() {
@@ -76,7 +77,7 @@
     font-size: 1rem;
     padding: $space $space-l;
     position: fixed;
-    left: $space;
+    right: $space;
 
     &__actions {
       display: inline-block;
