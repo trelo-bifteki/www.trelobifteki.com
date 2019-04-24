@@ -29,6 +29,7 @@ export default {
     </div>
     <div  class="app__filler"></div>
     <MainFooter />
+    <CookieNotification />
   </div>
 </template>
 

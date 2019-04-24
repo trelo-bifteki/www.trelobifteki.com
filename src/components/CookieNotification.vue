@@ -1,4 +1,7 @@
 <script>
+
+  const IS_GDPR_ACCEPTED = 'trelobifteki.com:isGdprAccepted';
+
   export default {
     name: 'CookieNotification',
     data() {
@@ -7,16 +10,27 @@
         googleAnalytics: null,
       };
     },
-    created() {
-      this.isVisible = true;
+    mounted() {
+      if (localStorage) {
+        const gdpr = localStorage[IS_GDPR_ACCEPTED];
+        this.isVisible = gdpr != "true";
+      }
     },
 
     methods: {
+      acceptGdpr() {
+        if (localStorage) {
+          localStorage[IS_GDPR_ACCEPTED] = true;
+        }
+      },
       accept() {
+        this.$ga.enable();
+        this.acceptGdpr();
         this.isVisible = false;
-        this.$emit('onAccept');
       },
       deny() {
+        this.$ga.disable();
+        this.acceptGdpr();
         this.isVisible = false;
       },
     }
@@ -29,24 +43,27 @@
       v-if="isVisible"
     >
       Hey! This site uses cookies for Google Analytics
-      <button
-        class="cookie-notification__button"
-        @click="accept"
-      >
-        OK! Got it
-      </button>
-      <button 
-        class="cookie-notification__button"
-        @click="deny"
-      >
-        No way!
-      </button>
+      <div class="cookie-notification__actions">
+        <button
+          class="cookie-notification__button"
+          @click="accept"
+        >
+          Got it!
+        </button>
+        <button 
+          class="cookie-notification__button"
+          @click="deny"
+        >
+          No way!
+        </button>
+      </div>
     </div>
   </transition>
 </template>
 
 <style lang="scss">
-  @import "../assets/variables.scss";
+  @import '../scss/breakpoints';
+  @import "../scss/variables";
 
   .cookie-notification {
     background-color: #323232;
@@ -61,6 +78,17 @@
     position: fixed;
     left: $space;
 
+    &__actions {
+      display: inline-block;
+      padding-left: $space;
+
+      @include media-breakpoint-small {
+        display: block;
+        padding-left: 0;
+        margin-top: $space-s;
+      }
+    }
+
     &__button {
       background-color: transparent;
       border: none;
@@ -68,18 +96,28 @@
       cursor: pointer;
       font-size: 100%;
       font-weight: 500;
-      padding-left: $space;
+      padding: 0 $space 0 0;
+    }
+
+    @include media-breakpoint-medium {
+      bottom: 0;
+      border-radius: 0;
+      left: 0;
+      right: 0;
     }
   }
 
   .slide-up-enter-active,
   .slide-up-leave-active {
-    transition: transform .33s  ease-out;
+    opacity: 1;
+    transition: transform .33s  ease-out,
+                opacity .33s ease-out;
     transform: translateY(0);
   }
 
   .slide-up-enter,
   .slide-up-leave-to {
+    opacity: 0;
     transform: translateY(5rem);
   }
 </style>
