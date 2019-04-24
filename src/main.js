@@ -8,12 +8,20 @@ import './scss/index.scss';
 
 Vue.config.productionTip = false
 
-const isGoogleAnalyticsEnabled = () => document && document.cookie.includes('_ga');
+const isProduction = process.env.NODE_ENV === 'production';
+const isGoogleAnalyticsEnabled = document && document.cookie.includes('_ga');
 
 Vue.use(VueAnalytics, {
   id: 'UA-123405147-1',
-  disabled: isGoogleAnalyticsEnabled(),
+  disabled: !isGoogleAnalyticsEnabled,
   router,
+  autoTracking: {
+    exception: true,
+  },
+  debug: {
+    enabled: !isProduction,
+    sendHitTask: isProduction,
+  }
 });
 
 new Vue({
