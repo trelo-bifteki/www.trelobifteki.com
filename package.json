@@ -35,7 +35,7 @@
     "robotstxt-webpack-plugin": "5.0.0",
     "sass-loader": "7.2.0",
     "sitemap-webpack-plugin": "0.6.0",
-    "vue-analytics": "5.16.4",
+    "vue-analytics": "5.17.2",
     "vue-meta": "1.6.0",
     "vue-template-compiler": "2.6.10"
   },
