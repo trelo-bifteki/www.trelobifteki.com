@@ -25,9 +25,9 @@ export default {
   >
     <MainHeader />
     <div class="index__container">
-      <router-view/>
+      <router-view />
     </div>
-    <div  class="app__filler"></div>
+    <div class="app__filler" />
     <MainFooter />
     <CookieNotification />
   </div>

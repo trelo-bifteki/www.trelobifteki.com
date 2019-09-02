@@ -37,25 +37,25 @@ export default {
 <template>
   <div class="blog-view">
     <h1 class="blog-view__headline">
-      <i class="icon-heart"></i>
+      <i class="icon-heart" />
       Blog
     </h1>
     <div
-      class="blog-view__spinner"
       v-if="isLoading"
+      class="blog-view__spinner"
     >
       <SpinningLoader />
     </div>
     <section
-      class="blog-view__container"
       v-if="!isLoading"
+      class="blog-view__container"
     >
       <PostSummary
-        class="blog-view__post"
         v-for="(post) in visiblePosts"
-        v-bind:post="post"
-        v-bind:key="post.id"
-      ></PostSummary>
+        :key="post.id"
+        class="blog-view__post"
+        :post="post"
+      />
     </section>
   </div>
 </template>

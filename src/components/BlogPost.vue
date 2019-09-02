@@ -59,17 +59,21 @@ export default {
 
 <template>
   <div
-    class="blog-post blog-post--loading"
     v-if="isLoading"
+    class="blog-post blog-post--loading"
   >
     <SpinningLoader />
   </div>
   <article
-    class="blog-post"
     v-else
+    class="blog-post"
   >
-    <h1 class="blog-post__title">{{ post.title }}</h1>
-    <h2 class="blog-post__created">{{ formattedDate }}</h2>
+    <h1 class="blog-post__title">
+      {{ post.title }}
+    </h1>
+    <h2 class="blog-post__created">
+      {{ formattedDate }}
+    </h2>
     <BlogContent
       class="blog-post__content"
       :content="content"

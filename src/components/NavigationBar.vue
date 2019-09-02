@@ -8,10 +8,17 @@ export default {
   <nav class="navigation-bar">
     <ul>
       <li>
-      <router-link class="navigation-bar__home" to="/">
-          <img class="logo" src="../assets/trelobifteki-small.png" alt="logo">
+        <router-link
+          class="navigation-bar__home"
+          to="/"
+        >
+          <img
+            class="logo"
+            src="../assets/trelobifteki-small.png"
+            alt="logo"
+          >
         </router-link>
-      <li>
+      </li><li>
         <router-link
           to="/cv"
         >

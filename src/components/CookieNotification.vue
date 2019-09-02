@@ -40,8 +40,8 @@
 <template>
   <transition name="slide-up">
     <div 
-      class="cookie-notification"
       v-if="isVisible"
+      class="cookie-notification"
     >
       Hey! This site uses cookies for Google Analytics
       <div class="cookie-notification__actions">

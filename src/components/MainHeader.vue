@@ -11,7 +11,7 @@ export default {
 <template>
   <header class="main-header">
     <div class="main-header__container">
-      <NavigationBar></NavigationBar>
+      <NavigationBar />
       <div class="main-header__title">
         Lampros Papadimitriou
       </div>

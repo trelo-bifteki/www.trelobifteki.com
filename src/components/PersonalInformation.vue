@@ -20,9 +20,11 @@ export default {
 <template>
   <section class="personal-information">
     <div class="personal-information__avatar">
-      <img src="../assets/avatar-small.jpg"
+      <img
+        src="../assets/avatar-small.jpg"
         alt="avatar"
-        class="personal-information__avatar-image">
+        class="personal-information__avatar-image"
+      >
     </div>
 
     <div class="personal-information__container">
@@ -35,16 +37,16 @@ export default {
       </h2>
 
       <p class="personal-information__location">
-        <i class="icon-map"></i>
+        <i class="icon-map" />
         Munich, Bavaria, Germany
       </p>
       <div class="personal-information__links">
-        <SocialLinks></SocialLinks>
+        <SocialLinks />
         <a
           class="personal-information__cv-pdf"
           href="/static/resume-en-Lampros_Papadimitriou.pdf"
         >
-          <i class="icon-file-pdf"></i>
+          <i class="icon-file-pdf" />
         </a>
       </div>
     </div>

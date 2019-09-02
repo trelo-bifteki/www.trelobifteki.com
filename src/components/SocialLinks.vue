@@ -9,10 +9,10 @@ export default {
     <a
       class="social-links__item"
       href="https://github.com/trelo-bifteki"
-       target="_blank"
-       rel="noopener"
+      target="_blank"
+      rel="noopener"
     >
-      <i class="icon-github"></i>
+      <i class="icon-github" />
     </a>
     <a
       class="social-links__item"
@@ -20,20 +20,20 @@ export default {
       target="_blank"
       rel="noopener"
     >
-      <i class="icon-linkedin-squared"></i>
+      <i class="icon-linkedin-squared" />
     </a>
     <a
       href="https://twitter.com/trelobifteki"
       target="_blank"
       rel="noopener"
-  >
-      <i class="icon-twitter"></i>
+    >
+      <i class="icon-twitter" />
     </a>
     <a href="tel:+491723990194">
-      <i class="icon-whatsapp"></i>
+      <i class="icon-whatsapp" />
     </a>
     <a href="mailto:lambrospd@gmail.com">
-      <i class="icon-mail"></i>
+      <i class="icon-mail" />
     </a>
   </div>
 </template>

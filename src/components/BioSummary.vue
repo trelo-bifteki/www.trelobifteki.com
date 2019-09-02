@@ -58,25 +58,24 @@ export default {
 
     <button
       class="bio-summary__more-button"
-      v-on:click="toggle"
-      >
+      @click="toggle"
+    >
       <span v-if="showMore">
-       less
+        less
       </span>
       <span v-else>
-         more
+        more
       </span>
       <transition name="rotate">
         <i
+          v-if="showMore"
           class="icon-up-open"
-           v-if="showMore"
-        ></i>
+        />
         <i
+          v-else
           class="icon-down-open"
-           v-else
-        ></i>
+        />
       </transition>
-
     </button>
   </article>
 </template>

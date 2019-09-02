@@ -1,12 +1,12 @@
 <script>
 export default {
+  name: 'EducationItem',
   props: {
     item: {
       type: Object,
       required: true,
     },
   },
-  name: 'EducationItem',
 };
 </script>
 

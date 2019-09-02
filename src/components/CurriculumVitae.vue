@@ -31,14 +31,14 @@ export default {
       return this.$store.state.education;
     },
   },
-  methods: {
-  },
   mounted() {
     this.$store.dispatch('refreshEducation');
     this.$store.dispatch('refreshInterests');
     this.$store.dispatch('refreshJobs');
     this.$store.dispatch('refreshPersonalInfo');
     this.$store.dispatch('refreshSkills');
+  },
+  methods: {
   },
 };
 </script>
@@ -49,27 +49,27 @@ export default {
 
     <section class="route-cv__panel">
       <h2 class="route-cv__heading route-cv__panel-label">
-        <i class="route-cv__icon icon-user"></i>
+        <i class="route-cv__icon icon-user" />
         Summary
       </h2>
       <article class="route-cv__panel-container route-cv__panel-container--padding">
-          <BioSummary />
+        <BioSummary />
       </article>
     </section>
 
     <section class="route-cv__panel">
       <h2 class="route-cv__heading route-cv__panel-label">
-        <i class="route-cv__icon icon-heart"></i>
+        <i class="route-cv__icon icon-heart" />
         Interests
       </h2>
 
       <ul class="route-cv__interests route-cv__panel-container">
         <li
-          class="route-cv__interest"
           v-for="(interest, index) in interests"
-          v-bind:key="index"
+          :key="index"
+          class="route-cv__interest"
         >
-          <i class="route-cv__interest-icon icon-heart"></i>
+          <i class="route-cv__interest-icon icon-heart" />
           {{ interest }}
         </li>
       </ul>
@@ -77,56 +77,56 @@ export default {
 
     <section class="route-cv__panel">
       <h2 class="route-cv__heading route-cv__panel-label">
-        <i class="route-cv__icon icon-briefcase"></i>
+        <i class="route-cv__icon icon-briefcase" />
         Work experience
       </h2>
       <div class="route-cv__jobs route-cv__panel-container">
         <JobItem
           v-for="(job, index) in jobs"
-          v-bind:key="index"
-          v-bind:job="job"
-        ></JobItem>
+          :key="index"
+          :job="job"
+        />
       </div>
     </section>
 
     <section class="route-cv__panel">
       <h2 class="route-cv__heading route-cv__panel-label">
-        <i class="route-cv__icon icon-graduation-cap"></i>
+        <i class="route-cv__icon icon-graduation-cap" />
         Education
       </h2>
       <div class="route-cv__panel-container route-cv__panel-container--padding">
         <EducationItem
           v-for="(item, index) in education"
-          v-bind:item="item"
-          v-bind:key="index"
-        ></EducationItem>
+          :key="index"
+          :item="item"
+        />
       </div>
     </section>
 
     <section class="route-cv__panel">
       <h2 class="route-cv__heading route-cv__panel-label">
-        <i class="route-cv__icon icon-star"></i>
+        <i class="route-cv__icon icon-star" />
         Skills
       </h2>
       <div class="route-cv__skills route-cv__panel-container">
         <SkillItem
           v-for="(skill, index) in skills"
-          v-bind:skill="skill"
-          v-bind:key="index"
-        ></SkillItem>
+          :key="index"
+          :skill="skill"
+        />
       </div>
     </section>
 
     <script type="application/ld+json">
-    {
+      {
       "@context": "http://schema.org",
       "@type": "Person",
       "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Munich",
-        "addressRegion": "CO",
-        "postalCode": "81241",
-        "streetAddress": "Gräfstr. 139"
+      "@type": "PostalAddress",
+      "addressLocality": "Munich",
+      "addressRegion": "CO",
+      "postalCode": "81241",
+      "streetAddress": "Gräfstr. 139"
       },
       "email": "mailto:lambrospd@gmail.com",
       "jobTitle": "Full-stack software developer",
@@ -135,12 +135,12 @@ export default {
       "nationality": "Greek",
       "url": "https://www.trelobifteki.com",
       "sameAs" : [
-        "https://github.com/trelo-bifteki",
-        "https://www.linkedin.com/in/lampros-papadimitriou-85379b43",
-        "https://twitter.com/trelobifteki"
+      "https://github.com/trelo-bifteki",
+      "https://www.linkedin.com/in/lampros-papadimitriou-85379b43",
+      "https://twitter.com/trelobifteki"
       ]
-    }
-</script>
+      }
+    </script>
   </div>
 </template>
 
