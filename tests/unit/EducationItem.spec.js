@@ -1,7 +1,7 @@
 /* eslint-env jest */
 
-import EducationItem from '@/components/EducationItem';
 import { shallowMount } from '@vue/test-utils';
+import EducationItem from '@/components/EducationItem';
 
 describe('EducationItem', ()=> {
   const createWrapper = item => shallowMount(EducationItem, {
