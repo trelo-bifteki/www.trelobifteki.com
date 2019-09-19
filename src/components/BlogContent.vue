@@ -10,10 +10,12 @@
   }
 </script>
 <template>
+  <!-- eslint-disable vue/no-v-html -->
   <section
     class="blog-content"
     v-html="content"
   />
+  <!-- eslint-enable vue/no-v-html -->
 </template>
 <style lang="scss">
   @import "../scss/variables";
