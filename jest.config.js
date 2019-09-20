@@ -23,8 +23,18 @@ module.exports = {
     '**/tests/unit/**/*.spec.(js|jsx|ts|tsx)|**/__tests__/*.(js|jsx|ts|tsx)'
   ],
   reporters: [
-    "default",
-    "jest-junit"
+    'default',
+    'jest-junit'
+  ],
+  collectCoverageFrom: [
+    'src/**/*.vue',
+    '!**/node_modules/**',
+    '!test/**',
+    '!dist/**'
+  ],
+  coverageReporters: [
+    'text',
+    'cobertura'
   ],
   testURL: 'http://localhost/',
   watchPlugins: [
