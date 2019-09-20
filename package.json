@@ -1,6 +1,6 @@
 {
   "name": "www.trelobifteki.com",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -21,12 +21,12 @@
     "@vue/cli-plugin-babel": "3.11.0",
     "@vue/cli-plugin-e2e-cypress": "^3.11.0",
     "@vue/cli-plugin-eslint": "3.11.0",
-    "@vue/cli-plugin-unit-jest": "3.11.0",
+    "@vue/cli-plugin-unit-jest": "^3.11.0",
     "@vue/cli-service": "3.11.0",
     "@vue/test-utils": "1.0.0-beta.29",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "10.0.3",
-    "babel-jest": "24.9.0",
+    "babel-jest": "23.6.0",
     "eslint": "6.4.0",
     "eslint-plugin-vue": "5.2.3",
     "fontello-webpack-plugin": "git://github.com/sypl/fontello-webpack-plugin.git#master",
@@ -55,6 +55,14 @@
       "parser": "babel-eslint"
     },
     "overrides": [
+      {
+        "files": [
+          "**/__tests__/*.{j,t}s?(x)"
+        ],
+        "env": {
+          "jest": true
+        }
+      },
       {
         "files": [
           "**/__tests__/*.{j,t}s?(x)"

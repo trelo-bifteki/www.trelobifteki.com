@@ -14,6 +14,12 @@ pipeline {
       }
     }
 
+    stage('Check unit:test') {
+      steps {
+        sh 'npm run test:unit -- --ci'
+      }
+    }
+
     stage('Build') {
       steps {
         sh 'npm run build'
