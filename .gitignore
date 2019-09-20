@@ -71,3 +71,4 @@ dist/
 *.njsproj
 *.sln
 .tern-port
+junit.xml

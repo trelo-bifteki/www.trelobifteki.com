@@ -18,6 +18,11 @@ pipeline {
       steps {
         sh 'npm run test:unit -- --ci'
       }
+      post {
+        always {
+          junit 'junit.xml'
+        }
+      }
     }
 
     stage('Build') {
