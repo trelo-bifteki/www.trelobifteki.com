@@ -39,20 +39,20 @@
 </script>
 <template>
   <transition name="slide-up">
-    <div 
+    <div
       v-if="isVisible"
       class="cookie-notification"
     >
       Hey! This site uses cookies for Google Analytics
       <div class="cookie-notification__actions">
         <button
-          class="cookie-notification__button"
+          class="cookie-notification__button cookie-notification__button--ok"
           @click="accept"
         >
           Got it!
         </button>
-        <button 
-          class="cookie-notification__button"
+        <button
+          class="cookie-notification__button cookie-notification__button--no"
           @click="deny"
         >
           No way!
@@ -71,7 +71,7 @@
     border-radius: 5px;
     bottom: $space;
     box-shadow: 0 3px 5px -1px rgba(0,0,0,.2),
-                0 6px 10px 0 rgba(0,0,0,.14), 
+                0 6px 10px 0 rgba(0,0,0,.14),
                 0 1px 18px 0 rgba(0,0,0,.12);
     color: $color-theme-white;
     font-size: 1rem;
