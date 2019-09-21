@@ -63,12 +63,10 @@ export default {
 <style lang="scss">
 
 @import "../assets/variables.scss";
+@import "../scss/fluid";
 
 .blog-view {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 1310px;
-  padding: 0 15px;
+  @include body-container;
 
   &__headline {
     color: $color-theme-orange;
@@ -80,8 +78,6 @@ export default {
     font-size: 1.3rem;
     margin-left: auto;
     margin-right: auto;
-    max-width: 80rem;
-    padding-bottom: 5rem;
     text-decoration: none;
   }
 

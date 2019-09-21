@@ -104,9 +104,9 @@ export default {
     text-transform: uppercase;
   }
 
-&__links {
-  display: flex;
-}
+  &__links {
+    display: flex;
+  }
 
   &__location {
     color: $color-theme-lila;
