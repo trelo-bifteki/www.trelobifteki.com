@@ -4,7 +4,10 @@ const FontelloPlugin = require('fontello-webpack-plugin');
 const PrerenderSpaPlugin = require('prerender-spa-plugin');
 const fontelloConfig = require('./fontello.config');
 const path = require('path');
-
+const webpack = require('webpack');
+const fs = require('fs');
+const packageJson = fs.readFileSync('./package.json');
+const version = JSON.parse(packageJson).version || -1;
 const routes =  [
    '/',
     '/blog',
@@ -40,6 +43,11 @@ const robotsTxtConfig = {
 let plugins = [
   new FontelloPlugin({
     config: fontelloConfig,
+  }),
+  new webpack.DefinePlugin({
+    'process.env': {
+      PACKAGE_VERSION: '"' + version + '"'
+    }
   }),
 ];
 
