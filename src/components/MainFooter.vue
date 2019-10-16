@@ -1,4 +1,5 @@
 <script>
+  import { mapState } from 'vuex';
   import SocialLinks from './SocialLinks';
 
   export default {
@@ -6,11 +7,9 @@
     components: {
       SocialLinks
     },
-    computed: {
-      packageVersion() {
-        return this.$store.state.packageVersion;
-      },
-    },
+    computed: mapState({
+      packageVersion: state => state.packageVersion,
+    }),
   };
 </script>
 
