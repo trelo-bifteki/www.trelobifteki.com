@@ -13,6 +13,7 @@ export default {
     jobs: [],
     interests: [],
     personalInfo: {},
+    packageVersion: process.env.PACKAGE_VERSION,
   },
   mutations: {
     increment: (state) => {

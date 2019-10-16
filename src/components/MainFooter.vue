@@ -6,6 +6,11 @@
     components: {
       SocialLinks
     },
+    computed: {
+      packageVersion() {
+        return this.$store.state.packageVersion;
+      },
+    },
   };
 </script>
 
@@ -29,6 +34,9 @@
         </div>
       </div>
       <SocialLinks />
+      <div class="main-footer__version">
+        {{ packageVersion }}
+      </div>
     </div>
   </footer>
 </template>
@@ -37,7 +45,7 @@
   @import '../scss/breakpoints';
   @import '../scss/variables';
   @import '../scss/fluid';
-  
+
   .main-footer {
     background: $color-header-background;
     color: $color-header-foreground;
@@ -73,6 +81,10 @@
 
     &__github {
       color: $color-theme-orange;
+    }
+
+    &__version {
+      font-size: $font-size-s;
     }
   }
 </style>
