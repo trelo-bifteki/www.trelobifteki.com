@@ -1,6 +1,7 @@
 import request from 'superagent';
 
 export default {
+  namespaced: true,
   state: {
     selectedPostId: '',
     posts: [],

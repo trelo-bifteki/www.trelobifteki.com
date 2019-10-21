@@ -1,6 +1,9 @@
 <script>
+import { createNamespacedHelpers } from 'vuex';
 import PostSummary from './PostSummary';
 import SpinningLoader from './SpinningLoader';
+
+const { mapState, mapActions } = createNamespacedHelpers('BlogStore');
 
 export default {
   name: 'BlogView',
@@ -17,19 +20,23 @@ export default {
     };
   },
   computed: {
-    posts() {
-      return this.$store.state.BlogStore.posts;
-    },
+    ...mapState({
+      posts: state => state.posts,
+    }),
     visiblePosts() {
       return this.posts.filter(post => post.isVisible);
-    }
+    },
   },
   created() {
     this.isLoading = true;
-    this.$store.dispatch('refreshPosts')
-      .finally(() => {
-        this.isLoading = false;
-      });
+    this.refreshPosts().finally(() => {
+      this.isLoading = false;
+    })
+  },
+  methods: {
+    ...mapActions([
+      'refreshPosts',
+    ]),
   },
 };
 </script>
