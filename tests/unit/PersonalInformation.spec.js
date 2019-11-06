@@ -14,7 +14,15 @@ describe('PersonalInformation', () => {
     localVue,
   });
   const getStore = state => new Vuex.Store({
-    state,
+    modules: {
+      cv: {
+        namespaced: true,
+        state,
+        actions: {
+          refreshPersonalInfo: jest.fn(),
+        }
+      },
+    },
   });
 
 
@@ -22,9 +30,6 @@ describe('PersonalInformation', () => {
     const store = getStore({
       personalInfo: {
         fullname: 'Lampros Papadimitriou',
-      },
-      actions: {
-        refreshPersonalInfo: jest.fn(),
       },
     });
     const wrapper = getWrapper(store);

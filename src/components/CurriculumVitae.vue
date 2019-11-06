@@ -1,9 +1,12 @@
 <script>
+import { createNamespacedHelpers } from 'vuex';
 import BioSummary from './BioSummary';
 import EducationItem from './EducationItem';
 import JobItem from './JobItem';
 import PersonalInformation from './PersonalInformation';
 import SkillItem from './SkillItem';
+
+const { mapState, mapActions } = createNamespacedHelpers('cv');
 
 export default {
   name: 'CurriculumVitae',
@@ -15,30 +18,28 @@ export default {
     SkillItem,
   },
   computed: {
-    personalInfo() {
-      return this.$store.state.personalInfo;
-    },
-    skills() {
-      return this.$store.state.skills;
-    },
-    jobs() {
-      return this.$store.state.jobs;
-    },
-    interests() {
-      return this.$store.state.interests;
-    },
-    education() {
-      return this.$store.state.education;
-    },
+    ...mapState({
+      skills: state => state.skills,
+      jobs: state => state.jobs,
+      interests: state => state.interests,
+      education: state => state.education,
+    }),
   },
   mounted() {
-    this.$store.dispatch('refreshEducation');
-    this.$store.dispatch('refreshInterests');
-    this.$store.dispatch('refreshJobs');
-    this.$store.dispatch('refreshPersonalInfo');
-    this.$store.dispatch('refreshSkills');
+    this.refreshEducation();
+    this.refreshInterests();
+    this.refreshJobs();
+    this.refreshPersonalInfo();
+    this.refreshSkills();
   },
   methods: {
+    ...mapActions([
+      'refreshEducation',
+      'refreshInterests',
+      'refreshJobs',
+      'refreshPersonalInfo',
+      'refreshSkills',
+    ]),
   },
 };
 </script>

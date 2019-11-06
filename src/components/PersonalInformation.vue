@@ -1,5 +1,8 @@
 <script>
+import { createNamespacedHelpers } from 'vuex';
 import SocialLinks from './SocialLinks';
+
+const { mapState, mapActions } = createNamespacedHelpers('cv');
 
 export default {
   name: 'PersonalInformation',
@@ -7,12 +10,17 @@ export default {
     SocialLinks,
   },
   computed: {
-    personalInfo() {
-      return this.$store.state.personalInfo;
-    },
+    ...mapState({
+      personalInfo: state => state.personalInfo,
+    }),
   },
   mounted() {
-    this.$store.dispatch('refreshPersonalInfo');
+    this.refreshPersonalInfo();
+  },
+  methods: {
+    ...mapActions([
+      'refreshPersonalInfo',
+    ]),
   },
 };
 </script>
