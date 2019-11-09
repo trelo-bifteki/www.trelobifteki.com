@@ -20,11 +20,11 @@ describe('BlogView', () => {
   };
   const createStore = state => new Vuex.Store({
     modules: {
-      BlogStore: {
+      blog: {
         namespaced: true,
         state: {
           ...defaultState,
-          state,
+          ...state,
         },
         actions,
       }
@@ -43,7 +43,7 @@ describe('BlogView', () => {
   );
 
   beforeEach(() => {
-    actions.refreshPosts.mockReset();
+    actions.refreshPosts.mockClear();
   });
 
   it('should refresh posts when initialized', () => {

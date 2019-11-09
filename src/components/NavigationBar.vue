@@ -18,13 +18,16 @@ export default {
             alt="logo"
           >
         </router-link>
-      </li><li>
+      </li>
+
+      <li>
         <router-link
           to="/cv"
         >
           CV
         </router-link>
       </li>
+
       <li>
         <router-link
           to="/blog"
@@ -32,7 +35,13 @@ export default {
           Blog
         </router-link>
       </li>
-      <li><a>&nbsp;</a></li>
+      <li>
+        <router-link
+          to="/projects"
+        >
+          Projects
+        </router-link>
+      </li>
       <li><a>&nbsp;</a></li>
       <li><a>&nbsp;</a></li>
     </ul>

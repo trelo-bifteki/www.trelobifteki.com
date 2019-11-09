@@ -3,7 +3,7 @@ import { createNamespacedHelpers } from 'vuex';
 import PostSummary from './PostSummary';
 import SpinningLoader from './SpinningLoader';
 
-const { mapState, mapActions } = createNamespacedHelpers('BlogStore');
+const { mapState, mapActions } = createNamespacedHelpers('blog');
 
 export default {
   name: 'BlogView',
@@ -69,16 +69,18 @@ export default {
 
 <style lang="scss">
 
-@import "../assets/variables.scss";
+@import "../scss/variables.scss";
 @import "../scss/fluid";
+@import "../scss/typography";
 
 .blog-view {
   @include body-container;
 
   &__headline {
+    @include headline;
+
     color: $color-theme-orange;
     font-size: $font-size-xxl;
-    padding: $space-l 0;
   }
 
   &__post {

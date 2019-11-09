@@ -1,8 +1,15 @@
 <script>
+import { createNamespacedHelpers } from 'vuex';
 import BlogContent from './BlogContent';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-java.min.js';
 import SpinningLoader from './SpinningLoader';
+
+const {
+  mapActions,
+  mapMutations,
+  mapState,
+} = createNamespacedHelpers('blog');
 
 export default {
   name: 'BlogPost',
@@ -18,10 +25,12 @@ export default {
     };
   },
   computed: {
+    ...mapState({
+      posts: state => state.posts,
+    }),
     post() {
       const selectedPostId = this.$route.params.id;
-      const posts = this.$store.state.BlogStore.posts;
-      const selectedPosts = posts.filter(post => post.id === selectedPostId);
+      const selectedPosts = this.posts.filter(post => post.id === selectedPostId);
 
       return selectedPosts.length
         ? selectedPosts[0]
@@ -33,12 +42,14 @@ export default {
       return date.toLocaleDateString();
     },
   },
-  created() {
+  async created() {
     const selectedPostId = this.$route.params.id;
     const loader = import(`html-loader!../assets/posts/${selectedPostId}.md`);
-    this.$store.commit('updateSelectedPostId', selectedPostId);
-    this.$store.dispatch('refreshPosts');
+
+    this.updateSelectedPostId(selectedPostId);
+
     this.isLoading = true;
+    await this.refreshPosts();
     loader.then(module => {
       this.content = module.default;
       this.isContentLoaded = true;
@@ -54,6 +65,14 @@ export default {
       this.isContentLoaded = false;
     }
   },
+  methods: {
+    ...mapActions([
+      'refreshPosts'
+    ]),
+    ...mapMutations([
+      'updateSelectedPostId'
+    ]),
+  }
 };
 </script>
 

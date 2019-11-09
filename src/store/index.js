@@ -1,9 +1,9 @@
-import BlogStore from './blog.store';
-import cv from './cv/';
+import cv from './cv';
+import blog from './blog';
 
 export default {
   modules: {
-    BlogStore,
     cv,
+    blog,
   },
 };
