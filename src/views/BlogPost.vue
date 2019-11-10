@@ -1,9 +1,9 @@
 <script>
 import { createNamespacedHelpers } from 'vuex';
-import BlogContent from './BlogContent';
+import BlogContent from '@/components/BlogContent';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-java.min.js';
-import SpinningLoader from './SpinningLoader';
+import SpinningLoader from '@/components/SpinningLoader';
 
 const {
   mapActions,
