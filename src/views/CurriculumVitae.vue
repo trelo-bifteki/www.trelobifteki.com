@@ -1,10 +1,10 @@
 <script>
 import { createNamespacedHelpers } from 'vuex';
-import BioSummary from './BioSummary';
-import EducationItem from './EducationItem';
-import JobItem from './JobItem';
-import PersonalInformation from './PersonalInformation';
-import SkillItem from './SkillItem';
+import BioSummary from '@/components/BioSummary';
+import EducationItem from '@/components/EducationItem';
+import JobItem from '@/components/JobItem';
+import PersonalInformation from '@/components/PersonalInformation';
+import SkillItem from '@/components/SkillItem';
 
 const { mapState, mapActions } = createNamespacedHelpers('cv');
 

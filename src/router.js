@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Meta from 'vue-meta';
-import CurriculumVitae from '@/components/CurriculumVitae';
+import CurriculumVitae from '@/views/CurriculumVitae';
 
 Vue.use(Router);
 Vue.use(Meta);
