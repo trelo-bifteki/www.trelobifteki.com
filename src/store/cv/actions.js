@@ -1,44 +1,48 @@
-import request from 'superagent';
+import axios from 'axios';
 
 export default {
   refreshEducation({ commit }) {
-    return request
+    return axios
       .get('/static/education.json')
-      .end((error, response) => {
-        commit('updateEducation', response.body);
-        return response;
+      .then(({ data }) => {
+        commit('updateEducation', data);
+        return data;
       });
   },
+
   refreshInterests({ commit }) {
-    return request
+    return axios
       .get('/static/interests.json')
-      .end((error, response) => {
-        commit('updateInterests', response.body);
-        return response;
+      .then(({ data }) => {
+        commit('updateInterests', data);
+        return data;
       });
   },
+
   refreshJobs({ commit }) {
-    return request
+    return axios
       .get('/static/jobs.json')
-      .end((err, response) => {
-        commit('updateJobs', response.body);
-        return response;
+      .then(({ data }) => {
+        commit('updateJobs', data);
+        return data;
       });
   },
+
   refreshSkills({ commit }) {
-    return request
+    return axios
       .get('/static/skills.json')
-      .end((error, response) => {
-        commit('updateSkills', response.body);
-        return response;
+      .then(({ data }) => {
+        commit('updateSkills', data);
+        return data;
       });
   },
+
   refreshPersonalInfo({ commit }) {
-    return request
+    return axios
       .get('/static/personal-info.json')
-      .end((error, response) => {
-        commit('updatePersonalInfo', response.body);
-        return response;
+      .then(({ data }) => {
+        commit('updatePersonalInfo', data);
+        return data;
       });
   },
 }
