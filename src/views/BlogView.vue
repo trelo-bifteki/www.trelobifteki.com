@@ -1,7 +1,7 @@
 <script>
 import { createNamespacedHelpers } from 'vuex';
-import PostSummary from './PostSummary';
-import SpinningLoader from './SpinningLoader';
+import PostSummary from '@/components/PostSummary';
+import SpinningLoader from '@/components/SpinningLoader';
 
 const { mapState, mapActions } = createNamespacedHelpers('blog');
 

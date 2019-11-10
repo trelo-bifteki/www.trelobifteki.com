@@ -21,7 +21,7 @@ export default new Router({
     {
       path: '/blog',
       name: 'BlogView',
-      component: () => import(/* webpackChunkName: "blog" */ '@/components/BlogView'),
+      component: () => import(/* webpackChunkName: "blog" */ '@/views/BlogView'),
     },
     {
       path: '/blog/:id',
