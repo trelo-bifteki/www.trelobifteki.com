@@ -1,18 +1,19 @@
-import request from 'superagent';
+import axios from 'axios';
 
 export default {
   refreshPosts({ commit }) {
-    return request
+    return axios
       .get('/static/blog-posts.json')
-      .end((error, response) => {
-        commit('updatePosts', response.body);
+      .then(response => {
+        commit('updatePosts', response.data);
       });
   },
+
   refreshPostContent(context) {
-    return request
+    return axios
       .get(`/static/blog/${context.state.selectedPostId}.html`)
-      .end((error, response) => {
-        context.commit('updatePostContent', response.text);
+      .then(response => {
+        context.commit('updatePostContent', response.data);
       });
   },
 };
