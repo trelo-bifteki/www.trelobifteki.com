@@ -4,40 +4,52 @@
     "label": "Full-stack software developer",
     "image": "",
     "email": "lambrospd@gmail.com",
-    "phone": "(912) 555-4321",
+    "phone": "+49 1723 990194",
     "url": "https://www.trelobifteki.com",
-    "summary": "Software engineer focused on Web &amp; Mobile technologies. Particularly interested
-      in software development, system integration and service delivery.",
+    "summary": "Software engineer focused on Web & Mobile technologies. Particularly interested in software development, system integration and service delivery. Great experience in J2EE and Spring Technologies. Delivering solutions routing and IPTV platforms and implementing solutions for backend infrastructure.",
     "location": {
-      "address": "Gräfstr. 139",
-      "postalCode": "81241",
-      "city": "Munich",
+      "address": "Suitbertusstr. 159",
+      "postalCode": "40223",
+      "city": "Dusseldorf,
       "countryCode": "DE",
-      "region": "Bavaria"
+      "region": "Northrhein-Westphalia"
     },
     "profiles": [
       {
         "network": "Twitter",
         "username": "trelobifteki",
-        "url": ""
+        "url": "https://www.twitter.com/trelobifteki"
       },
       {
-        "network": "SoundCloud",
-        "username": "dandymusicnl",
-        "url": "https://soundcloud.example.com/dandymusicnl"
+        "network": "Github",
+        "username": "trelo-bifteki",
+        "url": "https://github.com/trelo-bifteki"
       }
     ]
   },
   "work": [
     {
-      "name": "Pied Piper",
-      "location": "Palo Alto, CA",
-      "description": "Awesome compression company",
-      "position": "CEO/President",
-      "url": "http://piedpiper.example.com",
-      "startDate": "2013-12-01",
-      "endDate": "2014-12-01",
-      "summary": "Pied Piper is a multi-platform technology based on a proprietary universal compression algorithm that has consistently fielded high Weisman Scores™ that are not merely competitive, but approach the theoretical limit of lossless compression.",
+      "name": "Deutsche Apotheker- und Ärztebank",
+      "location": "Dusseldorf",
+      "description": "Deutsche Apotheker- und Ärztebank is affiliated to the National Association of German Cooperative Banks (BVR). It offers its services primarily to members of medical professions like physicians, dentists, psychotherapists and pharmacists, their relatives, professional associations of medical professions as well as company clients from the health care industry.",
+      "position": "Full-stack software Developer",
+      "url": "https://www.apobank.de",
+      "startDate": "2019-07-01",
+      "summary": "Worked in a new development team for building extensions and web applications on top of an already existing banking solution",
+      "highlights": [
+        "Build an algorithm for artist to detect if their music was violating copy right infringement laws",
+        "Successfully won Techcrunch Disrupt",
+        "Optimized an algorithm that holds the current world record for Weisman Scores"
+      ]
+    }, {
+      "name": "Check24 Vergleichsportal Baufinanzierung GmbH",
+      "location": "Munich",
+      "description": "Check24 is one of the biggest comparison portals in Germany for insurances, finances, enenrgy and telecommunications",
+      "position": "Full-stack software Developer",
+      "url": "https://www.check24.de/baufinanzierung",
+      "startDate": "2016-11-01",
+      "endDate": "2019-07-01",
+      "summary": "Worked in a new development team for building extensions and web applications on top of an already existing banking solution",
       "highlights": [
         "Build an algorithm for artist to detect if their music was violating copy right infringement laws",
         "Successfully won Techcrunch Disrupt",
@@ -134,7 +146,7 @@
     {
       "name": "Miss Direction",
       "description": "A mapping engine that misguides you",
-      "highlights": [ 
+      "highlights": [
         "Won award at AIHacks 2016",
         "Built by all women team of newbie programmers",
         "Using modern technologies such as GoogleMaps, Chrome Extension and Javascript"
@@ -143,9 +155,9 @@
         "GoogleMaps", "Chrome Extension", "Javascript"
       ],
       "startDate": "2016-08-24",
-      "endDate": "2016-08-24", 
+      "endDate": "2016-08-24",
       "url": "missdirection.example.com",
-      "roles": [ 
+      "roles": [
         "Team lead", "Designer"
       ],
       "entity": "Smoogle",
