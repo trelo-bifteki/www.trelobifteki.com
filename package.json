@@ -15,7 +15,7 @@
     "reset-css": "5.0.1",
     "vue": "2.6.10",
     "vue-router": "3.1.3",
-    "vuex": "3.1.1"
+    "vuex": "3.1.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "3.12.1",
