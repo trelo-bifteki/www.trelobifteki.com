@@ -6,4 +6,12 @@ export default {
   basics: state => {
     return state.resume.basics;
   },
+  /**
+   * @param {Object} state
+   * @param {getters} existing getters
+   * @returns {string}
+   */
+  fullName: (state, getters) => {
+    return getters.basics.name;
+  },
 }
