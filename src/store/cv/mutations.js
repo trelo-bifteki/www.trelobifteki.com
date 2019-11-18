@@ -22,8 +22,6 @@ export default {
    * @param {Object} resume
    */
   updateResume: (state, resume) => {
-    state.resume = {
-      ...resume,
-    };
+    state.resume = resume;
   }
 };

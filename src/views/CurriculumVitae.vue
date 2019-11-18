@@ -6,7 +6,11 @@ import JobItem from '@/components/JobItem';
 import PersonalInformation from '@/components/PersonalInformation';
 import SkillItem from '@/components/SkillItem';
 
-const { mapState, mapActions } = createNamespacedHelpers('cv');
+const {
+  mapActions,
+  mapGetters,
+  mapState,
+} = createNamespacedHelpers('cv');
 
 export default {
   name: 'CurriculumVitae',
@@ -23,9 +27,14 @@ export default {
       jobs: state => state.jobs,
       interests: state => state.interests,
       education: state => state.education,
+      resume: state => state.resume,
     }),
+    ...mapGetters([
+      'basics',
+    ]),
   },
-  mounted() {
+  created() {
+    this.refreshResume();
     this.refreshEducation();
     this.refreshInterests();
     this.refreshJobs();
@@ -34,6 +43,7 @@ export default {
   },
   methods: {
     ...mapActions([
+      'refreshResume',
       'refreshEducation',
       'refreshInterests',
       'refreshJobs',
@@ -46,7 +56,12 @@ export default {
 
 <template>
   <div class="route-cv">
-    <PersonalInformation />
+    <PersonalInformation
+      v-if="basics"
+      :name="basics.name"
+      :title="basics.label"
+      company="Deutsche Apotheker- und Ärztebank"
+    />
 
     <section class="route-cv__panel">
       <h2 class="route-cv__heading route-cv__panel-label">

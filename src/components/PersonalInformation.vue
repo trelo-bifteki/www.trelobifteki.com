@@ -1,26 +1,24 @@
 <script>
-import { createNamespacedHelpers } from 'vuex';
 import SocialLinks from './SocialLinks';
-
-const { mapState, mapActions } = createNamespacedHelpers('cv');
 
 export default {
   name: 'PersonalInformation',
   components: {
     SocialLinks,
   },
-  computed: {
-    ...mapState({
-      personalInfo: state => state.personalInfo,
-    }),
-  },
-  mounted() {
-    this.refreshPersonalInfo();
-  },
-  methods: {
-    ...mapActions([
-      'refreshPersonalInfo',
-    ]),
+  props: {
+    name: {
+      type: String,
+      required: true,
+    },
+    title: {
+      type: String,
+      required: true,
+    },
+    company: {
+      type: String,
+      required: true,
+    }
   },
 };
 </script>
@@ -37,11 +35,11 @@ export default {
 
     <div class="personal-information__container">
       <h1 class="personal-information__fullname">
-        {{ personalInfo.fullname }}
+        {{ name }}
       </h1>
 
       <h2 class="personal-information__current-job">
-        {{ personalInfo.title }} @ {{ personalInfo.currentCompany }}
+        {{ title }} @ {{ company }}
       </h2>
 
       <p class="personal-information__location">

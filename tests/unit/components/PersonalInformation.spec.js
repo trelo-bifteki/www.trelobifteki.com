@@ -1,41 +1,22 @@
-import {
-  createLocalVue,
-  shallowMount
-} from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 import PersonalInformation from '@/components/PersonalInformation';
-import Vuex from 'vuex'
 
-const localVue = createLocalVue();
-localVue.use(Vuex);
+const EXAMPLE_NAME = 'Max Mustermann';
 
 describe('PersonalInformation', () => {
-  const getWrapper = store => shallowMount(PersonalInformation, {
-    store,
-    localVue,
+  const getWrapper = propsData => shallowMount(PersonalInformation, {
+    propsData,
   });
-  const getStore = state => new Vuex.Store({
-    modules: {
-      cv: {
-        namespaced: true,
-        state,
-        actions: {
-          refreshPersonalInfo: jest.fn(),
-        }
-      },
-    },
-  });
-
 
   it('renders fullname', () => {
-    const store = getStore({
-      personalInfo: {
-        fullname: 'Lampros Papadimitriou',
-      },
+    const wrapper = getWrapper({
+      name: EXAMPLE_NAME,
+      title: 'Deveoper',
+      company: 'Acme',
     });
-    const wrapper = getWrapper(store);
 
     expect(
       wrapper.find('.personal-information__fullname').text()
-    ).toBe('Lampros Papadimitriou')
+    ).toBe(EXAMPLE_NAME)
   });
 });
