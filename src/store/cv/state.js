@@ -6,5 +6,6 @@ export default {
   jobs: [],
   interests: [],
   personalInfo: {},
+  resume: {},
   packageVersion: process.env.PACKAGE_VERSION,
 };

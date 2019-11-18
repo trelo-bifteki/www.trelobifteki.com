@@ -1,6 +1,10 @@
 import axios from 'axios';
 
 export default {
+  /**
+   * @param {Object} object containing a commit function
+   * @returns {Promise}
+   */
   refreshEducation({ commit }) {
     return axios
       .get('/static/education.json')
@@ -9,7 +13,10 @@ export default {
         return data;
       });
   },
-
+  /**
+   * @param {Object} object containing a commit function
+   * @returns {Promise}
+   */
   refreshInterests({ commit }) {
     return axios
       .get('/static/interests.json')
@@ -18,7 +25,10 @@ export default {
         return data;
       });
   },
-
+  /**
+   * @param {Object} object containing a commit function
+   * @returns {Promise}
+   */
   refreshJobs({ commit }) {
     return axios
       .get('/static/jobs.json')
@@ -27,7 +37,10 @@ export default {
         return data;
       });
   },
-
+  /**
+   * @param {Object} object containing a commit function
+   * @returns {Promise}
+   */
   refreshSkills({ commit }) {
     return axios
       .get('/static/skills.json')
@@ -36,7 +49,10 @@ export default {
         return data;
       });
   },
-
+  /**
+   * @param {Object} object containing a commit function
+   * @returns {Promise}
+   */
   refreshPersonalInfo({ commit }) {
     return axios
       .get('/static/personal-info.json')
@@ -45,4 +61,16 @@ export default {
         return data;
       });
   },
-}
+  /**
+   * @param {Object} object containing a commit function
+   * @returns {Promise}
+   */
+  refreshResume({ commit }) {
+    return axios
+      .get('/static/resume.json')
+      .then(({ data }) => {
+        commit('updateResume', data);
+        return data;
+      });
+  }
+};

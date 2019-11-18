@@ -18,4 +18,16 @@ describe('actions', () => {
 
     expect(commit).toHaveBeenCalledWith('updateInterests', 'test');
   });
+
+
+    it('refreshes resume', async () => {
+      const commit = jest.fn();
+      axios.get.mockResolvedValue({
+        data: {},
+      });
+
+      await actions.refreshResume({ commit });
+
+      expect(commit).toHaveBeenCalledWith('updateResume', {});
+    });
 });

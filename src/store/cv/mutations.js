@@ -17,4 +17,13 @@ export default {
   updatePersonalInfo: (state, personalInfo) => {
     state.personalInfo = personalInfo;
   },
+  /**
+   * @param {Object} state
+   * @param {Object} resume
+   */
+  updateResume: (state, resume) => {
+    state.resume = {
+      ...resume,
+    };
+  }
 };
