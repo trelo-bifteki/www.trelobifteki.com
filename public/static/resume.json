@@ -29,7 +29,7 @@
   },
   "work": [
     {
-      "name": "Deutsche Apotheker- und Ärztebank",
+      "name": "Deutsche Apotheker- und Ärztebank eG",
       "location": "Dusseldorf",
       "description": "Deutsche Apotheker- und Ärztebank is affiliated to the National Association of German Cooperative Banks (BVR). It offers its services primarily to members of medical professions like physicians, dentists, psychotherapists and pharmacists, their relatives, professional associations of medical professions as well as company clients from the health care industry.",
       "position": "Full-stack software Developer",
@@ -37,9 +37,9 @@
       "startDate": "2019-07-01",
       "summary": "Worked in a new development team for building extensions and web applications on top of an already existing banking solution",
       "highlights": [
-        "Build an algorithm for artist to detect if their music was violating copy right infringement laws",
-        "Successfully won Techcrunch Disrupt",
-        "Optimized an algorithm that holds the current world record for Weisman Scores"
+        "Build a team for developing extensions on an already existing banking core platform",
+        "Build pipelines automations for delivering software products",
+        "Develop applications for mortgages and credits in frontend and backend parts"
       ]
     }, {
       "name": "Check24 Vergleichsportal Baufinanzierung GmbH",
@@ -49,12 +49,27 @@
       "url": "https://www.check24.de/baufinanzierung",
       "startDate": "2016-11-01",
       "endDate": "2019-07-01",
-      "summary": "Worked in a new development team for building extensions and web applications on top of an already existing banking solution",
+      "summary": "Worked in development of a mortgage comparison portal i",
       "highlights": [
-        "Build an algorithm for artist to detect if their music was violating copy right infringement laws",
-        "Successfully won Techcrunch Disrupt",
-        "Optimized an algorithm that holds the current world record for Weisman Scores"
+        "Bringing solutions as frontend and backend components for a mortgage comparison portal",
+        "Supported small feature teams using agile approaches",
+        "Developed web applications as Single-Page-Applications (SPA)",
+        "Developed & Designed RESTful web application"
       ]
+    }, {
+      "name": "Tyntec GmbH",
+      "location": "Dortmund",
+      "description": "Tyntec is a worldwide SMS aggregator and provider located in Germany",
+      "url": "https://www.tyntec.com",
+      "startDate": "02-05-2013",
+      "endDate": "31-10-2016",
+      "summary": "",
+      "highlights": [
+        "Bringing solutions as frontend and backend components for routing systems",
+        "Extended an already existing monitoring tool"
+      ]
+    }, {
+
     }
   ],
   "volunteer": [
