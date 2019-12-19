@@ -1,17 +1,27 @@
+import isUndefined from 'lodash/isUndefined';
+
 export default {
   /**
    * @param {Object} state containing resume
    * @returns {Object}
    */
-  basics: state => {
-    return state.resume.basics;
-  },
+  basics: state => state.resume.basics,
   /**
    * @param {Object} state
    * @param {getters} existing getters
    * @returns {string}
    */
-  fullName: (state, getters) => {
-    return getters.basics.name;
-  },
-}
+  fullName: (state, getters) => getters.basics.name,
+
+  /**
+   * @param {Object} state
+   * @returns {Object}
+   */
+  latestWork: state => state.resume.work.find(work => isUndefined(work.endDate)),
+
+  /**
+   * @param {Object} state
+   * @returns {Object}
+   */
+  location: (state, getters) => getters.basics.location,
+};

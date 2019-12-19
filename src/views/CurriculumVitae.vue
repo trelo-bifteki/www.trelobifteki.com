@@ -31,6 +31,8 @@ export default {
     }),
     ...mapGetters([
       'basics',
+      'latestWork',
+      'location',
     ]),
   },
   created() {
@@ -60,7 +62,8 @@ export default {
       v-if="basics"
       :name="basics.name"
       :title="basics.label"
-      company="Deutsche Apotheker- und Ärztebank"
+      :company="latestWork.name"
+      :location="location"
     />
 
     <section class="route-cv__panel">

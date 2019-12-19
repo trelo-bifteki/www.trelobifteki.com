@@ -18,7 +18,11 @@ export default {
     company: {
       type: String,
       required: true,
-    }
+    },
+    location: {
+      type: Object,
+      required: true,
+    },
   },
 };
 </script>
@@ -44,7 +48,7 @@ export default {
 
       <p class="personal-information__location">
         <i class="icon-map" />
-        Munich, Bavaria, Germany
+        {{ location.city }}, {{ location.region }}, {{ location.countryCode }}
       </p>
       <div class="personal-information__links">
         <SocialLinks />
