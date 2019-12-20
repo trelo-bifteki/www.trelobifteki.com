@@ -13,6 +13,8 @@ describe('PersonalInformation', () => {
       name: EXAMPLE_NAME,
       title: 'Deveoper',
       company: 'Acme',
+      location: {},
+      profiles: [],
     });
 
     expect(

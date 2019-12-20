@@ -8,7 +8,7 @@ export default {
   basics: state => state.resume.basics,
   /**
    * @param {Object} state
-   * @param {getters} existing getters
+   * @param {Object} existing getters
    * @returns {string}
    */
   fullName: (state, getters) => getters.basics.name,

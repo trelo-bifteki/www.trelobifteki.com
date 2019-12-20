@@ -15,4 +15,15 @@ describe('blog/getters', () => {
       name: 'test',
     });
   });
+
+  it('resolves fullName', () => {
+    const gettersState = {
+      basics: {
+        name: 'test',
+      },
+    };
+    const fullName = getters.fullName(null, gettersState);
+
+    expect(fullName).toEqual('test');
+  });
 });
