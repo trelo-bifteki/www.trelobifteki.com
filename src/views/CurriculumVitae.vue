@@ -33,6 +33,7 @@ export default {
       'basics',
       'latestWork',
       'location',
+      'profiles',
     ]),
   },
   created() {
@@ -64,6 +65,7 @@ export default {
       :title="basics.label"
       :company="latestWork.name"
       :location="location"
+      :profiles="profiles"
     />
 
     <section class="route-cv__panel">

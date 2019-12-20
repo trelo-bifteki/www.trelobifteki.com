@@ -24,4 +24,10 @@ export default {
    * @returns {Object}
    */
   location: (state, getters) => getters.basics.location,
+
+  /**
+   * @param {Object} state
+   * @returns {Array}
+   */
+  profiles: (state, getters) => getters.basics.profiles,
 };

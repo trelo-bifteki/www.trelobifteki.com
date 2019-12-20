@@ -23,6 +23,10 @@ export default {
       type: Object,
       required: true,
     },
+    profiles: {
+      type: Array,
+      required: true,
+    },
   },
 };
 </script>
@@ -50,14 +54,8 @@ export default {
         <i class="icon-map" />
         {{ location.city }}, {{ location.region }}, {{ location.countryCode }}
       </p>
-      <div class="personal-information__links">
+      <div>
         <SocialLinks />
-        <a
-          class="personal-information__cv-pdf"
-          href="/static/resume-en-Lampros_Papadimitriou.pdf"
-        >
-          <i class="icon-file-pdf" />
-        </a>
       </div>
     </div>
   </section>
@@ -112,10 +110,6 @@ export default {
     font-size: $font-size-ml;
     margin-bottom: $space;
     text-transform: uppercase;
-  }
-
-  &__links {
-    display: flex;
   }
 
   &__location {

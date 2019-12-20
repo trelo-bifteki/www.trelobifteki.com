@@ -14,6 +14,7 @@ export default {
     >
       <i class="icon-github" />
     </a>
+
     <a
       class="social-links__item"
       href="https://www.linkedin.com/in/lampros-papadimitriou-85379b43"
@@ -22,6 +23,7 @@ export default {
     >
       <i class="icon-linkedin-squared" />
     </a>
+
     <a
       href="https://twitter.com/trelobifteki"
       target="_blank"
@@ -29,11 +31,20 @@ export default {
     >
       <i class="icon-twitter" />
     </a>
+
     <a href="tel:+491723990194">
       <i class="icon-whatsapp" />
     </a>
+
     <a href="mailto:lambrospd@gmail.com">
       <i class="icon-mail" />
+    </a>
+
+    <a
+      class="social-links__cv-pdf"
+      href="/static/resume-en-Lampros_Papadimitriou.pdf"
+    >
+      <i class="icon-file-pdf" />
     </a>
   </div>
 </template>
@@ -71,6 +82,10 @@ export default {
       color: $color-rainbow-red;
     }
 
+    &:nth-child(6) {
+      color: $color-rainbow-blue;
+    }
+
     &:first-child:hover {
       color: $color-rainbow-white;
       background-color: $color-rainbow-green;
@@ -90,6 +105,17 @@ export default {
       color:  $color-rainbow-white;
       background-color: $color-rainbow-lila;
     }
+
+    &:nth-child(5):hover {
+      color: $color-rainbow-white;
+      background-color: $color-rainbow-red;
+    }
+
+    &:nth-child(6):hover {
+      color: $color-rainbow-white;
+      background-color: $color-rainbow-blue;
+    }
+
 
   }
 
