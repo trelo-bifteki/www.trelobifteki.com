@@ -6,44 +6,46 @@ export default {
 
 <template>
   <nav class="navigation-bar">
-    <ul>
-      <li>
+    <ul class="navigation-bar__container">
+      <li class="navigation-bar__item">
         <router-link
-          class="navigation-bar__home"
+          class="navigation-bar__link navigation-bar__link--home"
           to="/"
         >
           <img
-            class="logo"
+            class="navigation-bar__logo"
             src="../assets/trelobifteki-small.png"
             alt="logo"
           >
         </router-link>
       </li>
 
-      <li>
+      <li class="navigation-bar__item">
         <router-link
+          class="navigation-bar__link"
           to="/cv"
         >
           CV
         </router-link>
       </li>
 
-      <li>
+      <li class="navigation-bar__item">
         <router-link
+          class="navigation-bar__link"
           to="/blog"
         >
           Blog
         </router-link>
       </li>
-      <li>
+
+      <li class="navigation-bar__item">
         <router-link
+          class="navigation-bar__link"
           to="/projects"
         >
           Projects
         </router-link>
       </li>
-      <li><a>&nbsp;</a></li>
-      <li><a>&nbsp;</a></li>
     </ul>
   </nav>
 </template>
@@ -54,17 +56,23 @@ export default {
 @import "../scss/breakpoints";
 
 .navigation-bar {
-  ul {
+  &__container {
     display: flex;
     flex-direction: row;
+    overflow: hidden;
+
+    @include media-breakpoint-not-medium {
+      overflow: visible;
+    }
   }
 
-  li {
-    display: block;
+  &__item {
+    align-items: center;
+    display: flex;
+    justify-content: center;
     min-width: 5rem;
     text-align: center;
     transition: background 0.2s ease, transform 0.33s ease, min-width 0.33s ease-in-out;
-    transform: skew(-20deg);  /* SKEW */
 
     &:first-child {
       background-color: pink;
@@ -83,56 +91,41 @@ export default {
     }
 
     &:nth-child(5) {
-        background-color: #E52D98;
-      }
+      background-color: #E52D98;
+    }
 
-      &:hover{
-        min-width: 7rem;
-      }
+    &:nth-child(6) {
+      background-color: #BA2766;
+    }
+
+    &:hover{
+      min-width: 7rem;
+    }
+
+    @include media-breakpoint-not-medium {
+      transform: skew(-20deg);  /* SKEW */
+    }
   }
 
-  a {
+  &__link {
     color: $color-black;
     display:block;
     padding: $space;
     text-decoration: none;
     font-size: $font-size-ml;
-    transform: skew(20deg); /* INVERSE SKEW */
+
+    &--home {
+      padding: 0;
+    }
+
+    @include media-breakpoint-not-medium {
+      transform: skew(20deg); /* INVERSE SKEW */
+    }
   }
 
-  img {
+  &__logo {
     max-width: 100%;
-    max-height: 3rem;
-  }
-
-  li:nth-child(6) {
-    background-color: #BA2766;
-  }
-
-  .navigation-bar__home {
-    padding: 0;
-  }
-
-  @include media-breakpoint-medium {
-    li {
-      transform: skew(0deg);
-    }
-
-    a {
-      transform: skew(0deg);
-    }
-
-    img {
-      transform: skewX(0deg);
-    }
-
-    nav {
-      overflow: hidden;
-    }
-  }
-
-  @include media-breakpoint-small {
-    overflow: hidden;
+    height: 3rem;
   }
 }
 </style>
