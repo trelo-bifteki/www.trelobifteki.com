@@ -55,7 +55,7 @@ export default {
         {{ location.city }}, {{ location.region }}, {{ location.countryCode }}
       </p>
       <div>
-        <SocialLinks />
+        <SocialLinks :profiles="profiles" />
       </div>
     </div>
   </section>

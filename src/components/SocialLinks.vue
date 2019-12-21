@@ -1,35 +1,44 @@
 <script>
 export default {
   name: 'SocialLinks',
+  props: {
+    profiles: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
+  },
+  data() {
+    return {
+      networkToImageMap: {
+        Github: `icon-github`,
+        Twitter: `icon-twitter`,
+        Linkedin: `icon-linkedin-squared`,
+      }
+    };
+  },
+  computed: {
+    socialLinks() {
+      return this.profiles.map(profile => ({
+        ...profile,
+        image: this.networkToImageMap[profile.network],
+      }));
+    },
+  },
 };
 </script>
 
 <template>
   <div class="social-links">
     <a
+      v-for="profile in socialLinks"
+      :key="profile.name"
       class="social-links__item"
-      href="https://github.com/trelo-bifteki"
+      :href="profile.url"
       target="_blank"
       rel="noopener"
     >
-      <i class="icon-github" />
-    </a>
-
-    <a
-      class="social-links__item"
-      href="https://www.linkedin.com/in/lampros-papadimitriou-85379b43"
-      target="_blank"
-      rel="noopener"
-    >
-      <i class="icon-linkedin-squared" />
-    </a>
-
-    <a
-      href="https://twitter.com/trelobifteki"
-      target="_blank"
-      rel="noopener"
-    >
-      <i class="icon-twitter" />
+      <i :class="profile.image" />
     </a>
 
     <a href="tel:+491723990194">
@@ -115,8 +124,6 @@ export default {
       color: $color-rainbow-white;
       background-color: $color-rainbow-blue;
     }
-
-
   }
 
   @include media-breakpoint-medium {
