@@ -52,7 +52,9 @@
       "plugin:vue/recommended",
       "eslint:recommended"
     ],
-    "rules": {},
+    "rules": {
+      "indent": ["error", 2]
+    },
     "parserOptions": {
       "parser": "babel-eslint"
     },

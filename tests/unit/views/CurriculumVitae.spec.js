@@ -3,7 +3,7 @@
 import {
   shallowMount,
   createLocalVue,
- } from '@vue/test-utils';
+} from '@vue/test-utils';
 import CurriculumVitae from '@/views/CurriculumVitae';
 import Vuex from 'vuex';
 

@@ -1,16 +1,16 @@
 <script>
-  import { mapState } from 'vuex';
-  import SocialLinks from './SocialLinks';
+import { mapState } from 'vuex';
+import SocialLinks from './SocialLinks';
 
-  export default {
-    name: 'MainFooter',
-    components: {
-      SocialLinks
-    },
-    computed: mapState({
-      packageVersion: state => state.packageVersion,
-    }),
-  };
+export default {
+  name: 'MainFooter',
+  components: {
+    SocialLinks
+  },
+  computed: mapState({
+    packageVersion: state => state.packageVersion,
+  }),
+};
 </script>
 
 <template>
