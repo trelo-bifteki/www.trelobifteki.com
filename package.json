@@ -53,11 +53,11 @@
       "eslint:recommended"
     ],
     "rules": {
-      "indent": [
-        "error",
-        2
-      ],
-      "prefer-arrow-callback": [ "error" ]
+      "indent": ["error", 2],
+      "prefer-arrow-callback": ["error"],
+      "array-bracket-spacing": 1,
+      "object-shorthand": ["error", "always"],
+      "no-var": "error"
     },
     "parserOptions": {
       "parser": "babel-eslint"
