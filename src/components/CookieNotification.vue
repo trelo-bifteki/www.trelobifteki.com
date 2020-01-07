@@ -1,41 +1,41 @@
 <script>
 
-  const IS_GDPR_ACCEPTED = 'trelobifteki.com:isGdprAccepted';
+const IS_GDPR_ACCEPTED = 'trelobifteki.com:isGdprAccepted';
 
-  export default {
-    name: 'CookieNotification',
-    data() {
-      return {
-        isVisible: false,
-        googleAnalytics: null,
-      };
-    },
-    mounted() {
+export default {
+  name: 'CookieNotification',
+  data() {
+    return {
+      isVisible: false,
+      googleAnalytics: null,
+    };
+  },
+  mounted() {
+    if (localStorage) {
+      const gdpr = localStorage[IS_GDPR_ACCEPTED];
+      this.isVisible = gdpr != "true";
+    }
+  },
+
+  methods: {
+    acceptGdpr() {
       if (localStorage) {
-        const gdpr = localStorage[IS_GDPR_ACCEPTED];
-        this.isVisible = gdpr != "true";
+        localStorage[IS_GDPR_ACCEPTED] = true;
       }
     },
-
-    methods: {
-      acceptGdpr() {
-        if (localStorage) {
-          localStorage[IS_GDPR_ACCEPTED] = true;
-        }
-      },
-      accept() {
-        this.$ga.enable();
-        this.acceptGdpr();
-        this.$ga.page(this.$router);
-        this.isVisible = false;
-      },
-      deny() {
-        this.$ga.disable();
-        this.acceptGdpr();
-        this.isVisible = false;
-      },
-    }
-  };
+    accept() {
+      this.$ga.enable();
+      this.acceptGdpr();
+      this.$ga.page(this.$router);
+      this.isVisible = false;
+    },
+    deny() {
+      this.$ga.disable();
+      this.acceptGdpr();
+      this.isVisible = false;
+    },
+  }
+};
 </script>
 <template>
   <transition name="slide-up">

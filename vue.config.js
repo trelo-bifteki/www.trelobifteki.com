@@ -65,6 +65,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 module.exports = {
+  productionSourceMap: false,
   configureWebpack: {
     plugins,
   },

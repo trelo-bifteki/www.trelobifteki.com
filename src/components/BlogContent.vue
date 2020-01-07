@@ -1,13 +1,13 @@
 <script>
-  export default {
-    name: 'BlogContent',
-    props: {
-      content: {
-        type: String,
-        default: '',
-      },
+export default {
+  name: 'BlogContent',
+  props: {
+    content: {
+      type: String,
+      default: '',
     },
-  }
+  },
+}
 </script>
 <template>
   <!-- eslint-disable vue/no-v-html -->

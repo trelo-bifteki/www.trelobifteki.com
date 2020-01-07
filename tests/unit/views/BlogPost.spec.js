@@ -16,17 +16,17 @@ describe('BlogPost', () => {
   };
 
   const defaultState = {
-      selectedPostId: '',
-      posts: [{
-        id: 1,
-        title: 'Demo',
-        created: new Date(0),
-      }, {
-        id: 2,
-        title: 'Wrong'
-      }],
-      post: {},
-      postContent: '',
+    selectedPostId: '',
+    posts: [{
+      id: 1,
+      title: 'Demo',
+      created: new Date(0),
+    }, {
+      id: 2,
+      title: 'Wrong'
+    }],
+    post: {},
+    postContent: '',
   };
 
   const actions = {

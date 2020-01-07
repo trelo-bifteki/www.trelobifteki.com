@@ -13,10 +13,10 @@ describe('BlogView', () => {
     refreshPosts: jest.fn(),
   };
   const defaultState = {
-      selectedPostId: '',
-      posts: [],
-      post: {},
-      postContent: '',
+    selectedPostId: '',
+    posts: [],
+    post: {},
+    postContent: '',
   };
   const createStore = state => new Vuex.Store({
     modules: {
