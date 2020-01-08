@@ -1,3 +1,5 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const WebpackCdnPlugin = require('webpack-cdn-plugin');
 const SitemapPlugin = require('sitemap-webpack-plugin').default;
 const RobotsTxtPlugin = require('robotstxt-webpack-plugin');
 const FontelloPlugin = require('fontello-webpack-plugin');
@@ -41,6 +43,25 @@ const robotsTxtConfig = {
 
 
 let plugins = [
+  new HtmlWebpackPlugin(),
+  new WebpackCdnPlugin({
+    modules: [
+      {
+        name: 'vue',
+        var: 'Vue',
+        path: 'dist/vue.runtime.min.js',
+      }, {
+        name: 'vue-router',
+        var: 'VueRouter',
+        path: 'dist/vue-router.min.js',
+      }, {
+        name: 'vuex',
+        var: 'Vuex',
+        path: 'dist/vuex.min.js'
+      }
+    ],
+    publicPath: '/node_modules',
+  }),
   new FontelloPlugin({
     config: fontelloConfig,
   }),
