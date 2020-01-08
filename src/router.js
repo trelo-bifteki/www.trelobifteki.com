@@ -1,12 +1,17 @@
 import Vue from 'vue';
-import Router from 'vue-router';
-import Meta from 'vue-meta';
+import VueRouter from 'vue-router';
+import VueMeta from 'vue-meta';
 import CurriculumVitae from '@/views/CurriculumVitae';
 
-Vue.use(Router);
-Vue.use(Meta);
+if (!window.VueRouter) {
+  Vue.use(VueRouter);
+}
 
-export default new Router({
+if (!window.Meta) {
+  Vue.use(VueMeta);
+}
+
+export default new VueRouter({
   mode: 'history',
   routes: [
     {
