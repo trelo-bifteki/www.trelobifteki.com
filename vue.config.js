@@ -43,6 +43,7 @@ const robotsTxtConfig = {
 
 
 let plugins = [
+  /*
   new HtmlWebpackPlugin(),
   new WebpackCdnPlugin({
     modules: [
@@ -62,6 +63,7 @@ let plugins = [
     ],
     publicPath: '/node_modules',
   }),
+  */
   new FontelloPlugin({
     config: fontelloConfig,
   }),
