@@ -37,5 +37,11 @@ pipeline {
         sh 'npm run build'
       }
     }
+
+    stage('Check unit:e2e') {
+      steps {
+        sh 'npm run test:unit -- --headless'
+      }
+    }
   }
 }
