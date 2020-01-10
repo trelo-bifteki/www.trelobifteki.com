@@ -83,6 +83,7 @@ describe('BlogPost', () => {
 
     await wrapper.vm.$nextTick(); // one for the refreshPosts
     await wrapper.vm.$nextTick(); // one for loading the module
+    await wrapper.vm.$nextTick(); // one for loading the module
 
     expect(
       wrapper.contains('.blog-post--loading')
