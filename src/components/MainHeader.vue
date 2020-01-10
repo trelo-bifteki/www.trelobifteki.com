@@ -1,6 +1,6 @@
 <script>
 import NavigationBar from './NavigationBar';
-  
+
 export default {
   name: 'MainHeader',
   components: {
@@ -49,6 +49,7 @@ export default {
       padding-left: 1rem;
 
       @include media-breakpoint-small {
+        align-items: baseline;
         flex-direction: column;
       }
 
