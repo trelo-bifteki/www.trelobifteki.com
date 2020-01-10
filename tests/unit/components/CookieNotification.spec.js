@@ -1,5 +1,8 @@
 import CookieNotification from '@/components/CookieNotification';
 import { shallowMount } from '@vue/test-utils';
+import gdprService from '@/services/localStorage';
+
+jest.mock('@/services/localStorage');
 
 describe('CookieNotification', () => {
   const $ga = {
@@ -16,10 +19,11 @@ describe('CookieNotification', () => {
   });
 
   beforeEach(() => {
-    localStorage.removeItem('trelobifteki.com:isGdprAccepted');
+    gdprService.isGdprAccepted.mockClear();
   });
 
   it('hides the cookie notification by default', () => {
+    gdprService.isGdprAccepted.mockReturnValue(true);
     const wrapper = getWrapper();
 
     expect(
@@ -28,20 +32,19 @@ describe('CookieNotification', () => {
   });
 
   it('displays the cookie notification after is mounted', () => {
-    const wrapper = getWrapper({
-      isVisible: true
-    });
+    gdprService.isGdprAccepted.mockReturnValue(false);
+    const wrapper = getWrapper();
 
     expect(
       wrapper.contains('.cookie-notification')
     ).toBe(true);
   });
 
-  it('closes the cookie notification after we click OK button', () => {
-    const wrapper = getWrapper({
-      isVisible: true
-    });
+  it('closes the cookie notification after we click OK button', async () => {
+    gdprService.isGdprAccepted.mockReturnValue(false);
+    const wrapper = getWrapper();
 
+    expect(wrapper.vm.isVisible).toBe(true);
     expect(wrapper.vm.$ga).toBeDefined();
     const button = wrapper.find('.cookie-notification__button--ok');
     button.trigger('click');
@@ -56,9 +59,8 @@ describe('CookieNotification', () => {
   });
 
   it('closes the cookie notification after we click NO WAY button', () => {
-    const wrapper = getWrapper({
-      isVisible: true
-    });
+    gdprService.isGdprAccepted.mockReturnValue(false);
+    const wrapper = getWrapper();
 
     expect(wrapper.vm.$ga).toBeDefined();
     const button = wrapper.find('.cookie-notification__button--no');

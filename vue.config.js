@@ -1,5 +1,4 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const WebpackCdnPlugin = require('webpack-cdn-plugin');
 const SitemapPlugin = require('sitemap-webpack-plugin').default;
 const RobotsTxtPlugin = require('robotstxt-webpack-plugin');
 const FontelloPlugin = require('fontello-webpack-plugin');

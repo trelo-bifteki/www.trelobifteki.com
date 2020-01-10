@@ -1,6 +1,6 @@
 <script>
 
-const IS_GDPR_ACCEPTED = 'trelobifteki.com:isGdprAccepted';
+import gdprService from '@/services/localStorage';
 
 export default {
   name: 'CookieNotification',
@@ -11,27 +11,19 @@ export default {
     };
   },
   mounted() {
-    if (localStorage) {
-      const gdpr = localStorage[IS_GDPR_ACCEPTED];
-      this.isVisible = gdpr != "true";
-    }
+    this.isVisible = !gdprService.isGdprAccepted();
   },
 
   methods: {
-    acceptGdpr() {
-      if (localStorage) {
-        localStorage[IS_GDPR_ACCEPTED] = true;
-      }
-    },
     accept() {
       this.$ga.enable();
-      this.acceptGdpr();
+      gdprService.acceptGdpr();
       this.$ga.page(this.$router);
       this.isVisible = false;
     },
     deny() {
       this.$ga.disable();
-      this.acceptGdpr();
+      gdprService.acceptGdpr();
       this.isVisible = false;
     },
   }
