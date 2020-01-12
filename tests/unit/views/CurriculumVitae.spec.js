@@ -73,7 +73,7 @@ describe('CurriculumVitae', () => {
     const wrapper = createWrapper(store);
 
     expect(
-      wrapper.contains('.route-cv__interest')
+      wrapper.contains('.curriculum-vitae__interest')
     ).toBe(true);
   });
 });
