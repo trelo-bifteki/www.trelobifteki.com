@@ -61,7 +61,7 @@ export default {
     flex-direction: row;
     overflow: hidden;
 
-    @include media-breakpoint-not-medium {
+    @include media-breakpoint-not-small {
       overflow: visible;
     }
   }
@@ -102,7 +102,7 @@ export default {
       min-width: 7rem;
     }
 
-    @include media-breakpoint-not-medium {
+    @include media-breakpoint-not-small {
       transform: skew(-20deg);  /* SKEW */
     }
   }
@@ -118,7 +118,7 @@ export default {
       padding: 0;
     }
 
-    @include media-breakpoint-not-medium {
+    @include media-breakpoint-not-small {
       transform: skew(20deg); /* INVERSE SKEW */
     }
   }

@@ -138,7 +138,7 @@ export default {
     }
   }
 
-  @include media-breakpoint-not-medium {
+  @include media-breakpoint-not-small {
     flex-direction: row;
     text-align: left;
   }

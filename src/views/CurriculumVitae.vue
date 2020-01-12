@@ -58,7 +58,7 @@ export default {
 </script>
 
 <template>
-  <div class="route-cv">
+  <div class="curriculum-vitae">
     <PersonalInformation
       v-if="basics"
       :name="basics.name"
@@ -68,40 +68,40 @@ export default {
       :profiles="profiles"
     />
 
-    <section class="route-cv__panel">
-      <h2 class="route-cv__heading route-cv__panel-label">
-        <i class="route-cv__icon icon-user" />
+    <section class="curriculum-vitae__panel">
+      <h2 class="curriculum-vitae__heading curriculum-vitae__panel-label">
+        <i class="curriculum-vitae__icon icon-user" />
         Summary
       </h2>
-      <article class="route-cv__panel-container route-cv__panel-container--padding">
+      <article class="curriculum-vitae__panel-container curriculum-vitae__panel-container--padding">
         <BioSummary />
       </article>
     </section>
 
-    <section class="route-cv__panel">
-      <h2 class="route-cv__heading route-cv__panel-label">
-        <i class="route-cv__icon icon-heart" />
+    <section class="curriculum-vitae__panel">
+      <h2 class="curriculum-vitae__heading curriculum-vitae__panel-label">
+        <i class="curriculum-vitae__icon icon-heart" />
         Interests
       </h2>
 
-      <ul class="route-cv__interests route-cv__panel-container">
+      <ul class="curriculum-vitae__interests curriculum-vitae__panel-container">
         <li
           v-for="(interest, index) in interests"
           :key="index"
-          class="route-cv__interest"
+          class="curriculum-vitae__interest"
         >
-          <i class="route-cv__interest-icon icon-heart" />
+          <i class="curriculum-vitae__interest-icon icon-heart" />
           {{ interest }}
         </li>
       </ul>
     </section>
 
-    <section class="route-cv__panel">
-      <h2 class="route-cv__heading route-cv__panel-label">
-        <i class="route-cv__icon icon-briefcase" />
+    <section class="curriculum-vitae__panel">
+      <h2 class="curriculum-vitae__heading curriculum-vitae__panel-label">
+        <i class="curriculum-vitae__icon icon-briefcase" />
         Work experience
       </h2>
-      <div class="route-cv__jobs route-cv__panel-container">
+      <div class="curriculum-vitae__jobs curriculum-vitae__panel-container">
         <JobItem
           v-for="(job, index) in jobs"
           :key="index"
@@ -110,12 +110,12 @@ export default {
       </div>
     </section>
 
-    <section class="route-cv__panel">
-      <h2 class="route-cv__heading route-cv__panel-label">
-        <i class="route-cv__icon icon-graduation-cap" />
+    <section class="curriculum-vitae__panel">
+      <h2 class="curriculum-vitae__heading curriculum-vitae__panel-label">
+        <i class="curriculum-vitae__icon icon-graduation-cap" />
         Education
       </h2>
-      <div class="route-cv__panel-container route-cv__panel-container--padding">
+      <div class="curriculum-vitae__panel-container curriculum-vitae__panel-container--padding">
         <EducationItem
           v-for="(item, index) in education"
           :key="index"
@@ -124,12 +124,12 @@ export default {
       </div>
     </section>
 
-    <section class="route-cv__panel">
-      <h2 class="route-cv__heading route-cv__panel-label">
-        <i class="route-cv__icon icon-star" />
+    <section class="curriculum-vitae__panel">
+      <h2 class="curriculum-vitae__heading curriculum-vitae__panel-label">
+        <i class="curriculum-vitae__icon icon-star" />
         Skills
       </h2>
-      <div class="route-cv__skills route-cv__panel-container">
+      <div class="curriculum-vitae__skills curriculum-vitae__panel-container">
         <SkillItem
           v-for="(skill, index) in skills"
           :key="index"
@@ -171,7 +171,7 @@ export default {
 @import '../scss/breakpoints';
 @import '../scss/fluid';
 
-.route-cv {
+.curriculum-vitae {
   font-size: $font-size-ml;
 
   &__heading {
@@ -191,6 +191,10 @@ export default {
     list-style-type: disc;
     margin: $space $space $space 0;
     padding: 0;
+  }
+
+  &__jobs {
+    padding: $space;
   }
 
   &__interest {
@@ -215,43 +219,37 @@ export default {
       border-top: 0;
     }
 
-    &__panel-label {
-      width: auto;
+    @include media-breakpoint-not-small {
+      flex-direction: row;
     }
   }
-}
 
-.route-cv__panel-container {
-  display: block;
-}
+  &__panel-label {
+    width: auto;
 
-.route-cv__panel-container--padding {
-  padding: $space;
-}
-
-.route-cv__skills {
-  padding: $space;
-}
-
-.route-cv__jobs {
-  padding: $space;
-}
-
-.route-cv__summary-paragraph {
-  margin-bottom: $space;
-}
-
-@include media-breakpoint-not-medium {
-  .route-cv__panel {
-    flex-direction: row;
+    @include media-breakpoint-not-small {
+      width: 25%;
+    }
   }
 
-  .route-cv__panel-label {
-    width: 25%;
+  &__panel-container {
+    display: block;
+
+    &--padding {
+      padding: $space;
+    }
+
+    @include media-breakpoint-not-small {
+      width: 75%;
+    }
   }
 
-  .route-cv__panel-container {
-    width: 75%;
+  &__skills {
+    padding: $space;
+  }
+
+  &__summary-paragraph {
+    margin-bottom: $space;
   }
 }
 </style>

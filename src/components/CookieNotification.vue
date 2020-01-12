@@ -34,17 +34,20 @@ export default {
     <div
       v-if="isVisible"
       class="cookie-notification"
+      qa-ref="cookie-notification"
     >
       Hey! This site uses cookies for Google Analytics
       <div class="cookie-notification__actions">
         <button
           class="cookie-notification__button cookie-notification__button--ok"
+          qa-ref="cookie-notification-button-yes"
           @click="accept"
         >
           Got it!
         </button>
         <button
           class="cookie-notification__button cookie-notification__button--no"
+          qa-ref="cookie-notification-button-no"
           @click="deny"
         >
           No way!
