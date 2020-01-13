@@ -30,4 +30,10 @@ export default {
    * @returns {Array}
    */
   profiles: (state, getters) => getters.basics.profiles,
+
+  /**
+   * @param {Object} state
+   * @returns {Array}
+   */
+  work: (state) => state.resume.work,
 };

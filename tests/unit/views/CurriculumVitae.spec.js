@@ -23,6 +23,7 @@ describe('CurriculumVitae', () => {
 
   const getters = {
     basics: jest.fn(),
+    work: jest.fn(),
   };
 
   const createStore = state => new Vuex.Store({
@@ -42,7 +43,12 @@ describe('CurriculumVitae', () => {
     stubs: [
       'PersonalInformation',
       'EducationItem',
+      'JobItem',
     ],
+  });
+
+  beforeEach(() => {
+    getters.work.mockClear();
   });
 
   it('refreshes education', () =>  {
@@ -63,6 +69,18 @@ describe('CurriculumVitae', () => {
     ).toHaveBeenCalled();
   });
 
+  it('shows job item when work is not empty', async () => {
+    getters.work.mockReturnValue([{
+      id: 1,
+    }]);
+    const store = createStore({});
+    const wrapper = createWrapper(store);
+    await wrapper.vm.$nextTick();
+
+    expect(
+      wrapper.contains('[qa-ref=curriculum-vitae-job-item]')
+    ).toBe(true);
+  });
 
   it('shows interests', () => {
     const store = createStore({

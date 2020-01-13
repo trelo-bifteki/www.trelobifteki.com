@@ -13,16 +13,22 @@ export default {
 <template>
   <article class="job">
     <h2 class="job__title">
-      {{ job.title }}
+      {{ job.position }}
     </h2>
 
     <div class="job__upper-row">
       <h3 class="job__company">
-        {{ job.company }}
+        {{ job.name }}
       </h3>
 
       <div class="job__time">
-        {{ job.time }}
+        {{ job.startDate }} -
+        <span v-if="job.endDate">
+          {{ job.endDate }}
+        </span>
+        <span v-else>
+          today
+        </span>
       </div>
     </div>
 
@@ -30,9 +36,16 @@ export default {
       {{ job.description }}
     </p>
 
-    <p class="job__points">
-      {{ job.points }}
-    </p>
+    <ul class="job__highlights">
+      <li
+        v-for="(highlight, index) in job.highlights"
+        :key="index"
+        class="job__highlight"
+      >
+        <i class="job__highlight-icon icon-ok" />
+        {{ highlight }}
+      </li>
+    </ul>
   </article>
 </template>
 
@@ -55,6 +68,10 @@ export default {
 
   &__description {
     margin-bottom: $space;
+  }
+
+  &__highlight-icon {
+    color: $color-rainbow-green;
   }
 
   &__time {

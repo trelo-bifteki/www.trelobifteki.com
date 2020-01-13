@@ -34,6 +34,7 @@ export default {
       'latestWork',
       'location',
       'profiles',
+      'work',
     ]),
   },
   created() {
@@ -103,9 +104,10 @@ export default {
       </h2>
       <div class="curriculum-vitae__jobs curriculum-vitae__panel-container">
         <JobItem
-          v-for="(job, index) in jobs"
+          v-for="(entry, index) in work"
           :key="index"
-          :job="job"
+          :job="entry"
+          qa-ref="curriculum-vitae-job-item"
         />
       </div>
     </section>
@@ -172,14 +174,11 @@ export default {
 @import '../scss/fluid';
 
 .curriculum-vitae {
-  font-size: $font-size-ml;
-
   &__heading {
     color: $color-theme-orange;
     font-size: $font-size-l;
     margin:$space;
   }
-
 
   &__icon {
     color: $color-theme-orange;
@@ -250,6 +249,10 @@ export default {
 
   &__summary-paragraph {
     margin-bottom: $space;
+  }
+
+  @include media-breakpoint-not-small {
+    font-size: $font-size-ml;
   }
 }
 </style>
