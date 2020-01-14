@@ -1,6 +1,11 @@
 <script>
+import localizedDate from '@/filters/localizedDate.filter';
+
 export default {
   name: 'JobItem',
+  filters: {
+    localizedDate,
+  },
   props: {
     job: {
       type: Object,
@@ -22,9 +27,10 @@ export default {
       </h3>
 
       <div class="job__time">
-        {{ job.startDate }} -
+        {{ job.startDate | localizedDate }}
+        &#8212;
         <span v-if="job.endDate">
-          {{ job.endDate }}
+          {{ job.endDate | localizedDate }}
         </span>
         <span v-else>
           today

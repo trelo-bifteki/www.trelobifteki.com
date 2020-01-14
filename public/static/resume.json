@@ -67,15 +67,21 @@
       "position": "Senior Java Developer",
       "description": "Tyntec is a worldwide SMS aggregator and provider located in Germany",
       "url": "https://www.tyntec.com",
-      "startDate": "02-05-2013",
-      "endDate": "31-10-2016",
+      "startDate": "2013-05-02",
+      "endDate": "2016-10-31",
       "summary": "",
       "highlights": [
         "Bringing solutions as frontend and backend components for routing systems",
         "Extended an already existing monitoring tool"
       ]
     }, {
-
+      "name": "Ericsson Hellas",
+      "location": "Athens, GR",
+      "position": "Services Engineer",
+      "startDate": "2008-04-01",
+      "endDate": "2013-04-30",
+      "description": "Ericsson is a worldwide telecommunication provider for mobile infrastructure",
+      "url": "https://www.ericsson.com"
     }
   ],
   "volunteer": [
