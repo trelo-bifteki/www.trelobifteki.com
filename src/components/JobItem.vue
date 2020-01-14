@@ -58,6 +58,7 @@ export default {
 <style lang="scss">
 
 @import "../scss/variables";
+@import "../scss/breakpoints";
 
 .job {
   margin-bottom: $space-xl;
@@ -68,8 +69,12 @@ export default {
 
   &__company {
     font-size: $font-size-ml;
-    flex-grow: 1;
-    margin-bottom: $space;
+    margin-bottom: $space-s;
+
+    @include media-breakpoint-not-small {
+      flex-grow: 1;
+      margin-bottom: 0;
+    }
   }
 
   &__description {
@@ -82,6 +87,10 @@ export default {
 
   &__time {
     font-style: italic;
+
+    @include media-breakpoint-not-small {
+      margin-left: $space-l;
+    }
   }
 
   &__title {
@@ -91,8 +100,13 @@ export default {
   }
 
   &__upper-row {
-    display: flex;
     color: $color-gray;
+    margin-bottom: $space;
+
+    @include media-breakpoint-not-small {
+      align-items: center;
+      display: flex;
+    }
   }
 }
 
