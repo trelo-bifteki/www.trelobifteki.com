@@ -82,8 +82,12 @@
       "position": "Services Engineer",
       "startDate": "2008-04-01",
       "endDate": "2013-04-30",
-      "description": "Ericsson is a worldwide telecommunication provider for mobile infrastructure and media",
-      "url": "https://www.ericsson.com"
+      "description": "Ericsson is a Swedish multinational networking and telecommunications company headquartered in Stockholm. The company offers services, software and infrastructure in information and communications technology",
+      "summary": "Working as external consultant for Ericsson and developing web solutions in IPTV and telecommunication branch",
+      "url": "https://www.ericsson.com",
+      "highlights": [
+        "Implement customizations on an already existing IPTV platform"
+      ]
     }
   ],
   "volunteer": [

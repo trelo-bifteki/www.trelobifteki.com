@@ -42,6 +42,10 @@ export default {
       {{ job.description }}
     </p>
 
+    <p class="job__summary">
+      {{ job.summary }}
+    </p>
+
     <ul class="job__highlights">
       <li
         v-for="(highlight, index) in job.highlights"
@@ -78,6 +82,7 @@ export default {
   }
 
   &__description {
+    font-style: italic;
     margin-bottom: $space;
   }
 
@@ -87,6 +92,10 @@ export default {
 
   &__highlight-icon {
     color: $color-rainbow-green;
+  }
+
+  &__summary {
+    padding-bottom: $space;
   }
 
   &__time {
@@ -100,7 +109,7 @@ export default {
   &__title {
     color: $color-theme-red;
     font-size: $font-size-l;
-    margin-bottom: $space;
+    margin-bottom: $space-l;
   }
 
   &__upper-row {
