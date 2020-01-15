@@ -81,6 +81,10 @@ export default {
     margin-bottom: $space;
   }
 
+  &__highlight {
+    display: flex;
+  }
+
   &__highlight-icon {
     color: $color-rainbow-green;
   }

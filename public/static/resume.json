@@ -54,12 +54,12 @@
       "url": "https://www.check24.de/baufinanzierung",
       "startDate": "2016-11-01",
       "endDate": "2019-07-01",
-      "summary": "Worked in development of a mortgage comparison portal i",
+      "summary": "Worked in small feature teams as feature team lead and developer in frontend and backend area.",
       "highlights": [
-        "Bringing solutions as frontend and backend components for a mortgage comparison portal",
         "Supported small feature teams using agile approaches",
-        "Developed web applications as Single-Page-Applications (SPA)",
-        "Developed & Designed RESTful web application"
+        "Developed Single-Page-Applications (SPA) using AngularJS / VueJS",
+        "Developed backend Java applications using Java 8 and Spring Boot",
+        "Working experience on the following technologies: Java, Javascript, Sass, bower, gulp, Spring framework, gradle, AngularJS, ElasticSearch"
       ]
     }, {
       "name": "Tyntec GmbH",
@@ -69,10 +69,12 @@
       "url": "https://www.tyntec.com",
       "startDate": "2013-05-02",
       "endDate": "2016-10-31",
-      "summary": "",
+      "summary": "Bringing solutions as frontend and backend components for routing systems",
       "highlights": [
-        "Bringing solutions as frontend and backend components for routing systems",
-        "Extended an already existing monitoring tool"
+        "Extended an already existing administration tool",
+        "Refactor applications using clean code principals",
+        "Extended an already existing monitoring tool using diragrams and graphs",
+        "Developed web applications using JSF, Primefaces, AngularJS"
       ]
     }, {
       "name": "Ericsson Hellas",
@@ -80,7 +82,7 @@
       "position": "Services Engineer",
       "startDate": "2008-04-01",
       "endDate": "2013-04-30",
-      "description": "Ericsson is a worldwide telecommunication provider for mobile infrastructure",
+      "description": "Ericsson is a worldwide telecommunication provider for mobile infrastructure and media",
       "url": "https://www.ericsson.com"
     }
   ],
