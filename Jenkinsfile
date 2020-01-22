@@ -38,12 +38,10 @@ pipeline {
       }
     }
 
-    /*
     stage('Check unit:e2e') {
       steps {
         sh 'npm run test:e2e -- --headless'
       }
     }
-    */
   }
 }
