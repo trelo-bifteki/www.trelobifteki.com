@@ -38,7 +38,10 @@ export default {
       </div>
     </div>
 
-    <p class="job__description">
+    <p
+      v-if="job.description"
+      class="job__description"
+    >
       {{ job.description }}
     </p>
 
