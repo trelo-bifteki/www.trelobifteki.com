@@ -15,8 +15,6 @@ describe('CurriculumVitae', () => {
   const actions = {
     refreshResume: jest.fn(),
     refreshEducation: jest.fn(),
-    refreshInterests: jest.fn(),
-    refreshJobs: jest.fn(),
     refreshPersonalInfo: jest.fn(),
     refreshSkills: jest.fn(),
   };
@@ -24,6 +22,7 @@ describe('CurriculumVitae', () => {
   const getters = {
     basics: jest.fn(),
     work: jest.fn(),
+    interests: jest.fn(),
   };
 
   const createStore = state => new Vuex.Store({
@@ -49,6 +48,7 @@ describe('CurriculumVitae', () => {
 
   beforeEach(() => {
     getters.work.mockClear();
+    getters.interests.mockClear();
   });
 
   it('refreshes education', () =>  {
@@ -57,15 +57,6 @@ describe('CurriculumVitae', () => {
 
     expect(
       actions.refreshEducation
-    ).toHaveBeenCalled();
-  });
-
-  it('refreshes interests', () =>  {
-    const store = createStore({});
-    createWrapper(store);
-
-    expect(
-      actions.refreshInterests
     ).toHaveBeenCalled();
   });
 
@@ -83,11 +74,10 @@ describe('CurriculumVitae', () => {
   });
 
   it('shows interests', () => {
-    const store = createStore({
-      interests: [
-        'one',
-      ]
-    });
+    getters.interests.mockReturnValue([{
+      name: "test",
+    }]);
+    const store = createStore();
     const wrapper = createWrapper(store);
 
     expect(

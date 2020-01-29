@@ -25,12 +25,12 @@ export default {
     ...mapState({
       skills: state => state.skills,
       jobs: state => state.jobs,
-      interests: state => state.interests,
       education: state => state.education,
       resume: state => state.resume,
     }),
     ...mapGetters([
       'basics',
+      'interests',
       'latestWork',
       'location',
       'profiles',
@@ -40,8 +40,6 @@ export default {
   created() {
     this.refreshResume();
     this.refreshEducation();
-    this.refreshInterests();
-    this.refreshJobs();
     this.refreshPersonalInfo();
     this.refreshSkills();
   },
@@ -49,8 +47,6 @@ export default {
     ...mapActions([
       'refreshResume',
       'refreshEducation',
-      'refreshInterests',
-      'refreshJobs',
       'refreshPersonalInfo',
       'refreshSkills',
     ]),
@@ -87,12 +83,13 @@ export default {
 
       <ul class="curriculum-vitae__interests curriculum-vitae__panel-container">
         <li
-          v-for="(interest, index) in interests"
-          :key="index"
+          v-for="interest in interests"
+          :key="interest.name"
           class="curriculum-vitae__interest"
+          qa-ref="curriculum-vitae-interest-item"
         >
           <i class="curriculum-vitae__interest-icon icon-heart" />
-          {{ interest }}
+          {{ interest.name }}
         </li>
       </ul>
     </section>

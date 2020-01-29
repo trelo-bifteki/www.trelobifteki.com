@@ -36,4 +36,10 @@ export default {
    * @returns {Array}
    */
   work: (state) => state.resume.work,
+
+  /**
+   * @param {Object} state
+   * @returns {Array}
+   */
+  interests: (state) => state.resume.interests,
 };

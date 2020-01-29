@@ -10,6 +10,7 @@ export default {
       <li class="navigation-bar__item">
         <router-link
           class="navigation-bar__link navigation-bar__link--home"
+          qa-ref="navigation-menu-goto-home"
           to="/"
         >
           <img
@@ -23,6 +24,7 @@ export default {
       <li class="navigation-bar__item">
         <router-link
           class="navigation-bar__link"
+          qa-ref="navigation-menu-goto-cv"
           to="/cv"
         >
           CV
@@ -32,6 +34,7 @@ export default {
       <li class="navigation-bar__item">
         <router-link
           class="navigation-bar__link"
+          qa-ref="navigation-menu-goto-blog"
           to="/blog"
         >
           Blog
@@ -41,6 +44,7 @@ export default {
       <li class="navigation-bar__item">
         <router-link
           class="navigation-bar__link"
+          qa-ref="navigation-menu-goto-projects"
           to="/projects"
         >
           Projects
