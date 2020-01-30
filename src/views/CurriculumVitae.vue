@@ -68,7 +68,8 @@ export default {
         <i class="curriculum-vitae__icon icon-user" />
         Summary
       </h2>
-      <article class="curriculum-vitae__panel-container curriculum-vitae__panel-container--padding">
+
+      <article class="curriculum-vitae__panel-container">
         <BioSummary />
       </article>
     </section>
@@ -112,7 +113,7 @@ export default {
         <i class="curriculum-vitae__icon icon-graduation-cap" />
         Education
       </h2>
-      <div class="curriculum-vitae__panel-container curriculum-vitae__panel-container--padding">
+      <div class="curriculum-vitae__panel-container">
         <EducationItem
           v-for="(educationItem, index) in education"
           :key="index"
@@ -172,7 +173,7 @@ export default {
   &__heading {
     color: $color-theme-orange;
     font-size: $font-size-l;
-    margin:$space;
+    margin: $space 0;
   }
 
   &__icon {
@@ -183,17 +184,23 @@ export default {
   &__interests {
     flex-grow: 1;
     list-style-type: disc;
-    margin: $space $space $space 0;
-    padding: 0;
   }
 
   &__jobs {
-    padding: $space;
+    margin-bottom: $space;
+
+    @include media-breakpoint-not-small {
+      margin-bottom: 0;
+    }
   }
 
   &__interest {
     list-style-type: none;
-    padding: $space;
+    padding: $space 0;
+
+    &:first-child {
+      padding-top: 0;
+    }
   }
 
   &__interest-icon {
@@ -229,17 +236,14 @@ export default {
   &__panel-container {
     display: block;
 
-    &--padding {
-      padding: $space;
-    }
-
     @include media-breakpoint-not-small {
+      padding: $space 0;
       width: 75%;
     }
   }
 
   &__skills {
-    padding: $space;
+    padding-bottom: $space;
   }
 
   &__summary-paragraph {

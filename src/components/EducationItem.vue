@@ -43,7 +43,8 @@ export default {
 
 <style lang="scss">
 
-@import "../assets/variables.scss";
+@import "../scss/variables.scss";
+@import "../scss/breakpoints.scss";
 
 .education {
   margin-top: $space-xxl;
@@ -51,14 +52,22 @@ export default {
   &__row {
     color: $color-gray;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin-bottom: $space;
+
+    @include media-breakpoint-not-small {
+      flex-direction: row;
+    }
   }
 
   &__subtitle {
     flex-grow: 1;
     font-size: $font-size-ml;
-    margin-bottom: 0;
+    margin-bottom: $space-s;
+
+    @include media-breakpoint-not-small {
+      margin-bottom: 0;
+    }
   }
 
   &__timeline {
