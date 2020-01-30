@@ -6,6 +6,13 @@ export default {
    * @returns {Object}
    */
   basics: state => state.resume.basics,
+
+  /**
+   * @param {Object} state containing resume
+   * @returns {Array}
+   */
+  education: state => state.resume.education,
+
   /**
    * @param {Object} state
    * @param {Object} existing getters

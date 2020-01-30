@@ -1,6 +1,11 @@
 <script>
+import localizedDate from '@/filters/localizedDate.filter';
+
 export default {
   name: 'EducationItem',
+  filters: {
+    localizedDate,
+  },
   props: {
     item: {
       type: Object,
@@ -13,18 +18,25 @@ export default {
 <template>
   <article class="education">
     <h2 class="education__title">
-      {{ item.title }}
+      {{ item.institution }}
     </h2>
     <div class="education__row">
       <h3 class="education__subtitle">
-        {{ item.subtitle }}
+        {{ item.area }}
       </h3>
+
       <div class="education__timeline">
-        {{ item.time }}
+        <span qa-ref="education-item-start">
+          {{ item.startDate | localizedDate }}
+        </span>
+        &#8212;
+        <span qa-ref="education-item-end">
+          {{ item.endDate | localizedDate }}
+        </span>
       </div>
     </div>
     <p class="education__description">
-      {{ item.description }}
+      {{ item.studyType }}
     </p>
   </article>
 </template>
