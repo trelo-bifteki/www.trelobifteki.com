@@ -44,7 +44,7 @@ export default {
   },
   async created() {
     const selectedPostId = this.$route.params.id;
-    const loader = import(`html-loader!../assets/posts/${selectedPostId}.md`);
+    const loader = import(/* webpackChunkName: "post" */`html-loader!../assets/posts/${selectedPostId}.md`);
 
     this.updateSelectedPostId(selectedPostId);
 
