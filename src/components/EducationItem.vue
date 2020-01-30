@@ -58,6 +58,7 @@ export default {
   &__subtitle {
     flex-grow: 1;
     font-size: $font-size-ml;
+    margin-bottom: 0;
   }
 
   &__timeline {

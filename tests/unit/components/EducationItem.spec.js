@@ -50,6 +50,15 @@ describe('EducationItem', ()=> {
     ).toBe('start');
   });
 
+  it('renders education end time', () => {
+    localizedDate.mockReturnValue('end');
+    const wrapper = createWrapper(defaultItem);
+
+    expect(
+      wrapper.find('[qa-ref=education-item-end]').text()
+    ).toBe('end');
+  });
+
   it('renders education item description', () => {
     const wrapper = createWrapper(defaultItem)
 
