@@ -40,7 +40,7 @@ pipeline {
 
     stage('Check unit:e2e') {
       steps {
-        sh 'npm run test:e2e -- --headless --ci-build-id $BUILD_NUMBER'
+        sh 'npm run test:e2e -- --headless --url https://www.trelobifteki.com --config video=false'
       }
     }
   }
