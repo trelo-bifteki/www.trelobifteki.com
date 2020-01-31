@@ -8,18 +8,6 @@ describe('actions', () => {
     axios.get.mockClear();
   });
 
-  it('refreshes interests', async () => {
-    const commit = jest.fn();
-    axios.get.mockResolvedValue({
-      data: 'test'
-    });
-
-    await actions.refreshInterests({ commit });
-
-    expect(commit).toHaveBeenCalledWith('updateInterests', 'test');
-  });
-
-
   it('refreshes resume', async () => {
     const commit = jest.fn();
     axios.get.mockResolvedValue({

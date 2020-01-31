@@ -32,7 +32,10 @@ export default {
     </p>
 
     <transition name="slide">
-      <div v-if="showMore">
+      <div
+        v-if="showMore"
+        qa-ref="bio-summary-more"
+      >
         <p>
           Great experience UNIX scripting, database development and Java technologies. Good
           experience in RDBMS and UNIX administration and open-source technologies
@@ -58,6 +61,7 @@ export default {
 
     <button
       class="bio-summary__more-button"
+      qa-ref="bio-summary-more-button"
       @click="toggle"
     >
       <span v-if="showMore">

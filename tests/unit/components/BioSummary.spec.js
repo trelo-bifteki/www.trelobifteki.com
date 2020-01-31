@@ -21,4 +21,15 @@ describe('BioSummary', () => {
       wrapper.find('.bio-summary').text()
     ).not.toContain('CHECK24');
   });
+
+  it('displays further info after clicking more', async () => {
+    const wrapper = createWrapper();
+    const button = wrapper.find('[qa-ref=bio-summary-more-button]');
+    button.trigger('click');
+    await wrapper.vm.$nextTick();
+
+    expect(
+      wrapper.find('.bio-summary').text()
+    ).toContain('CHECK24');
+  });
 });

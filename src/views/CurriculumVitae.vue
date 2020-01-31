@@ -39,13 +39,11 @@ export default {
   },
   created() {
     this.refreshResume();
-    this.refreshPersonalInfo();
     this.refreshSkills();
   },
   methods: {
     ...mapActions([
       'refreshResume',
-      'refreshPersonalInfo',
       'refreshSkills',
     ]),
   },
@@ -80,7 +78,10 @@ export default {
         Interests
       </h2>
 
-      <ul class="curriculum-vitae__interests curriculum-vitae__panel-container">
+      <ul
+        class="curriculum-vitae__interests curriculum-vitae__panel-container"
+        qa-ref="curriculum-vitae-interests"
+      >
         <li
           v-for="interest in interests"
           :key="interest.name"
@@ -205,7 +206,7 @@ export default {
 
   &__interest-icon {
     color: $color-theme-red;
-    margin-right: $space-s;
+    margin: 0 $space-s 0 .2rem;
   }
 
   &__panel {
