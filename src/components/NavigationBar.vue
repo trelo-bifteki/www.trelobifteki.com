@@ -114,9 +114,9 @@ export default {
   &__link {
     color: $color-black;
     display: block;
+    font-size: $font-size-ml;
     padding: $space;
     text-decoration: none;
-    font-size: $font-size-ml;
 
     &--home {
       padding: 0;
@@ -128,8 +128,8 @@ export default {
   }
 
   &__logo {
-    max-width: 100%;
     height: 3rem;
+    max-width: 100%;
   }
 }
 </style>

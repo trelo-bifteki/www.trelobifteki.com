@@ -39,17 +39,17 @@ export default {
   margin: $space 0;
 
   &__label {
-    min-width: 20rem;
     margin-right: $space;
+    min-width: 20rem;
   }
 
   &__progress {
     background-color: $color-theme-white;
     border-radius: .25rem;
-    font-size: .75rem;
-    height: 1rem;
     display: flex;
     flex-grow: 1;
+    font-size: .75rem;
+    height: 1rem;
     overflow: hidden;
   }
 

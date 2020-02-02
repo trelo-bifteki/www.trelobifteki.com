@@ -95,10 +95,10 @@ export default {
 
   &__more-button {
     background-color: transparent;
-    border-top: 1px solid $color-theme-gray-light;
-    border-left: none;
     border-bottom: none;
+    border-left: none;
     border-right: none;
+    border-top: 1px solid $color-theme-gray-light;
     color: $color-girl-party-pink;
     cursor: pointer;
     font-size: 1rem;
@@ -109,10 +109,10 @@ export default {
 
 .slide-enter-active,
 .slide-leave-active {
-  transition: transform .33s  ease-out;
   height: auto;
   transform: scaleY(1);
   transform-origin: top;
+  transition: transform .33s  ease-out;
 }
 
 .slide-enter,
@@ -122,8 +122,8 @@ export default {
 
 .rotate-enter-active,
 .rotate-leave-active {
-  transition: transform .5s ease;
   transform: rotate(0deg);
+  transition: transform .5s ease;
 }
 
 .rotate-enter,

@@ -36,8 +36,8 @@ export default {
     }
 
     ul {
-      margin-bottom: $space-l;
       list-style-type: disc;
+      margin-bottom: $space-l;
     }
 
     li {

@@ -79,14 +79,14 @@ export default {
     margin-bottom: $space;
     margin-left: auto;
     margin-right: auto;
-    width: 10rem;
     text-align: center;
+    width: 10rem;
   }
 
   &__avatar-image {
     border: 2px solid transparent;
-    box-shadow: 2px 4px 12px 0px rgba(0, 0, 0, .5);
     border-radius: 200px;
+    box-shadow: 2px 4px 12px 0px rgba(0, 0, 0, .5);
     max-width: 100%;
 
     &:hover {
@@ -155,8 +155,8 @@ export default {
 
     &__container {
       max-width: 70rem;
-      padding-top: 0;
       padding-left: $space-xl;
+      padding-top: 0;
     }
   }
 }

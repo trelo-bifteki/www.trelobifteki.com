@@ -80,8 +80,8 @@ export default {
 
       @include media-breakpoint-small {
         display: block;
-        padding-left: 0;
         margin-top: $space-s;
+        padding-left: 0;
       }
     }
 
@@ -96,8 +96,8 @@ export default {
     }
 
     @include media-breakpoint-medium {
-      bottom: 0;
       border-radius: 0;
+      bottom: 0;
       left: 0;
       right: 0;
     }
@@ -106,9 +106,9 @@ export default {
   .slide-up-enter-active,
   .slide-up-leave-active {
     opacity: 1;
+    transform: translateY(0);
     transition: transform .33s ease-out,
       opacity .33s ease-out;
-    transform: translateY(0);
   }
 
   .slide-up-enter,

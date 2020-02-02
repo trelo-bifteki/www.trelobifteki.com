@@ -1,8 +1,10 @@
 {
   "extends": [
     "stylelint-config-recommended-scss",
-    "stylelint-order",
     "stylelint-scss",
+  ],
+  "plugins": [
+    "stylelint-order",
   ],
   "rules": {
     "at-rule-semicolon-newline-after": "always",
@@ -28,6 +30,7 @@
     "scss/at-extend-no-missing-placeholder": true,
     "scss/no-duplicate-mixins": true,
     "scss/selector-no-redundant-nesting-selector": true,
-    "selector-list-comma-newline-after": "always"
+    "selector-list-comma-newline-after": "always",
+    "order/properties-alphabetical-order": true
   },
 }

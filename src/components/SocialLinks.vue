@@ -96,33 +96,33 @@ export default {
     }
 
     &:first-child:hover {
-      color: $color-rainbow-white;
       background-color: $color-rainbow-green;
+      color: $color-rainbow-white;
     }
 
     &:nth-child(2):hover {
-      color: $color-rainbow-white;
       background-color: $color-rainbow-yellow;
+      color: $color-rainbow-white;
     }
 
     &:nth-child(3):hover {
-      color: $color-rainbow-white;
       background-color: $color-rainbow-orange;
+      color: $color-rainbow-white;
     }
 
     &:nth-child(4):hover {
-      color: $color-rainbow-white;
       background-color: $color-rainbow-lila;
+      color: $color-rainbow-white;
     }
 
     &:nth-child(5):hover {
-      color: $color-rainbow-white;
       background-color: $color-rainbow-red;
+      color: $color-rainbow-white;
     }
 
     &:nth-child(6):hover {
-      color: $color-rainbow-white;
       background-color: $color-rainbow-blue;
+      color: $color-rainbow-white;
     }
   }
 
