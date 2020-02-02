@@ -1,3 +1,15 @@
 {
-  "extends": "stylelint-config-recommended-scss"
+  "extends": [
+    "stylelint-config-recommended-scss",
+    "stylelint-order"
+  ],
+  "rules": {
+    "block-no-empty": true,
+    "color-no-invalid-hex": true,
+    "block-closing-brace-newline-before": "always",
+    "block-opening-brace-newline-after": "always",
+    "custom-property-empty-line-before": "always",
+    "declaration-no-important": true,
+    "max-empty-lines": 2,
+  },
 }
