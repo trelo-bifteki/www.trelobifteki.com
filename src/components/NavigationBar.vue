@@ -83,7 +83,7 @@ export default {
     }
 
     &:nth-child(2) {
-      background-color:  #459E42;
+      background-color: #459E42;
     }
 
     &:nth-child(3) {
@@ -91,7 +91,7 @@ export default {
     }
 
     &:nth-child(4) {
-      background-color:  #F7C931;
+      background-color: #F7C931;
     }
 
     &:nth-child(5) {
@@ -113,7 +113,7 @@ export default {
 
   &__link {
     color: $color-black;
-    display:block;
+    display: block;
     padding: $space;
     text-decoration: none;
     font-size: $font-size-ml;

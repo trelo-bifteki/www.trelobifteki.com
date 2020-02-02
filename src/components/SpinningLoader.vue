@@ -4,8 +4,8 @@
 <style lang="scss">
   .spinning-loader {
     $spinning-loader-border-width: .8rem;
-    $spinning-loader-color-gray: #f8f9fa;
-    $spining-loader-color-blue: #007bff;
+    $spinning-loader-color-gray: #F8F9FA;
+    $spining-loader-color-blue: #007BFF;
 
     animation: spinning-loader .75s linear infinite;
     border: $spinning-loader-border-width solid $spinning-loader-color-gray;

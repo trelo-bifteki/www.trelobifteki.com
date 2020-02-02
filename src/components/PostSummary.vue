@@ -69,11 +69,11 @@ export default {
     }
 
     &:nth-child(even) {
-      background-color: #f6f4f7;
+      background-color: #F6F4F7;
     }
 
     &:nth-child(odd) {
-      background-color: #fcfafd;
+      background-color: #FCFAFD;
     }
 
     &:hover {

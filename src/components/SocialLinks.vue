@@ -101,17 +101,17 @@ export default {
     }
 
     &:nth-child(2):hover {
-      color:  $color-rainbow-white;
+      color: $color-rainbow-white;
       background-color: $color-rainbow-yellow;
     }
 
     &:nth-child(3):hover {
-      color:  $color-rainbow-white;
+      color: $color-rainbow-white;
       background-color: $color-rainbow-orange;
     }
 
     &:nth-child(4):hover {
-      color:  $color-rainbow-white;
+      color: $color-rainbow-white;
       background-color: $color-rainbow-lila;
     }
 
