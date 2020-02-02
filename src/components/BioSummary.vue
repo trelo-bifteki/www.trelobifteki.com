@@ -86,26 +86,26 @@ export default {
 
 <style lang="scss">
 
-  @import "../assets/variables.scss";
+@import "../assets/variables.scss";
 
-  .bio-summary {
-    & p {
-      margin-bottom: $space;
-    }
-
-    &__more-button {
-      background-color: transparent;
-      border-top: 1px solid $color-theme-gray-light;
-      border-left: none;
-      border-bottom: none;
-      border-right: none;
-      color: $color-girl-party-pink;
-      cursor: pointer;
-      font-size: 1rem;
-      padding: $space;
-      width: 100%;
-    }
+.bio-summary {
+  & p {
+    margin-bottom: $space;
   }
+
+  &__more-button {
+    background-color: transparent;
+    border-top: 1px solid $color-theme-gray-light;
+    border-left: none;
+    border-bottom: none;
+    border-right: none;
+    color: $color-girl-party-pink;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: $space;
+    width: 100%;
+  }
+}
 
 .slide-enter-active,
 .slide-leave-active {

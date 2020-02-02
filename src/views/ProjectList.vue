@@ -21,16 +21,16 @@
   @import "../scss/typography";
 
   .project-list{
-      @include body-container;
+    @include body-container;
 
-      &__headline {
-        @include headline;
-        color: $color-rainbow-red;
-        font-size: $font-size-xxl;
-      }
+    &__headline {
+      @include headline;
+      color: $color-rainbow-red;
+      font-size: $font-size-xxl;
+    }
 
-      &__subheader {
-        @include paragraph;
-      }
+    &__subheader {
+      @include paragraph;
+    }
   }
 </style>

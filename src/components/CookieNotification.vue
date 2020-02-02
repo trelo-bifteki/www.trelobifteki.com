@@ -65,9 +65,10 @@ export default {
     background-color: #323232;
     border-radius: 5px;
     bottom: $space;
-    box-shadow: 0 3px 5px -1px rgba(0,0,0,.2),
-                0 6px 10px 0 rgba(0,0,0,.14),
-                0 1px 18px 0 rgba(0,0,0,.12);
+    box-shadow:
+      0 3px 5px -1px rgba(0,0,0,.2),
+      0 6px 10px 0 rgba(0,0,0,.14),
+      0 1px 18px 0 rgba(0,0,0,.12);
     color: $color-theme-white;
     font-size: 1rem;
     padding: $space $space-l;
@@ -106,8 +107,9 @@ export default {
   .slide-up-enter-active,
   .slide-up-leave-active {
     opacity: 1;
-    transition: transform .33s  ease-out,
-                opacity .33s ease-out;
+    transition:
+      transform .33s ease-out,
+      opacity .33s ease-out;
     transform: translateY(0);
   }
 

@@ -51,7 +51,7 @@ export default {
     width: 50%;
 
     @include media-breakpoint-medium {
-        width: 100%;
+      width: 100%;
     }
 
     &__title {

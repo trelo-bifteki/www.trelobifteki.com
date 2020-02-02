@@ -59,8 +59,8 @@ export default {
     }
 
     &__logo {
-     margin-left: $space;
-     height: $space-xxl;
+      margin-left: $space;
+      height: $space-xxl;
 
       @include media-breakpoint-small {
         display: none;

@@ -91,11 +91,11 @@ export default {
   }
 
   &__spinner {
-      align-items: center;
-      display: flex;
-      flex-direction: column;
-      min-height: 10rem;
-      text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 10rem;
+    text-align: center;
   }
 
   &__container {

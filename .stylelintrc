@@ -10,6 +10,7 @@
     "block-opening-brace-newline-after": "always",
     "custom-property-empty-line-before": "always",
     "declaration-no-important": true,
+    "indentation": 2,
     "max-empty-lines": 2,
   },
 }

@@ -5,18 +5,18 @@ $breakpoint-xl: 1200px !default; // desktop
 
 @mixin media-breakpoint-small {
   @media only screen and (max-width: $breakpoint-small) {
-      @content;
+    @content;
   }
 }
 
 @mixin media-breakpoint-medium {
   @media only screen and (max-width: $breakpoint-medium) {
-      @content;
+    @content;
   }
 }
 
 @mixin media-breakpoint-not-small {
   @media only screen and (min-width: $breakpoint-medium) {
-      @content;
+    @content;
   }
 }
