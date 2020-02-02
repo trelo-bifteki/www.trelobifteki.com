@@ -34,9 +34,6 @@ export default {
 </template>
 
 <style lang="scss">
-
-@import 'assets/common';
-@import 'assets/button';
 @import 'scss/variables';
 
 html,
