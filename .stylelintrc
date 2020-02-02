@@ -14,6 +14,7 @@
     "declaration-block-semicolon-newline-after": "always",
     "declaration-colon-space-after": "always",
     "declaration-no-important": true,
+    "function-comma-space-after": "always",
     "indentation": 2,
     "max-empty-lines": 2,
     "scss/at-extend-no-missing-placeholder": true,
