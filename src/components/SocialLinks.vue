@@ -64,7 +64,7 @@ export default {
 @import '../scss/breakpoints';
 
 .social-links {
-  & > a {
+  > a {
     border-radius: 50%;
     font-size: 110%;
     margin-right: $space;

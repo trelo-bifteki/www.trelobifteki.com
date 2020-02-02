@@ -23,15 +23,15 @@ export default {
   .blog-content {
     margin-bottom: 5rem;
 
-    & h2 {
+    h2 {
       color: $color-theme-red;
     }
 
-    & h3 {
+    h3 {
       color: $color-theme-lila;
     }
 
-    & p {
+    p {
       margin-bottom: 1rem;
     }
 

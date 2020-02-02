@@ -89,7 +89,7 @@ export default {
 @import "../assets/variables.scss";
 
 .bio-summary {
-  & p {
+  p {
     margin-bottom: $space;
   }
 
