@@ -42,11 +42,17 @@ export default {
    * @param {Object} state
    * @returns {Array}
    */
-  work: (state) => state.resume.work,
+  work: state => state.resume.work,
 
   /**
    * @param {Object} state
    * @returns {Array}
    */
-  interests: (state) => state.resume.interests,
+  interests: state => state.resume.interests,
+
+  /**
+   * @param {Object} state
+   * @returns {Array}
+   */
+  skills: state => state.resume.skills,
 };

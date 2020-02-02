@@ -85,7 +85,7 @@ export default {
 
   &__avatar-image {
     border: 2px solid transparent;
-    box-shadow: 2px 4px 12px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 2px 4px 12px 0px rgba(0, 0, 0, .5);
     border-radius: 200px;
     max-width: 100%;
 

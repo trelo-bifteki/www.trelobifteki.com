@@ -69,7 +69,7 @@ export default {
     font-size: 110%;
     margin-right: $space;
     text-decoration: none;
-    transition: background-color 0.33s ease-in-out;
+    transition: background-color .33s ease-in-out;
 
     &:first-child {
       color: $color-rainbow-green;

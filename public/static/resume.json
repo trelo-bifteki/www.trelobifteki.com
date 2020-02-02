@@ -143,21 +143,30 @@
   ],
   "skills": [
     {
-      "name": "Web Development",
+      "name": "Frontend Development",
       "level": "Master",
       "keywords": [
-        "HTML",
-        "CSS",
-        "Javascript"
+        "HTML5",
+        "CSS3",
+        "Typescript",
+        "Javascript",
+        "VueJs",
+        "AngularJs"
       ]
     },
     {
-      "name": "Compression",
+      "name": "Backend Development",
       "level": "Master",
       "keywords": [
-        "Mpeg",
-        "MP4",
-        "GIF"
+        "Java",
+        "Spring boot / framework"
+      ]
+    }, {
+      "name": "Persistence",
+      "level": "Master",
+      "keywords": [
+        "Postgresql",
+        "Oracle"
       ]
     }
   ],
@@ -186,31 +195,5 @@
     }
   ],
   "references": [],
-  "projects": [
-    {
-      "name": "Miss Direction",
-      "description": "A mapping engine that misguides you",
-      "highlights": [
-        "Won award at AIHacks 2016",
-        "Built by all women team of newbie programmers",
-        "Using modern technologies such as GoogleMaps, Chrome Extension and Javascript"
-      ],
-      "keywords": [
-        "GoogleMaps", "Chrome Extension", "Javascript"
-      ],
-      "startDate": "2016-08-24",
-      "endDate": "2016-08-24",
-      "url": "missdirection.example.com",
-      "roles": [
-        "Team lead", "Designer"
-      ],
-      "entity": "Smoogle",
-      "type": "application"
-    }
-  ],
-  "meta": {
-    "canonical": "https://raw.githubusercontent.com/jsonresume/resume-schema/master/resume.json",
-    "version": "v1.0.0",
-    "lastModified": "2017-12-24T15:53:00"
-  }
+  "projects": []
 }
