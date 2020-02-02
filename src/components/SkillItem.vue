@@ -30,7 +30,7 @@ export default {
 
 <style lang="scss">
 
-@import "../assets/variables.scss";
+@import "../scss/variables";
 @import "../scss/breakpoints";
 
 .skill {

@@ -86,7 +86,7 @@ export default {
 
 <style lang="scss">
 
-@import "../assets/variables.scss";
+@import "../scss/variables";
 
 .bio-summary {
   p {

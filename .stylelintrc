@@ -7,6 +7,8 @@
   "rules": {
     "block-no-empty": true,
     "color-no-invalid-hex": true,
+    "color-named": "always-where-possible",
+    "comment-whitespace-inside": "always",
     "block-closing-brace-newline-before": "always",
     "block-opening-brace-newline-after": "always",
     "color-hex-case": "upper",

@@ -5,7 +5,7 @@ $border-color-light: #F0F4F7;
 $color-orange: #CF8A05;
 $color-gray: #555;
 $color-black: #333;
-$color-white: #FFF;
+$color-white: white;
 $color-gray-darkest: #222;
 
 $color-header-foreground: #F1F3FA;
@@ -44,7 +44,7 @@ $font-family-base:            $font-family-sans-serif !default;
 $color-theme-white: #F8F8F7;
 $color-theme-orange: #E69D50;
 $color-theme-gray: #99A2A2;
-$color-theme-gray-light: #DCDCDC;
+$color-theme-gray-light: gainsboro;
 $color-theme-red: #AF4C55;
 $color-theme-lila: #3C4666;
 $color-theme-lila-accent: #9C27B0;
@@ -60,6 +60,7 @@ $color-rainbow-yellow: #F7C931;
 $color-rainbow-white: #FAFAFD;
 $color-rainbow-lila: #E52D98;
 $color-rainbow-red:  #BA2766;
+$color-rainbow-blue: #1F98C6;
 $color-background-blue: #1F98C6;
 
 $code-font-size: 87.5% !default;
