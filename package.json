@@ -52,52 +52,6 @@
     "vue-template-compiler": "2.6.11",
     "webpack-cdn-plugin": "3.2.0"
   },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/recommended",
-      "eslint:recommended"
-    ],
-    "rules": {
-      "indent": [
-        "error",
-        2
-      ],
-      "prefer-arrow-callback": [
-        "error"
-      ],
-      "array-bracket-spacing": 1,
-      "object-shorthand": [
-        "error",
-        "always"
-      ],
-      "no-var": "error"
-    },
-    "parserOptions": {
-      "parser": "babel-eslint"
-    },
-    "overrides": [
-      {
-        "files": [
-          "**/__tests__/*.{j,t}s?(x)"
-        ],
-        "env": {
-          "jest": true
-        }
-      },
-      {
-        "files": [
-          "**/__tests__/*.{j,t}s?(x)"
-        ],
-        "env": {
-          "jest": true
-        }
-      }
-    ]
-  },
   "husky": {
     "hooks": {
       "pre-commit": "npm run lint"
