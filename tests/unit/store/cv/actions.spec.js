@@ -10,9 +10,7 @@ describe('actions', () => {
 
   it('refreshes resume', async () => {
     const commit = jest.fn();
-    axios.get.mockResolvedValue({
-      data: {},
-    });
+    axios.get.mockResolvedValue({ data: {}, });
 
     await actions.refreshResume({ commit });
 

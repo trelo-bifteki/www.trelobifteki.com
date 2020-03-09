@@ -9,9 +9,7 @@ const localVue = createLocalVue();
 localVue.use(Vuex);
 
 describe('BlogView', () => {
-  const actions = {
-    refreshPosts: jest.fn(),
-  };
+  const actions = { refreshPosts: jest.fn(), };
   const defaultState = {
     post: {},
     postContent: '',

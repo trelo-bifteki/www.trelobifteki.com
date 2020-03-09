@@ -9,11 +9,7 @@ const localVue = createLocalVue();
 localVue.use(Vuex);
 
 describe('BlogPost', () => {
-  const $route = {
-    params: {
-      id: 1
-    }
-  };
+  const $route = { params: { id: 1 } };
 
   const defaultState = {
     selectedPostId: '',
@@ -29,13 +25,9 @@ describe('BlogPost', () => {
     postContent: '',
   };
 
-  const actions = {
-    refreshPosts: jest.fn(),
-  };
+  const actions = { refreshPosts: jest.fn(), };
 
-  const mutations = {
-    updateSelectedPostId: jest.fn(),
-  };
+  const mutations = { updateSelectedPostId: jest.fn(), };
 
   const createStore = state => new Vuex.Store({
     modules: {
@@ -58,9 +50,7 @@ describe('BlogPost', () => {
 
   const getWrapper = store => shallowMount(BlogPost, {
     localVue,
-    mocks: {
-      $route,
-    },
+    mocks: { $route, },
     store,
     stubs: [
       'SpinningLoader',

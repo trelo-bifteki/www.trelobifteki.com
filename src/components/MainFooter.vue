@@ -4,12 +4,8 @@ import SocialLinks from './SocialLinks';
 
 export default {
   name: 'MainFooter',
-  components: {
-    SocialLinks
-  },
-  computed: mapState({
-    packageVersion: state => state.packageVersion,
-  }),
+  components: { SocialLinks },
+  computed: mapState({ packageVersion: state => state.packageVersion, }),
 };
 </script>
 

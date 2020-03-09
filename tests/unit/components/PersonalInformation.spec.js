@@ -4,9 +4,7 @@ import PersonalInformation from '@/components/PersonalInformation';
 const EXAMPLE_NAME = 'Max Mustermann';
 
 describe('PersonalInformation', () => {
-  const getWrapper = propsData => shallowMount(PersonalInformation, {
-    propsData,
-  });
+  const getWrapper = propsData => shallowMount(PersonalInformation, { propsData, });
 
   it('renders fullname', () => {
     const wrapper = getWrapper({

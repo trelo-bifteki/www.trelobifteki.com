@@ -14,15 +14,11 @@ describe('MainFooter', () => {
     localVue,
   });
 
-  const getStore = state => new Vuex.Store({
-    state,
-  });
+  const getStore = state => new Vuex.Store({ state, });
 
   it('renders a non empty package version', () => {
     const packageVersion = '1.1.0';
-    const store = getStore({
-      packageVersion,
-    })
+    const store = getStore({ packageVersion, })
     const wrapper = createWrapper(store);
 
     expect(

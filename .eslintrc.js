@@ -22,6 +22,18 @@ module.exports = {
     ],
     "no-var": "error",
     "no-trailing-spaces": "error",
+    "linebreak-style": [ "error", "unix" ],
+    "eol-last": [ "error", "always" ],
+    "object-curly-newline": [
+      "error",
+      {
+        "multiline": true,
+      },
+    ],
+    "object-curly-spacing": [
+      "error",
+      "always",
+    ],
 /*
     "sort-keys": [
       "error",

@@ -53,9 +53,7 @@ describe('CurriculumVitae', () => {
   });
 
   it('shows job item when work is not empty', async () => {
-    getters.work.mockReturnValue([{
-      id: 1,
-    }]);
+    getters.work.mockReturnValue([{ id: 1, }]);
     const store = createStore({});
     const wrapper = createWrapper(store);
     await wrapper.vm.$nextTick();
@@ -66,9 +64,7 @@ describe('CurriculumVitae', () => {
   });
 
   it('shows education item when education is not empty', async () => {
-    getters.education.mockReturnValue([{
-      id: 1,
-    }]);
+    getters.education.mockReturnValue([{ id: 1, }]);
     const store = createStore({});
     const wrapper = createWrapper(store);
 
@@ -78,9 +74,7 @@ describe('CurriculumVitae', () => {
   });
 
   it('shows interests', () => {
-    getters.interests.mockReturnValue([{
-      name: "test",
-    }]);
+    getters.interests.mockReturnValue([{ name: "test", }]);
     const store = createStore();
     const wrapper = createWrapper(store);
 

@@ -19,9 +19,7 @@ describe('actions', () => {
 
   it('refreshes post content', async () => {
     const content = {
-      state: {
-        selectedPostId: 1,
-      },
+      state: { selectedPostId: 1, },
       commit: jest.fn(),
     };
     axios.get.mockResolvedValue({});

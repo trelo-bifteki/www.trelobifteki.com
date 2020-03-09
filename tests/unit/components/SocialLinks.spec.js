@@ -2,11 +2,7 @@ import { shallowMount } from '@vue/test-utils';
 import SocialLinks from '@/components/SocialLinks';
 
 describe('SocialLinks', () => {
-  const getWrapper = profiles => shallowMount(SocialLinks, {
-    propsData: {
-      profiles,
-    }
-  });
+  const getWrapper = profiles => shallowMount(SocialLinks, { propsData: { profiles, } });
 
   it.each([
     ['Github', '.icon-github'],

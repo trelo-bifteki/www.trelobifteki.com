@@ -12,9 +12,7 @@ describe('CookieNotification', () => {
   };
 
   const getWrapper = (propsData = {}) => shallowMount(CookieNotification, {
-    mocks: {
-      $ga
-    },
+    mocks: { $ga },
     propsData,
   });
 

@@ -25,9 +25,7 @@ export default {
     };
   },
   computed: {
-    ...mapState({
-      posts: state => state.posts,
-    }),
+    ...mapState({ posts: state => state.posts, }),
     post() {
       const selectedPostId = this.$route.params.id;
       const selectedPosts = this.posts.filter(post => post.id === selectedPostId);
