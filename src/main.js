@@ -15,7 +15,9 @@ Vue.use(VueAnalytics, {
   id: 'UA-123405147-1',
   disabled: !isGoogleAnalyticsEnabled,
   router,
-  autoTracking: { exception: true, },
+  autoTracking: {
+    exception: true,
+  },
   debug: {
     enabled: !isProduction,
     sendHitTask: isProduction,

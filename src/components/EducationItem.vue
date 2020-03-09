@@ -3,7 +3,9 @@ import localizedDate from '@/filters/localizedDate.filter';
 
 export default {
   name: 'EducationItem',
-  filters: { localizedDate, },
+  filters: {
+    localizedDate,
+  },
   props: {
     item: {
       type: Object,

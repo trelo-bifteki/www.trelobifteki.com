@@ -1,5 +1,7 @@
 <script>
-import { createNamespacedHelpers } from 'vuex';
+import {
+  createNamespacedHelpers
+} from 'vuex';
 import BlogContent from '@/components/BlogContent';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-java.min.js';
@@ -25,14 +27,17 @@ export default {
     };
   },
   computed: {
-    ...mapState({ posts: state => state.posts, }),
+    ...mapState({
+      posts: state => state.posts,
+    }),
     post() {
       const selectedPostId = this.$route.params.id;
       const selectedPosts = this.posts.filter(post => post.id === selectedPostId);
 
       return selectedPosts.length
         ? selectedPosts[0]
-        : {};
+        : {
+        };
     },
     formattedDate() {
       const date = new Date(this.post.created * 1000);

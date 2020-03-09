@@ -2,7 +2,9 @@
 export default {
   name: 'BioSummary',
   data() {
-    return { showMore: false, };
+    return {
+      showMore: false,
+    };
   },
   methods: {
     toggle() {

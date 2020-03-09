@@ -1,5 +1,7 @@
 <script>
-import { createNamespacedHelpers } from 'vuex';
+import {
+  createNamespacedHelpers
+} from 'vuex';
 import BioSummary from '@/components/BioSummary';
 import EducationItem from '@/components/EducationItem';
 import JobItem from '@/components/JobItem';

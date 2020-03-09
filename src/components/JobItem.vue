@@ -3,7 +3,9 @@ import localizedDate from '@/filters/localizedDate.filter';
 
 export default {
   name: 'JobItem',
-  filters: { localizedDate, },
+  filters: {
+    localizedDate,
+  },
   props: {
     job: {
       type: Object,

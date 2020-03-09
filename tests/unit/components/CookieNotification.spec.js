@@ -1,5 +1,7 @@
 import CookieNotification from '@/components/CookieNotification';
-import { shallowMount } from '@vue/test-utils';
+import {
+  shallowMount
+} from '@vue/test-utils';
 import gdprService from '@/services/localStorage';
 
 jest.mock('@/services/localStorage');
@@ -11,8 +13,11 @@ describe('CookieNotification', () => {
     disable: jest.fn(),
   };
 
-  const getWrapper = (propsData = {}) => shallowMount(CookieNotification, {
-    mocks: { $ga },
+  const getWrapper = (propsData = {
+  }) => shallowMount(CookieNotification, {
+    mocks: {
+      $ga
+    },
     propsData,
   });
 

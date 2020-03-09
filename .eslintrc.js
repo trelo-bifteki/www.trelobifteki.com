@@ -26,13 +26,18 @@ module.exports = {
     "eol-last": [ "error", "always" ],
     "object-curly-newline": [
       "error",
-      {
-        "multiline": true,
-      },
+      "always",
     ],
     "object-curly-spacing": [
       "error",
       "always",
+    ],
+    "comma-spacing": [
+      "error",
+      {
+        "before": false,
+        "after": true,
+      },
     ],
 /*
     "sort-keys": [

@@ -14,7 +14,8 @@ module.exports = (on, config) => {
   //  watchOptions: {}
   // }))
 
-  return Object.assign({}, config, {
+  return Object.assign({
+  }, config, {
     fixturesFolder: 'tests/e2e/fixtures',
     integrationFolder: 'tests/e2e/specs',
     screenshotsFolder: 'tests/e2e/screenshots',

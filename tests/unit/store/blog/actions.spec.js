@@ -10,19 +10,25 @@ describe('actions', () => {
 
   it('refreshes posts', async () => {
     const commit = jest.fn();
-    axios.get.mockResolvedValue({});
+    axios.get.mockResolvedValue({
+    });
 
-    await actions.refreshPosts({ commit });
+    await actions.refreshPosts({
+      commit
+    });
 
     expect(commit).toHaveBeenCalled();
   });
 
   it('refreshes post content', async () => {
     const content = {
-      state: { selectedPostId: 1, },
+      state: {
+        selectedPostId: 1,
+      },
       commit: jest.fn(),
     };
-    axios.get.mockResolvedValue({});
+    axios.get.mockResolvedValue({
+    });
 
     await actions.refreshPostContent(content);
 

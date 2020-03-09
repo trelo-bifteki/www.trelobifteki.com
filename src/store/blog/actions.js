@@ -1,7 +1,9 @@
 import axios from 'axios';
 
 export default {
-  refreshPosts({ commit }) {
+  refreshPosts({
+    commit
+  }) {
     return axios
       .get('/static/blog-posts.json')
       .then(response => {

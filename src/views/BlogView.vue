@@ -1,22 +1,32 @@
 <script>
-import { createNamespacedHelpers } from 'vuex';
+import {
+  createNamespacedHelpers
+} from 'vuex';
 import PostSummary from '@/components/PostSummary';
 import SpinningLoader from '@/components/SpinningLoader';
 
-const { mapState, mapActions } = createNamespacedHelpers('blog');
+const {
+  mapState, mapActions
+} = createNamespacedHelpers('blog');
 
 export default {
   name: 'BlogView',
-  metaInfo: { title: 'Blog', },
+  metaInfo: {
+    title: 'Blog',
+  },
   components: {
     PostSummary,
     SpinningLoader,
   },
   data() {
-    return { isLoading: false, };
+    return {
+      isLoading: false,
+    };
   },
   computed: {
-    ...mapState({ posts: state => state.posts, }),
+    ...mapState({
+      posts: state => state.posts,
+    }),
     visiblePosts() {
       return this.posts.filter(post => post.isVisible);
     },

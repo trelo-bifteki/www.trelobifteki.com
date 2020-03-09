@@ -3,7 +3,9 @@ import NavigationBar from './NavigationBar';
 
 export default {
   name: 'MainHeader',
-  components: { NavigationBar, },
+  components: {
+    NavigationBar,
+  },
 };
 </script>
 <template>

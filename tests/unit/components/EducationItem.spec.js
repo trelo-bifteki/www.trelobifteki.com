@@ -1,13 +1,19 @@
 /* eslint-env jest */
 
-import { shallowMount } from '@vue/test-utils';
+import {
+  shallowMount
+} from '@vue/test-utils';
 import EducationItem from '@/components/EducationItem';
 import localizedDate from '@/filters/localizedDate.filter';
 
 jest.mock('@/filters/localizedDate.filter');
 
 describe('EducationItem', ()=> {
-  const createWrapper = item => shallowMount(EducationItem, { propsData: { item, } });
+  const createWrapper = item => shallowMount(EducationItem, {
+    propsData: {
+      item,
+    }
+  });
 
   const defaultItem = {
     institution: 'Test institution',

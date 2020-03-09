@@ -3,7 +3,9 @@ import SocialLinks from './SocialLinks';
 
 export default {
   name: 'PersonalInformation',
-  components: { SocialLinks, },
+  components: {
+    SocialLinks,
+  },
   props: {
     name: {
       type: String,

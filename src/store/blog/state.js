@@ -1,6 +1,7 @@
 export default {
   selectedPostId: '',
   posts: [],
-  post: {},
+  post: {
+  },
   postContent: '',
 };

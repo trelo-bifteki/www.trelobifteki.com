@@ -1,7 +1,9 @@
 /* eslint-env jest */
 
 import BioSummary from '@/components/BioSummary.vue';
-import { shallowMount } from '@vue/test-utils';
+import {
+  shallowMount
+} from '@vue/test-utils';
 
 describe('BioSummary', () => {
   const createWrapper = () => shallowMount(BioSummary);

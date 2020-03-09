@@ -1,5 +1,6 @@
 export default {
   skills: [],
-  resume: {},
+  resume: {
+  },
   packageVersion: process.env.PACKAGE_VERSION,
 };
