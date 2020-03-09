@@ -13,24 +13,24 @@ localVue.use(Vuex);
 describe('CurriculumVitae', () => {
 
   const actions = {
-    refreshResume: jest.fn(),
     refreshPersonalInfo: jest.fn(),
+    refreshResume: jest.fn(),
     refreshSkills: jest.fn(),
   };
 
   const getters = {
     basics: jest.fn(),
-    work: jest.fn(),
-    interests: jest.fn(),
     education: jest.fn(),
+    interests: jest.fn(),
+    work: jest.fn(),
   };
 
   const createStore = state => new Vuex.Store({
     modules: {
       cv: {
-        namespaced: true,
         actions,
         getters,
+        namespaced: true,
         state,
       }
     }

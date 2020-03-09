@@ -13,28 +13,28 @@ describe('BlogView', () => {
     refreshPosts: jest.fn(),
   };
   const defaultState = {
-    selectedPostId: '',
-    posts: [],
     post: {},
     postContent: '',
+    posts: [],
+    selectedPostId: '',
   };
   const createStore = state => new Vuex.Store({
     modules: {
       blog: {
+        actions,
         namespaced: true,
         state: {
           ...defaultState,
           ...state,
         },
-        actions,
-      }
+      },
     },
   });
   const createWrapper = store => shallowMount(
     BlogView,
     {
-      store,
       localVue,
+      store,
       stubs: [
         'SpinningLoader',
         'PostSummary',

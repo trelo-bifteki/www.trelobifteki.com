@@ -20,7 +20,19 @@ module.exports = {
       "error",
       "always"
     ],
-    "no-var": "error"
+    "no-var": "error",
+    "no-trailing-spaces": "error",
+/*
+    "sort-keys": [
+      "error",
+      "asc",
+      {
+        "caseSensitive": true,
+        "natural": false,
+        "minKeys": 2
+      },
+    ],
+	  */
   },
   "parserOptions": {
     "parser": "babel-eslint"

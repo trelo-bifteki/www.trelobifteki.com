@@ -40,14 +40,14 @@ describe('BlogPost', () => {
   const createStore = state => new Vuex.Store({
     modules: {
       blog: {
+        actions,
+        mutations,
         namespaced: true,
         state: {
           ...defaultState,
           ...state,
         },
-        actions,
-        mutations,
-      }
+      },
     },
   });
 
@@ -57,11 +57,11 @@ describe('BlogPost', () => {
   });
 
   const getWrapper = store => shallowMount(BlogPost, {
-    store,
     localVue,
     mocks: {
       $route,
     },
+    store,
     stubs: [
       'SpinningLoader',
       'BlogContent'
