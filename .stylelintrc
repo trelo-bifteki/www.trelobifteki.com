@@ -31,6 +31,10 @@
     "scss/no-duplicate-mixins": true,
     "scss/selector-no-redundant-nesting-selector": true,
     "selector-list-comma-newline-after": "always",
-    "order/properties-alphabetical-order": true
+    "order/properties-alphabetical-order": true,
+    "order/order": [
+      "custom-properties",
+      "declarations"
+    ]
   },
 }
