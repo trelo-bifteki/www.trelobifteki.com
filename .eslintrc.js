@@ -39,6 +39,15 @@ module.exports = {
         "after": true,
       },
     ],
+    "no-trailing-spaces": "error",
+    "linebreak-style": [
+      "error",
+      "unix",
+    ],
+    "eol-last": [
+      "error",
+      "always",
+    ],
 /*
     "sort-keys": [
       "error",
