@@ -10,6 +10,6 @@ describe('BlogView', () => {
 
 
   it('contains interests', () => {
-    cy.get('.post-summary blog-view__post').should('have.length', 3);
+    cy.get('.blog-view__post').should('have.length', 3);
   });
 });
