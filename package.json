@@ -9,7 +9,8 @@
     "postlint": "npm run stylelint",
     "stylelint": "stylelint src/**/*.{vue,htm,html,css,sss,less,scss,sass}",
     "test:e2e": "vue-cli-service test:e2e",
-    "test:unit": "vue-cli-service test:unit"
+    "test:unit": "vue-cli-service test:unit",
+    "lint:markdown": "remark src/**/*.md"
   },
   "dependencies": {
     "axios": "0.19.2",
@@ -38,6 +39,9 @@
     "markdown-loader": "5.1.0",
     "node-sass": "4.13.1",
     "prerender-spa-plugin": "3.4.0",
+    "remark-cli": "^7.0.1",
+    "remark-lint": "^6.0.5",
+    "remark-preset-lint-recommended": "^3.0.3",
     "robotstxt-webpack-plugin": "7.0.0",
     "sass-loader": "8.0.2",
     "sitemap-webpack-plugin": "0.7.1",
@@ -61,6 +65,9 @@
     "plugins": {
       "autoprefixer": {}
     }
+  },
+  "remarkConfig": {
+    "plugins": ["remark-preset-lint-recommended"]
   },
   "browserslist": [
     "> 1%",

@@ -31,6 +31,13 @@ export default new VueRouter({
     {
       path: '/blog/:id',
       component: () => import(/* webpackChunkName: "post" */ '@/views/BlogPost'),
+      props({
+        params
+      }) {
+        return {
+          blogId: params.blogId,
+        };
+      },
     },
     {
       path: '/projects',

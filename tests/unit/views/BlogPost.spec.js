@@ -9,12 +9,6 @@ const localVue = createLocalVue();
 localVue.use(Vuex);
 
 describe('BlogPost', () => {
-  const $route = {
-    params: {
-      id: 1
-    }
-  };
-
   const defaultState = {
     selectedPostId: '',
     posts: [{
@@ -59,8 +53,8 @@ describe('BlogPost', () => {
 
   const getWrapper = store => shallowMount(BlogPost, {
     localVue,
-    mocks: {
-      $route,
+    propsData: {
+      postId: 'howto-write-tickets',
     },
     store,
     stubs: [

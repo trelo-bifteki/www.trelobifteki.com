@@ -19,6 +19,12 @@ export default {
     BlogContent,
     SpinningLoader,
   },
+  props: {
+    postId: {
+      required: true,
+      type: String,
+    },
+  },
   data() {
     return {
       content: '',
@@ -31,8 +37,7 @@ export default {
       posts: state => state.posts,
     }),
     post() {
-      const selectedPostId = this.$route.params.id;
-      const selectedPosts = this.posts.filter(post => post.id === selectedPostId);
+      const selectedPosts = this.posts.filter(post => post.id === this.postId);
 
       return selectedPosts.length
         ? selectedPosts[0]
@@ -46,21 +51,22 @@ export default {
     },
   },
   async created() {
-    const selectedPostId = this.$route.params.id;
-    const loader = import(/* webpackChunkName: "post" */`html-loader!../assets/posts/${selectedPostId}.md`);
+    const loader = import(/* webpackChunkName: "post" */ `html-loader!../assets/posts/${this.postId}.md`);
 
-    this.updateSelectedPostId(selectedPostId);
+    this.updateSelectedPostId(this.postId);
 
     this.isLoading = true;
     await this.refreshPosts();
-    loader.then(module => {
+    try {
+      const module = await loader;
       this.content = module.default;
       this.isContentLoaded = true;
-    }).catch(() => {
+    } catch (error) {
       this.content = 'Unable to find post';
-    }).finally(() => {
+      throw error;
+    } finally {
       this.isLoading = false;
-    });
+    }
   },
   updated() {
     if (this.isContentLoaded) {
