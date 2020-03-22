@@ -11,9 +11,9 @@ export default {
   data() {
     return {
       networkToImageMap: {
-        Github: `icon-github`,
-        Twitter: `icon-twitter`,
-        Linkedin: `icon-linkedin-squared`,
+        Github: 'icon-github',
+        Twitter: 'icon-twitter',
+        Linkedin: 'icon-linkedin-squared',
       }
     };
   },

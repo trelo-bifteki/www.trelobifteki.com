@@ -83,7 +83,7 @@ describe('CurriculumVitae', () => {
 
   it('shows interests', () => {
     getters.interests.mockReturnValue([{
-      name: "test",
+      name: 'test',
     }]);
     const store = createStore();
     const wrapper = createWrapper(store);

@@ -8,22 +8,38 @@ module.exports = {
     "eslint:recommended"
   ],
   "rules": {
-    "indent": [
+    "array-bracket-spacing": 1,
+    "comma-spacing": [
+      "error",
+      {
+        before: false,
+        after: true,
+      },
+    ],
+    "eol-last": [
+      "error",
+      "always",
+    ],
+    indent: [
       "error",
       2
     ],
-    "prefer-arrow-callback": [
-      "error"
+    "linebreak-style": [
+      "error",
+      "unix",
     ],
-    "array-bracket-spacing": 1,
+    "max-len": [
+      "error",
+      {
+        "code": 120
+      }
+    ],
+    "no-trailing-spaces": "error",
+    "no-var": "error",
     "object-shorthand": [
       "error",
       "always"
     ],
-    "no-var": "error",
-    "no-trailing-spaces": "error",
-    "linebreak-style": [ "error", "unix" ],
-    "eol-last": [ "error", "always" ],
     "object-curly-newline": [
       "error",
       "always",
@@ -32,21 +48,12 @@ module.exports = {
       "error",
       "always",
     ],
-    "comma-spacing": [
-      "error",
-      {
-        "before": false,
-        "after": true,
-      },
+    "prefer-arrow-callback": [
+      "error"
     ],
-    "no-trailing-spaces": "error",
-    "linebreak-style": [
+    quotes: [
       "error",
-      "unix",
-    ],
-    "eol-last": [
-      "error",
-      "always",
+      "single"
     ],
 /*
     "sort-keys": [
@@ -65,13 +72,13 @@ module.exports = {
   },
   "overrides": [
     {
-      "files": [
+      files: [
         "**/__tests__/*.{j,t}s?(x)",
         "tests/unit/**/*.{j,t}s?(x)"
       ],
-      "env": {
-        "jest": true,
-      }
+      env: {
+        jest: true,
+      },
     }
   ]
 }

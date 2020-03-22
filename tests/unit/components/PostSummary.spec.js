@@ -9,7 +9,7 @@ describe('PostSummary', () => {
       post,
     },
     stubs: {
-      "router-link": true,
+      'router-link': true,
     }
   });
 

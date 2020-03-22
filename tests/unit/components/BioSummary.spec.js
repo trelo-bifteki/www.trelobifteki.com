@@ -8,7 +8,7 @@ import {
 describe('BioSummary', () => {
   const createWrapper = () => shallowMount(BioSummary);
 
-  it(`displays first line`, () => {
+  it('displays first line', () => {
     const wrapper = createWrapper();
 
     expect(
