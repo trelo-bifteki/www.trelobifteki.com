@@ -7,9 +7,9 @@ be invoked and it was possible that an action had several smaller ones.
 The tech team was having before issues with the code related with this feature. They did the
 following refactoring:
 
-* Moved all actions into the database
-* Created a UI tool for administrating these action
-* An action was possible to be assigned to a "group" of actions
+*   Moved all actions into the database
+*   Created a UI tool for administrating these action
+*   An action was possible to be assigned to a "group" of actions
 
 ## Problem
 
@@ -181,10 +181,10 @@ public class ShutdownNetworkAction implements NetworkAction {
 
 Here are few thoughts from what I learned from this refactoring
 
-* Business code belongs in services and need to be reusable
-* No queries shall be stored in a database schema
-* If data are not modified by end-users, maybe it is not a agood idea to store
-  them in database
-* A _command pattern_ can help a lot when actions are composite and consist
-  of smaller sub-actions
-* The *builder pattern* can help you build your own domain-specific language
+*   Business code belongs in services and need to be reusable
+*   No queries shall be stored in a database schema
+*   If data are not modified by end-users, maybe it is not a agood idea to
+    store them in database
+*   A _command pattern_ can help a lot when actions are composite and consist
+    of smaller sub-actions
+*   The *builder pattern* can help you build your own domain-specific language

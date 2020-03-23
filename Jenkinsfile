@@ -17,6 +17,7 @@ pipeline {
     stage('Check linting') {
       steps {
         sh 'npm run lint'
+	sh 'npm run lint:markdown'
       }
     }
 
