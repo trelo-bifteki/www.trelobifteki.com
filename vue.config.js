@@ -99,7 +99,10 @@ module.exports = {
     config.module
       .rule('markdown')
       .test(/.md$/)
-      .use('html-loader')
+      .use([
+        'html-loader',
+        'markdown-loader'
+      ])
       .loader('markdown-loader')
       .end();
   },

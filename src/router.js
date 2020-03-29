@@ -29,13 +29,13 @@ export default new VueRouter({
       component: () => import(/* webpackChunkName: "blog" */ '@/views/BlogView'),
     },
     {
-      path: '/blog/:id',
+      path: '/blog/:postId',
       component: () => import(/* webpackChunkName: "post" */ '@/views/BlogPost'),
       props({
         params
       }) {
         return {
-          blogId: params.blogId,
+          postId: params.postId,
         };
       },
     },

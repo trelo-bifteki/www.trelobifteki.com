@@ -51,7 +51,7 @@ export default {
     },
   },
   async created() {
-    const loader = import(/* webpackChunkName: "post" */ `html-loader!../assets/posts/${this.postId}.md`);
+    const loader = import(/* webpackChunkName: "post" */ `html-loader!@/assets/posts/${this.postId}.md`);
 
     this.updateSelectedPostId(this.postId);
 
