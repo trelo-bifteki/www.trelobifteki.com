@@ -1,10 +1,10 @@
 # www.trelobifteki.com
 
 This is my personal website and a small proof-of-concept for some features:
-* Blog based on markdown
-* Responsive web design
-* format for writing CV
-* CI/CD with Jenkins Pipelines
+-   Blog based on markdown
+-   Responsive web design
+-   format for writing CV
+-   CI/CD with Jenkins Pipelines
 
 ## Project setup
 ```
