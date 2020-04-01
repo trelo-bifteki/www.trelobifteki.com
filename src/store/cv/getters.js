@@ -1,4 +1,4 @@
-import isUndefined from 'lodash/isUndefined';
+const isUndefined = value => typeof value === 'undefined';
 
 export default {
   /**
