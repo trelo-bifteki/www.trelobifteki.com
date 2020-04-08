@@ -6,9 +6,19 @@ single page applications (SPA).
 
 The real challenge comes where both D3 and Vue.js are able to manipulate
 DOM elements. In this guide, we focus on only using D3 for calculating all
-rendering parts required, but we let D3js create and modify the DOM.
+rendering parts required, but we let Vue.js create and modify the DOM.
 
-A demo can always be found here and samples can be found here
+This is a walkthrough how I first implemented a graph component in Vue.JS
+using
+
+A demo and samples can be found here
+
+## Steps
+
+The following steps are essential when writing a component
+
+*   Use _template_ area to build the SVG skeleton
+*
 
 
 ```typescript
@@ -16,9 +26,6 @@ import {
   Component, Prop, Vue
 } from 'vue-property-decorator';
 import * as d3 from 'd3';
-import {
-  GeoProjection
-} from 'd3';
 import {
   Marker
 } from '@/store/types';
