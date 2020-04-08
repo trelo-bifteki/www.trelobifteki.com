@@ -15,4 +15,9 @@
   "title": "Howto write tickets",
   "created": 1550866387,
   "isVisible": true
-}]
+}, {
+  "id": "data-visualization-vuejs-d3js",
+  "title": "Data visualizations with Vue.js and D3: A right way",
+  "created": 1586292493,
+  "isVisible": true
+  }]

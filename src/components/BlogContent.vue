@@ -32,7 +32,9 @@ export default {
     }
 
     p {
+      font-size: 1.3rem;
       margin-bottom: 1rem;
+      overflow-wrap: word-break;
     }
 
     ul {
