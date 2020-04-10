@@ -5,6 +5,7 @@ import {
 import BlogContent from '@/components/BlogContent';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-java.min.js';
+import 'prismjs/components/prism-typescript.min.js';
 import SpinningLoader from '@/components/SpinningLoader';
 
 const {

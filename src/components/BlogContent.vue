@@ -19,20 +19,43 @@ export default {
 </template>
 <style lang="scss">
   @import "../scss/variables";
+  @import "../scss/breakpoints";
 
   .blog-content {
+    font-size: 1.1rem;
     margin-bottom: 5rem;
+
+    em {
+      font-style: italic;
+    }
 
     h2 {
       color: $color-theme-red;
+      margin: 3rem 0 1.5rem;
     }
 
     h3 {
       color: $color-theme-lila;
+      margin: 2.5rem 0 1.3rem;
     }
 
     p {
       margin-bottom: 1rem;
+      overflow-wrap: word-break;
+
+      > code {
+        color: $color-theme-red;
+        font-size: 87.5%;
+        word-break: break-word;
+      }
+
+      @include media-breakpoint-not-small {
+        margin-bottom: 1.1rem;
+      }
+    }
+
+    strong {
+      font-weight: bold;
     }
 
     ul {
@@ -47,6 +70,10 @@ export default {
     pre[class*="language-"] {
       font-family: $font-family-monospace;
       margin: $space 0;
+    }
+
+    @include media-breakpoint-not-small {
+      font-size: 1.3rem;
     }
   }
 </style>
