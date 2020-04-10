@@ -17,6 +17,7 @@ const routes =  [
     '/blog/case-refactoring-actions-pattern',
     '/blog/case-refactoring-sql-queries',
     '/blog/howto-write-tickets',
+    '/blog/data-visualization-vuejs-d3js',
 ];
 
 const robotsTxtConfig = {

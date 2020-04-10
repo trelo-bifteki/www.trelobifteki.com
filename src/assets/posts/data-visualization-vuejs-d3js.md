@@ -9,11 +9,9 @@ DOM elements. In this guide, we focus on only using D3 for calculating all
 rendering parts required, but we let Vue.js create and modify the DOM.
 
 This is a walkthrough how I first implemented a graph component in Vue.JS
-using D3 library.
+using D3 library and how I improved it afterwards.
 
-A demo and samples can be found here
-
-## 👿 The wrong way
+## 😖 The wrong way
 
 This is actually the first implementation I did inspired by most examples
 found on the internet:
@@ -69,11 +67,14 @@ export default {
 
 This can work quite well in the beginning, but:
 
+*   graph is not responsive
 *   data is **static**
-*   we do render only **once** in the beginning
+*   it renders the graph **once**
 *   styling is **hardcoded**
 
-## 🧙‍♂️ The right rules
+In the end, the component is not reusable
+
+## 🧙‍♂️ The 5 simple steps
 
 ### 📜 Prefer _viewBox_ against _width_ & _height_
 
@@ -101,7 +102,18 @@ into our graph! The challenge in this case
 
 ### 📜 Use _computed_ to provide D3 calculations
 
+The biggest challenge here is to render the graphs everytime `props` changes.
 
+I first tried to use the `append` and `attr` methods from D3 library to render
+during `mounted`. In order to render after each change I had to introduce
+`watchers`, remove all elements and re-render again. This is CPU consuming
+and does not work together with Vue.js well. It is better to perform only
+the calculations in D3js and bind them with VueJs instead.
+
+All calculation can be bound directly to DOM using the `computed` functions. This
+way the calculation will be invoked every time data information changes.
+
+No worries. Vue.js is smart enough to invoke function only when needed 😉.
 
 ## 😇 A right way
 
