@@ -1,7 +1,7 @@
 ## About
 
-D3 is a visualization library providing all necessary functions and methods
-needed to create charts and diagrams. Vue.js is a MVC framework for creating
+_D3.js_ is a visualization library providing all necessary functions and methods
+needed to create charts and diagrams. _Vue.js_ is a MVC framework for creating
 single page applications (SPA).
 
 The real challenge comes where both D3 and Vue.js are able to manipulate
@@ -67,7 +67,7 @@ export default {
 
 This can work quite well in the beginning, but:
 
-*   graph is not responsive
+*   graph is **not responsive**
 *   data is **static**
 *   it renders the graph **once**
 *   styling is **hardcoded**
@@ -78,8 +78,9 @@ In the end, the component is not reusable
 
 ### 📜 Prefer _viewBox_ against _width_ & _height_
 
-We want to make our SVG images responsive. By setting _viewBox_ we are able to
-scale the SVG image to fill a container.
+We want to make our SVG images responsive. Width and height limit our
+implementation to the dimensions defined. By setting `viewBox` instead,
+we are able to scale the SVG image to fill a container.
 
 ### 📜 Write SVG template in _template_ section
 
@@ -115,7 +116,7 @@ way the calculation will be invoked every time data information changes.
 
 No worries. Vue.js is smart enough to invoke function only when needed 😉.
 
-## 😇 A right way
+## 😇 The right way
 
 After applying all rules above the result to the previous example should look
 like this:
