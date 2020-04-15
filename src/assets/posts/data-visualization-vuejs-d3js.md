@@ -74,21 +74,21 @@ This can work quite well in the beginning, but:
 
 In the end, the component is not reusable
 
-## 🧙‍♂️ The 5 simple steps
+## 🧙‍♂️ 5 simple rules
 
-### 📜 Prefer _viewBox_ against _width_ & _height_
+### Rule 1: 📜 Prefer _viewBox_ against _width_ & _height_
 
 We want to make our SVG images responsive. Width and height limit our
 implementation to the dimensions defined. By setting `viewBox` instead,
 we are able to scale the SVG image to fill a container.
 
-### 📜 Write SVG template in _template_ section
+### Rule 2: 📜 Write SVG template in _template_ section
 
 Most D3js examples on the internet prefer to use `append` function and attach
 DOM elements to already existing ones. Since we use Vue.js now for this
 scope it is advisable to **only** use `template` section instead.
 
-### 📜 Write stylings in _style_ section
+### Rule 3: 📜 Write stylings in _style_ section
 
 As SVG supports adding classes and styling elements in CSS and it is better to
 write styling in `style` section than having hardcoded values on the element.
@@ -96,12 +96,12 @@ write styling in `style` section than having hardcoded values on the element.
 In this rule there is an **exception**, if you want to introduce a styling as
 _property_ to the component.
 
-### 📜 Use _props_ to provide data
+### Rule 4: 📜 Use _props_ to provide data
 
 Of course we want our component to be reusable and dynamically assign data
 into our graph! The challenge in this case
 
-### 📜 Use _computed_ to provide D3 calculations
+### Rule 5: 📜 Use _computed_ to provide D3 calculations
 
 The biggest challenge here is to render the graphs everytime `props` changes.
 
