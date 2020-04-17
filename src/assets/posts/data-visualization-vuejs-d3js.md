@@ -99,7 +99,53 @@ _property_ to the component.
 ### Rule 4: 📜 Use _props_ to provide data
 
 Of course we want our component to be reusable and dynamically assign data
-into our graph! The challenge in this case
+into our graph! As most examples with Vue.js and SVG found on the internet,
+we set some properties to the component in order to make it dynamic.
+
+Like this example:
+
+```typescript
+<script>
+export default {
+  props: {
+    title: {
+      required: true,
+      type: String,
+    },
+  },
+};
+</script>
+
+<template>
+  <svg
+    class="svg-demo"
+    viewBox="0 0 240 80"
+  >
+    <text
+      class="svg-demo__text"
+      x="20"
+      y="35"
+    >
+      {{ title }}
+    </text>
+  </svg>
+</template>
+
+<style lang="scss">
+.svg-demo {
+  &__text {
+    color: red;
+  }
+}
+</style>
+```
+
+Now that we set a parameter in `props` area we can also do the following:
+
+`<SvgDemo title="John Snow"></SvgDemo>`
+
+And we are all set!
+
 
 ### Rule 5: 📜 Use _computed_ to provide D3 calculations
 
@@ -107,9 +153,9 @@ The biggest challenge here is to render the graphs everytime `props` changes.
 
 I first tried to use the `append` and `attr` methods from D3 library to render
 during `mounted`. In order to render after each change I had to introduce
-`watchers`, remove all elements and re-render again. This is CPU consuming
-and does not work together with Vue.js well. It is better to perform only
-the calculations in D3js and bind them with VueJs instead.
+`watchers`, remove all elements and re-render again.
+
+This solution was already confusing enough for developers and does  not work well together with Vue.js. In the end, tt is better to perform only the  calculations in D3js and bind them with Vue.js instead.
 
 All calculation can be bound directly to DOM using the `computed` functions. This
 way the calculation will be invoked every time data information changes.
@@ -126,7 +172,7 @@ like this:
 import * as d3 from 'd3';
 
 export default {
-  name: 'RightLineChart',
+  name: 'LineChart',
   props: {
     data: {
       required: true,
@@ -187,9 +233,15 @@ export default {
 </style>
 ```
 
-In this example:
+Check all these functions in `computed` area! They can be directly used in
+`template` now. The most important one is `line`, which actually draws the chart
+thanks to _D3.js_. Every time we change `data`, all other function will be
+reinvoked and a new value for `line` will be set. The chart will be rerendered
+with the new values!
 
-*   Graph is responsive (like every SVG must be!)
-*   A property _data_ can be used to dynamically load data into graph
-*   Graph will render any changes into the data automatically
-*   CSS classes can be used to override styling (not suggested but possible)
+Now, in this example:
+
+*   graph is **responsive** (like every SVG must be!)
+*   a property _data_ can be used to **dynamically load data** into graph
+*   graph will **render any changes** into the data automatically
+*   **CSS classes** can be used to override styling (not suggested but possible)
