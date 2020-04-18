@@ -16,6 +16,9 @@ const {
 
 export default {
   name: 'CurriculumVitae',
+  metaInfo: {
+    title: 'CV',
+  },
   components: {
     BioSummary,
     EducationItem,

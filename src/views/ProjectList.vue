@@ -1,3 +1,10 @@
+<script>
+export default {
+  metaInfo: {
+    title: 'Projects',
+  },
+}
+</script>
 <template>
   <div class="project-list">
     <h1 class="project-list__headline">

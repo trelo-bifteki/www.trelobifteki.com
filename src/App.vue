@@ -8,7 +8,7 @@ export default {
   name: 'App',
   metaInfo: {
     title: 'CV',
-    titleTemplate: '%s | Lampros Papadimitriou trelobifteki',
+    titleTemplate: '%s | Lampros Papadimitriou - trelobifteki',
   },
   components: {
     CookieNotification,

@@ -16,6 +16,13 @@ const {
 
 export default {
   name: 'BlogPost',
+  metaInfo() {
+    const title = this.post.title
+
+    return {
+      title,
+    };
+  },
   components: {
     BlogContent,
     SpinningLoader,
