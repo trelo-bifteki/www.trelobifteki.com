@@ -4,12 +4,12 @@ describe('BlogView', () => {
     cy.visit('/blog/');
   });
 
-  it('contains headline with my name', () => {
+  it('contains headline with blog as title', () => {
     cy.contains('h1', 'Blog');
   });
 
 
-  it('contains interests', () => {
-    cy.get('.blog-view__post').should('have.length', 3);
+  it('contains at least 2 posts', () => {
+    cy.get('.blog-view__post').should('have.length.of.at.least', 2);
   });
 });
