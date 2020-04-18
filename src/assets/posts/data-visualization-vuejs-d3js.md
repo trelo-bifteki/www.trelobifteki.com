@@ -131,16 +131,29 @@ export default {
       required: true,
       type: Array,
     },
+    width: {
+      default: 500,
+      type: Number,
+    },
+    height: {
+      height: 270,
+      type: Number,
+    }
   },
   data() {
     return {
-      rangeX: [0, 430],
-      rangeY: [210, 0],
-      width: 500,
-      height: 270,
+      padding: 60,
     };
   },
   computed: {
+    rangeX() {
+      const width = this.width - this.padding;
+      return [0, width];
+    },
+    rangeY() {
+      const height = this.height - this.padding;
+      return [0, height];
+    },
     path() {
       const x = d3.scaleLinear().range(this.rangeX);
       const y = d3.scaleLinear().range(this.rangeY);
