@@ -54,6 +54,13 @@ export default {
       }
     }
 
+    img {
+      display: block;
+      margin: 0 auto;
+      max-width: 80%;
+      text-align: center;
+    }
+
     strong {
       font-weight: bold;
     }
