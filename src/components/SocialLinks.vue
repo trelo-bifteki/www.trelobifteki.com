@@ -41,10 +41,6 @@ export default {
       <i :class="profile.image" />
     </a>
 
-    <a href="tel:+491723990194">
-      <i class="icon-whatsapp" />
-    </a>
-
     <a href="mailto:lambrospd@gmail.com">
       <i class="icon-mail" />
     </a>
