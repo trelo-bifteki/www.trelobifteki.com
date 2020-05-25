@@ -44,13 +44,6 @@ export default {
     <a href="mailto:lambrospd@gmail.com">
       <i class="icon-mail" />
     </a>
-
-    <a
-      class="social-links__cv-pdf"
-      href="/static/resume-en-Lampros_Papadimitriou.pdf"
-    >
-      <i class="icon-file-pdf" />
-    </a>
   </div>
 </template>
 
