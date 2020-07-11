@@ -48,7 +48,7 @@
     "stylelint": "13.3.3",
     "stylelint-config-recommended-scss": "4.2.0",
     "stylelint-order": "4.0.0",
-    "stylelint-scss": "3.17.1",
+    "stylelint-scss": "3.18.0",
     "stylelint-webpack-plugin": "2.1.0",
     "vue-analytics": "5.22.1",
     "vue-meta": "2.3.3",
