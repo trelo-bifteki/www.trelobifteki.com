@@ -25,7 +25,7 @@ describe('SocialLinks', () => {
     ]);
 
     expect(
-      wrapper.contains(iconClass)
+      wrapper.get(iconClass).exists()
     ).toBe(true);
   });
 });

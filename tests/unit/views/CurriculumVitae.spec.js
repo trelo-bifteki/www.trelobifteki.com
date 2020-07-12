@@ -62,7 +62,7 @@ describe('CurriculumVitae', () => {
     await wrapper.vm.$nextTick();
 
     expect(
-      wrapper.contains('[qa-ref=curriculum-vitae-job-item]')
+      wrapper.find('[qa-ref=curriculum-vitae-job-item]').exists()
     ).toBe(true);
   });
 
@@ -75,9 +75,9 @@ describe('CurriculumVitae', () => {
     const wrapper = createWrapper(store);
 
     expect(
-      wrapper.contains({
+      wrapper.findComponent({
         name: 'EducationItem'
-      })
+      }).exists()
     ).toBe(true);
   });
 
@@ -89,7 +89,7 @@ describe('CurriculumVitae', () => {
     const wrapper = createWrapper(store);
 
     expect(
-      wrapper.contains('.curriculum-vitae__interest')
+      wrapper.find('.curriculum-vitae__interest').exists()
     ).toBe(true);
   });
 });

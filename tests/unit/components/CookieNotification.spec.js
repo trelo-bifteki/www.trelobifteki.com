@@ -30,7 +30,7 @@ describe('CookieNotification', () => {
     const wrapper = getWrapper();
 
     expect(
-      wrapper.contains('.cookie-notification')
+      wrapper.find('.cookie-notification').exists()
     ).toBe(false);
   });
 
@@ -39,7 +39,7 @@ describe('CookieNotification', () => {
     const wrapper = getWrapper();
     await wrapper.vm.$nextTick();
     expect(
-      wrapper.contains('.cookie-notification')
+      wrapper.find('.cookie-notification').exists()
     ).toBe(true);
   });
 
@@ -60,7 +60,7 @@ describe('CookieNotification', () => {
       $ga.enable
     ).toHaveBeenCalled();
     expect(
-      wrapper.contains('.cookie-notification')
+      wrapper.find('.cookie-notification').exists()
     ).toBe(false);
   });
 
@@ -81,7 +81,7 @@ describe('CookieNotification', () => {
     await wrapper.vm.$nextTick();
 
     expect(
-      wrapper.contains('.cookie-notification')
+      wrapper.find('.cookie-notification').exists()
     ).toBe(false);
   });
 })

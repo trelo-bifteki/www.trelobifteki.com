@@ -69,7 +69,7 @@ describe('BlogPost', () => {
     const wrapper = getWrapper(store);
 
     expect(
-      wrapper.contains('.blog-post--loading')
+      wrapper.find('.blog-post--loading').exists()
     ).toBe(true);
   });
 
@@ -83,7 +83,7 @@ describe('BlogPost', () => {
     await wrapper.vm.$nextTick(); // one for loading the module
 
     expect(
-      wrapper.contains('.blog-post--loading')
+      wrapper.find('.blog-post--loading').exists()
     ).toBe(false);
   });
 
