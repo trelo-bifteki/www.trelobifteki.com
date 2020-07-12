@@ -27,8 +27,10 @@ export default {
     ...mapState({
       posts: state => state.posts,
     }),
-    visiblePosts() {
-      return this.posts.filter(post => post.isVisible);
+    visiblePostsOrderByDateDesc() {
+      const visiblePosts = this.posts.filter(post => post.isVisible);
+      visiblePosts.sort((one, another) => another.created - one.created);
+      return visiblePosts;
     },
   },
   created() {
@@ -62,7 +64,7 @@ export default {
       class="blog-view__container"
     >
       <PostSummary
-        v-for="(post) in visiblePosts"
+        v-for="post in visiblePostsOrderByDateDesc"
         :key="post.id"
         class="blog-view__post"
         :post="post"
