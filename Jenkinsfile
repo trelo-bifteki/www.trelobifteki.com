@@ -11,7 +11,7 @@ pipeline {
     stage('download dependencies') {
       steps {
         sh 'npm ci'
-        sh 'npm outdated'
+        // sh 'npm outdated' not used due fontello-webpack-plugin
       }
     }
 
