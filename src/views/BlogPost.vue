@@ -18,9 +18,13 @@ export default {
   name: 'BlogPost',
   metaInfo() {
     const title = this.post.title
-
+    const meta = [{
+      name: 'description',
+      value: this.post.description,
+    }]
     return {
       title,
+      meta,
     };
   },
   components: {

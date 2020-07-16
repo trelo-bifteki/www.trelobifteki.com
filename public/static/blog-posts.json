@@ -1,23 +1,29 @@
 [{
   "id": "case-refactoring-actions-pattern",
   "title": "Refactoring actions using patterns",
-  "heading": "This is another test",
+  "description": "This is a description 1",
   "created": 1521498900,
-  "isVisible": true
+  "isVisible": true,
+  "tags": []
 }, {
   "id": "case-refactoring-sql-queries",
   "title": "Refactoring complicated SQL queries using damn simple query builder",
-  "heading": "this is a test",
+  "description": "This is a description 3",
   "created": 1521498900,
-  "isVisible": true
+  "isVisible": true,
+  "tags": []
 }, {
   "id": "howto-write-tickets",
   "title": "Howto write tickets",
+  "description": "This is a description 2",
   "created": 1550866387,
-  "isVisible": true
+  "isVisible": true,
+  "tags": []
 }, {
   "id": "data-visualization-vuejs-d3js",
+  "description": "This is a description 4",
   "title": "5 simple rules to data visualizations with Vue.js and D3",
   "created": 1586292493,
-  "isVisible": true
+  "isVisible": true,
+  "tags": []
   }]

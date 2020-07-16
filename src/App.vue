@@ -9,6 +9,10 @@ export default {
   metaInfo: {
     title: 'CV',
     titleTemplate: '%s | Lampros Papadimitriou - trelobifteki',
+    htmlAttrs: {
+      lang: 'en',
+      amp: true,
+    },
   },
   components: {
     CookieNotification,
