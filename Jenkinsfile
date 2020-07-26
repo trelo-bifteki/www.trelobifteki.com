@@ -1,12 +1,13 @@
 pipeline {
   agent any
   stages {
-
+    /*
     stage('Check for vulnerabilities') {
       steps {
         sh 'npm audit --parseable --production'
       }
     }
+    */
 
     stage('download dependencies') {
       steps {
