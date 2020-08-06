@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "axios": "0.19.2",
-    "prismjs": "1.20.0",
+    "prismjs": "1.21.0",
     "reset-css": "5.0.1",
     "vue": "2.6.11",
     "vue-router": "3.3.4",
