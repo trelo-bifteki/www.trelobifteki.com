@@ -7,10 +7,10 @@ modern building tools can help with the automation of important tasks in
 frontend development
 
 Frontend development works currently with the following technologies:
-* NodeJs
-* NPM
-* Eslint
-* Prettier
+*   NodeJs
+*   NPM
+*   Eslint
+*   Prettier
 
 ## Install dependencies
 
