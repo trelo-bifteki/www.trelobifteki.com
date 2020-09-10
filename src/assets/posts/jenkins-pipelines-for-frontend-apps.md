@@ -47,7 +47,17 @@ This way we are sure that main dependencies have no security issues
 _Eslint_ is my favorite option for lint and format checks, since the
 integration with IDEs and console command is _almost perfect_!
 
-I prefer to do formatting and code quality check
+Another important point is the integration with _git hooks_. My personal goal is
+to catch as many errors as possible before commits and merging into master branch
+
+## Unit testing
+
+A unit testing _with coverage_ is another safety lock for capturing bugs before entering
+production.
+
+## E2E testing
+
+
 
 ## Example
 
@@ -72,6 +82,18 @@ pipeline {
     stage('Check linting') {
       steps {
         sh 'npm run lint'
+      }
+    }
+
+    stage('Check unit:test') {
+      steps {
+        sh 'npm run test:unit -- --ci --coverage'
+      }
+      post {
+        always {
+          junit 'junit.xml'
+          cobertura coberturaReportFile: 'coverage/cobertura-coverage.xml'
+        }
       }
     }
   }
