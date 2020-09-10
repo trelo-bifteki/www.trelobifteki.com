@@ -1,25 +1,23 @@
 pipeline {
   agent any
   stages {
-    /*
     stage('Check for vulnerabilities') {
       steps {
         sh 'npm audit --parseable --production'
       }
     }
-    */
 
     stage('download dependencies') {
       steps {
         sh 'npm ci'
-        // sh 'npm outdated' not used due fontello-webpack-plugin
+        sh 'npm outdated || exit 0'
       }
     }
 
     stage('Check linting') {
       steps {
         sh 'npm run lint'
-	sh 'npm run lint:markdown'
+	      sh 'npm run lint:markdown'
       }
     }
 
