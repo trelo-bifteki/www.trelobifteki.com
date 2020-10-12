@@ -1,5 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const FontelloPlugin = require('fontello-webpack-plugin');
+// const FontelloPlugin = require('fontello-webpack-plugin');
 const PrerenderSpaPlugin = require('prerender-spa-plugin');
 const RobotsTxtPlugin = require('robotstxt-webpack-plugin');
 const SitemapPlugin = require('sitemap-webpack-plugin').default;
@@ -65,9 +65,6 @@ let plugins = [
     publicPath: '/node_modules',
   }),
   */
-  new FontelloPlugin({
-    config: fontelloConfig,
-  }),
   new webpack.DefinePlugin({
     'process.env': {
       PACKAGE_VERSION: '"' + version + '"'
