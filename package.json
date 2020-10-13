@@ -54,7 +54,7 @@
     "vue-analytics": "5.22.1",
     "vue-meta": "^2.4.0",
     "vue-template-compiler": "2.6.12",
-    "webpack": "4.44.1"
+    "webpack": "5.1.0"
   },
   "husky": {
     "hooks": {
