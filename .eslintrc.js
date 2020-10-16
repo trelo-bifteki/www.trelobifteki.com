@@ -1,12 +1,14 @@
 module.exports = {
-  "root": true,
+  "extends": [
+    "plugin:vue/recommended",
+    'eslint:recommended',
+    '@vue/typescript'
+  ],
+
   "env": {
     "node": true
   },
-  "extends": [
-    "plugin:vue/recommended",
-    "eslint:recommended"
-  ],
+
   "rules": {
     "array-bracket-spacing": 1,
     "comma-spacing": [
@@ -69,9 +71,11 @@ module.exports = {
     ],
 	  */
   },
+
   "parserOptions": {
     "parser": "babel-eslint"
   },
+
   "overrides": [
     {
       files: [
@@ -82,5 +86,9 @@ module.exports = {
         jest: true,
       },
     }
-  ]
+  ],
+
+  parserOptions: {
+    parser: '@typescript-eslint/parser'
+  }
 }
