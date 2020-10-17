@@ -4,13 +4,15 @@ import axios from 'axios';
 jest.mock('axios');
 
 describe('actions', () => {
+  const mockGet = axios.get as any;
+
   beforeEach(() => {
-    axios.get.mockClear();
+    mockGet.mockClear();
   });
 
   it('refreshes posts', async () => {
     const commit = jest.fn();
-    axios.get.mockResolvedValue({
+    mockGet.mockResolvedValue({
     });
 
     await actions.refreshPosts({
@@ -27,7 +29,7 @@ describe('actions', () => {
       },
       commit: jest.fn(),
     };
-    axios.get.mockResolvedValue({
+    mockGet.mockResolvedValue({
     });
 
     await actions.refreshPostContent(content);

@@ -1,8 +1,16 @@
 import axios from 'axios';
+import {
+  Commit
+} from 'vuex';
+import {
+  BlogState
+} from './types';
 
 export default {
   refreshPosts({
     commit
+  }: {
+    commit: Commit,
   }) {
     return axios
       .get('/static/blog-posts.json')
@@ -11,11 +19,17 @@ export default {
       });
   },
 
-  refreshPostContent(context) {
+  refreshPostContent({
+    state,
+    commit,
+  }: {
+    state: BlogState,
+    commit: Commit,
+  }) {
     return axios
-      .get(`/static/blog/${context.state.selectedPostId}.html`)
+      .get(`/static/blog/${state.selectedPostId}.html`)
       .then(response => {
-        context.commit('updatePostContent', response.data);
+        commit('updatePostContent', response.data);
       });
   },
 };

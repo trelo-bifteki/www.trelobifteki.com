@@ -4,13 +4,15 @@ import axios from 'axios';
 jest.mock('axios');
 
 describe('actions', () => {
+  const mockGet = axios.get as any;
+
   beforeEach(() => {
-    axios.get.mockClear();
+    mockGet.mockClear();
   });
 
   it('refreshes resume', async () => {
     const commit = jest.fn();
-    axios.get.mockResolvedValue({
+    mockGet.mockResolvedValue({
       data: {
       },
     });

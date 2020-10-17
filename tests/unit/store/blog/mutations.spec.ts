@@ -1,10 +1,14 @@
 import mutations from '@/store/blog/mutations';
+import {
+  BlogState
+} from '@/store/blog/types';
+import {
+  createDefaultState
+} from '@/store/blog/state';
 
 describe('blog.mutations', () => {
   it('updates posts', () => {
-    const state = {
-      posts: [],
-    };
+    const state: BlogState = createDefaultState();
     const updatedPosts = [{
       id: 1
     }];
@@ -16,9 +20,7 @@ describe('blog.mutations', () => {
   });
 
   it('updates post', () => {
-    const state = {
-      post: undefined,
-    };
+    const state = createDefaultState();
     const updatedPost = {
       id: 1,
     };
@@ -31,9 +33,7 @@ describe('blog.mutations', () => {
   });
 
   it('updates post content', () => {
-    const state = {
-      postContent: undefined,
-    };
+    const state = createDefaultState();
     const updatedContent = 'Hello';
 
     mutations.updatePostContent(state, updatedContent);
@@ -44,9 +44,8 @@ describe('blog.mutations', () => {
   });
 
   it('updated selectded post id', () => {
-    const state = {
-    };
-    const updatedPostId = 1;
+    const state = createDefaultState();
+    const updatedPostId = '1';
 
     mutations.updateSelectedPostId(state, updatedPostId);
 
