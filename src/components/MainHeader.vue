@@ -1,12 +1,18 @@
-<script>
-import NavigationBar from './NavigationBar';
+<script lang="ts">
+import NavigationBar from './NavigationBar.vue';
+import {
+  Component,
+  Vue,
+} from 'vue-property-decorator';
 
-export default {
-  name: 'MainHeader',
+@Component({
+    name: 'MainHeader',
   components: {
     NavigationBar,
   },
-};
+})
+export default class MainHeader extends Vue {
+}
 </script>
 <template>
   <header class="main-header">

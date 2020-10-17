@@ -3,8 +3,12 @@ import {
   mapState
 } from 'vuex';
 import SocialLinks from './SocialLinks';
+import {
+  Component,
+  Vue,
+} from 'vue-property-decorator';
 
-export default {
+@Component({
   name: 'MainFooter',
   components: {
     SocialLinks
@@ -12,7 +16,9 @@ export default {
   computed: mapState({
     packageVersion: state => state.packageVersion,
   }),
-};
+})
+export default class MainFooter extends Vue {
+}
 </script>
 
 <template>
