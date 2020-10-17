@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 
 import gdprService from '@/services/localStorage';
 import {
@@ -6,9 +6,7 @@ import {
   Vue,
 } from 'vue-property-decorator';
 
-@Component({
-  name: 'CookieNotification',
-})
+@Component
 export default class CookieNotification extends Vue {
 
   isVisible = false;

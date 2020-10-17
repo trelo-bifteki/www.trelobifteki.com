@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 import NavigationBar from './NavigationBar.vue';
 import {
   Component,
