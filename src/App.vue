@@ -1,25 +1,30 @@
-<script>
+<script lang="ts">
 import 'reset-css';
-import CookieNotification from '@/components/CookieNotification'
-import MainFooter from '@/components/MainFooter';
-import MainHeader from '@/components/MainHeader';
+import CookieNotification from '@/components/CookieNotification.vue'
+import MainFooter from '@/components/MainFooter.vue';
+import MainHeader from '@/components/MainHeader.vue';
+import {
+  Component,
+  Vue,
+} from 'vue-property-decorator';
 
-export default {
+@Component({
   name: 'App',
-  metaInfo: {
-    title: 'CV',
-    titleTemplate: '%s | Lampros Papadimitriou - trelobifteki',
-    htmlAttrs: {
-      lang: 'en',
-      amp: true,
-    },
-  },
   components: {
     CookieNotification,
     MainFooter,
     MainHeader,
   },
-};
+  metaInfo: {
+    title: 'CV',
+    titleTemplate: '%s | Lampros Papadimitriou - trelobifteki',
+    htmlAttrs: {
+      lang: 'en'
+    }
+  }
+})
+export default class App extends Vue {
+}
 </script>
 
 <template>

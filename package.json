@@ -5,30 +5,38 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "postlint": "npm run stylelint",
-    "stylelint": "stylelint src/**/*.{vue,htm,html,css,sss,less,scss,sass}",
-    "test:e2e": "vue-cli-service test:e2e",
     "test:unit": "vue-cli-service test:unit",
-    "lint:markdown": "remark src/**/*.md"
+    "test:e2e": "vue-cli-service test:e2e",
+    "lint": "vue-cli-service lint",
+    "lint:markdown": "remark src/**/*.md",
+    "postlint": "npm run stylelint",
+    "stylelint": "stylelint src/**/*.{vue,htm,html,css,sss,less,scss,sass}"
   },
   "dependencies": {
     "axios": "0.19.2",
     "prismjs": "1.21.0",
     "reset-css": "5.0.1",
     "vue": "2.6.12",
+    "vue-class-component": "^7.2.3",
+    "vue-property-decorator": "^8.4.2",
     "vue-router": "3.4.6",
     "vuex": "3.5.1"
   },
   "devDependencies": {
+    "@types/jest": "^24.9.1",
+    "@typescript-eslint/eslint-plugin": "^2.33.0",
+    "@typescript-eslint/parser": "^2.33.0",
     "@vue/cli-plugin-babel": "4.5.7",
     "@vue/cli-plugin-e2e-cypress": "4.5.7",
     "@vue/cli-plugin-eslint": "4.5.7",
+    "@vue/cli-plugin-typescript": "^4.5.7",
     "@vue/cli-plugin-unit-jest": "4.5.7",
     "@vue/cli-service": "4.5.7",
+    "@vue/eslint-config-typescript": "^5.0.2",
     "@vue/test-utils": "1.1.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "10.1.0",
+    "babel-jest": "^24.9.0",
     "eslint": "6.8.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-vue": "^6.2.2",
@@ -50,28 +58,29 @@
     "stylelint-order": "4.0.0",
     "stylelint-scss": "3.18.0",
     "stylelint-webpack-plugin": "2.1.0",
+    "typescript": "~3.9.3",
     "vue-analytics": "5.22.1",
     "vue-meta": "^2.4.0",
     "vue-template-compiler": "2.6.12"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint"
-    }
   },
   "postcss": {
     "plugins": {
       "autoprefixer": {}
     }
   },
-  "remarkConfig": {
-    "plugins": [
-      "remark-preset-lint-recommended"
-    ]
-  },
   "browserslist": [
     "> 1%",
     "last 2 versions",
     "not ie <= 10"
-  ]
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
+  "remarkConfig": {
+    "plugins": [
+      "remark-preset-lint-recommended"
+    ]
+  }
 }

@@ -1,10 +1,10 @@
 import {
   shallowMount
 } from '@vue/test-utils';
-import SocialLinks from '@/components/SocialLinks';
+import SocialLinks from '@/components/SocialLinks.vue';
 
 describe('SocialLinks', () => {
-  const getWrapper = profiles => shallowMount(SocialLinks, {
+  const getWrapper = (profiles: any) => shallowMount(SocialLinks, {
     propsData: {
       profiles,
     }

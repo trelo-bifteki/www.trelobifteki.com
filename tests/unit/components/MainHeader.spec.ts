@@ -1,7 +1,7 @@
 import {
   shallowMount
 } from '@vue/test-utils';
-import MainHeader from '@/components/MainHeader';
+import MainHeader from '@/components/MainHeader.vue';
 
 describe('MainHeader', () => {
   const createWrapper = () => shallowMount(MainHeader);

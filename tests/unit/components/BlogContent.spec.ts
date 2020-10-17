@@ -1,12 +1,12 @@
 /* eslint-env jest */
 
-import BlogContent from '@/components/BlogContent';
+import BlogContent from '@/components/BlogContent.vue';
 import {
   shallowMount
 } from '@vue/test-utils';
 
 describe('BlogContent', () => {
-  const createWrapper = content => shallowMount(BlogContent, {
+  const createWrapper = (content: any) => shallowMount(BlogContent, {
     propsData: {
       content,
     },

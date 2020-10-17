@@ -1,4 +1,7 @@
 import axios from 'axios';
+import {
+ Commit
+} from 'vuex';
 
 export default {
   /**
@@ -6,7 +9,9 @@ export default {
    * @returns {Promise}
    */
   refreshSkills({
-    commit
+    commit,
+  }: {
+    commit: Commit,
   }) {
     return axios
       .get('/static/skills.json')
@@ -22,7 +27,9 @@ export default {
    * @returns {Promise}
    */
   refreshResume({
-    commit
+    commit,
+  }: {
+    commit: Commit,
   }) {
     return axios
       .get('/static/resume.json')

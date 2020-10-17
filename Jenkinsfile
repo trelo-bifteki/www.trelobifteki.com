@@ -21,7 +21,6 @@ pipeline {
       }
     }
 
-    /*
     stage('Check unit:test') {
       steps {
         sh 'npm run test:unit -- --ci --coverage'
@@ -33,7 +32,6 @@ pipeline {
         }
       }
     }
-    */
 
     stage('Build') {
       steps {

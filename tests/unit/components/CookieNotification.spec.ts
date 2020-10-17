@@ -1,4 +1,4 @@
-import CookieNotification from '@/components/CookieNotification';
+import CookieNotification from '@/components/CookieNotification.vue';
 import {
   shallowMount
 } from '@vue/test-utils';
@@ -12,6 +12,7 @@ describe('CookieNotification', () => {
     page: jest.fn(),
     disable: jest.fn(),
   };
+  const isGdprAccepted = gdprService.isGdprAccepted as jest.Mock;
 
   const getWrapper = (propsData = {
   }) => shallowMount(CookieNotification, {
@@ -22,11 +23,11 @@ describe('CookieNotification', () => {
   });
 
   beforeEach(() => {
-    gdprService.isGdprAccepted.mockClear();
+    isGdprAccepted.mockClear();
   });
 
   it('hides the cookie notification by default', () => {
-    gdprService.isGdprAccepted.mockReturnValue(true);
+    isGdprAccepted.mockReturnValue(true);
     const wrapper = getWrapper();
 
     expect(
@@ -35,7 +36,7 @@ describe('CookieNotification', () => {
   });
 
   it('displays the cookie notification after is mounted', async () => {
-    gdprService.isGdprAccepted.mockReturnValue(false);
+    isGdprAccepted.mockReturnValue(false);
     const wrapper = getWrapper();
     await wrapper.vm.$nextTick();
     expect(
@@ -44,13 +45,14 @@ describe('CookieNotification', () => {
   });
 
   it('closes the cookie notification after we click OK button', async () => {
-    gdprService.isGdprAccepted.mockReturnValue(false);
+    isGdprAccepted.mockReturnValue(false);
     const wrapper = getWrapper();
+    const vm = wrapper.vm as any;
 
-    await wrapper.vm.$nextTick();
+    await vm.$nextTick();
 
-    expect(wrapper.vm.isVisible).toBe(true);
-    expect(wrapper.vm.$ga).toBeDefined();
+    expect(vm.isVisible).toBe(true);
+    expect(vm.$ga).toBeDefined();
     const button = wrapper.find('.cookie-notification__button--ok');
 
     button.trigger('click');
@@ -65,12 +67,14 @@ describe('CookieNotification', () => {
   });
 
   it('closes the cookie notification after we click NO WAY button', async () => {
-    gdprService.isGdprAccepted.mockReturnValue(false);
+    isGdprAccepted.mockReturnValue(false);
     const wrapper = getWrapper();
+    const vm = wrapper.vm as any;
+
     await wrapper.vm.$nextTick();
 
     expect(wrapper.vm.$ga).toBeDefined();
-    expect(wrapper.vm.isVisible).toBe(true);
+    expect(vm.isVisible).toBe(true);
     const button = wrapper.find('.cookie-notification__button--no');
     button.trigger('click');
 

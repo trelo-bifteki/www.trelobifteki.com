@@ -2,7 +2,7 @@ import {
   shallowMount,
   createLocalVue,
 } from '@vue/test-utils';
-import BlogPost from '@/views/BlogPost';
+import BlogPost from '@/views/BlogPost.vue';
 import Vuex from 'vuex';
 
 const localVue = createLocalVue();
@@ -32,7 +32,7 @@ describe('BlogPost', () => {
     updateSelectedPostId: jest.fn(),
   };
 
-  const createStore = state => new Vuex.Store({
+  const createStore = (state: any) => new Vuex.Store({
     modules: {
       blog: {
         actions,
@@ -51,7 +51,7 @@ describe('BlogPost', () => {
     mutations.updateSelectedPostId.mockClear();
   });
 
-  const getWrapper = store => shallowMount(BlogPost, {
+  const getWrapper = (store: any) => shallowMount(BlogPost, {
     localVue,
     propsData: {
       postId: 'howto-write-tickets',

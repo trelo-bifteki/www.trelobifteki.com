@@ -2,10 +2,13 @@ import {
   shallowMount,
   createLocalVue,
 } from '@vue/test-utils';
-import BlogView from '@/views/BlogView';
+import BlogView from '@/views/BlogView.vue';
 import Vuex from 'vuex';
 
 const localVue = createLocalVue();
+const emptyState = {
+};
+
 localVue.use(Vuex);
 
 describe('BlogView', () => {
@@ -19,7 +22,7 @@ describe('BlogView', () => {
     posts: [],
     selectedPostId: '',
   };
-  const createStore = state => new Vuex.Store({
+  const createStore = (state: any = emptyState) => new Vuex.Store({
     modules: {
       blog: {
         actions,
@@ -31,7 +34,7 @@ describe('BlogView', () => {
       },
     },
   });
-  const createWrapper = store => shallowMount(
+  const createWrapper = (store: any) => shallowMount(
     BlogView,
     {
       localVue,

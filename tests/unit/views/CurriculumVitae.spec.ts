@@ -4,7 +4,7 @@ import {
   shallowMount,
   createLocalVue,
 } from '@vue/test-utils';
-import CurriculumVitae from '@/views/CurriculumVitae';
+import CurriculumVitae from '@/views/CurriculumVitae.vue';
 import Vuex from 'vuex';
 
 const localVue = createLocalVue();
@@ -25,7 +25,10 @@ describe('CurriculumVitae', () => {
     work: jest.fn(),
   };
 
-  const createStore = state => new Vuex.Store({
+  const emptyState = {
+  };
+
+  const createStore = (state: any = emptyState) => new Vuex.Store({
     modules: {
       cv: {
         actions,
@@ -36,7 +39,7 @@ describe('CurriculumVitae', () => {
     }
   });
 
-  const createWrapper = store => shallowMount(CurriculumVitae, {
+  const createWrapper = (store: any) => shallowMount(CurriculumVitae, {
     localVue,
     store,
     stubs: [
