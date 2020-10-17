@@ -3,7 +3,9 @@ import axios from 'axios';
 import {
   createDefaultState
 } from '@/store/blog/state';
-import { Commit } from 'vuex';
+import {
+ Commit
+} from 'vuex';
 
 jest.mock('axios');
 
