@@ -1,12 +1,12 @@
 import {
   shallowMount
 } from '@vue/test-utils';
-import PersonalInformation from '@/components/PersonalInformation';
+import PersonalInformation from '@/components/PersonalInformation.vue';
 
 const EXAMPLE_NAME = 'Max Mustermann';
 
 describe('PersonalInformation', () => {
-  const getWrapper = propsData => shallowMount(PersonalInformation, {
+  const getWrapper = (propsData: any) => shallowMount(PersonalInformation, {
     propsData,
   });
 

@@ -1,5 +1,9 @@
 import actions from '@/store/blog/actions';
 import axios from 'axios';
+import {
+  createDefaultState
+} from '@/store/blog/state';
+import { Commit } from 'vuex';
 
 jest.mock('axios');
 
@@ -23,17 +27,14 @@ describe('actions', () => {
   });
 
   it('refreshes post content', async () => {
-    const content = {
-      state: {
-        selectedPostId: 1,
-      },
-      commit: jest.fn(),
-    };
-    mockGet.mockResolvedValue({
+    const state = createDefaultState();
+    const commit =  jest.fn() as Commit;
+
+    await actions.refreshPostContent({
+      state,
+      commit,
     });
 
-    await actions.refreshPostContent(content);
-
-    expect(content.commit).toHaveBeenCalled();
+    expect(commit).toHaveBeenCalled();
   });
 });
