@@ -4,11 +4,11 @@ import VueMeta from 'vue-meta';
 import CurriculumVitae from '@/views/CurriculumVitae.vue';
 
 const _window = window as any;
-if (_window.VueRouter) {
+if (!_window.VueRouter) {
   Vue.use(VueRouter);
 }
 
-if (_window.Meta) {
+if (!_window.Meta) {
   Vue.use(VueMeta);
 }
 
