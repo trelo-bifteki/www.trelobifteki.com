@@ -1,58 +1,64 @@
-const isUndefined = value => typeof value === 'undefined';
+import {
+  CurriculumVitaeState
+} from './types';
+
+const isUndefined = (value: any) => typeof value === 'undefined';
 
 export default {
   /**
    * @param {Object} state containing resume
    * @returns {Object}
    */
-  basics: state => state.resume.basics,
+  basics: (state: CurriculumVitaeState) => state.resume.basics,
 
   /**
    * @param {Object} state containing resume
    * @returns {Array}
    */
-  education: state => state.resume.education,
+  education: (state: CurriculumVitaeState) => state.resume.education,
 
   /**
    * @param {Object} state
    * @param {Object} existing getters
    * @returns {string}
    */
-  fullName: (state, getters) => getters.basics.name,
+  fullName: (state: CurriculumVitaeState, getters: any) => getters.basics.name,
 
   /**
    * @param {Object} state
    * @returns {Object}
    */
-  latestWork: state => state.resume.work.find(work => isUndefined(work.endDate)),
+  latestWork: (state: CurriculumVitaeState) => state.resume.work.find(
+    (work: any) => isUndefined(work.endDate)
+  ),
 
   /**
    * @param {Object} state
    * @returns {Object}
    */
-  location: (state, getters) => getters.basics.location,
+  location: (state: CurriculumVitaeState, getters: any) => getters.basics.location,
 
   /**
    * @param {Object} state
    * @returns {Array}
    */
-  profiles: (state, getters) => getters.basics.profiles,
+  profiles: (state: CurriculumVitaeState, getters: any) => getters.basics.profiles,
 
   /**
    * @param {Object} state
    * @returns {Array}
    */
-  work: state => state.resume.work,
+  work: (state: CurriculumVitaeState) => state.resume.work,
 
   /**
    * @param {Object} state
    * @returns {Array}
    */
-  interests: state => state.resume.interests,
+  interests: (state: CurriculumVitaeState) => state.resume.interests,
 
   /**
    * @param {Object} state
    * @returns {Array}
    */
-  skills: state => state.resume.skills,
+  skills: (state: CurriculumVitaeState) => state.resume.skills,
 };

@@ -3,17 +3,18 @@
 import {
   shallowMount
 } from '@vue/test-utils';
-import EducationItem from '@/components/EducationItem';
+import EducationItem from '@/components/EducationItem.vue';
 import localizedDate from '@/filters/localizedDate.filter';
 
 jest.mock('@/filters/localizedDate.filter');
 
 describe('EducationItem', ()=> {
-  const createWrapper = item => shallowMount(EducationItem, {
+  const createWrapper = (item: any) => shallowMount(EducationItem, {
     propsData: {
       item,
     }
   });
+  const mockLocalizedDate = localizedDate as jest.Mock;
 
   const defaultItem = {
     institution: 'Test institution',
@@ -24,7 +25,7 @@ describe('EducationItem', ()=> {
   };
 
   beforeEach(() => {
-    localizedDate.mockClear();
+    mockLocalizedDate.mockClear();
   });
 
   it('renders education item title', () => {
@@ -44,7 +45,7 @@ describe('EducationItem', ()=> {
   });
 
   it('renders education start time', () => {
-    localizedDate.mockReturnValue('start');
+    mockLocalizedDate.mockReturnValue('start');
     const wrapper = createWrapper(defaultItem);
 
     expect(
@@ -53,7 +54,7 @@ describe('EducationItem', ()=> {
   });
 
   it('renders education end time', () => {
-    localizedDate.mockReturnValue('end');
+    mockLocalizedDate.mockReturnValue('end');
     const wrapper = createWrapper(defaultItem);
 
     expect(

@@ -2,7 +2,7 @@ import {
   shallowMount,
   createLocalVue,
 } from '@vue/test-utils';
-import BlogView from '@/views/BlogView';
+import BlogView from '@/views/BlogView.vue';
 import Vuex from 'vuex';
 
 const localVue = createLocalVue();

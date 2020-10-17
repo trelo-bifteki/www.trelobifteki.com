@@ -4,7 +4,7 @@ import {
   shallowMount,
   createLocalVue,
 } from '@vue/test-utils';
-import CurriculumVitae from '@/views/CurriculumVitae';
+import CurriculumVitae from '@/views/CurriculumVitae.vue';
 import Vuex from 'vuex';
 
 const localVue = createLocalVue();

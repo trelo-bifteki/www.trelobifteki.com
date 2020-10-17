@@ -2,19 +2,19 @@ import {
   createLocalVue,
   shallowMount
 } from '@vue/test-utils';
-import MainFooter from '@/components/MainFooter';
+import MainFooter from '@/components/MainFooter.vue';
 import Vuex from 'vuex'
 
 const localVue = createLocalVue();
 localVue.use(Vuex);
 
 describe('MainFooter', () => {
-  const createWrapper = store => shallowMount(MainFooter, {
+  const createWrapper = (store: any) => shallowMount(MainFooter, {
     store,
     localVue,
   });
 
-  const getStore = state => new Vuex.Store({
+  const getStore = (state: any) => new Vuex.Store({
     state,
   });
 

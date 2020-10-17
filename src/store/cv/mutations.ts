@@ -1,4 +1,6 @@
-import { CurriculumVitaeState } from './types';
+import {
+ CurriculumVitaeState
+} from './types';
 
 export default {
   updateSkills: (state: CurriculumVitaeState, skills: Array<string>) => {
