@@ -110,7 +110,7 @@ export default class MainFooter extends Vue {
     }
 
     &__github {
-      margin: 0 $space-xs;
+      color: $color-theme-orange;
     }
 
     &__version {

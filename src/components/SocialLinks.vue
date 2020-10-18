@@ -1,31 +1,43 @@
-<script>
-export default {
-  name: 'SocialLinks',
-  props: {
-    profiles: {
-      type: Array,
-      required: false,
-      default: () => [],
-    },
-  },
-  data() {
-    return {
-      networkToImageMap: {
-        Github: 'icon-github',
-        Twitter: 'icon-twitter',
-        Linkedin: 'icon-linkedin-squared',
-      }
-    };
-  },
-  computed: {
-    socialLinks() {
-      return this.profiles.map(profile => ({
-        ...profile,
-        image: this.networkToImageMap[profile.network],
-      }));
-    },
-  },
-};
+<script lang="ts">
+import {
+  Component,
+  Prop,
+  Vue,
+} from 'vue-property-decorator';
+import IconBase from './icons/IconBase.vue';
+import IconEnvelope from './icons/IconEnvelope.vue';
+
+@Component({
+  components: {
+    IconBase,
+    IconEnvelope,
+  }
+})
+export default class SocialLinks extends Vue {
+
+  @Prop({
+    type: Array,
+    default: () => [],
+  })
+  readonly profiles!: ReadonlyArray<any>;
+
+  readonly networkToImageMap: Record<string, string> = {
+    Github: 'icon-github',
+    Twitter: 'icon-twitter',
+    Linkedin: 'icon-linkedin-squared',
+  };
+
+  readonly iconWidth = '1.2rem';
+  readonly iconHeight = '1.1rem';
+
+  get socialLinks(): ReadonlyArray<any> {
+    const networkToImageMap = this.networkToImageMap as Record<any, any>;
+    return this.profiles.map((profile: any) => ({
+      ...profile,
+      image: networkToImageMap[profile.network],
+    }));
+  }
+}
 </script>
 
 <template>
@@ -41,8 +53,17 @@ export default {
       <i :class="profile.image" />
     </a>
 
-    <a href="mailto:lambrospd@gmail.com">
-      <i class="icon-mail" />
+    <a
+      class="social-links__item"
+      href="mailto:lambrospd@gmail.com"
+    >
+      <icon-base
+        icon-name="envelope"
+        :width="iconWidth"
+        :height="iconHeight"
+      >
+        <icon-envelope />
+      </icon-base>
     </a>
   </div>
 </template>
@@ -53,13 +74,17 @@ export default {
 @import '../scss/breakpoints';
 
 .social-links {
-  > a {
+
+  &__item {
     border-radius: 50%;
     font-size: 110%;
     margin-right: $space;
+    padding: $space-s $space-s * 1.2;
     text-decoration: none;
     transition: background-color .33s ease-in-out;
+  }
 
+  > a {
     &:first-child {
       color: $color-rainbow-green;
     }
