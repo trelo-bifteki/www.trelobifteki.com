@@ -1,5 +1,4 @@
 <script lang="ts">
-import 'reset-css';
 import CookieNotification from '@/components/CookieNotification.vue'
 import MainFooter from '@/components/MainFooter.vue';
 import MainHeader from '@/components/MainHeader.vue';
@@ -43,6 +42,7 @@ export default class App extends Vue {
 </template>
 
 <style lang="scss">
+@import 'reset-css';
 @import 'scss/variables';
 
 html,
