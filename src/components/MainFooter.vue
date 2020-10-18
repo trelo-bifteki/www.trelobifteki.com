@@ -1,10 +1,11 @@
-<script>
+<script lang="ts">
 import {
   mapState
 } from 'vuex';
-import IconBase from './icons/IconBase';
-import IconHeart from './icons/IconHeart';
-import SocialLinks from './SocialLinks';
+import IconBase from './icons/IconBase.vue';
+import IconHeart from './icons/IconHeart.vue';
+import IconGithub from './icons/IconGithub.vue';
+import SocialLinks from './SocialLinks.vue';
 import {
   Component,
   Vue,
@@ -14,11 +15,12 @@ import {
   name: 'MainFooter',
   components: {
     IconBase,
+    IconGithub,
     IconHeart,
     SocialLinks,
   },
   computed: mapState({
-    packageVersion: state => state.packageVersion,
+    packageVersion: (state: any) => state.packageVersion,
   }),
 })
 export default class MainFooter extends Vue {
@@ -46,7 +48,13 @@ export default class MainFooter extends Vue {
             href="https://github.com/trelo-bifteki/www.trelobifteki.com"
             rel="noreferrer"
           >
-            <i class="icon-github" />
+            <icon-base
+              class="main-footer__icon-github"
+              icon-color="orange"
+              icon-name="github"
+            >
+              <icon-github />
+            </icon-base>
           </a>
         </div>
       </div>
@@ -102,7 +110,7 @@ export default class MainFooter extends Vue {
     }
 
     &__github {
-      color: $color-theme-orange;
+      margin: 0 $space-xs;
     }
 
     &__version {

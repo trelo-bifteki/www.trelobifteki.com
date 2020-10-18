@@ -59,8 +59,16 @@ export default class IconBase extends Vue {
 @import '../../scss/variables';
 
 .icon-base {
+  display: inline-block;
+  margin-bottom: -2px;
+  vertical-align: baseline;
+
   &__group {
     fill: currentColor;
+
+    &--orange {
+      fill: $color-theme-orange;
+    }
 
     &--red {
       fill: $color-theme-red;
