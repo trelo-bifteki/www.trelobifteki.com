@@ -3,6 +3,7 @@ import {
   mapState
 } from 'vuex';
 import IconBase from './icons/IconBase';
+import IconHeart from './icons/IconHeart';
 import SocialLinks from './SocialLinks';
 import {
   Component,
@@ -13,6 +14,7 @@ import {
   name: 'MainFooter',
   components: {
     IconBase,
+    IconHeart,
     SocialLinks,
   },
   computed: mapState({
@@ -27,9 +29,15 @@ export default class MainFooter extends Vue {
   <footer class="main-footer">
     <div class="main-footer__container">
       <div class="main-footer__footnote">
-        <div>
+        <div class="main-footer__tool-list">
           Made with
-          <i class="main-footer__heart icon-heart" />
+          <icon-base
+            class="main-footer__icon-heart"
+            icon-color="red"
+            icon-name="heart"
+          >
+            <icon-heart />
+          </icon-base>
         </div>
         <div>
           Wanna check code? Visit
@@ -84,8 +92,13 @@ export default class MainFooter extends Vue {
       }
     }
 
-    &__heart {
-      color: $color-theme-red;
+    &__icon-heart {
+      margin: 0 $space-xs;
+    }
+
+    &__tool-list {
+      align-items: center;
+      display: flex;
     }
 
     &__github {
