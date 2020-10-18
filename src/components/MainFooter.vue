@@ -2,6 +2,7 @@
 import {
   mapState
 } from 'vuex';
+import IconBase from './icons/IconBase';
 import SocialLinks from './SocialLinks';
 import {
   Component,
@@ -11,7 +12,8 @@ import {
 @Component({
   name: 'MainFooter',
   components: {
-    SocialLinks
+    IconBase,
+    SocialLinks,
   },
   computed: mapState({
     packageVersion: state => state.packageVersion,
