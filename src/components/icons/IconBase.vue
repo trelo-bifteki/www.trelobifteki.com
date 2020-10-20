@@ -9,13 +9,13 @@ import {
 export default class IconBase extends Vue {
   @Prop({
     type: [String, Number],
-    default: '1rem',
+    default: '16px',
   })
   width!: string | number;
 
   @Prop({
     type: [String, Number],
-    default: '1rem',
+    default: '16px',
   })
   height!: string | number;
 
@@ -31,11 +31,26 @@ export default class IconBase extends Vue {
   })
   iconName!: string;
 
+  @Prop({
+    type: Boolean,
+    default: false
+  })
+  inverted!: boolean;
+
   get iconGroupClasses(): string[] {
     return [
       'icon-base__group',
       `icon-base__group--${this.iconColor}`,
     ];
+  }
+
+  get rootClasses(): string [] {
+    let classes = ['icon-base'];
+    if (this.inverted) {
+      classes.push('icon-base--inverted');
+    }
+
+    return classes;
   }
 }
 </script>
@@ -47,7 +62,7 @@ export default class IconBase extends Vue {
     viewBox="0 0 512 512"
     :aria-labelledby="iconName"
     role="presentation"
-    class="icon-base"
+    :class="rootClasses"
   >
     <g :class="iconGroupClasses">
       <slot />
@@ -60,6 +75,8 @@ export default class IconBase extends Vue {
 
 .icon-base {
   display: inline-block;
+  transform: rotate(0deg);
+  transition: transform .33s ease-out;
   vertical-align: baseline;
 
   &__group {
@@ -72,6 +89,10 @@ export default class IconBase extends Vue {
     &--red {
       fill: $color-theme-red;
     }
+  }
+
+  &--inverted {
+    transform: rotate(180deg);
   }
 }
 </style>

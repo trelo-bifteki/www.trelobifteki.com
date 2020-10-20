@@ -1,23 +1,30 @@
 <script>
-export default {
-  name: 'BioSummary',
-  data() {
-    return {
-      showMore: false,
-    };
-  },
-  methods: {
-    toggle() {
-      this.showMore = !this.showMore;
-    },
-  },
-};
+import {
+  Component,
+  Vue,
+} from 'vue-property-decorator';
+import IconBase from './icons/IconBase.vue';
+import IconChevronUp from './icons/IconChevronUp.vue';
+
+@Component({
+  components: {
+    IconBase,
+    IconChevronUp,
+  }
+})
+export default class BioSummary extends Vue {
+  showMore = false;
+
+  toggle() {
+    this.showMore = !this.showMore;
+  }
+}
 </script>
 
 <template>
   <article class="bio-summary">
     <p>
-      Software engineer focused on Web &amp; Mobile technologies. Particularly interested
+      Software engineer focused on Web technologies. Particularly interested
       in software development, system integration and service delivery.
     </p>
     <p>
@@ -71,14 +78,13 @@ export default {
         more
       </span>
       <transition name="rotate">
-        <i
-          v-if="showMore"
-          class="icon-up-open"
-        />
-        <i
-          v-else
-          class="icon-down-open"
-        />
+        <icon-base
+          class="bio-summary__more-icon"
+          icon-name="icon-chevron"
+          :inverted="!showMore"
+        >
+          <icon-chevron-up />
+        </icon-base>
       </transition>
     </button>
   </article>
@@ -94,6 +100,7 @@ export default {
   }
 
   &__more-button {
+    align-items: center;
     background-color: transparent;
     border-bottom: none;
     border-left: none;
@@ -101,9 +108,15 @@ export default {
     border-top: 1px solid $color-theme-gray-light;
     color: $color-girl-party-pink;
     cursor: pointer;
+    display: flex;
     font-size: 1rem;
+    justify-content: center;
     padding: $space;
     width: 100%;
+  }
+
+  &__more-icon {
+    margin-left: $space-xs;
   }
 }
 

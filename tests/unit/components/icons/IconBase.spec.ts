@@ -3,13 +3,16 @@ import {
   shallowMount
 } from '@vue/test-utils';
 
+const defaultProps = {
+  iconName: 'testName',
+  width: '20px',
+  iconColor: 'red',
+  inverted: false,
+};
+
 describe('IconBase', () => {
-  const createWrapper = () => shallowMount(IconBase, {
-    propsData: {
-      iconName: 'testName',
-      width: '20px',
-      iconColor: 'red',
-    }
+  const createWrapper = (propsData: any = defaultProps) => shallowMount(IconBase, {
+    propsData,
   });
 
   it('loads succesfully', () => {
@@ -45,5 +48,15 @@ describe('IconBase', () => {
         'icon-base__group',
         'icon-base__group--red',
       ]);
-    })
+    });
+
+    it('inverts icon when invert=true', () => {
+      const wrapper = createWrapper({
+        inverted: true,
+      });
+
+      expect(
+        wrapper.find('.icon-base--inverted').exists()
+      ).toBe(true);
+    });
 });

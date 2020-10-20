@@ -33,8 +33,8 @@ export default class SocialLinks extends Vue {
     Linkedin: 'icon-linkedin',
   };
 
-  readonly iconWidth = '1.4rem';
-  readonly iconHeight = '1.4rem';
+  readonly iconWidth = '18px';
+  readonly iconHeight = '18px';
 
   get socialLinks(): ReadonlyArray<any> {
     const networkToImageMap = this.networkToImageMap as Record<any, any>;
@@ -58,7 +58,7 @@ export default class SocialLinks extends Vue {
     >
       <icon-base
         :class="profile.image"
-        :icon-name="image"
+        :icon-name="profile.image"
         :width="iconWidth"
         :height="iconHeight"
       >
