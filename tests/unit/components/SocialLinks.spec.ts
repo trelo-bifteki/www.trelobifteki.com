@@ -12,7 +12,7 @@ describe('SocialLinks', () => {
 
   it.each([
     ['Github', '.icon-github'],
-    ['Linkedin', '.icon-linkedin-squared']
+    ['Linkedin', '.icon-linkedin']
   ])('load a link when icon %s = %s', (
     network,
     iconClass,

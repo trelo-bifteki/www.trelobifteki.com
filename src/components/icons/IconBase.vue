@@ -35,7 +35,7 @@ export default class IconBase extends Vue {
     return [
       'icon-base__group',
       `icon-base__group--${this.iconColor}`,
-    ]
+    ];
   }
 }
 </script>
@@ -60,7 +60,6 @@ export default class IconBase extends Vue {
 
 .icon-base {
   display: inline-block;
-  margin-bottom: -2px;
   vertical-align: baseline;
 
   &__group {

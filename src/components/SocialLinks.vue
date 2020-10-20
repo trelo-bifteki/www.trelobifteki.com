@@ -6,11 +6,17 @@ import {
 } from 'vue-property-decorator';
 import IconBase from './icons/IconBase.vue';
 import IconEnvelope from './icons/IconEnvelope.vue';
+import IconGithub from './icons/IconGithub.vue';
+import IconLinkedin from './icons/IconLinkedin.vue';
+import IconTwitter from './icons/IconTwitter.vue';
 
 @Component({
   components: {
     IconBase,
     IconEnvelope,
+    IconGithub,
+    IconLinkedin,
+    IconTwitter,
   }
 })
 export default class SocialLinks extends Vue {
@@ -24,11 +30,11 @@ export default class SocialLinks extends Vue {
   readonly networkToImageMap: Record<string, string> = {
     Github: 'icon-github',
     Twitter: 'icon-twitter',
-    Linkedin: 'icon-linkedin-squared',
+    Linkedin: 'icon-linkedin',
   };
 
-  readonly iconWidth = '1.2rem';
-  readonly iconHeight = '1.1rem';
+  readonly iconWidth = '1.4rem';
+  readonly iconHeight = '1.4rem';
 
   get socialLinks(): ReadonlyArray<any> {
     const networkToImageMap = this.networkToImageMap as Record<any, any>;
@@ -50,7 +56,23 @@ export default class SocialLinks extends Vue {
       target="_blank"
       rel="noopener"
     >
-      <i :class="profile.image" />
+      <icon-base
+        :class="profile.image"
+        :icon-name="image"
+        :width="iconWidth"
+        :height="iconHeight"
+      >
+        <icon-twitter
+          v-if="profile.image === 'icon-twitter'"
+        />
+        <icon-github
+          v-else-if="profile.image === 'icon-github'"
+        />
+        <icon-linkedin
+          v-else-if="profile.image === 'icon-linkedin'"
+        />
+        <icon-envelope v-else />
+      </icon-base>
     </a>
 
     <a
@@ -74,12 +96,14 @@ export default class SocialLinks extends Vue {
 @import '../scss/breakpoints';
 
 .social-links {
-
   &__item {
+    align-items: center;
     border-radius: 50%;
+    display: inline-flex;
     font-size: 110%;
+    justify-content: center;
     margin-right: $space;
-    padding: $space-s $space-s * 1.2;
+    padding: $space-s;
     text-decoration: none;
     transition: background-color .33s ease-in-out;
   }
