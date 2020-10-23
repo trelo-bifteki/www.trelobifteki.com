@@ -13,7 +13,7 @@
     "stylelint": "stylelint src/**/*.{vue,htm,html,css,sss,less,scss,sass}"
   },
   "dependencies": {
-    "axios": "0.19.2",
+    "axios": "0.21.0",
     "prismjs": "1.21.0",
     "reset-css": "5.0.1",
     "vue": "2.6.12",
