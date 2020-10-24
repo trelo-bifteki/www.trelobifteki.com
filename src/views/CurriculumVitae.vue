@@ -1,12 +1,19 @@
-<script>
+<script lang="ts">
 import {
   createNamespacedHelpers
 } from 'vuex';
-import BioSummary from '@/components/BioSummary';
-import EducationItem from '@/components/EducationItem';
-import JobItem from '@/components/JobItem';
-import PersonalInformation from '@/components/PersonalInformation';
-import SkillItem from '@/components/SkillItem';
+import {
+  Component,
+  Vue,
+} from 'vue-property-decorator';
+
+import BioSummary from '@/components/BioSummary.vue';
+import EducationItem from '@/components/EducationItem.vue';
+import IconBase from '@/components/icons/IconBase.vue';
+import IconUser from '@/components/icons/IconUser.vue';
+import JobItem from '@/components/JobItem.vue';
+import PersonalInformation from '@/components/PersonalInformation.vue';
+import SkillItem from '@/components/SkillItem.vue';
 
 const {
   mapActions,
@@ -14,23 +21,21 @@ const {
   mapState,
 } = createNamespacedHelpers('cv');
 
-export default {
-  name: 'CurriculumVitae',
-  metaInfo: {
-    title: 'CV',
-  },
+@Component({
   components: {
     BioSummary,
     EducationItem,
+    IconBase,
+    IconUser,
     JobItem,
     PersonalInformation,
-    SkillItem,
+    SkillItem
   },
   computed: {
     ...mapState({
-      skills: state => state.skills,
-      jobs: state => state.jobs,
-      resume: state => state.resume,
+      skills: (state: any): any => state.skills,
+      jobs: (state: any): any => state.jobs,
+      resume: (state: any): any => state.resume,
     }),
     ...mapGetters([
       'basics',
@@ -43,8 +48,9 @@ export default {
     ]),
   },
   created() {
-    this.refreshResume();
-    this.refreshSkills();
+    const self = this as any;
+    self.refreshResume();
+    self.refreshSkills();
   },
   methods: {
     ...mapActions([
@@ -52,7 +58,10 @@ export default {
       'refreshSkills',
     ]),
   },
-};
+})
+export default class CurriculumVitae extends Vue {
+}
+
 </script>
 
 <template>
@@ -68,7 +77,9 @@ export default {
 
     <section class="curriculum-vitae__panel">
       <h2 class="curriculum-vitae__heading curriculum-vitae__panel-label">
-        <i class="curriculum-vitae__icon icon-user" />
+        <icon-base>
+          <icon-user />
+        </icon-base>
         Summary
       </h2>
 
