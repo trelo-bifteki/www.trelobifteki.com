@@ -10,6 +10,8 @@ import {
 import BioSummary from '@/components/BioSummary.vue';
 import EducationItem from '@/components/EducationItem.vue';
 import IconBase from '@/components/icons/IconBase.vue';
+import IconBriefcase from '@/components/icons/IconBriefcase.vue';
+import IconHeart from '@/components/icons/IconHeart.vue';
 import IconUser from '@/components/icons/IconUser.vue';
 import JobItem from '@/components/JobItem.vue';
 import PersonalInformation from '@/components/PersonalInformation.vue';
@@ -26,6 +28,8 @@ const {
     BioSummary,
     EducationItem,
     IconBase,
+    IconBriefcase,
+    IconHeart,
     IconUser,
     JobItem,
     PersonalInformation,
@@ -60,6 +64,8 @@ const {
   },
 })
 export default class CurriculumVitae extends Vue {
+
+  readonly mainIconSize: number = 20;
 }
 
 </script>
@@ -77,7 +83,12 @@ export default class CurriculumVitae extends Vue {
 
     <section class="curriculum-vitae__panel">
       <h2 class="curriculum-vitae__heading curriculum-vitae__panel-label">
-        <icon-base>
+        <icon-base
+          class="curriculum-vitae__icon"
+          icon-name="user"
+          :height="mainIconSize"
+          :width="mainIconSize"
+        >
           <icon-user />
         </icon-base>
         Summary
@@ -90,7 +101,14 @@ export default class CurriculumVitae extends Vue {
 
     <section class="curriculum-vitae__panel">
       <h2 class="curriculum-vitae__heading curriculum-vitae__panel-label">
-        <i class="curriculum-vitae__icon icon-heart" />
+        <icon-base
+          class="curriculum-vitae__icon"
+          icon-name="heart"
+          :height="mainIconSize"
+          :width="mainIconSize"
+        >
+          <icon-heart />
+        </icon-base>
         Interests
       </h2>
 
@@ -104,7 +122,12 @@ export default class CurriculumVitae extends Vue {
           class="curriculum-vitae__interest"
           qa-ref="curriculum-vitae-interest-item"
         >
-          <i class="curriculum-vitae__interest-icon icon-heart" />
+          <icon-base
+            class="curriculum-vitae__interest-icon"
+            icon-name="heart"
+          >
+            <icon-heart />
+          </icon-base>
           {{ interest.name }}
         </li>
       </ul>
@@ -112,7 +135,14 @@ export default class CurriculumVitae extends Vue {
 
     <section class="curriculum-vitae__panel">
       <h2 class="curriculum-vitae__heading curriculum-vitae__panel-label">
-        <i class="curriculum-vitae__icon icon-briefcase" />
+        <icon-base
+          class="curriculum-vitae__icon"
+          icon-name="briefcase"
+          :height="mainIconSize"
+          :width="mainIconSize"
+        >
+          <icon-briefcase />
+        </icon-base>
         Work experience
       </h2>
       <div class="curriculum-vitae__jobs curriculum-vitae__panel-container">
@@ -195,7 +225,7 @@ export default class CurriculumVitae extends Vue {
 
   &__icon {
     color: $color-theme-orange;
-    margin-right: $space;
+    margin-right: $space-xs;
   }
 
   &__interests {
