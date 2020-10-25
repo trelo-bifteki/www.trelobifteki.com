@@ -11,6 +11,7 @@ import BioSummary from '@/components/BioSummary.vue';
 import EducationItem from '@/components/EducationItem.vue';
 import IconBase from '@/components/icons/IconBase.vue';
 import IconBriefcase from '@/components/icons/IconBriefcase.vue';
+import IconGraduationCap from '@/components/icons/IconGraduationCap.vue';
 import IconHeart from '@/components/icons/IconHeart.vue';
 import IconUser from '@/components/icons/IconUser.vue';
 import JobItem from '@/components/JobItem.vue';
@@ -29,6 +30,7 @@ const {
     EducationItem,
     IconBase,
     IconBriefcase,
+    IconGraduationCap,
     IconHeart,
     IconUser,
     JobItem,
@@ -157,7 +159,14 @@ export default class CurriculumVitae extends Vue {
 
     <section class="curriculum-vitae__panel">
       <h2 class="curriculum-vitae__heading curriculum-vitae__panel-label">
-        <i class="curriculum-vitae__icon icon-graduation-cap" />
+        <icon-base
+          class="curriculum-vitae__icon"
+          icon-name="education-cap"
+          :height="mainIconSize"
+          :width="mainIconSize"
+        >
+          <icon-graduation-cap />
+        </icon-base>
         Education
       </h2>
       <div class="curriculum-vitae__panel-container">
