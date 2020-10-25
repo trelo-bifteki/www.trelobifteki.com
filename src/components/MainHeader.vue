@@ -33,7 +33,7 @@ export default class MainHeader extends Vue {
 
   .main-header {
     align-items: center;
-    background: $color-header-background;
+    background: $color-spectrum-background;
     color: $color-header-foreground;
     padding: 0 $space-xl;
 

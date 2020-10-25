@@ -13,11 +13,7 @@ export default {
           qa-ref="navigation-menu-goto-home"
           to="/"
         >
-          <img
-            class="navigation-bar__logo"
-            src="../assets/trelobifteki-small.png"
-            alt="logo"
-          >
+          Home
         </router-link>
       </li>
 
@@ -79,19 +75,19 @@ export default {
     transition: background .2s ease, transform .33s ease, min-width .33s ease-in-out;
 
     &:first-child {
-      background-color: pink;
+      background-color: $color-spectrum-first-red;
     }
 
     &:nth-child(2) {
-      background-color: #459E42;
+      background-color: $color-spectrum-second-orange;
     }
 
     &:nth-child(3) {
-      background-color: #F97C39;
+      background-color: $color-spectrum-third-green;
     }
 
     &:nth-child(4) {
-      background-color: #F7C931;
+      background-color: $color-spectrum-fourth-blue;
     }
 
     &:nth-child(5) {
@@ -112,7 +108,7 @@ export default {
   }
 
   &__link {
-    color: $color-black;
+    color: $color-spectrum-background;
     display: block;
     font-size: $font-size-ml;
     padding: $space;
