@@ -2,6 +2,8 @@
 import CookieNotification from '@/components/CookieNotification.vue'
 import MainFooter from '@/components/MainFooter.vue';
 import MainHeader from '@/components/MainHeader.vue';
+import NavigationDrawer from '@/components/NavigationDrawer.vue';
+
 import {
   Component,
   Vue,
@@ -13,6 +15,7 @@ import {
     CookieNotification,
     MainFooter,
     MainHeader,
+    NavigationDrawer,
   },
   metaInfo: {
     title: 'CV',
@@ -23,6 +26,11 @@ import {
   }
 })
 export default class App extends Vue {
+  isNavigationDrawerVisible = false;
+
+  toggleNavigationDrawer(isVisible: boolean): void {
+    this.isNavigationDrawerVisible = isVisible;
+  }
 }
 </script>
 
@@ -32,12 +40,20 @@ export default class App extends Vue {
     class="app"
   >
     <MainHeader />
+    <div @click="toggleNavigationDrawer(true)">X</div>
     <div class="index__container">
       <router-view />
     </div>
     <div class="app__filler" />
     <MainFooter />
     <CookieNotification />
+    <NavigationDrawer
+      qa-ref="app__navigation-drawer"
+      :is-visible="isNavigationDrawerVisible"
+      @toggle="toggleNavigationDrawer"
+    >
+      <h2>Luxurotuck</h2>
+    </NavigationDrawer>
   </div>
 </template>
 

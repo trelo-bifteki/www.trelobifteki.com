@@ -19,4 +19,12 @@ describe('App', () => {
       wrapper.find('.app').exists()
     ).toBe(true);
   });
+
+  it('sets navigation drawer as hidden', () => {
+    const wrapper = createWrapper();
+
+    expect(
+      wrapper.find('[qa-ref=app__navigation-drawer]').attributes('isvisible')
+    ).toBeUndefined();
+  })
 });
