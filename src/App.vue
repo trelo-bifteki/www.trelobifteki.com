@@ -40,7 +40,9 @@ export default class App extends Vue {
     class="app"
   >
     <MainHeader />
-    <div @click="toggleNavigationDrawer(true)">X</div>
+    <div @click="toggleNavigationDrawer(true)">
+      X
+    </div>
     <div class="index__container">
       <router-view />
     </div>

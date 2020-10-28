@@ -17,7 +17,15 @@ export default class NavigationDrawer extends Vue {
   get rootClasses(): string[] {
     let results = ['navigation-drawer'];
     if (this.isVisible) {
-      results.push('navigation-drawer--visible')
+      results.push('navigation-drawer--visible');
+    }
+    return results;
+  }
+
+  get containerClasses(): string[] {
+    let results = ['navigation-drawer__container'];
+    if (this.isVisible) {
+      results.push('navigation-drawer__container--visible');
     }
     return results;
   }
@@ -34,7 +42,7 @@ export default class NavigationDrawer extends Vue {
     :class="rootClasses"
     @click="toggle"
   >
-    <div class="navigation-drawer__container">
+    <div :class="containerClasses">
       <slot />
     </div>
   </div>
@@ -44,33 +52,43 @@ export default class NavigationDrawer extends Vue {
   @import "../scss/variables";
 
   .navigation-drawer {
-    background-color: rgba(0, 0, 0, .4);
+    background-color: transparent;
     bottom: 0;
-    display: none;
+    height: 100%;
     left: 0;
-    position: absolute;
+    overflow: hidden;
+    position: fixed;
     right: 0;
     top: 0;
-    transition: background-color .66s linear;
+    transition: background-color .5s ease,
+      visibility .5s linear;
+    visibility: hidden;
+    width: 100%;
     z-index: 100;
 
     &--visible {
       background-color: rgba(0, 0, 0, .4);
-      display: block;
+      visibility: visible;
     }
 
     &__container {
       background-color: $color-spectrum-background;
       bottom: 0;
-      box-shadow: 0 8px 10px -5px rgba(0, 0, 0, .2),
+      box-shadow: 0 8px 10px -absolute5px rgba(0, 0, 0, .2),
         0 16px 24px 2px rgba(0, 0, 0, .14),
         0 6px 30px 5px rgba(0, 0, 0, .12);
       color: $color-theme-white;
+      left: 0;
       padding: $space-l;
       position: absolute;
-      right: 0;
       top: 0;
+      transform: translateX(-250px);
+      transition: transform .5s ease;
       width: 250px;
+
+      &--visible {
+        transform: translateX(0);
+      }
     }
   }
 </style>
