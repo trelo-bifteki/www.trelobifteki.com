@@ -104,6 +104,7 @@ export default class SocialLinks extends Vue {
     justify-content: center;
     margin-right: $space;
     padding: $space-s;
+    text-align: center;
     text-decoration: none;
     transition: background-color .33s ease-in-out;
   }
@@ -164,8 +165,8 @@ export default class SocialLinks extends Vue {
     }
   }
 
-  @include media-breakpoint-medium {
-    text-align: center;
+  @include media-breakpoint-not-small {
+    text-align: left;
   }
 }
 </style>

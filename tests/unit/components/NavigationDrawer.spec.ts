@@ -35,5 +35,13 @@ describe('NavigationDrawer', () => {
     expect(
       wrapper.find('.navigation-drawer--visible').exists()
     ).toBe(true);
+  });
+
+  it('is container visible if property isVisible=true', () => {
+    const wrapper = createWrapper(true);
+
+    expect(
+      wrapper.find('.navigation-drawer__container--visible').exists()
+    ).toBe(true);
   })
 });

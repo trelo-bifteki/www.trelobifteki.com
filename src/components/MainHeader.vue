@@ -21,7 +21,6 @@ export default class MainHeader extends Vue {
       <div class="main-header__title">
         Lampros Papadimitriou
       </div>
-      <div class="main-header__logo" />
     </div>
   </header>
 </template>
@@ -35,15 +34,12 @@ export default class MainHeader extends Vue {
     align-items: center;
     background: $color-spectrum-background;
     color: $color-header-foreground;
-    padding: 0 $space-xl;
+    overflow-x: hidden;
+    padding: 0;
+    width: 100%;
 
-    @include media-breakpoint-medium {
-      padding: 0;
-    }
-
-    @include media-breakpoint-small {
-      overflow-x: hidden;
-      width: 100%;
+    @include media-breakpoint-not-small {
+      padding: 0 $space-xl;
     }
 
     &__container {
@@ -52,24 +48,12 @@ export default class MainHeader extends Vue {
       align-items: center;
       display: flex;
       flex-direction: row;
-      padding-left: 1rem;
+      padding-left: 0;
+      padding-right: $space;
 
-      @include media-breakpoint-small {
-        align-items: baseline;
-        flex-direction: column;
-      }
-
-      @include media-breakpoint-medium {
-        padding-left: 0;
-      }
-    }
-
-    &__logo {
-      height: $space-xxl;
-      margin-left: $space;
-
-      @include media-breakpoint-small {
-        display: none;
+      @include media-breakpoint-not-small {
+        padding-left: $space;
+        padding-right: 0;
       }
     }
 
@@ -77,9 +61,10 @@ export default class MainHeader extends Vue {
       flex-grow: 1;
       font-size: 120%;
       text-align: right;
+      visibility: hidden;
 
-      @include media-breakpoint-small {
-        display: none;
+      @include media-breakpoint-not-small {
+        visibility: visible;
       }
     }
   }
