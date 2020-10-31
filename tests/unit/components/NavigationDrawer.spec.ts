@@ -43,5 +43,15 @@ describe('NavigationDrawer', () => {
     expect(
       wrapper.find('.navigation-drawer__container--visible').exists()
     ).toBe(true);
-  })
+  });
+
+  it('emits toggle when user clicks on it', () => {
+    const wrapper = createWrapper(true);
+    const element = wrapper.find('[qa-ref=navigation-drawer]');
+    element.trigger('click');
+
+    expect(
+      wrapper.emitted().toggle
+    ).toBeDefined();
+  });
 });

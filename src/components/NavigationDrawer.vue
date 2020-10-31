@@ -40,6 +40,7 @@ export default class NavigationDrawer extends Vue {
 <template>
   <div
     :class="rootClasses"
+    qa-ref="navigation-drawer"
     @click="toggle"
   >
     <div :class="containerClasses">
