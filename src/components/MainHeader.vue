@@ -1,22 +1,43 @@
 <script>
 import NavigationBar from './NavigationBar.vue';
+import IconBase from './icons/IconBase.vue';
+import IconBars from './icons/IconBars.vue';
+
 import {
   Component,
+  Emit,
   Vue,
 } from 'vue-property-decorator';
 
 @Component({
     name: 'MainHeader',
   components: {
+    IconBars,
+    IconBase,
     NavigationBar,
   },
 })
 export default class MainHeader extends Vue {
+
+  @Emit('onMenuClicked')
+  clickMenu() {
+    return true;
+  }
+
 }
 </script>
 <template>
   <header class="main-header">
     <div class="main-header__container">
+      <button
+        class="main-header__menu-button"
+        qa-ref="main-header__menu-button"
+        @click="clickMenu"
+      >
+        <IconBase>
+          <IconBars />
+        </IconBase>
+      </button>
       <NavigationBar />
       <div class="main-header__title">
         Lampros Papadimitriou
@@ -55,6 +76,14 @@ export default class MainHeader extends Vue {
         padding-left: $space;
         padding-right: 0;
       }
+    }
+
+    &__menu-button {
+      background: transparent;
+      border: none;
+      color: $color-white;
+      cursor: pointer;
+      padding: 0 $space;
     }
 
     &__title {
