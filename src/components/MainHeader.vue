@@ -38,7 +38,9 @@ export default class MainHeader extends Vue {
           <IconBars />
         </IconBase>
       </button>
+      <!--
       <NavigationBar />
+      -->
       <div class="main-header__title">
         Lampros Papadimitriou
       </div>
@@ -53,42 +55,38 @@ export default class MainHeader extends Vue {
 
   .main-header {
     align-items: center;
-    background: $color-spectrum-background;
+    background: $color-header-background;
     color: $color-header-foreground;
     overflow-x: hidden;
     padding: 0;
     width: 100%;
 
-    @include media-breakpoint-not-small {
-      padding: 0 $space-xl;
-    }
-
     &__container {
-      @include container;
+      @include body-container;
 
       align-items: center;
       display: flex;
       flex-direction: row;
-      padding-left: 0;
-      padding-right: $space;
-
-      @include media-breakpoint-not-small {
-        padding-left: $space;
-        padding-right: 0;
-      }
     }
 
     &__menu-button {
-      background: transparent;
+      background-color: transparent;
       border: none;
+      border-radius: 50%;
       color: $color-white;
       cursor: pointer;
-      padding: 0 $space;
+      padding: $space;
+      transition: background-color .33s ease-out;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, .2);
+      }
     }
 
     &__title {
       flex-grow: 1;
       font-size: 120%;
+      padding: $space 0;
       text-align: right;
       visibility: hidden;
 
