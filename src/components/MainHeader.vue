@@ -2,6 +2,7 @@
 import NavigationBar from './NavigationBar.vue';
 import IconBase from './icons/IconBase.vue';
 import IconBars from './icons/IconBars.vue';
+import MovingSpectrum from './MovingSpectrum.vue';
 
 import {
   Component,
@@ -14,6 +15,7 @@ import {
   components: {
     IconBars,
     IconBase,
+    MovingSpectrum,
     NavigationBar,
   },
 })
@@ -38,12 +40,10 @@ export default class MainHeader extends Vue {
           <IconBars />
         </IconBase>
       </button>
-      <!--
-      <NavigationBar />
-      -->
       <div class="main-header__title">
         Lampros Papadimitriou
       </div>
+      <moving-spectrum />
     </div>
   </header>
 </template>
@@ -64,9 +64,10 @@ export default class MainHeader extends Vue {
     &__container {
       @include body-container;
 
-      align-items: center;
+      align-items: stretch;
       display: flex;
       flex-direction: row;
+      justify-content: space-between;
     }
 
     &__menu-button {
@@ -84,14 +85,15 @@ export default class MainHeader extends Vue {
     }
 
     &__title {
+      display: none;
       flex-grow: 1;
       font-size: 120%;
-      padding: $space 0;
+      margin-right: $space;
+      padding: $space-s 0;
       text-align: right;
-      visibility: hidden;
 
       @include media-breakpoint-not-small {
-        visibility: visible;
+        display: block;
       }
     }
   }
