@@ -40,10 +40,11 @@ export default class MainHeader extends Vue {
           <IconBars />
         </IconBase>
       </button>
+      <navigation-bar class="main-header__navigation-bar" />
       <div class="main-header__title">
         Lampros Papadimitriou
       </div>
-      <moving-spectrum />
+      <moving-spectrum class="main-header__spectrum-logo" />
     </div>
   </header>
 </template>
@@ -68,6 +69,7 @@ export default class MainHeader extends Vue {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      min-height: 3.5rem;
       padding-right: $space-xl;
     }
 
@@ -77,11 +79,30 @@ export default class MainHeader extends Vue {
       border-radius: 50%;
       color: $color-white;
       cursor: pointer;
-      padding: $space;
+      margin: $space-s;
+      padding: $space-s;
       transition: background-color .33s ease-out;
 
       &:hover {
         background-color: rgba(255, 255, 255, .2);
+      }
+
+      @include media-breakpoint-not-small {
+        display: none;
+      }
+    }
+
+    &__navigation-bar {
+      display: none;
+
+      @include media-breakpoint-not-small {
+        display: inline-block;
+      }
+    }
+
+    &__spectrum-logo {
+      @include media-breakpoint-not-small {
+        display: none;
       }
     }
 

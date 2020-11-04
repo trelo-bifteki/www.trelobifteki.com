@@ -51,7 +51,11 @@ export default class App extends Vue {
       :is-visible="isNavigationDrawerVisible"
       @toggle="toggleNavigationDrawer"
     >
-      <h2>Luxurotuck</h2>
+      <div class="app__drawer-header">
+        <h2 class="app__title">
+          Lampros Papadimitriou
+        </h2>
+      </div>
     </NavigationDrawer>
   </div>
 </template>
@@ -80,8 +84,16 @@ body {
   flex-direction: column;
   min-height: 100vh;
 
+  &__drawer-header {
+    border-bottom: 1px solid $color-white;
+  }
+
   &__filler {
     flex: 1 1 auto;
+  }
+
+  &__title {
+    font-weight: 300;
   }
 }
 </style>
