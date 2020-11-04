@@ -68,6 +68,7 @@ export default class MainHeader extends Vue {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      padding-right: $space-xl;
     }
 
     &__menu-button {
@@ -88,12 +89,13 @@ export default class MainHeader extends Vue {
       display: none;
       flex-grow: 1;
       font-size: 120%;
-      margin-right: $space;
-      padding: $space-s 0;
+      padding: $space-s $space-xl;
       text-align: right;
 
       @include media-breakpoint-not-small {
-        display: block;
+        align-items: center;
+        display: flex;
+        flex-direction: row-reverse;
       }
     }
   }

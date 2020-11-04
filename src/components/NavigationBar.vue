@@ -72,7 +72,7 @@ export default {
     justify-content: center;
     min-width: 5rem;
     text-align: center;
-    transition: background .2s ease, transform .33s ease, min-width .33s ease-in-out;
+    transition: background-color .2s ease, transform .33s ease, min-width .33s ease-in-out;
 
     &:first-child {
       background-color: $color-spectrum-first-red;
