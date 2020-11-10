@@ -2,6 +2,7 @@
 import CookieNotification from '@/components/CookieNotification.vue'
 import MainFooter from '@/components/MainFooter.vue';
 import MainHeader from '@/components/MainHeader.vue';
+import NavigationBar from '@/components/NavigationBar.vue';
 import NavigationDrawer from '@/components/NavigationDrawer.vue';
 
 import {
@@ -15,6 +16,7 @@ import {
     CookieNotification,
     MainFooter,
     MainHeader,
+    NavigationBar,
     NavigationDrawer,
   },
   metaInfo: {
@@ -56,6 +58,7 @@ export default class App extends Vue {
           Lampros Papadimitriou
         </h2>
       </div>
+      <navigation-bar />
     </NavigationDrawer>
   </div>
 </template>
@@ -85,7 +88,7 @@ body {
   min-height: 100vh;
 
   &__drawer-header {
-    border-bottom: 1px solid $color-white;
+    margin-bottom: $space;
   }
 
   &__filler {
@@ -94,6 +97,7 @@ body {
 
   &__title {
     font-weight: 300;
+    padding: $space;
   }
 }
 </style>

@@ -40,7 +40,10 @@ export default class MainHeader extends Vue {
           <IconBars />
         </IconBase>
       </button>
-      <navigation-bar class="main-header__navigation-bar" />
+      <navigation-bar
+        class="main-header__navigation-bar"
+        :is-horizontal="true"
+      />
       <div class="main-header__title">
         Lampros Papadimitriou
       </div>

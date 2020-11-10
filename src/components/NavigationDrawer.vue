@@ -80,7 +80,6 @@ export default class NavigationDrawer extends Vue {
         0 6px 30px 5px rgba(0, 0, 0, .12);
       color: $color-theme-white;
       left: 0;
-      padding: $space-l;
       position: absolute;
       top: 0;
       transform: translateX(-250px);

@@ -1,12 +1,34 @@
-<script>
-export default {
+<script lang="ts">
+import {
+  Component,
+  Prop,
+  Vue,
+} from 'vue-property-decorator';
+
+@Component({
   name: 'NavigationBar',
-};
+})
+export default class NavigationBar extends Vue {
+
+  @Prop({
+    default: false,
+    type: Boolean,
+  })
+  isHorizontal!: boolean;
+
+  get containerClasses(): string[] {
+    let classes = ['navigation-bar__container'];
+    if (this.isHorizontal) {
+      classes.push('navigation-bar__container--horizontal');
+    }
+    return classes;
+  }
+}
 </script>
 
 <template>
   <nav class="navigation-bar">
-    <ul class="navigation-bar__container">
+    <ul :class="containerClasses">
       <li class="navigation-bar__item">
         <router-link
           class="navigation-bar__link navigation-bar__link--home"
@@ -58,8 +80,12 @@ export default {
 .navigation-bar {
   &__container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     overflow: hidden;
+
+    &--horizontal {
+      flex-direction: row;
+    }
 
     @include media-breakpoint-not-small {
       overflow: visible;
@@ -108,15 +134,11 @@ export default {
   }
 
   &__link {
-    color: $color-spectrum-background;
+    color: $color-white;
     display: block;
     font-size: $font-size-ml;
     padding: $space;
     text-decoration: none;
-
-    &--home {
-      padding: 0;
-    }
 
     @include media-breakpoint-not-small {
       transform: skew(20deg); /* INVERSE SKEW */
