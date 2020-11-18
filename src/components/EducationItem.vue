@@ -1,18 +1,24 @@
-<script>
+<script lang="ts">
 import localizedDate from '@/filters/localizedDate.filter';
 
-export default {
-  name: 'EducationItem',
+import {
+  Component,
+  Prop,
+  Vue,
+} from 'vue-property-decorator';
+
+@Component({
   filters: {
     localizedDate,
   },
-  props: {
-    item: {
-      type: Object,
-      required: true,
-    },
-  },
-};
+})
+export default class EducationItem extends Vue {
+  @Prop({
+    type: Object,
+    required: true,
+  })
+  item!: any;
+}
 </script>
 
 <template>

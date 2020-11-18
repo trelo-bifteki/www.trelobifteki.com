@@ -1,18 +1,25 @@
-<script>
+<script lang="ts">
 import localizedDate from '@/filters/localizedDate.filter';
 
-export default {
-  name: 'JobItem',
+import {
+  Component,
+  Prop,
+  Vue,
+} from 'vue-property-decorator';
+
+@Component({
   filters: {
     localizedDate,
   },
-  props: {
-    job: {
-      type: Object,
-      required: true,
-    },
-  },
-};
+})
+export default class JobItem extends Vue {
+  @Prop({
+    type: Object,
+    required: true,
+  })
+  job!: any;
+}
+
 </script>
 
 <template>
