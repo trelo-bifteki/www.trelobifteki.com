@@ -4,7 +4,7 @@ import {
   createDefaultState
 } from '@/store/blog/state';
 import {
- Commit
+  Commit
 } from 'vuex';
 
 jest.mock('axios');

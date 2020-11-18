@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {
- Commit
+  Commit
 } from 'vuex';
 
 export default {

@@ -40,23 +40,23 @@ describe('IconBase', () => {
   });
 
   it('renders group color as red', () => {
-      const wrapper = createWrapper();
+    const wrapper = createWrapper();
 
-      expect(
-        wrapper.find('.icon-base__group').classes()
-      ).toEqual([
-        'icon-base__group',
-        'icon-base__group--red',
-      ]);
+    expect(
+      wrapper.find('.icon-base__group').classes()
+    ).toEqual([
+      'icon-base__group',
+      'icon-base__group--red',
+    ]);
+  });
+
+  it('inverts icon when invert=true', () => {
+    const wrapper = createWrapper({
+      inverted: true,
     });
 
-    it('inverts icon when invert=true', () => {
-      const wrapper = createWrapper({
-        inverted: true,
-      });
-
-      expect(
-        wrapper.find('.icon-base--inverted').exists()
-      ).toBe(true);
-    });
+    expect(
+      wrapper.find('.icon-base--inverted').exists()
+    ).toBe(true);
+  });
 });

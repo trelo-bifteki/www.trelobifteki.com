@@ -1,5 +1,5 @@
 import {
- CurriculumVitaeState
+  CurriculumVitaeState
 } from './types';
 
 export const createDefaultState = (): CurriculumVitaeState => ({

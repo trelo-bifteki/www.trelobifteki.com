@@ -11,7 +11,7 @@ import {
 } from 'vue-property-decorator';
 
 @Component({
-    name: 'MainHeader',
+  name: 'MainHeader',
   components: {
     IconBars,
     IconBase,

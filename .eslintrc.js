@@ -22,12 +22,10 @@ module.exports = {
       "error",
       "always",
     ],
-    /*
     indent: [
       "error",
       2
     ],
-    */
     "linebreak-style": [
       "error",
       "unix",
