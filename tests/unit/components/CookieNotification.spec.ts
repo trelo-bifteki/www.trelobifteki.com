@@ -1,6 +1,6 @@
 import CookieNotification from '@/components/CookieNotification.vue';
 import {
-  shallowMount
+  shallowMount,
 } from '@vue/test-utils';
 import gdprService from '@/services/localStorage';
 
@@ -17,7 +17,7 @@ describe('CookieNotification', () => {
   const getWrapper = (propsData = {
   }) => shallowMount(CookieNotification, {
     mocks: {
-      $ga
+      $ga,
     },
     propsData,
   });
@@ -31,7 +31,7 @@ describe('CookieNotification', () => {
     const wrapper = getWrapper();
 
     expect(
-      wrapper.find('.cookie-notification').exists()
+      wrapper.find('.cookie-notification').exists(),
     ).toBe(false);
   });
 
@@ -40,7 +40,7 @@ describe('CookieNotification', () => {
     const wrapper = getWrapper();
     await wrapper.vm.$nextTick();
     expect(
-      wrapper.find('.cookie-notification').exists()
+      wrapper.find('.cookie-notification').exists(),
     ).toBe(true);
   });
 
@@ -59,10 +59,10 @@ describe('CookieNotification', () => {
     await wrapper.vm.$nextTick();
 
     expect(
-      $ga.enable
+      $ga.enable,
     ).toHaveBeenCalled();
     expect(
-      wrapper.find('.cookie-notification').exists()
+      wrapper.find('.cookie-notification').exists(),
     ).toBe(false);
   });
 
@@ -79,13 +79,13 @@ describe('CookieNotification', () => {
     button.trigger('click');
 
     expect(
-      $ga.disable
+      $ga.disable,
     ).toHaveBeenCalled();
 
     await wrapper.vm.$nextTick();
 
     expect(
-      wrapper.find('.cookie-notification').exists()
+      wrapper.find('.cookie-notification').exists(),
     ).toBe(false);
   });
 })

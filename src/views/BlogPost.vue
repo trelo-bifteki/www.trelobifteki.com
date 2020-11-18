@@ -1,6 +1,6 @@
 <script>
 import {
-  createNamespacedHelpers
+  createNamespacedHelpers,
 } from 'vuex';
 import BlogContent from '@/components/BlogContent';
 import Prism from 'prismjs';
@@ -88,12 +88,12 @@ export default {
   },
   methods: {
     ...mapActions([
-      'refreshPosts'
+      'refreshPosts',
     ]),
     ...mapMutations([
-      'updateSelectedPostId'
+      'updateSelectedPostId',
     ]),
-  }
+  },
 };
 </script>
 

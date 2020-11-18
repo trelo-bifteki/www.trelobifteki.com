@@ -1,5 +1,5 @@
 import {
-  shallowMount
+  shallowMount,
 } from '@vue/test-utils';
 import NavigationBar from '@/components/NavigationBar.vue';
 
@@ -10,17 +10,17 @@ describe('NavigationBar', () => {
       propsData,
       stubs: {
         'router-link': {
-          template: '<div class="router-link"><slot /></div>'
-        }
-      }
-    }
+          template: '<div class="router-link"><slot /></div>',
+        },
+      },
+    },
   );
 
   it('loads components', () => {
     const wrapper = createWrapper({
     });
     expect(
-      wrapper.find('.navigation-bar').exists()
+      wrapper.find('.navigation-bar').exists(),
     ).toBe(true);
   });
 
@@ -29,7 +29,7 @@ describe('NavigationBar', () => {
       isHorizontal: true,
     });
     expect(
-      wrapper.find('.navigation-bar__container--horizontal').exists()
+      wrapper.find('.navigation-bar__container--horizontal').exists(),
     ).toBe(true);
   })
 })

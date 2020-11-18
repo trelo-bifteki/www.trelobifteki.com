@@ -1,6 +1,6 @@
 import IconHeart from '@/components/icons/IconHeart.vue';
 import {
-  shallowMount
+  shallowMount,
 } from '@vue/test-utils';
 
 describe('IconBase', () => {
@@ -10,7 +10,7 @@ describe('IconBase', () => {
     const wrapper = createWrapper();
 
     expect(
-      wrapper.find('.icon-heart').exists()
+      wrapper.find('.icon-heart').exists(),
     ).toBe(true);
   });
 });

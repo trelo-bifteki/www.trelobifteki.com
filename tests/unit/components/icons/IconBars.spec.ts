@@ -1,6 +1,6 @@
 import IconBars from '@/components/icons/IconBars.vue';
 import {
-  shallowMount
+  shallowMount,
 } from '@vue/test-utils';
 
 describe('IconBars', () => {
@@ -10,7 +10,7 @@ describe('IconBars', () => {
     const wrapper = createWrapper();
 
     expect(
-      wrapper.find('.icon-bars').exists()
+      wrapper.find('.icon-bars').exists(),
     ).toBe(true);
   });
 });

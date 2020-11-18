@@ -1,6 +1,6 @@
 import getters from '@/store/cv/getters';
 import {
-  createDefaultState
+  createDefaultState,
 } from '@/store/cv/state';
 
 describe('blog/getters', () => {

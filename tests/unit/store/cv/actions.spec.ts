@@ -18,7 +18,7 @@ describe('actions', () => {
     });
 
     await actions.refreshResume({
-      commit
+      commit,
     });
 
     expect(commit).toHaveBeenCalledWith('updateResume', {

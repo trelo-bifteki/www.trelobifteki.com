@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {
-  Commit
+  Commit,
 } from 'vuex';
 
 export default {
@@ -16,7 +16,7 @@ export default {
     return axios
       .get('/static/skills.json')
       .then(({
-        data
+        data,
       }) => {
         commit('updateSkills', data);
         return data;
@@ -34,10 +34,10 @@ export default {
     return axios
       .get('/static/resume.json')
       .then(({
-        data
+        data,
       }) => {
         commit('updateResume', data);
         return data;
       });
-  }
+  },
 };

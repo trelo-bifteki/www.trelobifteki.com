@@ -35,8 +35,8 @@ describe('CurriculumVitae', () => {
         getters,
         namespaced: true,
         state,
-      }
-    }
+      },
+    },
   });
 
   const createWrapper = (store: any) => shallowMount(CurriculumVitae, {
@@ -65,7 +65,7 @@ describe('CurriculumVitae', () => {
     await wrapper.vm.$nextTick();
 
     expect(
-      wrapper.find('[qa-ref=curriculum-vitae-job-item]').exists()
+      wrapper.find('[qa-ref=curriculum-vitae-job-item]').exists(),
     ).toBe(true);
   });
 
@@ -79,8 +79,8 @@ describe('CurriculumVitae', () => {
 
     expect(
       wrapper.findComponent({
-        name: 'EducationItem'
-      }).exists()
+        name: 'EducationItem',
+      }).exists(),
     ).toBe(true);
   });
 
@@ -92,7 +92,7 @@ describe('CurriculumVitae', () => {
     const wrapper = createWrapper(store);
 
     expect(
-      wrapper.find('.curriculum-vitae__interest').exists()
+      wrapper.find('.curriculum-vitae__interest').exists(),
     ).toBe(true);
   });
 });

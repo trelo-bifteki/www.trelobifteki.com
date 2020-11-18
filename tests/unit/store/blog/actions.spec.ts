@@ -1,10 +1,10 @@
 import actions from '@/store/blog/actions';
 import axios from 'axios';
 import {
-  createDefaultState
+  createDefaultState,
 } from '@/store/blog/state';
 import {
-  Commit
+  Commit,
 } from 'vuex';
 
 jest.mock('axios');
@@ -22,7 +22,7 @@ describe('actions', () => {
     });
 
     await actions.refreshPosts({
-      commit
+      commit,
     });
 
     expect(commit).toHaveBeenCalled();

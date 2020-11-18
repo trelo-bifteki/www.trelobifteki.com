@@ -1,6 +1,6 @@
 import IconLinkedin from '@/components/icons/IconLinkedin.vue';
 import {
-  shallowMount
+  shallowMount,
 } from '@vue/test-utils';
 
 describe('IconBase', () => {
@@ -10,7 +10,7 @@ describe('IconBase', () => {
     const wrapper = createWrapper();
 
     expect(
-      wrapper.find('.icon-linkedin').exists()
+      wrapper.find('.icon-linkedin').exists(),
     ).toBe(true);
   });
 });

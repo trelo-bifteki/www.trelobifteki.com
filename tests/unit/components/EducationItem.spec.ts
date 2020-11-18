@@ -1,7 +1,7 @@
 /* eslint-env jest */
 
 import {
-  shallowMount
+  shallowMount,
 } from '@vue/test-utils';
 import EducationItem from '@/components/EducationItem.vue';
 import localizedDate from '@/filters/localizedDate.filter';
@@ -12,7 +12,7 @@ describe('EducationItem', ()=> {
   const createWrapper = (item: any) => shallowMount(EducationItem, {
     propsData: {
       item,
-    }
+    },
   });
   const mockLocalizedDate = localizedDate as jest.Mock;
 
@@ -32,7 +32,7 @@ describe('EducationItem', ()=> {
     const wrapper = createWrapper(defaultItem);
 
     expect(
-      wrapper.find('.education__title').text()
+      wrapper.find('.education__title').text(),
     ).toBe('Test institution');
   });
 
@@ -40,7 +40,7 @@ describe('EducationItem', ()=> {
     const wrapper = createWrapper(defaultItem);
 
     expect(
-      wrapper.find('.education__subtitle').text()
+      wrapper.find('.education__subtitle').text(),
     ).toBe('Test area');
   });
 
@@ -49,7 +49,7 @@ describe('EducationItem', ()=> {
     const wrapper = createWrapper(defaultItem);
 
     expect(
-      wrapper.find('[qa-ref=education-item-start]').text()
+      wrapper.find('[qa-ref=education-item-start]').text(),
     ).toBe('start');
   });
 
@@ -58,7 +58,7 @@ describe('EducationItem', ()=> {
     const wrapper = createWrapper(defaultItem);
 
     expect(
-      wrapper.find('[qa-ref=education-item-end]').text()
+      wrapper.find('[qa-ref=education-item-end]').text(),
     ).toBe('end');
   });
 
@@ -66,7 +66,7 @@ describe('EducationItem', ()=> {
     const wrapper = createWrapper(defaultItem)
 
     expect(
-      wrapper.find('.education__description').text()
+      wrapper.find('.education__description').text(),
     ).toBe('Test description');
   });
 });

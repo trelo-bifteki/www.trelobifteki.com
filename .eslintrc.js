@@ -11,6 +11,14 @@ module.exports = {
 
   "rules": {
     "array-bracket-spacing": 1,
+    "arrow-parens": [
+      "error",
+      "as-needed",
+    ],
+    "comma-dangle": [
+      "error",
+      "always-multiline",
+    ],
     "comma-spacing": [
       "error",
       {

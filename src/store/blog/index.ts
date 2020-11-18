@@ -1,7 +1,7 @@
 import actions from './actions';
 import mutations from './mutations';
 import {
-  state
+  state,
 } from './state';
 
 export default {

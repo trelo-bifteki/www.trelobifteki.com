@@ -1,6 +1,6 @@
 import IconGithub from '@/components/icons/IconGithub.vue';
 import {
-  shallowMount
+  shallowMount,
 } from '@vue/test-utils';
 
 describe('IconBase', () => {
@@ -10,7 +10,7 @@ describe('IconBase', () => {
     const wrapper = createWrapper();
 
     expect(
-      wrapper.find('.icon-github').exists()
+      wrapper.find('.icon-github').exists(),
     ).toBe(true);
   });
 });

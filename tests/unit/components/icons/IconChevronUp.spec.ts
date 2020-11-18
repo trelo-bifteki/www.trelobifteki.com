@@ -1,6 +1,6 @@
 import IconChevronUp from '@/components/icons/IconChevronUp.vue';
 import {
-  shallowMount
+  shallowMount,
 } from '@vue/test-utils';
 
 describe('IconBase', () => {
@@ -10,7 +10,7 @@ describe('IconBase', () => {
     const wrapper = createWrapper();
 
     expect(
-      wrapper.find('.icon-chevron-up').exists()
+      wrapper.find('.icon-chevron-up').exists(),
     ).toBe(true);
   });
 });

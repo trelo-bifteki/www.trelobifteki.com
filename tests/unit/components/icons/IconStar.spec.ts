@@ -1,6 +1,6 @@
 import IconStar from '@/components/icons/IconStar.vue';
 import {
-  shallowMount
+  shallowMount,
 } from '@vue/test-utils';
 
 describe('IconStar', () => {
@@ -10,7 +10,7 @@ describe('IconStar', () => {
     const wrapper = createWrapper();
 
     expect(
-      wrapper.find('.icon-star').exists()
+      wrapper.find('.icon-star').exists(),
     ).toBe(true);
   });
 });

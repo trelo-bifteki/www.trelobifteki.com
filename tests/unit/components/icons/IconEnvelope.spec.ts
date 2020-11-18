@@ -1,6 +1,6 @@
 import IconEnvelope from '@/components/icons/IconEnvelope.vue';
 import {
-  shallowMount
+  shallowMount,
 } from '@vue/test-utils';
 
 describe('IconBase', () => {
@@ -10,7 +10,7 @@ describe('IconBase', () => {
     const wrapper = createWrapper();
 
     expect(
-      wrapper.find('.icon-envelope').exists()
+      wrapper.find('.icon-envelope').exists(),
     ).toBe(true);
   });
 });

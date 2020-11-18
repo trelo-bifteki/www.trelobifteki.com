@@ -2,7 +2,7 @@
 
 import BioSummary from '@/components/BioSummary.vue';
 import {
-  shallowMount
+  shallowMount,
 } from '@vue/test-utils';
 
 describe('BioSummary', () => {
@@ -12,7 +12,7 @@ describe('BioSummary', () => {
     const wrapper = createWrapper();
 
     expect(
-      wrapper.find('.bio-summary').text()
+      wrapper.find('.bio-summary').text(),
     ).toContain('Software engineer');
   });
 
@@ -20,7 +20,7 @@ describe('BioSummary', () => {
     const wrapper = createWrapper();
 
     expect(
-      wrapper.find('.bio-summary').text()
+      wrapper.find('.bio-summary').text(),
     ).not.toContain('CHECK24');
   });
 
@@ -31,7 +31,7 @@ describe('BioSummary', () => {
     await wrapper.vm.$nextTick();
 
     expect(
-      wrapper.find('.bio-summary').text()
+      wrapper.find('.bio-summary').text(),
     ).toContain('CHECK24');
   });
 });

@@ -1,6 +1,6 @@
 import IconTwitter from '@/components/icons/IconTwitter.vue';
 import {
-  shallowMount
+  shallowMount,
 } from '@vue/test-utils';
 
 describe('IconBase', () => {
@@ -10,7 +10,7 @@ describe('IconBase', () => {
     const wrapper = createWrapper();
 
     expect(
-      wrapper.find('.icon-twitter').exists()
+      wrapper.find('.icon-twitter').exists(),
     ).toBe(true);
   });
 });

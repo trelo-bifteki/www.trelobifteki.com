@@ -1,6 +1,6 @@
 import mutations from '@/store/cv/mutations';
 import {
-  createDefaultState
+  createDefaultState,
 } from '@/store/cv/state';
 
 describe('cv.mutations', () => {

@@ -1,6 +1,6 @@
 import {
   createLocalVue,
-  shallowMount
+  shallowMount,
 } from '@vue/test-utils';
 import MainFooter from '@/components/MainFooter.vue';
 import Vuex from 'vuex'
@@ -26,7 +26,7 @@ describe('MainFooter', () => {
     const wrapper = createWrapper(store);
 
     expect(
-      wrapper.find('.main-footer__version').text()
+      wrapper.find('.main-footer__version').text(),
     ).toBe('1.1.0');
   });
 });

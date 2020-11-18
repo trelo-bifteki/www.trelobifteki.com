@@ -1,21 +1,21 @@
 import mutations from '@/store/blog/mutations';
 import {
-  BlogState
+  BlogState,
 } from '@/store/blog/types';
 import {
-  createDefaultState
+  createDefaultState,
 } from '@/store/blog/state';
 
 describe('blog.mutations', () => {
   it('updates posts', () => {
     const state: BlogState = createDefaultState();
     const updatedPosts = [{
-      id: 1
+      id: 1,
     }];
     mutations.updatePosts(state, updatedPosts);
 
     expect(
-      state.posts
+      state.posts,
     ).toEqual(updatedPosts);
   });
 
@@ -28,7 +28,7 @@ describe('blog.mutations', () => {
     mutations.updatePost(state, updatedPost);
 
     expect(
-      state.post
+      state.post,
     ).toEqual(updatedPost);
   });
 
@@ -39,7 +39,7 @@ describe('blog.mutations', () => {
     mutations.updatePostContent(state, updatedContent);
 
     expect(
-      state.postContent
+      state.postContent,
     ).toEqual(updatedContent);
   });
 

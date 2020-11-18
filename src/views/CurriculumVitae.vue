@@ -1,6 +1,6 @@
 <script lang="ts">
 import {
-  createNamespacedHelpers
+  createNamespacedHelpers,
 } from 'vuex';
 import {
   Component,
@@ -37,7 +37,7 @@ const {
     IconUser,
     JobItem,
     PersonalInformation,
-    SkillItem
+    SkillItem,
   },
   computed: {
     ...mapState({

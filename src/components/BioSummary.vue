@@ -10,7 +10,7 @@ import IconChevronUp from './icons/IconChevronUp.vue';
   components: {
     IconBase,
     IconChevronUp,
-  }
+  },
 })
 export default class BioSummary extends Vue {
   showMore = false;

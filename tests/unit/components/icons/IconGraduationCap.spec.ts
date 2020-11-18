@@ -1,6 +1,6 @@
 import IconGraduationCap from '@/components/icons/IconGraduationCap.vue';
 import {
-  shallowMount
+  shallowMount,
 } from '@vue/test-utils';
 
 describe('IconBase', () => {
@@ -10,7 +10,7 @@ describe('IconBase', () => {
     const wrapper = createWrapper();
 
     expect(
-      wrapper.find('.icon-graduation-cap').exists()
+      wrapper.find('.icon-graduation-cap').exists(),
     ).toBe(true);
   });
 });

@@ -17,7 +17,7 @@ describe('BlogPost', () => {
       created: new Date(0),
     }, {
       id: 2,
-      title: 'Wrong'
+      title: 'Wrong',
     }],
     post: {
     },
@@ -59,8 +59,8 @@ describe('BlogPost', () => {
     store,
     stubs: [
       'SpinningLoader',
-      'BlogContent'
-    ]
+      'BlogContent',
+    ],
   });
 
   it('renders the loading bar', () => {
@@ -69,7 +69,7 @@ describe('BlogPost', () => {
     const wrapper = getWrapper(store);
 
     expect(
-      wrapper.find('.blog-post--loading').exists()
+      wrapper.find('.blog-post--loading').exists(),
     ).toBe(true);
   });
 
@@ -83,7 +83,7 @@ describe('BlogPost', () => {
     await wrapper.vm.$nextTick(); // one for loading the module
 
     expect(
-      wrapper.find('.blog-post--loading').exists()
+      wrapper.find('.blog-post--loading').exists(),
     ).toBe(false);
   });
 
@@ -95,7 +95,7 @@ describe('BlogPost', () => {
     await wrapper.vm.$nextTick(); // one for the refreshPosts
 
     expect(
-      actions.refreshPosts
+      actions.refreshPosts,
     ).toHaveBeenCalled();
   });
 });

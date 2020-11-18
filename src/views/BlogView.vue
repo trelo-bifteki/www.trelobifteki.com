@@ -1,12 +1,12 @@
 <script>
 import {
-  createNamespacedHelpers
+  createNamespacedHelpers,
 } from 'vuex';
 import PostSummary from '@/components/PostSummary';
 import SpinningLoader from '@/components/SpinningLoader';
 
 const {
-  mapState, mapActions
+  mapState, mapActions,
 } = createNamespacedHelpers('blog');
 
 export default {

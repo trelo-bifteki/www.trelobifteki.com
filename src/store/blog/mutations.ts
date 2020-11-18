@@ -1,5 +1,5 @@
 import {
-  BlogState
+  BlogState,
 } from './types';
 
 export default {

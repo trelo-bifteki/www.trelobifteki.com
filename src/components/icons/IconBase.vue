@@ -33,7 +33,7 @@ export default class IconBase extends Vue {
 
   @Prop({
     type: Boolean,
-    default: false
+    default: false,
   })
   inverted!: boolean;
 

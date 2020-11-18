@@ -1,6 +1,6 @@
 import App from '@/App.vue';
 import {
-  shallowMount
+  shallowMount,
 } from '@vue/test-utils';
 
 describe('App', () => {
@@ -9,14 +9,14 @@ describe('App', () => {
       'router-view': {
         template: '<div class="router-view"></div>',
       },
-    }
+    },
   });
 
   it('loads successfully', () => {
     const wrapper = createWrapper();
 
     expect(
-      wrapper.find('.app').exists()
+      wrapper.find('.app').exists(),
     ).toBe(true);
   });
 
@@ -24,7 +24,7 @@ describe('App', () => {
     const wrapper = createWrapper();
 
     expect(
-      wrapper.find('[qa-ref=app__navigation-drawer]').attributes('isvisible')
+      wrapper.find('[qa-ref=app__navigation-drawer]').attributes('isvisible'),
     ).toBeUndefined();
   })
 });

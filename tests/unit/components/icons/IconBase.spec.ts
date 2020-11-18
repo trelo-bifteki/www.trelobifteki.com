@@ -1,6 +1,6 @@
 import IconBase from '@/components/icons/IconBase.vue';
 import {
-  shallowMount
+  shallowMount,
 } from '@vue/test-utils';
 
 const defaultProps = {
@@ -19,7 +19,7 @@ describe('IconBase', () => {
     const wrapper = createWrapper();
 
     expect(
-      wrapper.find('.icon-base').exists()
+      wrapper.find('.icon-base').exists(),
     ).toBe(true);
   });
 
@@ -27,7 +27,7 @@ describe('IconBase', () => {
     const wrapper = createWrapper();
 
     expect(
-      wrapper.find('.icon-base').attributes('aria-labelledby')
+      wrapper.find('.icon-base').attributes('aria-labelledby'),
     ).toEqual('testName');
   });
 
@@ -35,7 +35,7 @@ describe('IconBase', () => {
     const wrapper = createWrapper();
 
     expect(
-      wrapper.find('.icon-base').attributes('width')
+      wrapper.find('.icon-base').attributes('width'),
     ).toEqual('20px');
   });
 
@@ -43,7 +43,7 @@ describe('IconBase', () => {
     const wrapper = createWrapper();
 
     expect(
-      wrapper.find('.icon-base__group').classes()
+      wrapper.find('.icon-base__group').classes(),
     ).toEqual([
       'icon-base__group',
       'icon-base__group--red',
@@ -56,7 +56,7 @@ describe('IconBase', () => {
     });
 
     expect(
-      wrapper.find('.icon-base--inverted').exists()
+      wrapper.find('.icon-base--inverted').exists(),
     ).toBe(true);
   });
 });

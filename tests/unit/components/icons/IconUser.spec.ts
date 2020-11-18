@@ -1,6 +1,6 @@
 import IconUser from '@/components/icons/IconUser.vue';
 import {
-  shallowMount
+  shallowMount,
 } from '@vue/test-utils';
 
 describe('IconBase', () => {
@@ -10,7 +10,7 @@ describe('IconBase', () => {
     const wrapper = createWrapper();
 
     expect(
-      wrapper.find('.icon-user').exists()
+      wrapper.find('.icon-user').exists(),
     ).toBe(true);
   });
 });

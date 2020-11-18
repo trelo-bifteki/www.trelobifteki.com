@@ -56,7 +56,7 @@ describe('BlogView', () => {
     createWrapper(store);
 
     expect(
-      actions.refreshPosts
+      actions.refreshPosts,
     ).toHaveBeenCalled();
   })
 

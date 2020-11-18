@@ -1,5 +1,5 @@
 import {
-  shallowMount
+  shallowMount,
 } from '@vue/test-utils';
 import MainHeader from '@/components/MainHeader.vue';
 
@@ -10,14 +10,14 @@ describe('MainHeader', () => {
     const wrapper = createWrapper();
 
     expect(
-      wrapper.find('.main-header__title').text()
+      wrapper.find('.main-header__title').text(),
     ).toEqual('Lampros Papadimitriou');
   });
 
   it('displays a menu button', () => {
     const wrapper = createWrapper();
     expect(
-      wrapper.find('[qa-ref=main-header__menu-button]').exists()
+      wrapper.find('[qa-ref=main-header__menu-button]').exists(),
     ).toBe(true);
   });
 
@@ -26,7 +26,7 @@ describe('MainHeader', () => {
     const element = wrapper.find('[qa-ref=main-header__menu-button]');
     element.trigger('click');
     expect(
-      wrapper.emitted().onMenuClicked
+      wrapper.emitted().onMenuClicked,
     ).toBeDefined();
   })
 });

@@ -23,9 +23,9 @@ import {
     title: 'CV',
     titleTemplate: '%s | Lampros Papadimitriou - trelobifteki',
     htmlAttrs: {
-      lang: 'en'
-    }
-  }
+      lang: 'en',
+    },
+  },
 })
 export default class App extends Vue {
   isNavigationDrawerVisible = false;

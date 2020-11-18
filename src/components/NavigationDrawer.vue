@@ -10,7 +10,7 @@ import {
 export default class NavigationDrawer extends Vue {
   @Prop({
     default: false,
-    type: Boolean
+    type: Boolean,
   })
   isVisible!: boolean;
 

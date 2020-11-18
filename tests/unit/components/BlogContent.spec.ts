@@ -2,7 +2,7 @@
 
 import BlogContent from '@/components/BlogContent.vue';
 import {
-  shallowMount
+  shallowMount,
 } from '@vue/test-utils';
 
 describe('BlogContent', () => {
@@ -15,7 +15,7 @@ describe('BlogContent', () => {
   it('renders provided content when provided', () => {
     const wrapper = createWrapper('Hello');
     expect(
-      wrapper.find('.blog-content').text()
+      wrapper.find('.blog-content').text(),
     ).toBe('Hello');
   });
 });

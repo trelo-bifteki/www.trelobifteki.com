@@ -1,5 +1,5 @@
 import Vue, {
-  VNode
+  VNode,
 } from 'vue'
 
 declare global {

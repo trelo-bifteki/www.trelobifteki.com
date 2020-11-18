@@ -1,6 +1,6 @@
 import NavigationDrawer from '@/components/NavigationDrawer.vue';
 import {
-  shallowMount, Wrapper
+  shallowMount, Wrapper,
 } from '@vue/test-utils';
 
 describe('NavigationDrawer', () => {
@@ -9,15 +9,15 @@ describe('NavigationDrawer', () => {
     {
       propsData: {
         isVisible,
-      }
-    }
+      },
+    },
   );
 
   it('loads successfully', () => {
     const wrapper = createWrapper();
 
     expect(
-      wrapper.find('.navigation-drawer').exists()
+      wrapper.find('.navigation-drawer').exists(),
     ).toBe(true);
   });
 
@@ -25,7 +25,7 @@ describe('NavigationDrawer', () => {
     const wrapper = createWrapper();
 
     expect(
-      wrapper.find('.navigation-drawer--visible').exists()
+      wrapper.find('.navigation-drawer--visible').exists(),
     ).toBe(false);
   });
 
@@ -33,7 +33,7 @@ describe('NavigationDrawer', () => {
     const wrapper = createWrapper(true);
 
     expect(
-      wrapper.find('.navigation-drawer--visible').exists()
+      wrapper.find('.navigation-drawer--visible').exists(),
     ).toBe(true);
   });
 
@@ -41,7 +41,7 @@ describe('NavigationDrawer', () => {
     const wrapper = createWrapper(true);
 
     expect(
-      wrapper.find('.navigation-drawer__container--visible').exists()
+      wrapper.find('.navigation-drawer__container--visible').exists(),
     ).toBe(true);
   });
 
@@ -51,7 +51,7 @@ describe('NavigationDrawer', () => {
     element.trigger('click');
 
     expect(
-      wrapper.emitted().toggle
+      wrapper.emitted().toggle,
     ).toBeDefined();
   });
 });

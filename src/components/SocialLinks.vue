@@ -17,7 +17,7 @@ import IconTwitter from './icons/IconTwitter.vue';
     IconGithub,
     IconLinkedin,
     IconTwitter,
-  }
+  },
 })
 export default class SocialLinks extends Vue {
 

@@ -1,5 +1,5 @@
 import {
-  CurriculumVitaeState
+  CurriculumVitaeState,
 } from './types';
 
 const isUndefined = (value: any) => typeof value === 'undefined';
@@ -29,7 +29,7 @@ export default {
    * @returns {Object}
    */
   latestWork: (state: CurriculumVitaeState) => state.resume.work.find(
-    (work: any) => isUndefined(work.endDate)
+    (work: any) => isUndefined(work.endDate),
   ),
 
   /**

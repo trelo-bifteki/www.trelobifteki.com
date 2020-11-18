@@ -14,5 +14,5 @@ export default {
     if (window && window.localStorage) {
       window.localStorage[IS_GDPR_ACCEPTED] = true;
     }
-  }
+  },
 }

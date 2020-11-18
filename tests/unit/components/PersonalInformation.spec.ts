@@ -1,5 +1,5 @@
 import {
-  shallowMount
+  shallowMount,
 } from '@vue/test-utils';
 import PersonalInformation from '@/components/PersonalInformation.vue';
 
@@ -21,7 +21,7 @@ describe('PersonalInformation', () => {
     });
 
     expect(
-      wrapper.find('.personal-information__fullname').text()
+      wrapper.find('.personal-information__fullname').text(),
     ).toBe(EXAMPLE_NAME)
   });
 });

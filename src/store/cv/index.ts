@@ -2,7 +2,7 @@ import actions from './actions';
 import getters from './getters';
 import mutations from './mutations';
 import {
-  state
+  state,
 } from './state';
 
 export default {

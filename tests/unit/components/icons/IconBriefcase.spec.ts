@@ -1,6 +1,6 @@
 import IconBriefcase from '@/components/icons/IconBriefcase.vue';
 import {
-  shallowMount
+  shallowMount,
 } from '@vue/test-utils';
 
 describe('IconBriefacase', () => {
@@ -10,7 +10,7 @@ describe('IconBriefacase', () => {
     const wrapper = createWrapper();
 
     expect(
-      wrapper.find('.icon-briefcase').exists()
+      wrapper.find('.icon-briefcase').exists(),
     ).toBe(true);
   });
 });

@@ -1,14 +1,14 @@
 import axios from 'axios';
 import {
-  Commit
+  Commit,
 } from 'vuex';
 import {
-  BlogState
+  BlogState,
 } from './types';
 
 export default {
   refreshPosts({
-    commit
+    commit,
   }: {
     commit: Commit,
   }) {

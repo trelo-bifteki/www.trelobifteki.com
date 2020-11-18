@@ -33,7 +33,7 @@ export default new VueRouter({
       path: '/blog/:postId',
       component: () => import(/* webpackChunkName: "post" */ '@/views/BlogPost.vue'),
       props({
-        params
+        params,
       }) {
         return {
           postId: params.postId,
@@ -43,6 +43,6 @@ export default new VueRouter({
     {
       path: '/projects',
       component: () => import(/* webpackChunkName: "ProjectList" */ '@/views/ProjectList.vue'),
-    }
+    },
   ],
 });
