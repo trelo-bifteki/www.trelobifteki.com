@@ -9,9 +9,9 @@ import {
 describe('blog.mutations', () => {
   it('updates posts', () => {
     const state: BlogState = createDefaultState();
-    const updatedPosts = [{
+    const updatedPosts = [ {
       id: 1,
-    }];
+    } ];
     mutations.updatePosts(state, updatedPosts);
 
     expect(

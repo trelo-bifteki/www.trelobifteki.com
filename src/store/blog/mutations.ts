@@ -4,7 +4,7 @@ import {
 
 export default {
   updatePosts: (state: BlogState, posts: Array<any>) => {
-    state.posts = [...posts];
+    state.posts = [ ...posts ];
   },
   updatePost: (state: BlogState, post: any) => {
     state.post = post;

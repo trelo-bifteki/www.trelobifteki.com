@@ -4,7 +4,7 @@ import {
 
 export default {
   updateSkills: (state: CurriculumVitaeState, skills: Array<string>) => {
-    state.skills = [...skills];
+    state.skills = [ ...skills ];
   },
   /**
    * @param {Object} state

@@ -15,7 +15,7 @@ export default class NavigationDrawer extends Vue {
   isVisible!: boolean;
 
   get rootClasses(): string[] {
-    let results = ['navigation-drawer'];
+    let results = [ 'navigation-drawer' ];
     if (this.isVisible) {
       results.push('navigation-drawer--visible');
     }
@@ -23,7 +23,7 @@ export default class NavigationDrawer extends Vue {
   }
 
   get containerClasses(): string[] {
-    let results = ['navigation-drawer__container'];
+    let results = [ 'navigation-drawer__container' ];
     if (this.isVisible) {
       results.push('navigation-drawer__container--visible');
     }

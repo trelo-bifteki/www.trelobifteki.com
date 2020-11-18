@@ -10,15 +10,30 @@ module.exports = {
   },
 
   "rules": {
-    "array-bracket-spacing": 1,
+    "array-bracket-spacing": [
+      "error",
+      "always",
+    ],
     "arrow-parens": [
       "error",
       "as-needed",
+    ],
+    "block-spacing": [
+      "error",
+      "always",
+    ],
+    "brace-style": [
+      "error",
+      "1tbs",
+      {
+        "allowSingleLine": false
+      }
     ],
     "comma-dangle": [
       "error",
       "always-multiline",
     ],
+    "camelcase": "error",
     "comma-spacing": [
       "error",
       {
@@ -26,7 +41,15 @@ module.exports = {
         after: true,
       },
     ],
+    "comma-style": [
+      "error",
+      "last"
+    ],
     "consistent-return": "error",
+    "computed-property-spacing": [
+      "error",
+      "never"
+    ],
     "eol-last": [
       "error",
       "always",
@@ -61,7 +84,10 @@ module.exports = {
       "error",
       "always",
     ],
-    "object-shorthand": [ "warn", "always" ],
+    "object-shorthand": [
+      "warn",
+      "always",
+    ],
     "prefer-arrow-callback": "warn",
     "prefer-spread": "warn",
     "prefer-template": "warn",

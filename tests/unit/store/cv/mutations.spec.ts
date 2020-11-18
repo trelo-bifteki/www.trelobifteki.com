@@ -6,7 +6,7 @@ import {
 describe('cv.mutations', () => {
   it('updates skills', () => {
     const store = createDefaultState();
-    const skills = ['skill 1'];
+    const skills = [ 'skill 1' ];
     mutations.updateSkills(store, skills);
 
     expect(store.skills).toEqual(skills);

@@ -11,14 +11,14 @@ localVue.use(Vuex);
 describe('BlogPost', () => {
   const defaultState = {
     selectedPostId: '',
-    posts: [{
+    posts: [ {
       id: 1,
       title: 'Demo',
       created: new Date(0),
     }, {
       id: 2,
       title: 'Wrong',
-    }],
+    } ],
     post: {
     },
     postContent: '',

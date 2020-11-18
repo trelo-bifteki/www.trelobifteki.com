@@ -17,7 +17,7 @@ export default class NavigationBar extends Vue {
   isHorizontal!: boolean;
 
   get containerClasses(): string[] {
-    let classes = ['navigation-bar__container'];
+    let classes = [ 'navigation-bar__container' ];
     if (this.isHorizontal) {
       classes.push('navigation-bar__container--horizontal');
     }

@@ -8,13 +8,13 @@ import {
 @Component
 export default class IconBase extends Vue {
   @Prop({
-    type: [String, Number],
+    type: [ String, Number ],
     default: '16px',
   })
   width!: string | number;
 
   @Prop({
-    type: [String, Number],
+    type: [ String, Number ],
     default: '16px',
   })
   height!: string | number;
@@ -45,7 +45,7 @@ export default class IconBase extends Vue {
   }
 
   get rootClasses(): string [] {
-    let classes = ['icon-base'];
+    let classes = [ 'icon-base' ];
     if (this.inverted) {
       classes.push('icon-base--inverted');
     }
