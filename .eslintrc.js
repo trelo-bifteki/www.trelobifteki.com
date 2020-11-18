@@ -26,6 +26,7 @@ module.exports = {
         after: true,
       },
     ],
+    "consistent-return": "error",
     "eol-last": [
       "error",
       "always",
@@ -44,6 +45,8 @@ module.exports = {
         "code": 120
       }
     ],
+    "no-extra-parens": "error",
+    "no-unexpected-multiline": "error",
     "no-trailing-spaces": "error",
     "no-var": "error",
     "object-shorthand": [
@@ -58,6 +61,10 @@ module.exports = {
       "error",
       "always",
     ],
+    "object-shorthand": [ "warn", "always" ],
+    "prefer-arrow-callback": "warn",
+    "prefer-spread": "warn",
+    "prefer-template": "warn",
     "prefer-arrow-callback": [
       "error"
     ],
