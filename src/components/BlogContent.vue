@@ -1,12 +1,18 @@
-<script>
-export default {
-  name: 'BlogContent',
-  props: {
-    content: {
-      type: String,
-      default: '',
-    },
-  },
+<script lang="ts">
+import {
+  Component,
+  Prop,
+  Vue,
+} from 'vue-property-decorator';
+
+@Component
+export default class BlogContent extends Vue {
+
+  @Prop({
+    type: String,
+    default: '',
+  })
+  content!: string;
 }
 </script>
 <template>
