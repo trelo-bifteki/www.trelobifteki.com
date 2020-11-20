@@ -58,6 +58,13 @@ module.exports = {
       "error",
       2
     ],
+    "keyword-spacing": [
+      "error",
+      {
+        "after": true,
+        "before": true,
+      },
+    ],
     "linebreak-style": [
       "error",
       "unix",

@@ -54,6 +54,14 @@ export default {
       }
     }
 
+    pre {
+      margin: $space-l 0;
+
+      > code {
+        font-family: $font-family-monospace;
+      }
+    }
+
     img {
       display: block;
       margin: 0 auto;

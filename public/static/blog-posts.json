@@ -26,4 +26,11 @@
   "created": 1586292493,
   "isVisible": true,
   "tags": []
-  }]
+}, {
+  "id": "jenkins-pipeline-for-frontend-apps",
+  "description": "A complete Jenkinsfile example for frontend applications",
+  "title": "A complete Jenkinsfile example for frontend applications",
+  "created": 1605906659,
+  "isVisible": true,
+  "tags": []
+}]

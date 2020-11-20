@@ -1,5 +1,3 @@
-# A complete Jenkinsfile example for frontend applications
-
 ## About
 
 After working on developing the build pipelines for my company, I noticed how
