@@ -1,23 +1,29 @@
-<script>
-export default {
-  name: 'PostSummary',
-  props: {
-    post: {
-      type: Object,
-      required: true,
-    },
-  },
-  computed: {
-    formattedDate() {
-      const date = new Date(this.post.created * 1000);
+<script lang="ts">
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import {
+  Component,
+  Prop,
+  Vue,
+} from 'vue-property-decorator';
 
-      return date.toLocaleDateString();
-    },
-    link() {
-      return `/blog/${this.post.id}`;
-    },
-  },
-};
+@Component
+export default class PostSummary extends Vue {
+
+  @Prop({
+    required: true,
+    type: Object,
+  })
+  readonly post: any;
+
+  get formattedDate(): string {
+    const date = new Date(this.post.created * 1000);
+    return date.toLocaleDateString();
+  }
+
+  get link(): string {
+    return `/blog/${this.post.id}`;
+  }
+}
 </script>
 
 <template>
