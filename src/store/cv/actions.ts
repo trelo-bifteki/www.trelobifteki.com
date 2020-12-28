@@ -11,7 +11,7 @@ export default {
   refreshSkills({
     commit,
   }: {
-    commit: Commit,
+    commit: Commit;
   }) {
     return axios
       .get('/static/skills.json')
@@ -29,7 +29,7 @@ export default {
   refreshResume({
     commit,
   }: {
-    commit: Commit,
+    commit: Commit;
   }) {
     return axios
       .get('/static/resume.json')

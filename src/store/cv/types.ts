@@ -1,5 +1,5 @@
 export interface CurriculumVitaeState {
   skills: ReadonlyArray<string>;
-  resume: any,
+  resume: any;
   packageVersion: string;
 }

@@ -10,7 +10,7 @@ export default {
   refreshPosts({
     commit,
   }: {
-    commit: Commit,
+    commit: Commit;
   }) {
     return axios
       .get('/static/blog-posts.json')
@@ -23,8 +23,8 @@ export default {
     state,
     commit,
   }: {
-    state: BlogState,
-    commit: Commit,
+    state: BlogState;
+    commit: Commit;
   }) {
     return axios
       .get(`/static/blog/${state.selectedPostId}.html`)
