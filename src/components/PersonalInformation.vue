@@ -1,34 +1,49 @@
-<script>
-import SocialLinks from './SocialLinks';
+<script lang="ts">
+import SocialLinks from './SocialLinks.vue';
+import {
+  Component,
+  Prop,
+  Vue,
+} from 'vue-property-decorator';
 
-export default {
-  name: 'PersonalInformation',
+@Component({
   components: {
     SocialLinks,
   },
-  props: {
-    name: {
-      type: String,
-      required: true,
-    },
-    title: {
-      type: String,
-      required: true,
-    },
-    company: {
-      type: String,
-      required: true,
-    },
-    location: {
-      type: Object,
-      required: true,
-    },
-    profiles: {
-      type: Array,
-      required: true,
-    },
-  },
-};
+})
+export default class PersonalInformation extends Vue {
+
+  @Prop({
+    required: true,
+    type: String,
+  })
+  readonly name!: string;
+
+  @Prop({
+    required: true,
+    type: String,
+  })
+  readonly title!: string;
+
+  @Prop({
+    required: true,
+    type: String,
+  })
+  readonly company!: string;
+
+  @Prop({
+    required: true,
+    type: Object,
+  })
+  readonly location!: any;
+
+
+  @Prop({
+    required: true,
+    type: Array,
+  })
+  readonly profiles!: ReadonlyArray<any>;
+}
 </script>
 
 <template>
