@@ -10,6 +10,15 @@ Frontend development works currently with the following technologies:
 *   Eslint
 *   Prettier
 
+## Why Jenkinsfile
+
+I personally prefer to give freedom to developers to modify the building
+process as they need. Each git project also contains the Jenkinsfile in the
+root folder. We setup the jenkins project as following:
+
+*   Add a Pipeline option to job
+*   Set "Pipeline Script from SCM"
+
 ## Install dependencies
 
 It is a common *but wrong* practice to install practices in CI pipelines using
@@ -55,7 +64,7 @@ production.
 
 ## E2E testing
 
-
+I used an end-to-end testing for checking the basic integration.
 
 ## Example
 
@@ -73,7 +82,6 @@ pipeline {
     stage('download dependencies') {
       steps {
         sh 'npm ci'
-        // sh 'npm outdated' not used due fontello-webpack-plugin
       }
     }
 
@@ -92,6 +100,12 @@ pipeline {
           junit 'junit.xml'
           cobertura coberturaReportFile: 'coverage/cobertura-coverage.xml'
         }
+      }
+    }
+
+    stage('Build') {
+      steps {
+        sh 'npm run build'
       }
     }
   }

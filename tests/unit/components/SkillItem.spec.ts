@@ -1,17 +1,17 @@
 import {
-  shallowMount,
+  shallowMount, Wrapper,
 } from '@vue/test-utils';
 import SkillItem from '@/components/SkillItem.vue';
 import {
-  Skill,
-} from '@/models/resume';
+  CvSkill,
+} from '@/store/cv/types';
 
 describe('SkillItem', () => {
-  const createWrapper = (skill: Skill) => shallowMount(SkillItem, {
+  const createWrapper = (skill: CvSkill): Wrapper<Vue> => shallowMount(SkillItem, {
     propsData: {
       skill,
     },
-  })
+  });
 
   it('displays label test when provided as input', () => {
     const wrapper = createWrapper({

@@ -1,13 +1,13 @@
 <script lang="ts">
 import {
+  CvSkill,
+} from '@/store/cv/types';
+
+import {
   Component,
   Prop,
   Vue,
 } from 'vue-property-decorator';
-
-import {
-  Skill,
-} from '@/models/resume';
 
 @Component
 export default class SkillItem extends Vue {
@@ -16,7 +16,7 @@ export default class SkillItem extends Vue {
     required: true,
     type: Object,
   })
-  readonly skill!: Skill;
+  readonly skill!: CvSkill;
 
   get label(): string {
     return this.skill.label;

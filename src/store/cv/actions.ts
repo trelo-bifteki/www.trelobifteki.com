@@ -4,23 +4,23 @@ import {
 } from 'vuex';
 
 import {
-  CurriculumVitaeState,
+  CurriculumVitaeState, CvSkill,
 } from './types';
-
-import {
-  Skill,
-} from '@/models/resume';
 
 import {
   ResumeSchema,
 } from '@kurone-kito/jsonresume-types';
 
-interface ActionInterface extends ActionTree<CurriculumVitaeState, any> {
+import {
+  RootState,
+} from '../types';
+
+interface ActionInterface extends ActionTree<CurriculumVitaeState, RootState> {
   refreshSkills({
     commit,
   }: {
     commit: Commit;
-  }): Promise<ReadonlyArray<Skill>>;
+  }): Promise<ReadonlyArray<CvSkill>>;
 
   refreshResume({
     commit,

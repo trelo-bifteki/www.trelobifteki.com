@@ -5,6 +5,9 @@ import {
 import {
   GetterTree, MutationTree,
 } from 'vuex';
+import {
+  RootState,
+} from '../types';
 
 
 export interface CurriculumVitaeState {
@@ -13,7 +16,7 @@ export interface CurriculumVitaeState {
   packageVersion: string;
 }
 
-export interface CvGetterTree extends GetterTree<CurriculumVitaeState, any> {
+export interface CvGetterTree extends GetterTree<CurriculumVitaeState, RootState> {
   basics: (state: CurriculumVitaeState) => ResumeBasics;
   fullName: (state: CurriculumVitaeState, getters: any) => string;
 }
