@@ -1,15 +1,15 @@
 import {
-  CurriculumVitaeState,
+  CurriculumVitaeState, ResumeBasics, CvGetterTree,
 } from './types';
 
-const isUndefined = (value: any) => typeof value === 'undefined';
+const isUndefined = (value: any): boolean => typeof value === 'undefined';
 
-export default {
+const getters: CvGetterTree = {
   /**
    * @param {Object} state containing resume
    * @returns {Object}
    */
-  basics: (state: CurriculumVitaeState) => state.resume.basics,
+  basics: state  => state.resume.basics as ResumeBasics,
 
   /**
    * @param {Object} state containing resume
@@ -22,13 +22,13 @@ export default {
    * @param {Object} existing getters
    * @returns {string}
    */
-  fullName: (state: CurriculumVitaeState, getters: any) => getters.basics.name,
+  fullName: (state, getters) => getters.basics.name,
 
   /**
    * @param {Object} state
    * @returns {Object}
    */
-  latestWork: (state: CurriculumVitaeState) => state.resume.work.find(
+  latestWork: (state: CurriculumVitaeState) => state.resume!.work!.find(
     (work: any) => isUndefined(work.endDate),
   ),
 
@@ -62,3 +62,5 @@ export default {
    */
   skills: (state: CurriculumVitaeState) => state.resume.skills,
 };
+
+export default getters;

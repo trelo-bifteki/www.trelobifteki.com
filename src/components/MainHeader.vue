@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 import NavigationBar from './NavigationBar.vue';
 import IconBase from './icons/IconBase.vue';
 import IconBars from './icons/IconBars.vue';
@@ -22,7 +22,7 @@ import {
 export default class MainHeader extends Vue {
 
   @Emit('onMenuClicked')
-  clickMenu() {
+  clickMenu(): boolean {
     return true;
   }
 

@@ -1,9 +1,9 @@
 import {
-  CurriculumVitaeState,
+  CurriculumVitaeState, CvMutationTree,
 } from './types';
 
-export default {
-  updateSkills: (state: CurriculumVitaeState, skills: Array<string>) => {
+const mutations: CvMutationTree = {
+  updateSkills: (state, skills) => {
     state.skills = [ ...skills ];
   },
   /**
@@ -14,3 +14,5 @@ export default {
     state.resume = resume;
   },
 };
+
+export default mutations;

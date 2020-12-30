@@ -1,11 +1,14 @@
 <script lang="ts">
-import {
-  createNamespacedHelpers,
-} from 'vuex';
+
 import {
   Component,
   Vue,
 } from 'vue-property-decorator';
+
+
+import {
+  namespace,
+} from 'vuex-class';
 
 import BioSummary from '@/components/BioSummary.vue';
 import EducationItem from '@/components/EducationItem.vue';
@@ -18,12 +21,15 @@ import IconUser from '@/components/icons/IconUser.vue';
 import JobItem from '@/components/JobItem.vue';
 import PersonalInformation from '@/components/PersonalInformation.vue';
 import SkillItem from '@/components/SkillItem.vue';
+import {
+  ResumeSchema,
+} from '@kurone-kito/jsonresume-types';
+import {
+  CvSkill,
+} from '@/store/cv/types';
 
-const {
-  mapActions,
-  mapGetters,
-  mapState,
-} = createNamespacedHelpers('cv');
+
+const cv = namespace('cv');
 
 @Component({
   components: {
@@ -39,37 +45,47 @@ const {
     PersonalInformation,
     SkillItem,
   },
-  computed: {
-    ...mapState({
-      skills: (state: any): any => state.skills,
-      jobs: (state: any): any => state.jobs,
-      resume: (state: any): any => state.resume,
-    }),
-    ...mapGetters([
-      'basics',
-      'education',
-      'interests',
-      'latestWork',
-      'location',
-      'profiles',
-      'work',
-    ]),
-  },
-  created() {
-    const self = this as any;
-    self.refreshResume();
-    self.refreshSkills();
-  },
-  methods: {
-    ...mapActions([
-      'refreshResume',
-      'refreshSkills',
-    ]),
-  },
 })
 export default class CurriculumVitae extends Vue {
 
   readonly mainIconSize: number = 20;
+
+  @cv.State('skills')
+  readonly skills!: ReadonlyArray<CvSkill>;
+
+  @cv.Getter('basics')
+  readonly basics!: any;
+
+  @cv.Getter('education')
+  readonly education!: any;
+
+  @cv.Getter('interests')
+  readonly interests!: ReadonlyArray<any>;
+
+  @cv.Getter('latestWork')
+  readonly latestWork!: any;
+
+  @cv.Getter('location')
+  readonly location!: any;
+
+  @cv.Getter('work')
+  readonly work!: any;
+
+  @cv.Getter('profiles')
+  readonly profiles!: ReadonlyArray<any>;
+
+  @cv.Action('refreshResume')
+  readonly refreshResume!: () => Promise<ResumeSchema>;
+
+  @cv.Action('refreshSkills')
+  readonly refreshSkills!: () => Promise<CvSkill>;
+
+  async created(): Promise<void> {
+    const promiseResume = this.refreshResume();
+    const promiseSkills = this.refreshSkills();
+    await Promise.all([ promiseResume, promiseSkills ]);
+  }
+
 }
 
 </script>
