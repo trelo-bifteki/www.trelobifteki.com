@@ -5,6 +5,7 @@ modern building tools can help with the automation of important tasks in
 frontend development
 
 Frontend development works currently with the following technologies:
+
 *   NodeJs
 *   NPM
 *   Eslint
@@ -61,6 +62,13 @@ to catch as many errors as possible before commits and merging into master branc
 
 A unit testing _with coverage_ is another safety lock for capturing bugs before entering
 production.
+
+The following software has been used for this step:
+
+*   jest
+*   @vue/cli-plugin-unit-jest
+*   jest-junit
+*   Coberture jenkins plugin
 
 ## E2E testing
 
