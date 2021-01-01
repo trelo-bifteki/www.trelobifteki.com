@@ -1,4 +1,7 @@
-import actions from '@/store/cv/actions';
+import {
+  actions,
+} from '@/store/cv/actions';
+
 import axios from 'axios';
 
 jest.mock('axios');

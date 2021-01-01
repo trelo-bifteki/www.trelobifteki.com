@@ -45,7 +45,7 @@ export default class IconBase extends Vue {
   }
 
   get rootClasses(): string [] {
-    let classes = [ 'icon-base' ];
+    const classes = [ 'icon-base' ];
     if (this.inverted) {
       classes.push('icon-base--inverted');
     }

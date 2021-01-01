@@ -1,68 +1,66 @@
-<script>
+<script lang="ts">
+
 import {
-  createNamespacedHelpers,
-} from 'vuex';
-import BlogContent from '@/components/BlogContent';
+  Component,
+  Prop,
+  Vue,
+} from 'vue-property-decorator';
+
+import {
+  namespace,
+} from 'vuex-class';
+
+const blog = namespace('blog');
+
+import BlogContent from '@/components/BlogContent.vue';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-java.min.js';
 import 'prismjs/components/prism-typescript.min.js';
-import SpinningLoader from '@/components/SpinningLoader';
+import SpinningLoader from '@/components/SpinningLoader.vue';
 
-const {
-  mapActions,
-  mapMutations,
-  mapState,
-} = createNamespacedHelpers('blog');
-
-export default {
+@Component({
   name: 'BlogPost',
-  metaInfo() {
-    const title = this.post.title
-    const meta = [ {
-      name: 'description',
-      value: this.post.description,
-    } ]
-    return {
-      title,
-      meta,
-    };
-  },
   components: {
     BlogContent,
     SpinningLoader,
   },
-  props: {
-    postId: {
-      required: true,
-      type: String,
-    },
-  },
-  data() {
-    return {
-      content: '',
-      isContentLoaded: false,
-      isLoading: false,
-    };
-  },
-  computed: {
-    ...mapState({
-      posts: state => state.posts,
-    }),
-    post() {
-      const selectedPosts = this.posts.filter(post => post.id === this.postId);
+})
+export default class BlogPost extends Vue {
 
-      return selectedPosts.length
-        ? selectedPosts[0]
-        : {
-        };
-    },
-    formattedDate() {
-      const date = new Date(this.post.created * 1000);
+  @Prop({
+    required: true,
+    type: String,
+  })
+  readonly postId!: string;
 
-      return date.toLocaleDateString();
-    },
-  },
-  async created() {
+  @blog.State('posts')
+  readonly posts!: any[];
+
+  @blog.Action('refreshPosts')
+  readonly refreshPosts!: () => void;
+
+  @blog.Mutation('updateSelectedPostId')
+  readonly updateSelectedPostId!: (x: any) => void;
+
+  content!: string;
+  isContentLoaded = false;
+  isLoading = false;
+
+  get post(): any {
+    const selectedPosts = this.posts.filter(post => post.id === this.postId);
+    return selectedPosts.length
+      ? selectedPosts[0]
+      : {
+      };
+  }
+
+  get formattedDate(): string {
+    const date = new Date(this.post.created * 1000);
+
+    return date.toLocaleDateString();
+  }
+
+  async created(): Promise<void> {
     const loader = import(/* webpackChunkName: "post" */ `html-loader!@/assets/posts/${this.postId}.md`);
 
     this.updateSelectedPostId(this.postId);
@@ -79,22 +77,17 @@ export default {
     } finally {
       this.isLoading = false;
     }
-  },
-  updated() {
+  }
+
+  updated(): void {
     if (this.isContentLoaded) {
       Prism.highlightAll();
       this.isContentLoaded = false;
     }
-  },
-  methods: {
-    ...mapActions([
-      'refreshPosts',
-    ]),
-    ...mapMutations([
-      'updateSelectedPostId',
-    ]),
-  },
-};
+  }
+
+}
+
 </script>
 
 <template>
@@ -111,9 +104,9 @@ export default {
     <h1 class="blog-post__title">
       {{ post.title }}
     </h1>
-    <h2 class="blog-post__created">
+    <div class="blog-post__created">
       {{ formattedDate }}
-    </h2>
+    </div>
     <BlogContent
       class="blog-post__content"
       :content="content"
@@ -138,6 +131,7 @@ export default {
 
   &__created {
     color: $color-theme-gray;
+    font-size: $h4-font-size;
   }
 
   &--loading {

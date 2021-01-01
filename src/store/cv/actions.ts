@@ -1,9 +1,35 @@
 import axios from 'axios';
 import {
-  Commit,
+  Commit, ActionTree,
 } from 'vuex';
 
-export default {
+import {
+  CurriculumVitaeState, CvSkill,
+} from './types';
+
+import {
+  ResumeSchema,
+} from '@kurone-kito/jsonresume-types';
+
+import {
+  RootState,
+} from '../types';
+
+interface ActionInterface extends ActionTree<CurriculumVitaeState, RootState> {
+  refreshSkills({
+    commit,
+  }: {
+    commit: Commit;
+  }): Promise<ReadonlyArray<CvSkill>>;
+
+  refreshResume({
+    commit,
+  }: {
+    commit: Commit;
+  }): Promise<ResumeSchema>;
+}
+
+export const actions: ActionInterface = {
   /**
    * @param {Object} object containing a commit function
    * @returns {Promise}
@@ -11,7 +37,7 @@ export default {
   refreshSkills({
     commit,
   }: {
-    commit: Commit,
+    commit: Commit;
   }) {
     return axios
       .get('/static/skills.json')
@@ -29,7 +55,7 @@ export default {
   refreshResume({
     commit,
   }: {
-    commit: Commit,
+    commit: Commit;
   }) {
     return axios
       .get('/static/resume.json')

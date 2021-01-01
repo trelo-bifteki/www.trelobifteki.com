@@ -1,23 +1,42 @@
-<script>
-export default {
-  name: 'SkillItem',
-  props: {
-    skill: {
-      type: Object,
-      required: true,
-    },
-  },
-};
+<script lang="ts">
+import {
+  CvSkill,
+} from '@/store/cv/types';
+
+import {
+  Component,
+  Prop,
+  Vue,
+} from 'vue-property-decorator';
+
+@Component
+export default class SkillItem extends Vue {
+
+  @Prop({
+    required: true,
+    type: Object,
+  })
+  readonly skill!: CvSkill;
+
+  get label(): string {
+    return this.skill.label;
+  }
+}
+
 </script>
 
 <template>
-  <div class="skill">
-    <div class="skill__label">
+  <div class="skill-item">
+    <div
+      class="skill-item__label"
+      qa-ref="skill-item__label"
+    >
       {{ skill.label }}
     </div>
-    <div class="skill__progress">
+    <div class="skill-item__progress">
       <div
-        class="skill__progress-bar"
+        class="skill-item__progress-bar"
+        qa-ref="skill-item__progress-bar"
         role="progressbar"
         :aria-valuenow="skill.level"
         aria-valuemin="0"
@@ -33,7 +52,7 @@ export default {
 @import "../scss/variables";
 @import "../scss/breakpoints";
 
-.skill {
+.skill-item {
   display: flex;
   flex-direction: row;
   margin: $space 0;

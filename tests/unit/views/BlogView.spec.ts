@@ -1,13 +1,20 @@
 import {
   shallowMount,
   createLocalVue,
+  Wrapper,
 } from '@vue/test-utils';
 import BlogView from '@/views/BlogView.vue';
-import Vuex from 'vuex';
+import Vuex, {
+  Store,
+} from 'vuex';
+import {
+  RootState,
+} from '@/store/types';
+import {
+  BlogState,
+} from '@/store/blog/types';
 
 const localVue = createLocalVue();
-const emptyState = {
-};
 
 localVue.use(Vuex);
 
@@ -15,26 +22,26 @@ describe('BlogView', () => {
   const actions = {
     refreshPosts: jest.fn(),
   };
-  const defaultState = {
+  const defaultState: BlogState = {
     post: {
     },
     postContent: '',
     posts: [],
     selectedPostId: '',
   };
-  const createStore = (state: any = emptyState) => new Vuex.Store({
+
+  const createStore = (state: BlogState = defaultState): Store<RootState> => new Vuex.Store({
     modules: {
       blog: {
         actions,
         namespaced: true,
         state: {
-          ...defaultState,
           ...state,
         },
       },
     },
   });
-  const createWrapper = (store: any) => shallowMount(
+  const createWrapper = (store: Store<RootState>): Wrapper<Vue> => shallowMount(
     BlogView,
     {
       localVue,

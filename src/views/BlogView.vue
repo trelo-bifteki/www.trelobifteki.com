@@ -1,15 +1,19 @@
-<script>
+<script lang="ts">
 import {
-  createNamespacedHelpers,
-} from 'vuex';
-import PostSummary from '@/components/PostSummary';
-import SpinningLoader from '@/components/SpinningLoader';
+  Component,
+  Vue,
+} from 'vue-property-decorator';
 
-const {
-  mapState, mapActions,
-} = createNamespacedHelpers('blog');
+import PostSummary from '@/components/PostSummary.vue';
+import SpinningLoader from '@/components/SpinningLoader.vue';
 
-export default {
+import {
+  namespace,
+} from 'vuex-class';
+
+const blog = namespace('blog');
+
+@Component({
   name: 'BlogView',
   metaInfo: {
     title: 'Blog',
@@ -18,33 +22,32 @@ export default {
     PostSummary,
     SpinningLoader,
   },
-  data() {
-    return {
-      isLoading: false,
-    };
-  },
-  computed: {
-    ...mapState({
-      posts: state => state.posts,
-    }),
-    visiblePostsOrderByDateDesc() {
-      const visiblePosts = this.posts.filter(post => post.isVisible);
-      visiblePosts.sort((one, another) => another.created - one.created);
-      return visiblePosts;
-    },
-  },
-  created() {
+})
+export default class BlogView extends Vue {
+
+  @blog.State('posts')
+  readonly posts: any;
+
+  @blog.Action('refreshPosts')
+  readonly refreshPosts!: any;
+
+  isLoading = false;
+
+  get visiblePostsOrderByDateDesc() {
+    const visiblePosts = this.posts.filter((post: any) => post.isVisible);
+    visiblePosts.sort((one: any, another: any) => another.created - one.created);
+    return visiblePosts;
+  }
+
+  async created() {
     this.isLoading = true;
-    this.refreshPosts().finally(() => {
+    try {
+      await this.refreshPosts();
+    } finally {
       this.isLoading = false;
-    })
-  },
-  methods: {
-    ...mapActions([
-      'refreshPosts',
-    ]),
-  },
-};
+    }
+  }
+}
 </script>
 
 <template>

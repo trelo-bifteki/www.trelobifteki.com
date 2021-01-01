@@ -1,12 +1,18 @@
-<script>
-export default {
-  name: 'BlogContent',
-  props: {
-    content: {
-      type: String,
-      default: '',
-    },
-  },
+<script lang="ts">
+import {
+  Component,
+  Prop,
+  Vue,
+} from 'vue-property-decorator';
+
+@Component
+export default class BlogContent extends Vue {
+
+  @Prop({
+    type: String,
+    default: '',
+  })
+  content!: string;
 }
 </script>
 <template>
@@ -54,6 +60,14 @@ export default {
       }
     }
 
+    pre {
+      margin: $space-l 0;
+
+      > code {
+        font-family: $font-family-monospace;
+      }
+    }
+
     img {
       display: block;
       margin: 0 auto;
@@ -77,10 +91,6 @@ export default {
     pre[class*="language-"] {
       font-family: $font-family-monospace;
       margin: $space 0;
-    }
-
-    @include media-breakpoint-not-small {
-      font-size: 1.3rem;
     }
   }
 </style>

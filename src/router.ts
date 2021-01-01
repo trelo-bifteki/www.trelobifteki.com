@@ -1,7 +1,7 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import VueMeta from 'vue-meta';
-import CurriculumVitae from '@/views/CurriculumVitae.vue';
 
 const _window = window as any;
 if (!_window.VueRouter) {
@@ -18,11 +18,11 @@ export default new VueRouter({
     {
       path: '/',
       name: 'CurriculumVitae',
-      component: CurriculumVitae,
+      component: () => import(/* webpackChunkName: "cv" */ '@/views/CurriculumVitae.vue'),
     },
     {
       path: '/cv',
-      component: CurriculumVitae,
+      component: () => import(/* webpackChunkName: "cv" */ '@/views/CurriculumVitae.vue'),
     },
     {
       path: '/blog',
