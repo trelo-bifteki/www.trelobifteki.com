@@ -92,9 +92,5 @@ export default class BlogContent extends Vue {
       font-family: $font-family-monospace;
       margin: $space 0;
     }
-
-    @include media-breakpoint-not-small {
-      font-size: 1.3rem;
-    }
   }
 </style>

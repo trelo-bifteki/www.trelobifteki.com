@@ -60,7 +60,7 @@ export default class BlogPost extends Vue {
     return date.toLocaleDateString();
   }
 
-  async created() {
+  async created(): Promise<void> {
     const loader = import(/* webpackChunkName: "post" */ `html-loader!@/assets/posts/${this.postId}.md`);
 
     this.updateSelectedPostId(this.postId);
@@ -104,9 +104,9 @@ export default class BlogPost extends Vue {
     <h1 class="blog-post__title">
       {{ post.title }}
     </h1>
-    <h2 class="blog-post__created">
+    <div class="blog-post__created">
       {{ formattedDate }}
-    </h2>
+    </div>
     <BlogContent
       class="blog-post__content"
       :content="content"
@@ -131,6 +131,7 @@ export default class BlogPost extends Vue {
 
   &__created {
     color: $color-theme-gray;
+    font-size: $h4-font-size;
   }
 
   &--loading {
