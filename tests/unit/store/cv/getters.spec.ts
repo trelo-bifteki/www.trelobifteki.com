@@ -2,19 +2,18 @@ import getters from '@/store/cv/getters';
 import {
   createDefaultState,
 } from '@/store/cv/state';
+import {
+  createResume,
+} from 'tests/unit/mocks';
 
 describe('blog/getters', () => {
   it('resolves basics information', () => {
     const state = createDefaultState();
-    state.resume = {
-      basics: {
-        name: 'test',
-      },
-    };
+    state.resume = createResume();
     const basics = getters.basics(state);
 
     expect(basics).toEqual({
-      name: 'test',
+      name: 'Max Mustermann',
     });
   });
 
@@ -22,11 +21,11 @@ describe('blog/getters', () => {
     const state = createDefaultState();
     const gettersState = {
       basics: {
-        name: 'test',
+        name: 'Max Mustermann',
       },
     };
     const fullName = getters.fullName(state, gettersState);
 
-    expect(fullName).toEqual('test');
+    expect(fullName).toEqual('Max Mustermann');
   });
 });

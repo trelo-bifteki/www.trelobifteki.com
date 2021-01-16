@@ -25,7 +25,7 @@ import {
   ResumeSchema,
 } from '@kurone-kito/jsonresume-types';
 import {
-  CvSkill,
+  ResumeSkill, ResumeLocation, ResumeWork, ResumeBasics,
 } from '@/store/cv/types';
 
 
@@ -51,10 +51,10 @@ export default class CurriculumVitae extends Vue {
   readonly mainIconSize: number = 20;
 
   @cv.State('skills')
-  readonly skills!: ReadonlyArray<CvSkill>;
+  readonly skills!: ReadonlyArray<ResumeSkill>;
 
   @cv.Getter('basics')
-  readonly basics!: any;
+  readonly basics!: ResumeBasics;
 
   @cv.Getter('education')
   readonly education!: any;
@@ -63,13 +63,13 @@ export default class CurriculumVitae extends Vue {
   readonly interests!: ReadonlyArray<any>;
 
   @cv.Getter('latestWork')
-  readonly latestWork!: any;
+  readonly latestWork!: ResumeWork;
 
   @cv.Getter('location')
-  readonly location!: any;
+  readonly location!: ResumeLocation;
 
   @cv.Getter('work')
-  readonly work!: any;
+  readonly work!: ReadonlyArray<ResumeWork>;
 
   @cv.Getter('profiles')
   readonly profiles!: ReadonlyArray<any>;
@@ -78,7 +78,7 @@ export default class CurriculumVitae extends Vue {
   readonly refreshResume!: () => Promise<ResumeSchema>;
 
   @cv.Action('refreshSkills')
-  readonly refreshSkills!: () => Promise<CvSkill>;
+  readonly refreshSkills!: () => Promise<ResumeSkill>;
 
   async created(): Promise<void> {
     const promiseResume = this.refreshResume();

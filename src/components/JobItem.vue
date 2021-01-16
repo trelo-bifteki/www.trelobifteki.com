@@ -1,5 +1,8 @@
 <script lang="ts">
 import localizedDate from '@/filters/localizedDate.filter';
+import {
+  ResumeWork,
+} from '@/store/cv/types';
 
 import {
   Component,
@@ -17,7 +20,7 @@ export default class JobItem extends Vue {
     type: Object,
     required: true,
   })
-  job!: any;
+  job!: ResumeWork;
 }
 
 </script>

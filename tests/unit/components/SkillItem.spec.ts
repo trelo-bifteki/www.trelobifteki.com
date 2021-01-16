@@ -3,11 +3,11 @@ import {
 } from '@vue/test-utils';
 import SkillItem from '@/components/SkillItem.vue';
 import {
-  CvSkill,
+  ResumeSkill,
 } from '@/store/cv/types';
 
 describe('SkillItem', () => {
-  const createWrapper = (skill: CvSkill): Wrapper<Vue> => shallowMount(SkillItem, {
+  const createWrapper = (skill: ResumeSkill): Wrapper<Vue> => shallowMount(SkillItem, {
     propsData: {
       skill,
     },

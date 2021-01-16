@@ -4,7 +4,7 @@ import {
 } from 'vuex';
 
 import {
-  CurriculumVitaeState, CvSkill,
+  CurriculumVitaeState, ResumeSkill,
 } from './types';
 
 import {
@@ -20,7 +20,7 @@ interface ActionInterface extends ActionTree<CurriculumVitaeState, RootState> {
     commit,
   }: {
     commit: Commit;
-  }): Promise<ReadonlyArray<CvSkill>>;
+  }): Promise<ReadonlyArray<ResumeSkill>>;
 
   refreshResume({
     commit,

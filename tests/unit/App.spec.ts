@@ -1,10 +1,10 @@
 import App from '@/App.vue';
 import {
-  shallowMount,
+  shallowMount, Wrapper,
 } from '@vue/test-utils';
 
 describe('App', () => {
-  const createWrapper = () => shallowMount(App, {
+  const createWrapper = (): Wrapper<Vue> => shallowMount(App, {
     stubs: {
       'router-view': {
         template: '<div class="router-view"></div>',

@@ -1,8 +1,4 @@
 import {
-  ResumeSchema,
-} from '@kurone-kito/jsonresume-types';
-
-import {
   GetterTree, MutationTree,
 } from 'vuex';
 import {
@@ -11,25 +7,29 @@ import {
 
 
 export interface CurriculumVitaeState {
-  skills: ReadonlyArray<CvSkill>;
-  resume: ResumeSchema;
+  skills: ReadonlyArray<ResumeSkill>;
+  resume: Resume;
   packageVersion: string;
 }
 
 export interface CvGetterTree extends GetterTree<CurriculumVitaeState, RootState> {
   basics: (state: CurriculumVitaeState) => ResumeBasics;
   fullName: (state: CurriculumVitaeState, getters: any) => string;
+  education: (state: CurriculumVitaeState) => Array<ResumeEducation>;
 }
 
 export interface CvMutationTree extends MutationTree<CurriculumVitaeState> {
-  updateSkills: (state: CurriculumVitaeState, skills: ReadonlyArray<CvSkill>) => void;
+  updateSkills: (state: CurriculumVitaeState, skills: ReadonlyArray<ResumeSkill>) => void;
 }
 
-export interface CvSkill {
+export interface ResumeSkill {
   label: string;
   level: number;
 }
 
+export interface ResumeInterest {
+  label: string;
+}
 
 export interface ResumeLocation {
   /**
@@ -94,4 +94,27 @@ export interface ResumeBasics {
   summary?: string;
   location?: ResumeLocation;
   profiles: Array<ResumeProfile>;
+}
+
+export interface ResumeWork {
+  name: string;
+  location: string;
+  description: string;
+  position: string;
+  url: string;
+  startDate: string;
+  endDate?: string;
+  summary: string;
+  highlights: Array<string>;
+}
+
+export interface ResumeEducation {
+  institution: string;
+}
+
+export interface Resume {
+  basics: ResumeBasics;
+  work: Array<ResumeWork>;
+  education: Array<ResumeEducation>;
+  interests: Array<ResumeInterest>;
 }

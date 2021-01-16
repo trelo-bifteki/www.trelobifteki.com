@@ -15,6 +15,7 @@ import {
 import {
   CurriculumVitaeState,
 } from '@/store/cv/types';
+import { createResume } from '../mocks';
 
 const localVue = createLocalVue();
 localVue.use(Vuex);
@@ -35,8 +36,7 @@ describe('CurriculumVitae', () => {
   };
 
   const emptyState: CurriculumVitaeState = {
-    resume: {
-    },
+    resume: createResume(),
     skills: [],
     packageVersion: '',
   };
