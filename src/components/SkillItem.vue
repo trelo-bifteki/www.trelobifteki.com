@@ -1,6 +1,6 @@
 <script lang="ts">
 import {
-  CvSkill,
+  ResumeSkill,
 } from '@/store/cv/types';
 
 import {
@@ -16,7 +16,7 @@ export default class SkillItem extends Vue {
     required: true,
     type: Object,
   })
-  readonly skill!: CvSkill;
+  readonly skill!: ResumeSkill;
 
   get label(): string {
     return this.skill.label;
