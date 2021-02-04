@@ -10,4 +10,5 @@ export const createResume = (): Resume => ({
   work: [],
   education: [],
   interests: [],
+  skills: [],
 });
