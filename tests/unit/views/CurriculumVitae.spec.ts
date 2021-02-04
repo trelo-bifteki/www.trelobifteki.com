@@ -15,7 +15,9 @@ import {
 import {
   CurriculumVitaeState,
 } from '@/store/cv/types';
-import { createResume } from '../mocks';
+import {
+  createResume,
+} from '../mocks';
 
 const localVue = createLocalVue();
 localVue.use(Vuex);
