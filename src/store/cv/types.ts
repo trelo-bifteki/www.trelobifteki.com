@@ -117,4 +117,5 @@ export interface Resume {
   work: Array<ResumeWork>;
   education: Array<ResumeEducation>;
   interests: Array<ResumeInterest>;
+  skills: Array<ResumeSkill>;
 }

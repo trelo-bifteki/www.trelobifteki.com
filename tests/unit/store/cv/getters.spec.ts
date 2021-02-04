@@ -4,7 +4,7 @@ import {
 } from '@/store/cv/state';
 import {
   createResume,
-} from 'tests/unit/mocks';
+} from '../../mocks';
 
 describe('blog/getters', () => {
   it('resolves basics information', () => {
@@ -12,9 +12,7 @@ describe('blog/getters', () => {
     state.resume = createResume();
     const basics = getters.basics(state);
 
-    expect(basics).toEqual({
-      name: 'Max Mustermann',
-    });
+    expect(basics.name).toEqual('Max Mustermann');
   });
 
   it('resolves fullName', () => {
