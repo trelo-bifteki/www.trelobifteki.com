@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 import {
   Component,
   Vue,
@@ -15,7 +15,7 @@ import IconChevronUp from './icons/IconChevronUp.vue';
 export default class BioSummary extends Vue {
   showMore = false;
 
-  toggle() {
+  toggle(): void {
     this.showMore = !this.showMore;
   }
 }

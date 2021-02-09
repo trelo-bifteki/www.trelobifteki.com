@@ -8,6 +8,7 @@ import IconGithub from './icons/IconGithub.vue';
 import SocialLinks from './SocialLinks.vue';
 import {
   Component,
+  Prop,
   Vue,
 } from 'vue-property-decorator';
 
@@ -19,11 +20,14 @@ import {
     IconHeart,
     SocialLinks,
   },
-  computed: mapState({
-    packageVersion: (state: any) => state.packageVersion,
-  }),
 })
 export default class MainFooter extends Vue {
+
+  @Prop({
+    required: true,
+    type: String,
+  })
+  readonly packageVersion!: string;
 }
 </script>
 

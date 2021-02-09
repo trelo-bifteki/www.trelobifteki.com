@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 
 import gdprService from '@/services/localStorage';
 import {
@@ -12,18 +12,18 @@ export default class CookieNotification extends Vue {
   isVisible = false;
   googleAnalytics = null;
 
-  mounted() {
+  mounted(): void {
     this.isVisible = !gdprService.isGdprAccepted();
   }
 
-  accept() {
+  accept(): void {
     this.$ga.enable();
     gdprService.acceptGdpr();
     this.$ga.page(this.$router);
     this.isVisible = false;
   }
 
-  deny() {
+  deny(): void {
     this.$ga.disable();
     gdprService.acceptGdpr();
     this.isVisible = false;

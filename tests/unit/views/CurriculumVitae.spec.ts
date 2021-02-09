@@ -34,7 +34,10 @@ describe('CurriculumVitae', () => {
     basics: jest.fn(),
     education: jest.fn(),
     interests: jest.fn(),
+    latestWork: jest.fn(),
     work: jest.fn(),
+    profiles: jest.fn(),
+    location: jest.fn(),
   };
 
   const emptyState: CurriculumVitaeState = {
@@ -65,17 +68,37 @@ describe('CurriculumVitae', () => {
   });
 
   beforeEach(() => {
+    getters.basics.mockClear();
     getters.work.mockClear();
     getters.interests.mockClear();
     getters.education.mockClear();
+    getters.latestWork.mockClear();
+    getters.profiles.mockClear();
+    getters.location.mockClear();
   });
 
+  const initMocks = (): void => {
+    getters.basics.mockReturnValue({
+      name: 'Max Mustermann',
+      label: 'Developer',
+    });
+    getters.latestWork.mockReturnValue({
+      name: 'Acme',
+    });
+    getters.profiles.mockReturnValue([]);
+    getters.location.mockReturnValue({
+      id: 1,
+    });
+  }
+
   it('shows job item when work is not empty', async () => {
+    initMocks();
     getters.work.mockReturnValue([ {
       id: 1,
     } ]);
     const store = createStore();
     const wrapper = createWrapper(store);
+    await wrapper.vm.$nextTick();
     await wrapper.vm.$nextTick();
 
     expect(
@@ -84,11 +107,14 @@ describe('CurriculumVitae', () => {
   });
 
   it('shows education item when education is not empty', async () => {
+    initMocks();
     getters.education.mockReturnValue([ {
       id: 1,
     } ]);
     const store = createStore();
     const wrapper = createWrapper(store);
+    await wrapper.vm.$nextTick();
+    await wrapper.vm.$nextTick();
 
     expect(
       wrapper.findComponent({
@@ -97,12 +123,15 @@ describe('CurriculumVitae', () => {
     ).toBe(true);
   });
 
-  it('shows interests', () => {
+  it('shows interests', async () => {
+    initMocks();
     getters.interests.mockReturnValue([ {
       name: 'test',
     } ]);
     const store = createStore();
     const wrapper = createWrapper(store);
+    await wrapper.vm.$nextTick();
+    await wrapper.vm.$nextTick();
 
     expect(
       wrapper.find('.curriculum-vitae__interest').exists(),

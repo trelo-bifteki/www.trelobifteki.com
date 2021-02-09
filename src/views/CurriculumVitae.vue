@@ -25,7 +25,7 @@ import {
   ResumeSchema,
 } from '@kurone-kito/jsonresume-types';
 import {
-  ResumeSkill, ResumeLocation, ResumeWork, ResumeBasics,
+  ResumeSkill, ResumeLocation, ResumeWork, ResumeBasics, ResumeProfile, ResumeInterest, ResumeEducation,
 } from '@/store/cv/types';
 
 
@@ -48,6 +48,7 @@ const cv = namespace('cv');
 })
 export default class CurriculumVitae extends Vue {
 
+  isLoaded = false;
   readonly mainIconSize: number = 20;
 
   @cv.State('skills')
@@ -57,10 +58,10 @@ export default class CurriculumVitae extends Vue {
   readonly basics!: ResumeBasics;
 
   @cv.Getter('education')
-  readonly education!: any;
+  readonly education!: ResumeEducation;
 
   @cv.Getter('interests')
-  readonly interests!: ReadonlyArray<any>;
+  readonly interests!: ReadonlyArray<ResumeInterest>;
 
   @cv.Getter('latestWork')
   readonly latestWork!: ResumeWork;
@@ -72,7 +73,7 @@ export default class CurriculumVitae extends Vue {
   readonly work!: ReadonlyArray<ResumeWork>;
 
   @cv.Getter('profiles')
-  readonly profiles!: ReadonlyArray<any>;
+  readonly profiles!: ReadonlyArray<ResumeProfile>;
 
   @cv.Action('refreshResume')
   readonly refreshResume!: () => Promise<ResumeSchema>;
@@ -83,17 +84,23 @@ export default class CurriculumVitae extends Vue {
   async created(): Promise<void> {
     const promiseResume = this.refreshResume();
     const promiseSkills = this.refreshSkills();
-    await Promise.all([ promiseResume, promiseSkills ]);
+    try {
+      this.isLoaded = false;
+      await Promise.all([ promiseResume, promiseSkills ]);
+    } finally {
+      this.isLoaded = true;
+    }
   }
-
 }
 
 </script>
 
 <template>
-  <div class="curriculum-vitae">
+  <div
+    v-if="isLoaded"
+    class="curriculum-vitae"
+  >
     <PersonalInformation
-      v-if="basics"
       :name="basics.name"
       :title="basics.label"
       :company="latestWork.name"

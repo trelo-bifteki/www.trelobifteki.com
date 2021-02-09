@@ -6,6 +6,13 @@ export const createDefaultState = (): CurriculumVitaeState => ({
   skills: [],
   resume: {
     basics: {
+      name: '',
+      label: '',
+      location: {
+        address: '',
+        city: '',
+        countryCode: '',
+      },
       profiles: [],
     },
     education: [],

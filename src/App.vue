@@ -1,4 +1,8 @@
 <script lang="ts">
+import {
+  namespace,
+} from 'vuex-class';
+
 import CookieNotification from '@/components/CookieNotification.vue'
 import MainFooter from '@/components/MainFooter.vue';
 import MainHeader from '@/components/MainHeader.vue';
@@ -9,6 +13,8 @@ import {
   Component,
   Vue,
 } from 'vue-property-decorator';
+
+const cv = namespace('cv');
 
 @Component({
   name: 'App',
@@ -30,6 +36,9 @@ import {
 export default class App extends Vue {
   isNavigationDrawerVisible = false;
 
+  @cv.State('packageVersion')
+  readonly packageVersion!: string;
+
   toggleNavigationDrawer(isVisible: boolean): void {
     this.isNavigationDrawerVisible = isVisible;
   }
@@ -46,7 +55,7 @@ export default class App extends Vue {
       <router-view />
     </div>
     <div class="app__filler" />
-    <MainFooter />
+    <MainFooter :package-version="packageVersion" />
     <CookieNotification />
     <NavigationDrawer
       qa-ref="app__navigation-drawer"

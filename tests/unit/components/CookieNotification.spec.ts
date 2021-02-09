@@ -1,6 +1,6 @@
 import CookieNotification from '@/components/CookieNotification.vue';
 import {
-  shallowMount,
+  shallowMount, Wrapper,
 } from '@vue/test-utils';
 import gdprService from '@/services/localStorage';
 
@@ -15,7 +15,7 @@ describe('CookieNotification', () => {
   const isGdprAccepted = gdprService.isGdprAccepted as jest.Mock;
 
   const getWrapper = (propsData = {
-  }) => shallowMount(CookieNotification, {
+  }): Wrapper<CookieNotification> => shallowMount(CookieNotification, {
     mocks: {
       $ga,
     },
@@ -39,6 +39,7 @@ describe('CookieNotification', () => {
     isGdprAccepted.mockReturnValue(false);
     const wrapper = getWrapper();
     await wrapper.vm.$nextTick();
+    expect(isGdprAccepted).toHaveBeenCalled();
     expect(
       wrapper.find('.cookie-notification').exists(),
     ).toBe(true);
@@ -47,12 +48,11 @@ describe('CookieNotification', () => {
   it('closes the cookie notification after we click OK button', async () => {
     isGdprAccepted.mockReturnValue(false);
     const wrapper = getWrapper();
-    const vm = wrapper.vm as any;
 
-    await vm.$nextTick();
+    await wrapper.vm.$nextTick();
 
-    expect(vm.isVisible).toBe(true);
-    expect(vm.$ga).toBeDefined();
+    expect(wrapper.vm.$data.isVisible).toBe(true);
+    expect(wrapper.vm.$ga).toBeDefined();
     const button = wrapper.find('.cookie-notification__button--ok');
 
     button.trigger('click');
@@ -69,12 +69,11 @@ describe('CookieNotification', () => {
   it('closes the cookie notification after we click NO WAY button', async () => {
     isGdprAccepted.mockReturnValue(false);
     const wrapper = getWrapper();
-    const vm = wrapper.vm as any;
 
     await wrapper.vm.$nextTick();
 
     expect(wrapper.vm.$ga).toBeDefined();
-    expect(vm.isVisible).toBe(true);
+    expect(wrapper.vm.$data.isVisible).toBe(true);
     const button = wrapper.find('.cookie-notification__button--no');
     button.trigger('click');
 
