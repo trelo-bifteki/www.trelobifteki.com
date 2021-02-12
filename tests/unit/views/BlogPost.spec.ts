@@ -1,9 +1,15 @@
 import {
   shallowMount,
   createLocalVue,
+  Wrapper,
 } from '@vue/test-utils';
 import BlogPost from '@/views/BlogPost.vue';
-import Vuex from 'vuex';
+import Vuex, {
+  Store,
+} from 'vuex';
+import {
+  RootState,
+} from '@/store/types';
 
 const localVue = createLocalVue();
 localVue.use(Vuex);
@@ -32,16 +38,13 @@ describe('BlogPost', () => {
     updateSelectedPostId: jest.fn(),
   };
 
-  const createStore = (state: any) => new Vuex.Store({
+  const createStore = (state = defaultState): Store<RootState> => new Vuex.Store({
     modules: {
       blog: {
         actions,
         mutations,
         namespaced: true,
-        state: {
-          ...defaultState,
-          ...state,
-        },
+        state,
       },
     },
   });
@@ -51,7 +54,7 @@ describe('BlogPost', () => {
     mutations.updateSelectedPostId.mockClear();
   });
 
-  const getWrapper = (store: any) => shallowMount(BlogPost, {
+  const getWrapper = (store: Store<RootState>): Wrapper<BlogPost> => shallowMount(BlogPost, {
     localVue,
     propsData: {
       postId: 'howto-write-tickets',
@@ -64,8 +67,7 @@ describe('BlogPost', () => {
   });
 
   it('renders the loading bar', () => {
-    const store = createStore({
-    });
+    const store = createStore();
     const wrapper = getWrapper(store);
 
     expect(
@@ -74,8 +76,7 @@ describe('BlogPost', () => {
   });
 
   it('removes the loading bar after fininshing promise', async () => {
-    const store = createStore({
-    });
+    const store = createStore();
     const wrapper = getWrapper(store);
 
     await wrapper.vm.$nextTick(); // one for the refreshPosts
@@ -88,8 +89,7 @@ describe('BlogPost', () => {
   });
 
   it('refreshes the posts in the beginning', async () => {
-    const store = createStore({
-    });
+    const store = createStore();
     const wrapper = getWrapper(store);
 
     await wrapper.vm.$nextTick(); // one for the refreshPosts

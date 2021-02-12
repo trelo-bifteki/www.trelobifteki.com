@@ -1,10 +1,10 @@
 import IconBriefcase from '@/components/icons/IconBriefcase.vue';
 import {
-  shallowMount,
+  shallowMount, Wrapper,
 } from '@vue/test-utils';
 
 describe('IconBriefacase', () => {
-  const createWrapper = () => shallowMount(IconBriefcase);
+  const createWrapper = (): Wrapper<IconBriefcase> => shallowMount(IconBriefcase);
 
   it('loads succesfully', () => {
     const wrapper = createWrapper();
