@@ -1,35 +1,36 @@
 /* eslint-env jest */
 
 import {
-  shallowMount,
+  shallowMount, Wrapper,
 } from '@vue/test-utils';
 import EducationItem from '@/components/EducationItem.vue';
 import localizedDate from '@/filters/localizedDate.filter';
 
 jest.mock('@/filters/localizedDate.filter');
 
+const defaultItem = {
+  institution: 'Test institution',
+  area: 'Test area',
+  startDate: '01-01-1970',
+  endDate: '01-01-1971',
+  studyType: 'Test description',
+};
+
+
 describe('EducationItem', ()=> {
-  const createWrapper = (item: any) => shallowMount(EducationItem, {
+  const createWrapper = (item = defaultItem): Wrapper<EducationItem> => shallowMount(EducationItem, {
     propsData: {
       item,
     },
   });
   const mockLocalizedDate = localizedDate as jest.Mock;
 
-  const defaultItem = {
-    institution: 'Test institution',
-    area: 'Test area',
-    startDate: '01-01-1970',
-    endDate: '01-01-1971',
-    studyType: 'Test description',
-  };
-
   beforeEach(() => {
     mockLocalizedDate.mockClear();
   });
 
   it('renders education item title', () => {
-    const wrapper = createWrapper(defaultItem);
+    const wrapper = createWrapper();
 
     expect(
       wrapper.find('.education__title').text(),
@@ -37,7 +38,7 @@ describe('EducationItem', ()=> {
   });
 
   it('renders education item subtitle', () => {
-    const wrapper = createWrapper(defaultItem);
+    const wrapper = createWrapper();
 
     expect(
       wrapper.find('.education__subtitle').text(),
@@ -46,7 +47,7 @@ describe('EducationItem', ()=> {
 
   it('renders education start time', () => {
     mockLocalizedDate.mockReturnValue('start');
-    const wrapper = createWrapper(defaultItem);
+    const wrapper = createWrapper();
 
     expect(
       wrapper.find('[qa-ref=education-item-start]').text(),
@@ -55,7 +56,7 @@ describe('EducationItem', ()=> {
 
   it('renders education end time', () => {
     mockLocalizedDate.mockReturnValue('end');
-    const wrapper = createWrapper(defaultItem);
+    const wrapper = createWrapper();
 
     expect(
       wrapper.find('[qa-ref=education-item-end]').text(),
@@ -63,7 +64,7 @@ describe('EducationItem', ()=> {
   });
 
   it('renders education item description', () => {
-    const wrapper = createWrapper(defaultItem)
+    const wrapper = createWrapper()
 
     expect(
       wrapper.find('.education__description').text(),

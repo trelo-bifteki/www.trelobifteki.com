@@ -1,10 +1,10 @@
 import IconChevronUp from '@/components/icons/IconChevronUp.vue';
 import {
-  shallowMount,
+  shallowMount, Wrapper,
 } from '@vue/test-utils';
 
 describe('IconBase', () => {
-  const createWrapper = () => shallowMount(IconChevronUp);
+  const createWrapper = (): Wrapper<IconChevronUp> => shallowMount(IconChevronUp);
 
   it('loads succesfully', () => {
     const wrapper = createWrapper();

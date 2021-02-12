@@ -1,10 +1,10 @@
 import IconGithub from '@/components/icons/IconGithub.vue';
 import {
-  shallowMount,
+  shallowMount, Wrapper,
 } from '@vue/test-utils';
 
 describe('IconBase', () => {
-  const createWrapper = () => shallowMount(IconGithub);
+  const createWrapper = (): Wrapper<IconGithub> => shallowMount(IconGithub);
 
   it('loads succesfully', () => {
     const wrapper = createWrapper();

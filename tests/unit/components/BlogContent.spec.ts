@@ -2,11 +2,11 @@
 
 import BlogContent from '@/components/BlogContent.vue';
 import {
-  shallowMount,
+  shallowMount, Wrapper,
 } from '@vue/test-utils';
 
 describe('BlogContent', () => {
-  const createWrapper = (content: any) => shallowMount(BlogContent, {
+  const createWrapper = (content: string): Wrapper<BlogContent> => shallowMount(BlogContent, {
     propsData: {
       content,
     },

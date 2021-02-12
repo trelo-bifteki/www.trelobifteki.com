@@ -2,11 +2,11 @@
 
 import BioSummary from '@/components/BioSummary.vue';
 import {
-  shallowMount,
+  shallowMount, Wrapper,
 } from '@vue/test-utils';
 
 describe('BioSummary', () => {
-  const createWrapper = () => shallowMount(BioSummary);
+  const createWrapper = (): Wrapper<BioSummary> => shallowMount(BioSummary);
 
   it('displays first line', () => {
     const wrapper = createWrapper();

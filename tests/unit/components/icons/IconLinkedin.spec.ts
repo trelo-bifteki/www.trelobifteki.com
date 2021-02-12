@@ -1,10 +1,10 @@
 import IconLinkedin from '@/components/icons/IconLinkedin.vue';
 import {
-  shallowMount,
+  shallowMount, Wrapper,
 } from '@vue/test-utils';
 
 describe('IconBase', () => {
-  const createWrapper = () => shallowMount(IconLinkedin);
+  const createWrapper = (): Wrapper<IconLinkedin> => shallowMount(IconLinkedin);
 
   it('loads succesfully', () => {
     const wrapper = createWrapper();

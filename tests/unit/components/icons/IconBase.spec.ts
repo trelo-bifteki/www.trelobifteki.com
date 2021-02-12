@@ -1,6 +1,6 @@
 import IconBase from '@/components/icons/IconBase.vue';
 import {
-  shallowMount,
+  shallowMount, Wrapper,
 } from '@vue/test-utils';
 
 const defaultProps = {
@@ -11,7 +11,7 @@ const defaultProps = {
 };
 
 describe('IconBase', () => {
-  const createWrapper = (propsData: any = defaultProps) => shallowMount(IconBase, {
+  const createWrapper = (propsData= defaultProps): Wrapper<IconBase> => shallowMount(IconBase, {
     propsData,
   });
 
@@ -52,6 +52,7 @@ describe('IconBase', () => {
 
   it('inverts icon when invert=true', () => {
     const wrapper = createWrapper({
+      ...defaultProps,
       inverted: true,
     });
 

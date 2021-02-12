@@ -1,24 +1,26 @@
 import {
-  shallowMount,
+  shallowMount, Wrapper,
 } from '@vue/test-utils';
 import PersonalInformation from '@/components/PersonalInformation.vue';
 
 const EXAMPLE_NAME = 'Max Mustermann';
 
 describe('PersonalInformation', () => {
-  const getWrapper = (propsData: any) => shallowMount(PersonalInformation, {
+  const defaultPropsData = {
+    name: EXAMPLE_NAME,
+    title: 'Deveoper',
+    company: 'Acme',
+    location: {
+    },
+    profiles: [],
+  };
+
+  const getWrapper = (propsData = defaultPropsData): Wrapper<PersonalInformation> => shallowMount(PersonalInformation, {
     propsData,
   });
 
   it('renders fullname', () => {
-    const wrapper = getWrapper({
-      name: EXAMPLE_NAME,
-      title: 'Deveoper',
-      company: 'Acme',
-      location: {
-      },
-      profiles: [],
-    });
+    const wrapper = getWrapper();
 
     expect(
       wrapper.find('.personal-information__fullname').text(),

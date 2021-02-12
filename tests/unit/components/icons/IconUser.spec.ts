@@ -1,10 +1,10 @@
 import IconUser from '@/components/icons/IconUser.vue';
 import {
-  shallowMount,
+  shallowMount, Wrapper,
 } from '@vue/test-utils';
 
 describe('IconBase', () => {
-  const createWrapper = () => shallowMount(IconUser);
+  const createWrapper = (): Wrapper<IconUser> => shallowMount(IconUser);
 
   it('loads succesfully', () => {
     const wrapper = createWrapper();

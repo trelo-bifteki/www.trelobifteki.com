@@ -1,10 +1,10 @@
 import {
-  shallowMount,
+  shallowMount, Wrapper,
 } from '@vue/test-utils';
 import PostSummary from '@/components/PostSummary.vue';
 
 describe('PostSummary', () => {
-  const getWrapper = (post: any) => shallowMount(PostSummary, {
+  const getWrapper = (post: any): Wrapper<PostSummary> => shallowMount(PostSummary, {
     propsData: {
       post,
     },
