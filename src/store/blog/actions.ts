@@ -3,33 +3,35 @@ import {
   Commit,
 } from 'vuex';
 import {
+  BlogActionTree,
+  BlogPost,
   BlogState,
 } from './types';
 
-export default {
-  refreshPosts({
+const actions: BlogActionTree =  {
+  async refreshPosts({
     commit,
   }: {
     commit: Commit;
-  }) {
-    return axios
-      .get('/static/blog-posts.json')
-      .then(response => {
-        commit('updatePosts', response.data);
-      });
+  }): Promise<ReadonlyArray<BlogPost>> {
+    const response = await axios.get<ReadonlyArray<BlogPost>>('/static/blog-posts.json');
+    const data = response.data;
+    commit('updatePosts', data);
+    return data;
   },
 
-  refreshPostContent({
+  async refreshPostContent({
     state,
     commit,
   }: {
     state: BlogState;
     commit: Commit;
-  }) {
-    return axios
-      .get(`/static/blog/${state.selectedPostId}.html`)
-      .then(response => {
-        commit('updatePostContent', response.data);
-      });
+  }): Promise<string> {
+    const response = await axios.get<string>(`/static/blog/${state.selectedPostId}.html`);
+    const data = response.data;
+    commit('updatePostContent', response.data);
+    return data;
   },
 };
+
+export default actions;
