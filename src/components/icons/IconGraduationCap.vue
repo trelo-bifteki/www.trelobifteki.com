@@ -1,3 +1,15 @@
+<script lang="ts">
+import {
+  Component,
+  Vue,
+} from 'vue-property-decorator';
+
+
+@Component
+export default class IconGraduationCap extends Vue {
+
+}
+</script>
 <template>
   <!-- eslint-disable max-len -->
   <!-- Font Awesome Free 5.15.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) -->

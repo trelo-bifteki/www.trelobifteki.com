@@ -3,14 +3,8 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import VueMeta from 'vue-meta';
 
-const _window = window as any;
-if (!_window.VueRouter) {
-  Vue.use(VueRouter);
-}
-
-if (!_window.Meta) {
-  Vue.use(VueMeta);
-}
+Vue.use(VueRouter);
+Vue.use(VueMeta);
 
 export default new VueRouter({
   mode: 'history',
