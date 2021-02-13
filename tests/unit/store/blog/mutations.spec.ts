@@ -1,17 +1,25 @@
 import mutations from '@/store/blog/mutations';
 import {
+  BlogPost,
   BlogState,
 } from '@/store/blog/types';
 import {
   createDefaultState,
 } from '@/store/blog/state';
 
+const defaultPost: BlogPost = {
+  id: 'test',
+  title: 'Test',
+  description: 'Test description',
+  created: 0,
+  isVisible: true,
+  tags: [],
+};
+
 describe('blog.mutations', () => {
   it('updates posts', () => {
     const state: BlogState = createDefaultState();
-    const updatedPosts = [ {
-      id: 1,
-    } ];
+    const updatedPosts = [ defaultPost ];
     mutations.updatePosts(state, updatedPosts);
 
     expect(
@@ -21,15 +29,12 @@ describe('blog.mutations', () => {
 
   it('updates post', () => {
     const state = createDefaultState();
-    const updatedPost = {
-      id: 1,
-    };
 
-    mutations.updatePost(state, updatedPost);
+    mutations.updatePost(state, defaultPost);
 
     expect(
       state.post,
-    ).toEqual(updatedPost);
+    ).toEqual(defaultPost);
   });
 
   it('updates post content', () => {

@@ -24,6 +24,12 @@ describe('BlogView', () => {
   };
   const defaultState: BlogState = {
     post: {
+      id: 'test',
+      title: 'Test',
+      description: 'Test description',
+      created: 0,
+      isVisible: false,
+      tags: [],
     },
     postContent: '',
     posts: [],

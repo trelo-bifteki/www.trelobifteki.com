@@ -1,18 +1,22 @@
 import {
+  BlogMutationTree,
+  BlogPost,
   BlogState,
 } from './types';
 
-export default {
-  updatePosts: (state: BlogState, posts: Array<any>) => {
+const mutations: BlogMutationTree = {
+  updatePosts: (state: BlogState, posts: ReadonlyArray<BlogPost>) => {
     state.posts = [ ...posts ];
   },
-  updatePost: (state: BlogState, post: any) => {
+  updatePost: (state: BlogState, post: BlogPost) => {
     state.post = post;
   },
   updatePostContent: (state: BlogState, content: string) => {
     state.postContent = content;
   },
-  updateSelectedPostId: (state: BlogState, content: string) => {
-    state.selectedPostId = content;
+  updateSelectedPostId: (state: BlogState, postId: string) => {
+    state.selectedPostId = postId;
   },
 };
+
+export default mutations;

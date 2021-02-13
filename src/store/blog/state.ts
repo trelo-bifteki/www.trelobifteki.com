@@ -6,6 +6,12 @@ export const createDefaultState = (): BlogState => ({
   selectedPostId: '',
   posts: [],
   post: {
+    id: '',
+    title: '',
+    created: 0,
+    description: '',
+    isVisible: false,
+    tags: [],
   },
   postContent: '',
 });
