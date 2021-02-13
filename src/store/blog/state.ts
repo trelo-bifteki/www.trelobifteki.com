@@ -1,18 +1,12 @@
 import {
   BlogState,
+  createEmptyBlogPost,
 } from './types';
 
 export const createDefaultState = (): BlogState => ({
   selectedPostId: '',
   posts: [],
-  post: {
-    id: '',
-    title: '',
-    created: 0,
-    description: '',
-    isVisible: false,
-    tags: [],
-  },
+  post: createEmptyBlogPost(),
   postContent: '',
 });
 

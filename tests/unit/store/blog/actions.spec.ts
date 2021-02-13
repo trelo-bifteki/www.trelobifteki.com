@@ -10,7 +10,7 @@ import {
 jest.mock('axios');
 
 describe('actions', () => {
-  const mockGet = axios.get as any;
+  const mockGet = axios.get as jest.Mock;
 
   beforeEach(() => {
     mockGet.mockClear();

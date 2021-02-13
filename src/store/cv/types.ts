@@ -14,7 +14,7 @@ export interface CurriculumVitaeState {
 
 export interface CvGetterTree extends GetterTree<CurriculumVitaeState, RootState> {
   basics: (state: CurriculumVitaeState) => ResumeBasics;
-  fullName: (state: CurriculumVitaeState, getters: any) => string;
+  fullName: (state: CurriculumVitaeState, getters: CvGetterTree) => string;
   education: (state: CurriculumVitaeState) => Array<ResumeEducation>;
 }
 
@@ -48,7 +48,6 @@ export interface ResumeLocation {
    * The general region where you live. Can be a US state, or a province, for instance.
    */
   region?: string;
-  [k: string]: any;
 }
 
 export interface ResumeProfile {

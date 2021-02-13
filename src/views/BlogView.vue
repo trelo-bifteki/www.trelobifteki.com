@@ -10,6 +10,9 @@ import SpinningLoader from '@/components/SpinningLoader.vue';
 import {
   namespace,
 } from 'vuex-class';
+import {
+  BlogPost,
+} from '@/store/blog/types';
 
 const blog = namespace('blog');
 
@@ -26,20 +29,20 @@ const blog = namespace('blog');
 export default class BlogView extends Vue {
 
   @blog.State('posts')
-  readonly posts: any;
+  readonly posts!: ReadonlyArray<BlogPost>;
 
   @blog.Action('refreshPosts')
-  readonly refreshPosts!: any;
+  readonly refreshPosts!: () => Promise<ReadonlyArray<BlogPost>>;
 
   isLoading = false;
 
-  get visiblePostsOrderByDateDesc() {
-    const visiblePosts = this.posts.filter((post: any) => post.isVisible);
-    visiblePosts.sort((one: any, another: any) => another.created - one.created);
+  get visiblePostsOrderByDateDesc(): ReadonlyArray<BlogPost> {
+    const visiblePosts = this.posts.filter(post => post.isVisible);
+    visiblePosts.sort((one, another) => another.created - one.created);
     return visiblePosts;
   }
 
-  async created() {
+  async created(): Promise<void> {
     this.isLoading = true;
     try {
       await this.refreshPosts();

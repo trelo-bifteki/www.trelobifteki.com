@@ -17,7 +17,9 @@ import Prism from 'prismjs';
 import 'prismjs/components/prism-java.min.js';
 import 'prismjs/components/prism-typescript.min.js';
 import SpinningLoader from '@/components/SpinningLoader.vue';
-
+import {
+  BlogPost as BlogPostType, createEmptyBlogPost,
+} from '@/store/blog/types';
 @Component({
   name: 'BlogPost',
   components: {
@@ -34,24 +36,23 @@ export default class BlogPost extends Vue {
   readonly postId!: string;
 
   @blog.State('posts')
-  readonly posts!: any[];
+  readonly posts!: ReadonlyArray<BlogPostType>;
 
   @blog.Action('refreshPosts')
   readonly refreshPosts!: () => void;
 
   @blog.Mutation('updateSelectedPostId')
-  readonly updateSelectedPostId!: (x: any) => void;
+  readonly updateSelectedPostId!: (x: string) => void;
 
   content!: string;
   isContentLoaded = false;
   isLoading = false;
 
-  get post(): any {
+  get post(): BlogPostType {
     const selectedPosts = this.posts.filter(post => post.id === this.postId);
     return selectedPosts.length
       ? selectedPosts[0]
-      : {
-      };
+      : createEmptyBlogPost();
   }
 
   get formattedDate(): string {
@@ -66,8 +67,8 @@ export default class BlogPost extends Vue {
     this.updateSelectedPostId(this.postId);
 
     this.isLoading = true;
-    await this.refreshPosts();
     try {
+      await this.refreshPosts();
       const module = await loader;
       this.content = module.default;
       this.isContentLoaded = true;

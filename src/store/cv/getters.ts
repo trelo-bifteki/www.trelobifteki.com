@@ -1,53 +1,47 @@
 import {
-  CurriculumVitaeState, ResumeBasics, CvGetterTree,
+  CurriculumVitaeState, CvGetterTree,
 } from './types';
 
 const isUndefined = (value: string | undefined): boolean => typeof value === 'undefined';
 
 const getters: CvGetterTree = {
-  basics: state  => state.resume.basics as ResumeBasics,
+  basics(state) {
+    return state.resume.basics;
+  },
 
-  education: (state: CurriculumVitaeState) => state.resume.education,
+  education(state) {
+    return state.resume.education
+  },
 
-  fullName: (state, getters) => getters.basics.name,
+  fullName(state, getters) {
+    return getters.basics.name;
+  },
 
-  /**
-   * @param {Object} state
-   * @returns {Object}
-   */
-  latestWork: (state: CurriculumVitaeState) => state.resume.work.find(
-    work => isUndefined(work.endDate),
-  ),
+  latestWork(state) {
+    return state.resume.work.find(
+      work => isUndefined(work.endDate),
+    );
+  },
 
-  /**
-   * @param {Object} state
-   * @returns {Object}
-   */
-  location: (state: CurriculumVitaeState, getters: any) => getters.basics.location,
+  location(state, getters) {
+    return getters.basics.location;
+  },
 
-  /**
-   * @param {Object} state
-   * @returns {Array}
-   */
-  profiles: (state: CurriculumVitaeState, getters: any) => getters.basics.profiles,
+  profiles(state, getters) {
+    return getters.basics.profiles;
+  },
 
-  /**
-   * @param {Object} state
-   * @returns {Array}
-   */
-  work: (state: CurriculumVitaeState) => state.resume.work,
+  work(state: CurriculumVitaeState) {
+    return state.resume.work;
+  },
 
-  /**
-   * @param {Object} state
-   * @returns {Array}
-   */
-  interests: (state: CurriculumVitaeState) => state.resume.interests,
+  interests(state: CurriculumVitaeState) {
+    return state.resume.interests;
+  },
 
-  /**
-   * @param {Object} state
-   * @returns {Array}
-   */
-  skills: (state: CurriculumVitaeState) => state.resume.skills,
+  skills(state: CurriculumVitaeState) {
+    return state.resume.skills;
+  },
 };
 
 export default getters;

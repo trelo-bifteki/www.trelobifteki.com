@@ -5,6 +5,9 @@ import router from './router'
 import VueAnalytics from 'vue-analytics';
 
 import './scss/index.scss';
+import {
+  VNode,
+} from 'vue/types/umd';
 
 Vue.config.productionTip = false
 
@@ -27,5 +30,5 @@ Vue.use(VueAnalytics, {
 new Vue({
   store,
   router,
-  render: h => h(App),
+  render: (h): VNode => h(App),
 }).$mount('#app')

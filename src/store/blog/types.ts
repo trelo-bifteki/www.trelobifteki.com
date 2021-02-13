@@ -16,6 +16,15 @@ export interface BlogPost {
   tags: ReadonlyArray<string>;
 }
 
+export const createEmptyBlogPost = (): BlogPost => ({
+  id: '',
+  title: '',
+  description: '',
+  created: 0,
+  isVisible: false,
+  tags: [],
+})
+
 export interface BlogState {
   selectedPostId: string;
   posts: ReadonlyArray<BlogPost>;

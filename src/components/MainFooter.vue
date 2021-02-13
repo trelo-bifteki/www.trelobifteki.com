@@ -1,7 +1,4 @@
 <script lang="ts">
-import {
-  mapState,
-} from 'vuex';
 import IconBase from './icons/IconBase.vue';
 import IconHeart from './icons/IconHeart.vue';
 import IconGithub from './icons/IconGithub.vue';

@@ -6,6 +6,11 @@ import {
   Vue,
 } from 'vue-property-decorator';
 
+import {
+  ResumeLocation,
+  ResumeProfile,
+} from '@/store/cv/types';
+
 @Component({
   components: {
     SocialLinks,
@@ -35,14 +40,14 @@ export default class PersonalInformation extends Vue {
     required: true,
     type: Object,
   })
-  readonly location!: any;
+  readonly location!: ResumeLocation;
 
 
   @Prop({
     required: true,
     type: Array,
   })
-  readonly profiles!: ReadonlyArray<any>;
+  readonly profiles!: ReadonlyArray<ResumeProfile>;
 }
 </script>
 

@@ -15,7 +15,11 @@ import {
   Module,
 } from 'vuex';
 
-const module: Module<CurriculumVitaeState, any> = {
+import {
+  RootState,
+} from '../types';
+
+const module: Module<CurriculumVitaeState, RootState> = {
   namespaced: true,
   actions,
   getters,

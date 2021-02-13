@@ -3,6 +3,9 @@ import {
   createDefaultState,
 } from '@/store/cv/state';
 import {
+  CvGetterTree,
+} from '@/store/cv/types';
+import {
   createResume,
 } from '../../mocks';
 
@@ -22,7 +25,8 @@ describe('blog/getters', () => {
         name: 'Max Mustermann',
       },
     };
-    const fullName = getters.fullName(state, gettersState);
+    const module = gettersState as CvGetterTree;
+    const fullName = getters.fullName(state, module);
 
     expect(fullName).toEqual('Max Mustermann');
   });
