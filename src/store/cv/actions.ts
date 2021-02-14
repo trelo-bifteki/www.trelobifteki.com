@@ -30,28 +30,18 @@ interface ActionInterface extends ActionTree<CurriculumVitaeState, RootState> {
 }
 
 export const actions: ActionInterface = {
-  /**
-   * @param {Object} object containing a commit function
-   * @returns {Promise}
-   */
-  refreshSkills({
+
+  async refreshSkills({
     commit,
   }: {
     commit: Commit;
   }) {
-    return axios
-      .get('/static/skills.json')
-      .then(({
-        data,
-      }) => {
-        commit('updateSkills', data);
-        return data;
-      });
+    const response = await axios.get<ResumeSkill[]>('/static/skills.json')
+    const data = response.data;
+    commit('updateSkills', data);
+    return data;
   },
-  /**
-   * @param {Object} object containing a commit function
-   * @returns {Promise}
-   */
+
   refreshResume({
     commit,
   }: {

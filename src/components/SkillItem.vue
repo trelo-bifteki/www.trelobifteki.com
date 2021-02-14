@@ -17,10 +17,6 @@ export default class SkillItem extends Vue {
     type: Object,
   })
   readonly skill!: ResumeSkill;
-
-  get label(): string {
-    return this.skill.label;
-  }
 }
 
 </script>
