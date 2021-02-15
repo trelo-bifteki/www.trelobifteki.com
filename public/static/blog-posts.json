@@ -1,4 +1,11 @@
 [{
+  "id": "jest-vue-typescript",
+  "title": "Recipes for unit tests with Jest and Vue.Js",
+  "description": "This is a description 5",
+  "created": 1613317037,
+  "isVisible": false,
+  "tags": []
+}, {
   "id": "case-refactoring-actions-pattern",
   "title": "Refactoring actions using patterns",
   "description": "This is a description 1",

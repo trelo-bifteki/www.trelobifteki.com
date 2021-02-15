@@ -80,7 +80,9 @@ export default class IconBase extends Vue {
   vertical-align: baseline;
 
   &__group {
-    fill: currentColor;
+    &--default {
+      fill: currentColor;
+    }
 
     &--orange {
       fill: $color-theme-orange;

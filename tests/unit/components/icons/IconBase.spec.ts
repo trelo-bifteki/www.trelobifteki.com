@@ -6,8 +6,8 @@ import {
 const defaultProps = {
   iconName: 'testName',
   width: '20px',
-  iconColor: 'red',
   inverted: false,
+  iconColor: 'default',
 };
 
 describe('IconBase', () => {
@@ -40,7 +40,10 @@ describe('IconBase', () => {
   });
 
   it('renders group color as red', () => {
-    const wrapper = createWrapper();
+    const wrapper = createWrapper({
+      ...defaultProps,
+      iconColor: 'red',
+    });
 
     expect(
       wrapper.find('.icon-base__group').classes(),
