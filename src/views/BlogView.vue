@@ -84,6 +84,7 @@ export default class BlogView extends Vue {
 @import "../scss/variables.scss";
 @import "../scss/fluid";
 @import "../scss/typography";
+@import "../scss/breakpoints";
 
 .blog-view {
   @include body-container;
@@ -100,6 +101,15 @@ export default class BlogView extends Vue {
     margin-left: auto;
     margin-right: auto;
     text-decoration: none;
+    width: 100%;
+
+    @include media-breakpoint-not-small {
+      width: 50%;
+
+      &:last-child:nth-child(odd) {
+        width: 100%;
+      }
+    }
   }
 
   &__spinner {

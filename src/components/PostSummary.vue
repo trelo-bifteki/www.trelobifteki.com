@@ -54,11 +54,6 @@ export default class PostSummary extends Vue {
     padding: 5rem 3rem;
     text-align: center;
     transition: background-color .33s ease;
-    width: 50%;
-
-    @include media-breakpoint-medium {
-      width: 100%;
-    }
 
     &__title {
       color: $color-theme-lila;

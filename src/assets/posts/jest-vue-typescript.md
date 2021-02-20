@@ -209,3 +209,15 @@ The most important rules that I used were the following:
 It took me a long research and experiments to find `Wrapper<Component>` as
 return trype for `createWrapper` function. I also introduce the `defaultProps`
 in order to have autocompletion, avoid DRY and type checking.
+
+## Recipe for stateful components
+
+A stateful component is a component in my applications and it uses _Vuex_ as
+input and output.
+
+Taking the example below:
+
+```vue
+
+
+```
