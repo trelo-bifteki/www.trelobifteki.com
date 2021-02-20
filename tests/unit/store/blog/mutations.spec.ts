@@ -10,7 +10,6 @@ import {
 const defaultPost: BlogPost = {
   id: 'test',
   title: 'Test',
-  description: 'Test description',
   created: 0,
   isVisible: true,
   tags: [],

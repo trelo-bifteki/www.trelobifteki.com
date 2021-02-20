@@ -1,3 +1,18 @@
+<script lang="ts">
+import {
+  Component,
+  Vue,
+} from 'vue-property-decorator';
+
+
+@Component({
+  name: 'SpinningLoader',
+})
+export default class SpinningLoader extends Vue {
+
+}
+
+</script>
 <template>
   <div class="spinning-loader" />
 </template>

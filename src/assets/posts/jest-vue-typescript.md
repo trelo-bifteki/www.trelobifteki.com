@@ -11,6 +11,8 @@ I am writing this guide because it is hard to find good full examples on the
 internet using all technologies mentioned above together. I will also mention
 all parts where it took me the most time to find a solution.
 
+I will also use real examples from the code I developed for my own website.
+
 ## Eslint configuration
 
 I am usually using the following rulesets in eslint:
@@ -218,6 +220,134 @@ input and output.
 Taking the example below:
 
 ```vue
+<script lang="ts">
+import {
+  Component,
+  Vue,
+} from 'vue-property-decorator';
 
+import PostSummary from '@/components/PostSummary.vue';
+import SpinningLoader from '@/components/SpinningLoader.vue';
 
+import {
+  namespace,
+} from 'vuex-class';
+import {
+  BlogPost,
+} from '@/store/blog/types';
+
+const blog = namespace('blog');
+
+@Component({
+  name: 'BlogView',
+  metaInfo: {
+    title: 'Blog',
+  },
+  components: {
+    PostSummary,
+    SpinningLoader,
+  },
+})
+export default class BlogView extends Vue {
+
+  @blog.State('posts')
+  readonly posts!: ReadonlyArray<BlogPost>;
+
+  @blog.Action('refreshPosts')
+  readonly refreshPosts!: () => Promise<ReadonlyArray<BlogPost>>;
+
+  isLoading = false;
+
+  get visiblePostsOrderByDateDesc(): ReadonlyArray<BlogPost> {
+    const visiblePosts = this.posts.filter(post => post.isVisible);
+    visiblePosts.sort((one, another) => another.created - one.created);
+    return visiblePosts;
+  }
+
+  async created(): Promise<void> {
+    this.isLoading = true;
+    try {
+      await this.refreshPosts();
+    } finally {
+      this.isLoading = false;
+    }
+  }
+}
+</script>
+
+<template>
+  <div class="blog-view">
+    <h1 class="blog-view__headline">
+      <i class="icon-heart" />
+      Blog
+    </h1>
+    <div
+      v-if="isLoading"
+      class="blog-view__spinner"
+    >
+      <SpinningLoader />
+    </div>
+    <section
+      v-else
+      class="blog-view__container"
+    >
+      <PostSummary
+        v-for="post in visiblePostsOrderByDateDesc"
+        :key="post.id"
+        class="blog-view__post"
+        :post="post"
+      />
+    </section>
+  </div>
+</template>
+
+<style lang="scss">
+
+@import "../scss/variables.scss";
+@import "../scss/fluid";
+@import "../scss/typography";
+@import "../scss/breakpoints";
+
+.blog-view {
+  @include body-container;
+
+  &__headline {
+    @include headline;
+
+    color: $color-theme-orange;
+    font-size: $font-size-xxl;
+  }
+
+  &__post {
+    font-size: 1.3rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none;
+    width: 100%;
+
+    @include media-breakpoint-not-small {
+      width: 50%;
+
+      &:last-child:nth-child(odd) {
+        width: 100%;
+      }
+    }
+  }
+
+  &__spinner {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 10rem;
+    text-align: center;
+  }
+
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: $space-xl 0;
+  }
+}
+
+</style>
 ```

@@ -10,7 +10,6 @@ import {
 export interface BlogPost {
   id: string;
   title: string;
-  description: string;
   created: number;
   isVisible: boolean;
   tags: ReadonlyArray<string>;
@@ -19,8 +18,7 @@ export interface BlogPost {
 export const createEmptyBlogPost = (): BlogPost => ({
   id: '',
   title: '',
-  description: '',
-  created: 0,
+  created: 1613845690094,
   isVisible: false,
   tags: [],
 })

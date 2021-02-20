@@ -66,7 +66,7 @@ export default class BlogView extends Vue {
       <SpinningLoader />
     </div>
     <section
-      v-if="!isLoading"
+      v-else
       class="blog-view__container"
     >
       <PostSummary
