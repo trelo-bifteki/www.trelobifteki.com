@@ -74,6 +74,7 @@ export default class BlogView extends Vue {
         :key="post.id"
         class="blog-view__post"
         :post="post"
+        :title="post.id"
       />
     </section>
   </div>

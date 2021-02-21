@@ -15,6 +15,9 @@ import {
   BlogState,
 } from '@/store/blog/types';
 
+import PostSummary from '@/components/PostSummary.vue';
+import SpinningLoader from '@/components/SpinningLoader.vue';
+
 const localVue = createLocalVue();
 
 localVue.use(Vuex);
@@ -62,10 +65,6 @@ describe('BlogView', () => {
     {
       localVue,
       store,
-      stubs: [
-        'SpinningLoader',
-        'PostSummary',
-      ],
     },
   );
 
@@ -85,9 +84,7 @@ describe('BlogView', () => {
     const wrapper = createWrapper();
 
     expect(
-      wrapper.findComponent({
-        name: 'SpinningLoader',
-      }).exists(),
+      wrapper.findComponent(SpinningLoader).exists(),
     ).toBe(true);
   });
 
@@ -121,10 +118,29 @@ describe('BlogView', () => {
     await wrapper.vm.$nextTick();
 
     expect(
-      wrapper.findAllComponents({
-        name: 'PostSummary',
-      }).length,
+      wrapper.findAllComponents(PostSummary).length,
     ).toEqual(1);
   });
 
+  it('should have the newest post as first', async () => {
+    const post = createPost();
+    const newestPost = createPost('another');
+    newestPost.created = post.created + 60000;
+
+    const store = createStore({
+      ...createDefaultState(),
+      posts: [
+        createPost(),
+        newestPost,
+      ],
+    });
+    const wrapper = createWrapper(store);
+
+    await wrapper.vm.$nextTick();
+    await wrapper.vm.$nextTick();
+
+    expect(
+      wrapper.findComponent(PostSummary).attributes('title'),
+    ).toEqual('another');
+  });
 });

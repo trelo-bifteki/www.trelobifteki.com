@@ -351,3 +351,7 @@ export default class BlogView extends Vue {
 
 </style>
 ```
+
+I implemented the following unit test for it:
+
+```
