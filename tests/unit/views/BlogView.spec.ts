@@ -3,7 +3,6 @@ import {
   createLocalVue,
   Wrapper,
 } from '@vue/test-utils';
-import BlogView from '@/views/BlogView.vue';
 import Vuex, {
   Store,
 } from 'vuex';
@@ -17,6 +16,7 @@ import {
 
 import PostSummary from '@/components/PostSummary.vue';
 import SpinningLoader from '@/components/SpinningLoader.vue';
+import BlogView from '@/views/BlogView.vue';
 
 const localVue = createLocalVue();
 
