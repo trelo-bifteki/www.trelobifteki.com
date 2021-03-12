@@ -1,0 +1,24 @@
+{
+  "items": [
+    {
+      "customer": "Hellenic Telecommunications Organization S.A.",
+      "title": "OTE IPTV solution",
+      "description": "IPTV service for providing Video-On-Demand and live channels",
+      "position": "Fullstack Developer",
+      "tasks": [
+        "Develop customizations on top of already user interface",
+        "Improve Video-On-Demand application by splitting video catalog into chunks",
+        "Improve user interface performance by introducing caching",
+        "Migrate already existing solution into a new platform"
+      ],
+      "startDate": "2014-01-01",
+      "endDate": "2016-06-01",
+      "Technologies": [
+        "Emacscript 2015",
+        "CSS3",
+        "Spring framework",
+        "Java 7"
+      ]
+    }
+  ]
+}

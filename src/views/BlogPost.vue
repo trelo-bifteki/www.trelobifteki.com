@@ -20,6 +20,7 @@ import SpinningLoader from '@/components/SpinningLoader.vue';
 import {
   BlogPost as BlogPostType, createEmptyBlogPost,
 } from '@/store/blog/types';
+
 @Component({
   name: 'BlogPost',
   components: {
