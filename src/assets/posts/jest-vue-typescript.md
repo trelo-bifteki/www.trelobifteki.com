@@ -508,3 +508,5 @@ describe('BlogView', () => {
   });
 });
 ```
+
+The `localVue` variable is used to initialize needed _Vuex_

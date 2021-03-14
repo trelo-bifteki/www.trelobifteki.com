@@ -1,8 +1,33 @@
-<script>
-export default {
+<script lang="ts">
+import {
+  Project,
+} from '@/store/portofolio/types';
+import {
+  Component,
+  Vue,
+} from 'vue-property-decorator';
+import {
+  namespace,
+} from 'vuex-class';
+
+const portofolio = namespace('portofolio');
+
+@Component({
   metaInfo: {
     title: 'Projects',
   },
+})
+export default class ProjectList extends Vue {
+
+  @portofolio.State
+  readonly projects!: Project[];
+
+  @portofolio.Action
+  readonly loadProjects!: () => Promise<Project[]>;
+
+  async created(): Promise<void> {
+    await this.loadProjects();
+  }
 }
 </script>
 <template>
@@ -16,9 +41,13 @@ export default {
       Some personal projects that I am developing through my free-time
     </div>
 
-    <h2>
-      My personal website
-    </h2>
+    <div
+      v-for="project in projects"
+      :key="project.title"
+      class="project-list__project"
+    >
+      <h2>{{ project. title }}</h2>
+    </div>
   </div>
 </template>
 
