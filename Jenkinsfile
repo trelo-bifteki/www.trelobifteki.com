@@ -39,6 +39,12 @@ pipeline {
       }
     }
 
+    stage('Verify ES5 compatibility') {
+      steps {
+        sh 'npx es-check es5 ./dist/js/*.js --verbose'
+      }
+    }
+
     stage('Check unit:e2e') {
       steps {
         sh 'npm run test:e2e -- --headless --url https://www.trelobifteki.com --config video=false'
