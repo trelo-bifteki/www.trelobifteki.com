@@ -58,7 +58,7 @@
     "sitemap-webpack-plugin": "0.9.0",
     "stylelint": "13.3.3",
     "stylelint-config-recommended-scss": "4.2.0",
-    "stylelint-order": "4.0.0",
+    "stylelint-order": "4.1.0",
     "stylelint-scss": "3.19.0",
     "stylelint-webpack-plugin": "2.1.0",
     "typescript": "4.0.3",
