@@ -1,5 +1,4 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const FontelloPlugin = require('fontello-webpack-plugin');
 const PrerenderSpaPlugin = require('prerender-spa-plugin');
 const RobotsTxtPlugin = require('robotstxt-webpack-plugin');
 const SitemapPlugin = require('sitemap-webpack-plugin').default;
