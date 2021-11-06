@@ -1,27 +1,19 @@
 <script lang="ts">
 import localizedDate from '@/filters/localizedDate.filter';
-import {
-  ResumeWork,
-} from '@/store/cv/types';
+import Vue from 'vue';
 
-import {
-  Component,
-  Prop,
-  Vue,
-} from 'vue-property-decorator';
-
-@Component({
+export default Vue.extend({
+  name: 'JobItem',
   filters: {
     localizedDate,
   },
-})
-export default class JobItem extends Vue {
-  @Prop({
-    type: Object,
-    required: true,
-  })
-  job!: ResumeWork;
-}
+  props: {
+    job: {
+      type: Object,
+      required: true,
+    },
+  },
+});
 
 </script>
 

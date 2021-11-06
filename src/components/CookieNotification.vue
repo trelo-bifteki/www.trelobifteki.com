@@ -1,34 +1,33 @@
 <script lang="ts">
 
 import gdprService from '@/services/localStorage';
-import {
-  Component,
-  Vue,
-} from 'vue-property-decorator';
+import Vue from 'vue';
 
-@Component
-export default class CookieNotification extends Vue {
-
-  isVisible = false;
-  googleAnalytics = null;
-
-  mounted(): void {
+export default Vue.extend({
+  name: 'CookieNotification',
+  data() {
+    return {
+      isVisible: false,
+      googleAnalytics: null,
+    };
+  },
+  mounted() {
     this.isVisible = !gdprService.isGdprAccepted();
-  }
-
-  accept(): void {
-    this.$ga.enable();
-    gdprService.acceptGdpr();
-    this.$ga.page(this.$router);
-    this.isVisible = false;
-  }
-
-  deny(): void {
-    this.$ga.disable();
-    gdprService.acceptGdpr();
-    this.isVisible = false;
-  }
-}
+  },
+  methods: {
+    accept(): void {
+      this.$ga.enable();
+      gdprService.acceptGdpr();
+      this.$ga.page(this.$router);
+      this.isVisible = false;
+    },
+    deny(): void {
+      this.$ga.disable();
+      gdprService.acceptGdpr();
+      this.isVisible = false;
+    },
+  },
+});
 </script>
 <template>
   <transition name="slide-up">

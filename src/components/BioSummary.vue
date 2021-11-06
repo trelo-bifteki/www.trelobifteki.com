@@ -9,7 +9,7 @@ export default Vue.extend({
     IconBase,
     IconChevronUp,
   },
-  data(): Record<string, boolean> {
+  data() {
     return {
       showMore: false,
     };

@@ -1,27 +1,20 @@
 <script lang="ts">
+import Vue from 'vue';
+
 import localizedDate from '@/filters/localizedDate.filter';
-import {
-  ResumeEducation,
-} from '@/store/cv/types';
 
-import {
-  Component,
-  Prop,
-  Vue,
-} from 'vue-property-decorator';
-
-@Component({
+export default Vue.extend({
+  name: 'EducationItem',
   filters: {
     localizedDate,
   },
-})
-export default class EducationItem extends Vue {
-  @Prop({
-    type: Object,
-    required: true,
-  })
-  item!: ResumeEducation;
-}
+  props: {
+    item: {
+      type: Object,
+      required: true,
+    },
+  },
+});
 </script>
 
 <template>
