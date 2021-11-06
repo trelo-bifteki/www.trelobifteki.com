@@ -1,54 +1,36 @@
 <script lang="ts">
 import SocialLinks from './SocialLinks.vue';
-import {
-  Component,
-  Prop,
-  Vue,
-} from 'vue-property-decorator';
+import Vue from 'vue';
 
-import {
-  ResumeLocation,
-  ResumeProfile,
-} from '@/store/cv/types';
-
-@Component({
+export default Vue.extend({
+  name: 'PersonalInformation',
   components: {
     SocialLinks,
   },
+  props: {
+    name: {
+      type: String,
+      required: true,
+    },
+    title: {
+      type: String,
+      required: true,
+    },
+    company: {
+      type: String,
+      required: true,
+    },
+    location: {
+      type: Object,
+      required: true,
+    },
+    profiles: {
+      type: Array,
+      required: true,
+    },
+  },
 })
-export default class PersonalInformation extends Vue {
 
-  @Prop({
-    required: true,
-    type: String,
-  })
-  readonly name!: string;
-
-  @Prop({
-    required: true,
-    type: String,
-  })
-  readonly title!: string;
-
-  @Prop({
-    required: true,
-    type: String,
-  })
-  readonly company!: string;
-
-  @Prop({
-    required: true,
-    type: Object,
-  })
-  readonly location!: ResumeLocation;
-
-
-  @Prop({
-    required: true,
-    type: Array,
-  })
-  readonly profiles!: ReadonlyArray<ResumeProfile>;
-}
 </script>
 
 <template>

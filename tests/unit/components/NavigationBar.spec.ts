@@ -2,13 +2,14 @@ import {
   shallowMount, Wrapper,
 } from '@vue/test-utils';
 import NavigationBar from '@/components/NavigationBar.vue';
+import Vue from 'vue';
 
 describe('NavigationBar', () => {
   const defaultProps = {
     isHorizontal: false,
   };
 
-  const createWrapper = (propsData = defaultProps): Wrapper<NavigationBar> => shallowMount(
+  const createWrapper = (propsData = defaultProps): Wrapper<Vue> => shallowMount(
     NavigationBar,
     {
       propsData,

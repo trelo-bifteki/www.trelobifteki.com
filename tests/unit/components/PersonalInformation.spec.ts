@@ -8,14 +8,14 @@ const EXAMPLE_NAME = 'Max Mustermann';
 describe('PersonalInformation', () => {
   const defaultPropsData = {
     name: EXAMPLE_NAME,
-    title: 'Deveoper',
+    title: 'Developer',
     company: 'Acme',
     location: {
     },
     profiles: [],
   };
 
-  const getWrapper = (propsData = defaultPropsData): Wrapper<PersonalInformation> => shallowMount(PersonalInformation, {
+  const getWrapper = (propsData = defaultPropsData): Wrapper<Vue> => shallowMount(PersonalInformation, {
     propsData,
   });
 

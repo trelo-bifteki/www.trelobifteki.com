@@ -1,29 +1,25 @@
 <script lang="ts">
-import {
-  Component,
-  Prop,
-  Vue,
-} from 'vue-property-decorator';
+import Vue from 'vue';
 
-@Component({
+export default Vue.extend({
   name: 'NavigationBar',
-})
-export default class NavigationBar extends Vue {
+  props: {
+    isHorizontal: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  computed: {
+    containerClasses(): string[] {
+      const classes = [ 'navigation-bar__container' ];
+      if (this.isHorizontal) {
+        classes.push('navigation-bar__container--horizontal');
+      }
+      return classes;
+    },
+  },
+});
 
-  @Prop({
-    default: false,
-    type: Boolean,
-  })
-  isHorizontal!: boolean;
-
-  get containerClasses(): string[] {
-    const classes = [ 'navigation-bar__container' ];
-    if (this.isHorizontal) {
-      classes.push('navigation-bar__container--horizontal');
-    }
-    return classes;
-  }
-}
 </script>
 
 <template>

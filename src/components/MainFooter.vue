@@ -3,13 +3,10 @@ import IconBase from './icons/IconBase.vue';
 import IconHeart from './icons/IconHeart.vue';
 import IconGithub from './icons/IconGithub.vue';
 import SocialLinks from './SocialLinks.vue';
-import {
-  Component,
-  Prop,
-  Vue,
-} from 'vue-property-decorator';
 
-@Component({
+import Vue from 'vue';
+
+export default Vue.extend({
   name: 'MainFooter',
   components: {
     IconBase,
@@ -17,15 +14,14 @@ import {
     IconHeart,
     SocialLinks,
   },
-})
-export default class MainFooter extends Vue {
+  props: {
+    packageVersion: {
+      required: true,
+      type: String,
+    },
+  },
+});
 
-  @Prop({
-    required: true,
-    type: String,
-  })
-  readonly packageVersion!: string;
-}
 </script>
 
 <template>

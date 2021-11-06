@@ -4,13 +4,9 @@ import IconBase from './icons/IconBase.vue';
 import IconBars from './icons/IconBars.vue';
 import MovingSpectrum from './MovingSpectrum.vue';
 
-import {
-  Component,
-  Emit,
-  Vue,
-} from 'vue-property-decorator';
+import Vue from 'vue';
 
-@Component({
+export default Vue.extend({
   name: 'MainHeader',
   components: {
     IconBars,
@@ -18,15 +14,13 @@ import {
     MovingSpectrum,
     NavigationBar,
   },
-})
-export default class MainHeader extends Vue {
+  methods: {
+    clickMenu(): void {
+      this.$emit('onMenuClicked', true);
+    },
+  },
+});
 
-  @Emit('onMenuClicked')
-  clickMenu(): boolean {
-    return true;
-  }
-
-}
 </script>
 <template>
   <header class="main-header">

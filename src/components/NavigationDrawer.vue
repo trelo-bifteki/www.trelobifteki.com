@@ -1,41 +1,37 @@
 <script lang="ts">
-import {
-  Component,
-  Emit,
-  Prop,
-  Vue,
-} from 'vue-property-decorator';
+import Vue from 'vue';
 
-@Component
-export default class NavigationDrawer extends Vue {
-  @Prop({
-    default: false,
-    type: Boolean,
-  })
-  isVisible!: boolean;
+export default Vue.extend({
+  name: 'NavigationDrawer',
+  props: {
+    isVisible: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  computed: {
+    rootClasses(): string[] {
+      const results = [ 'navigation-drawer' ];
+      if (this.isVisible) {
+        results.push('navigation-drawer--visible');
+      }
+      return results;
+    },
+    containerClasses(): string[] {
+      const results = [ 'navigation-drawer__container' ];
+      if (this.isVisible) {
+        results.push('navigation-drawer__container--visible');
+      }
+      return results;
+    },
+  },
+  methods: {
+    toggle(): void {
+      this.$emit('toggle', !this.isVisible);
+    },
+  },
+});
 
-  get rootClasses(): string[] {
-    const results = [ 'navigation-drawer' ];
-    if (this.isVisible) {
-      results.push('navigation-drawer--visible');
-    }
-    return results;
-  }
-
-  get containerClasses(): string[] {
-    const results = [ 'navigation-drawer__container' ];
-    if (this.isVisible) {
-      results.push('navigation-drawer__container--visible');
-    }
-    return results;
-  }
-
-  @Emit('toggle')
-  toggle(): boolean {
-    return !this.isVisible;
-  }
-
-}
 </script>
 <template>
   <div

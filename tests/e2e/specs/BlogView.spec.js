@@ -1,7 +1,7 @@
 describe('BlogView', () => {
 
   beforeEach(() => {
-    cy.visit('/#/blog/');
+    cy.visit('#/blog/');
     cy.wait(2000);
   });
 
