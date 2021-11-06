@@ -1,13 +1,10 @@
 <script lang="ts">
-import {
-  Component,
-  Vue,
-} from 'vue-property-decorator';
+import Vue from 'vue';
 
-@Component
-export default class IconChevronUp extends Vue {
+export default Vue.extend({
+  name: 'IconchevronUp',
+});
 
-}
 </script>
 <template>
   <!-- eslint-disable max-len -->

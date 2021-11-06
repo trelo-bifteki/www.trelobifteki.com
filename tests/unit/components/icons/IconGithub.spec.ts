@@ -3,10 +3,10 @@ import {
   shallowMount, Wrapper,
 } from '@vue/test-utils';
 
-describe('IconBase', () => {
-  const createWrapper = (): Wrapper<IconGithub> => shallowMount(IconGithub);
+describe('IconGithub', () => {
+  const createWrapper = (): Wrapper<Vue> => shallowMount(IconGithub);
 
-  it('loads succesfully', () => {
+  it('loads successfully', () => {
     const wrapper = createWrapper();
 
     expect(

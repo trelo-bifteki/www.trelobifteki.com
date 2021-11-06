@@ -4,7 +4,7 @@ import {
 } from '@vue/test-utils';
 
 describe('IconBase', () => {
-  const createWrapper = (): Wrapper<IconChevronUp> => shallowMount(IconChevronUp);
+  const createWrapper = (): Wrapper<Vue> => shallowMount(IconChevronUp);
 
   it('loads succesfully', () => {
     const wrapper = createWrapper();

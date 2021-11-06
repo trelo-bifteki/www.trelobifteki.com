@@ -6,7 +6,7 @@ import {
 describe('IconBars', () => {
   const createWrapper = (): Wrapper<Vue> => shallowMount(IconBars);
 
-  it('loads succesfully', () => {
+  it('loads successfully', () => {
     const wrapper = createWrapper();
 
     expect(

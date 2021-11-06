@@ -1,14 +1,10 @@
 <script lang="ts">
-import {
-  Component,
-  Vue,
-} from 'vue-property-decorator';
+import Vue from 'vue';
 
+export default Vue.extend({
+  name: 'IconHeart',
+});
 
-@Component
-export default class IconHeart extends Vue {
-
-}
 </script>
 <template>
   <!-- eslint-disable max-len -->

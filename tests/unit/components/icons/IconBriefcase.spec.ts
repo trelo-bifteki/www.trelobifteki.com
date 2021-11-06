@@ -3,10 +3,10 @@ import {
   shallowMount, Wrapper,
 } from '@vue/test-utils';
 
-describe('IconBriefacase', () => {
-  const createWrapper = (): Wrapper<IconBriefcase> => shallowMount(IconBriefcase);
+describe('IconBriefcase', () => {
+  const createWrapper = (): Wrapper<Vue> => shallowMount(IconBriefcase);
 
-  it('loads succesfully', () => {
+  it('loads successfully', () => {
     const wrapper = createWrapper();
 
     expect(

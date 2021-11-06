@@ -4,9 +4,9 @@ import {
 } from '@vue/test-utils';
 
 describe('IconStar', () => {
-  const createWrapper = (): Wrapper<IconStar> => shallowMount(IconStar);
+  const createWrapper = (): Wrapper<Vue> => shallowMount(IconStar);
 
-  it('loads succesfully', () => {
+  it('loads successfully', () => {
     const wrapper = createWrapper();
 
     expect(

@@ -1,13 +1,10 @@
 <script lang="ts">
-import {
-  Component,
-  Vue,
-} from 'vue-property-decorator';
+import Vue from 'vue';
 
+export default Vue.extend({
+  name: 'IconGithub',
+});
 
-@Component
-export default class IconGithub extends Vue {
-}
 </script>
 <template>
   <!-- eslint-disable max-len -->

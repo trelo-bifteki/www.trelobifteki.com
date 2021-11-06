@@ -15,7 +15,7 @@ describe('IconBase', () => {
     propsData,
   });
 
-  it('loads succesfully', () => {
+  it('loads successfully', () => {
     const wrapper = createWrapper();
 
     expect(

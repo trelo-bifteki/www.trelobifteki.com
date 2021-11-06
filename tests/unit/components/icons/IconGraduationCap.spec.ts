@@ -4,9 +4,9 @@ import {
 } from '@vue/test-utils';
 
 describe('IconBase', () => {
-  const createWrapper = (): Wrapper<IconGraduationCap> => shallowMount(IconGraduationCap);
+  const createWrapper = (): Wrapper<Vue> => shallowMount(IconGraduationCap);
 
-  it('loads succesfully', () => {
+  it('loads successfully', () => {
     const wrapper = createWrapper();
 
     expect(

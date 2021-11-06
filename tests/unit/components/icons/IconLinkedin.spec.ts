@@ -4,9 +4,9 @@ import {
 } from '@vue/test-utils';
 
 describe('IconBase', () => {
-  const createWrapper = (): Wrapper<IconLinkedin> => shallowMount(IconLinkedin);
+  const createWrapper = (): Wrapper<Vue> => shallowMount(IconLinkedin);
 
-  it('loads succesfully', () => {
+  it('loads successfully', () => {
     const wrapper = createWrapper();
 
     expect(
