@@ -1,19 +1,18 @@
 <script lang="ts">
 import {
-  Component,
-  Prop,
   Vue,
 } from 'vue-property-decorator';
 
-@Component
-export default class BlogContent extends Vue {
 
-  @Prop({
-    type: String,
-    default: '',
-  })
-  content!: string;
-}
+export default Vue.extend({
+  name: 'BlogContent',
+  props: {
+    content: {
+      type: String,
+      default: '',
+    },
+  },
+});
 </script>
 <template>
   <!-- eslint-disable vue/no-v-html -->

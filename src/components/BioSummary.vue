@@ -1,24 +1,25 @@
 <script lang="ts">
-import {
-  Component,
-  Vue,
-} from 'vue-property-decorator';
-import IconBase from './icons/IconBase.vue';
-import IconChevronUp from './icons/IconChevronUp.vue';
+import Vue from 'vue';
+import IconBase from '@/components/icons/IconBase.vue'
+import IconChevronUp from '@/components/icons/IconChevronUp.vue';
 
-@Component({
+export default Vue.extend({
+  name: 'BioSummary',
   components: {
     IconBase,
     IconChevronUp,
   },
-})
-export default class BioSummary extends Vue {
-  showMore = false;
-
-  toggle(): void {
-    this.showMore = !this.showMore;
-  }
-}
+  data(): Record<string, boolean> {
+    return {
+      showMore: false,
+    };
+  },
+  methods: {
+    toggle(): void {
+      this.showMore = !this.showMore;
+    },
+  },
+});
 </script>
 
 <template>

@@ -6,7 +6,7 @@ import {
 } from '@vue/test-utils';
 
 describe('BioSummary', () => {
-  const createWrapper = (): Wrapper<BioSummary> => shallowMount(BioSummary);
+  const createWrapper = (): Wrapper<Vue> => shallowMount(BioSummary);
 
   it('displays first line', () => {
     const wrapper = createWrapper();

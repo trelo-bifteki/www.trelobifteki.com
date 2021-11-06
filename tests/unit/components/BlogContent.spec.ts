@@ -6,7 +6,7 @@ import {
 } from '@vue/test-utils';
 
 describe('BlogContent', () => {
-  const createWrapper = (content: string): Wrapper<BlogContent> => shallowMount(BlogContent, {
+  const createWrapper = (content: string): Wrapper<Vue> => shallowMount(BlogContent, {
     propsData: {
       content,
     },
