@@ -2,6 +2,7 @@ describe('BlogView', () => {
 
   beforeEach(() => {
     cy.visit('/blog/');
+    cy.wait(2000);
   });
 
   it('contains headline with blog as title', () => {

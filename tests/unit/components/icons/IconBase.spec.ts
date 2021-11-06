@@ -11,7 +11,7 @@ const defaultProps = {
 };
 
 describe('IconBase', () => {
-  const createWrapper = (propsData= defaultProps): Wrapper<IconBase> => shallowMount(IconBase, {
+  const createWrapper = (propsData= defaultProps): Wrapper<Vue> => shallowMount(IconBase, {
     propsData,
   });
 

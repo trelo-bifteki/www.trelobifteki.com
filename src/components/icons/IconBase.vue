@@ -1,58 +1,47 @@
 <script lang="ts">
-import {
-  Component,
-  Prop,
-  Vue,
-} from 'vue-property-decorator';
+import Vue from 'vue';
 
-@Component
-export default class IconBase extends Vue {
-  @Prop({
-    type: [ String, Number ],
-    default: '16px',
-  })
-  width!: string | number;
+export default Vue.extend({
+  name: 'IconBase',
+  props: {
+    width: {
+      type: [ String, Number ],
+      default: '16px',
+    },
+    height: {
+      type: [ String, Number ],
+      default: '16px',
+    },
+    iconColor: {
+      type: String,
+      default: 'default',
+    },
+    iconName: {
+      type: String,
+      default: '',
+    },
+    inverted: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  computed: {
+    iconGroupClasses(): string[] {
+      return [
+        'icon-base__group',
+        `icon-base__group--${this.iconColor}`,
+      ];
+    },
+    rootClasses(): string [] {
+      const classes = [ 'icon-base' ];
+      if (this.inverted) {
+        classes.push('icon-base--inverted');
+      }
 
-  @Prop({
-    type: [ String, Number ],
-    default: '16px',
-  })
-  height!: string | number;
-
-  @Prop({
-    type: String,
-    default: 'default',
-  })
-  iconColor!: string;
-
-  @Prop({
-    type: String,
-    default: '',
-  })
-  iconName!: string;
-
-  @Prop({
-    type: Boolean,
-    default: false,
-  })
-  inverted!: boolean;
-
-  get iconGroupClasses(): string[] {
-    return [
-      'icon-base__group',
-      `icon-base__group--${this.iconColor}`,
-    ];
-  }
-
-  get rootClasses(): string [] {
-    const classes = [ 'icon-base' ];
-    if (this.inverted) {
-      classes.push('icon-base--inverted');
-    }
-
-    return classes;
-  }
-}
+      return classes;
+    },
+  },
+})
 </script>
 <template>
   <svg

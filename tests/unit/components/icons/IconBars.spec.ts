@@ -4,7 +4,7 @@ import {
 } from '@vue/test-utils';
 
 describe('IconBars', () => {
-  const createWrapper = (): Wrapper<IconBars> => shallowMount(IconBars);
+  const createWrapper = (): Wrapper<Vue> => shallowMount(IconBars);
 
   it('loads succesfully', () => {
     const wrapper = createWrapper();
