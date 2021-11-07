@@ -1,34 +1,34 @@
 <script lang="ts">
+import Vue from 'vue';
 import {
-  Project,
-} from '@/store/portofolio/types';
-import {
-  Component,
-  Vue,
-} from 'vue-property-decorator';
-import {
-  namespace,
-} from 'vuex-class';
+  createNamespacedHelpers,
+} from 'vuex';
 
-const portofolio = namespace('portofolio');
+const {
+  mapActions,
+  mapState,
+} = createNamespacedHelpers('portofolio');
 
-@Component({
+export default Vue.extend({
+  name: 'ProjectList',
   metaInfo: {
     title: 'Projects',
   },
-})
-export default class ProjectList extends Vue {
-
-  @portofolio.State
-  readonly projects!: Project[];
-
-  @portofolio.Action
-  readonly loadProjects!: () => Promise<Project[]>;
-
+  computed: {
+    ...mapState([
+      'projects',
+    ]),
+  },
   async created(): Promise<void> {
     await this.loadProjects();
-  }
-}
+  },
+  methods: {
+    ...mapActions([
+      'loadProjects',
+    ]),
+  },
+})
+
 </script>
 <template>
   <div class="project-list">

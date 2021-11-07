@@ -1,7 +1,8 @@
 <script lang="ts">
+import Vue from 'vue';
 import {
-  namespace,
-} from 'vuex-class';
+  createNamespacedHelpers,
+} from 'vuex';
 
 import CookieNotification from '@/components/CookieNotification.vue'
 import MainFooter from '@/components/MainFooter.vue';
@@ -9,14 +10,11 @@ import MainHeader from '@/components/MainHeader.vue';
 import NavigationBar from '@/components/NavigationBar.vue';
 import NavigationDrawer from '@/components/NavigationDrawer.vue';
 
-import {
-  Component,
-  Vue,
-} from 'vue-property-decorator';
+const {
+  mapState,
+} = createNamespacedHelpers('cv');
 
-const cv = namespace('cv');
-
-@Component({
+export default Vue.extend({
   name: 'App',
   components: {
     CookieNotification,
@@ -32,17 +30,23 @@ const cv = namespace('cv');
       lang: 'en',
     },
   },
-})
-export default class App extends Vue {
-  isNavigationDrawerVisible = false;
+  data() {
+    return {
+      isNavigationDrawerVisible: false,
+    };
+  },
+  computed: {
+    ...mapState([
+      'packageVersion',
+    ]),
+  },
+  methods: {
+    toggleNavigationDrawer(isVisible: boolean): void {
+      this.isNavigationDrawerVisible = isVisible;
+    },
+  },
+});
 
-  @cv.State('packageVersion')
-  readonly packageVersion!: string;
-
-  toggleNavigationDrawer(isVisible: boolean): void {
-    this.isNavigationDrawerVisible = isVisible;
-  }
-}
 </script>
 
 <template>

@@ -40,7 +40,7 @@ describe('ProjectList.vue', () => {
     },
   });
 
-  const createWrapper = (store: Store<RootState>): Wrapper<ProjectList> => shallowMount(ProjectList, {
+  const createWrapper = (store: Store<RootState>): Wrapper<Vue> => shallowMount(ProjectList, {
     localVue,
     store,
   });
