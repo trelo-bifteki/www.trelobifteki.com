@@ -10,6 +10,7 @@ import Vuex, {
 import {
   RootState,
 } from '@/store/types';
+import Vue from 'vue';
 
 const localVue = createLocalVue();
 localVue.use(Vuex);
@@ -54,7 +55,7 @@ describe('BlogPost', () => {
     mutations.updateSelectedPostId.mockClear();
   });
 
-  const getWrapper = (store: Store<RootState>): Wrapper<BlogPost> => shallowMount(BlogPost, {
+  const getWrapper = (store: Store<RootState>): Wrapper<Vue> => shallowMount(BlogPost, {
     localVue,
     propsData: {
       postId: 'howto-write-tickets',
