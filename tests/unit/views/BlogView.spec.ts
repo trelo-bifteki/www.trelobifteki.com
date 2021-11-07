@@ -60,7 +60,7 @@ describe('BlogView', () => {
 
   const createWrapper = (
     store: Store<RootState> = createStore(),
-  ): Wrapper<BlogView> => shallowMount(
+  ): Wrapper<Vue> => shallowMount(
     BlogView,
     {
       localVue,

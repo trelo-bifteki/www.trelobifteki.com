@@ -12,6 +12,10 @@ import {
 } from '@/store/types';
 import Vue from 'vue';
 
+jest.mock('html-loader!@/assets/posts/howto-write-tickets.md', () => '', {
+  virtual: true,
+});
+
 const localVue = createLocalVue();
 localVue.use(Vuex);
 

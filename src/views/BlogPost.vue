@@ -27,6 +27,9 @@ export default Vue.extend({
     BlogContent,
     SpinningLoader,
   },
+  metaInfo: {
+    title: 'Blog',
+  },
   props: {
     postId: {
       type: String,
@@ -41,12 +44,11 @@ export default Vue.extend({
     };
   },
   computed: {
-    ...mapState({
-      // eslint-disable-next-line
-      posts: (state: any): ReadonlyArray<BlogPostType> => state.posts,
-    }),
+    ...mapState([
+      'posts',
+    ]),
     post(): BlogPostType {
-      const selectedPosts = this.posts.filter(post => post.id === this.postId);
+      const selectedPosts = this.posts.filter((post: BlogPostType) => post.id === this.postId);
       return selectedPosts.length
         ? selectedPosts[0]
         : createEmptyBlogPost();

@@ -1,14 +1,10 @@
 <script lang="ts">
 
+import Vue from 'vue';
 import {
-  Component,
-  Vue,
-} from 'vue-property-decorator';
+  createNamespacedHelpers,
+} from 'vuex';
 
-
-import {
-  namespace,
-} from 'vuex-class';
 
 import BioSummary from '@/components/BioSummary.vue';
 import EducationItem from '@/components/EducationItem.vue';
@@ -21,17 +17,15 @@ import IconUser from '@/components/icons/IconUser.vue';
 import JobItem from '@/components/JobItem.vue';
 import PersonalInformation from '@/components/PersonalInformation.vue';
 import SkillItem from '@/components/SkillItem.vue';
-import {
-  ResumeSchema,
-} from '@kurone-kito/jsonresume-types';
-import {
-  ResumeSkill, ResumeLocation, ResumeWork, ResumeBasics, ResumeProfile, ResumeInterest, ResumeEducation,
-} from '@/store/cv/types';
 
+const {
+  mapActions,
+  mapGetters,
+  mapState,
+} = createNamespacedHelpers('cv');
 
-const cv = namespace('cv');
-
-@Component({
+export default Vue.extend({
+  name: 'CurriculumVitae',
   components: {
     BioSummary,
     EducationItem,
@@ -45,42 +39,26 @@ const cv = namespace('cv');
     PersonalInformation,
     SkillItem,
   },
-})
-export default class CurriculumVitae extends Vue {
-
-  isLoaded = false;
-  readonly mainIconSize: number = 20;
-
-  @cv.State('skills')
-  readonly skills!: ReadonlyArray<ResumeSkill>;
-
-  @cv.Getter('basics')
-  readonly basics!: ResumeBasics;
-
-  @cv.Getter('education')
-  readonly education!: ResumeEducation;
-
-  @cv.Getter('interests')
-  readonly interests!: ReadonlyArray<ResumeInterest>;
-
-  @cv.Getter('latestWork')
-  readonly latestWork!: ResumeWork;
-
-  @cv.Getter('location')
-  readonly location!: ResumeLocation;
-
-  @cv.Getter('work')
-  readonly work!: ReadonlyArray<ResumeWork>;
-
-  @cv.Getter('profiles')
-  readonly profiles!: ReadonlyArray<ResumeProfile>;
-
-  @cv.Action('refreshResume')
-  readonly refreshResume!: () => Promise<ResumeSchema>;
-
-  @cv.Action('refreshSkills')
-  readonly refreshSkills!: () => Promise<ResumeSkill>;
-
+  data() {
+    return {
+      isLoaded: false,
+      mainIconSize: 20,
+    }
+  },
+  computed: {
+    ...mapState([
+      'skills',
+    ]),
+    ...mapGetters([
+      'basics',
+      'interests',
+      'education',
+      'latestWork',
+      'location',
+      'work',
+      'profiles',
+    ]),
+  },
   async created(): Promise<void> {
     const promiseResume = this.refreshResume();
     const promiseSkills = this.refreshSkills();
@@ -90,8 +68,14 @@ export default class CurriculumVitae extends Vue {
     } finally {
       this.isLoaded = true;
     }
-  }
-}
+  },
+  methods: {
+    ...mapActions([
+      'refreshResume',
+      'refreshSkills',
+    ]),
+  },
+});
 
 </script>
 
