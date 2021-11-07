@@ -7,7 +7,7 @@ import {
 } from '@/store/cv/types';
 
 describe('SocialLinks', () => {
-  const getWrapper = (profiles: Array<ResumeProfile>): Wrapper<SocialLinks> => shallowMount(SocialLinks, {
+  const getWrapper = (profiles: Array<ResumeProfile>): Wrapper<Vue> => shallowMount(SocialLinks, {
     propsData: {
       profiles,
     },

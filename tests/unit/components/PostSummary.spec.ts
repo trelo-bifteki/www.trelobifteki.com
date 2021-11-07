@@ -9,7 +9,7 @@ const defaultPost = {
 }
 
 describe('PostSummary', () => {
-  const getWrapper = (post = defaultPost): Wrapper<PostSummary> => shallowMount(PostSummary, {
+  const getWrapper = (post = defaultPost): Wrapper<Vue> => shallowMount(PostSummary, {
     propsData: {
       post,
     },

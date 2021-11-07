@@ -1,23 +1,15 @@
 <script lang="ts">
-import {
-  ResumeSkill,
-} from '@/store/cv/types';
+import Vue from 'vue';
 
-import {
-  Component,
-  Prop,
-  Vue,
-} from 'vue-property-decorator';
-
-@Component
-export default class SkillItem extends Vue {
-
-  @Prop({
-    required: true,
-    type: Object,
-  })
-  readonly skill!: ResumeSkill;
-}
+export default Vue.extend({
+  name: 'SkillItem',
+  props: {
+    skill: {
+      type: Object,
+      required: true,
+    },
+  },
+});
 
 </script>
 

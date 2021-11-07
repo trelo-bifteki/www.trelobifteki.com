@@ -1,16 +1,9 @@
 <script lang="ts">
-import {
-  Component,
-  Vue,
-} from 'vue-property-decorator';
+import Vue from 'vue';
 
-
-@Component({
+export default Vue.extend({
   name: 'SpinningLoader',
-})
-export default class SpinningLoader extends Vue {
-
-}
+});
 
 </script>
 <template>

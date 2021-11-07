@@ -1,17 +1,20 @@
 <script lang="ts">
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import {
-  Component,
-  Prop,
-  Vue,
-} from 'vue-property-decorator';
+import Vue from 'vue';
 import IconBase from './icons/IconBase.vue';
 import IconEnvelope from './icons/IconEnvelope.vue';
 import IconGithub from './icons/IconGithub.vue';
 import IconLinkedin from './icons/IconLinkedin.vue';
 import IconTwitter from './icons/IconTwitter.vue';
 
-@Component({
+const networkToImageMap: Record<string, string> = {
+  Github: 'icon-github',
+  Twitter: 'icon-twitter',
+  Linkedin: 'icon-linkedin',
+};
+
+export default Vue.extend({
+  name: 'SocialLinks',
   components: {
     IconBase,
     IconEnvelope,
@@ -19,32 +22,28 @@ import IconTwitter from './icons/IconTwitter.vue';
     IconLinkedin,
     IconTwitter,
   },
-})
-export default class SocialLinks extends Vue {
+  props: {
+    profiles: {
+      type: Array,
+      default: (): ReadonlyArray<any> => [],
+    },
+  },
+  data() {
+    return {
+      iconWidth: '18px',
+      iconHeight: '18px',
+    };
+  },
+  computed: {
+    socialLinks(): ReadonlyArray<any> {
+      return this.profiles.map((profile: any) => ({
+        ...profile,
+        image: networkToImageMap[profile.network],
+      }));
+    },
+  },
+});
 
-  @Prop({
-    type: Array,
-    default: () => [],
-  })
-  readonly profiles!: ReadonlyArray<any>;
-
-  readonly networkToImageMap: Record<string, string> = {
-    Github: 'icon-github',
-    Twitter: 'icon-twitter',
-    Linkedin: 'icon-linkedin',
-  };
-
-  readonly iconWidth = '18px';
-  readonly iconHeight = '18px';
-
-  get socialLinks(): ReadonlyArray<any> {
-    const networkToImageMap = this.networkToImageMap as Record<any, any>;
-    return this.profiles.map((profile: any) => ({
-      ...profile,
-      image: networkToImageMap[profile.network],
-    }));
-  }
-}
 </script>
 
 <template>
