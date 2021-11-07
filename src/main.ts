@@ -5,11 +5,11 @@ import router from './router'
 import VueAnalytics from 'vue-analytics';
 
 import './scss/index.scss';
-import {
-  VNode,
-} from 'vue/types/umd';
 
 Vue.config.productionTip = false
+
+
+/*
 
 const isProduction = process.env.NODE_ENV === 'production';
 const isGoogleAnalyticsEnabled = document && document.cookie.includes('_ga');
@@ -26,9 +26,10 @@ Vue.use(VueAnalytics, {
     sendHitTask: isProduction,
   },
 });
+*/
 
 new Vue({
   store,
   router,
-  render: (h): VNode => h(App),
+  render: (h: (app: any) => void): any => h(App),
 }).$mount('#app')

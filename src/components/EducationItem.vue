@@ -5,14 +5,14 @@ import localizedDate from '@/filters/localizedDate.filter';
 
 export default Vue.extend({
   name: 'EducationItem',
-  filters: {
-    localizedDate,
-  },
   props: {
     item: {
       type: Object,
       required: true,
     },
+  },
+  methods: {
+    localizedDate,
   },
 });
 </script>
@@ -29,11 +29,11 @@ export default Vue.extend({
 
       <div class="education__timeline">
         <span qa-ref="education-item-start">
-          {{ item.startDate | localizedDate }}
+          {{ localizedDate(item.startDate) }}
         </span>
         &#8212;
         <span qa-ref="education-item-end">
-          {{ item.endDate | localizedDate }}
+          {{ localizedDate(item.endDate) }}
         </span>
       </div>
     </div>

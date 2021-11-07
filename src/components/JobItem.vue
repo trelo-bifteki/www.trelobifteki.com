@@ -4,14 +4,14 @@ import Vue from 'vue';
 
 export default Vue.extend({
   name: 'JobItem',
-  filters: {
-    localizedDate,
-  },
   props: {
     job: {
       type: Object,
       required: true,
     },
+  },
+  methods: {
+    localizedDate,
   },
 });
 
@@ -29,10 +29,10 @@ export default Vue.extend({
       </h3>
 
       <div class="job__time">
-        {{ job.startDate | localizedDate }}
+        {{ localizedDate(job.startDate) }}
         &#8212;
         <span v-if="job.endDate">
-          {{ job.endDate | localizedDate }}
+          {{ localizedDate(job.endDate) }}
         </span>
         <span v-else>
           today

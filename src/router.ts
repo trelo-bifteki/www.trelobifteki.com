@@ -1,10 +1,9 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import VueMeta from 'vue-meta';
 
 Vue.use(VueRouter);
-Vue.use(VueMeta);
+/* Vue.use(VueMeta); */
 
 export default new VueRouter({
   mode: 'history',
