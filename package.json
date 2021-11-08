@@ -13,7 +13,6 @@
     "stylelint": "stylelint src/**/*.{vue,htm,html,css,sss,less,scss,sass}"
   },
   "dependencies": {
-    "@vue/compat": "3.1.0",
     "reset-css": "5.0.1",
     "vue": "3.1.0",
     "vue-router": "4.0.12",

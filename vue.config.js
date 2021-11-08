@@ -96,18 +96,6 @@ module.exports = {
     plugins,
   },
   chainWebpack: config => {
-    config.module.rule('vue')
-      .use('vue-loader')
-      .tap(options => {
-        return {
-          ...options,
-          compilerOptions: {
-            compatConfig: {
-              MODE: 3
-            }
-          }
-        }
-    });
     config.module.rule('markdown')
       .test(/.md$/)
       .use([
