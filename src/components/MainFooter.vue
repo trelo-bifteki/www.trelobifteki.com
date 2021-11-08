@@ -4,9 +4,12 @@ import IconHeart from './icons/IconHeart.vue';
 import IconGithub from './icons/IconGithub.vue';
 import SocialLinks from './SocialLinks.vue';
 
-import Vue from 'vue';
+import {
+  defineComponent,
+} from 'vue';
 
-export default Vue.extend({
+
+export default defineComponent({
   name: 'MainFooter',
   components: {
     IconBase,

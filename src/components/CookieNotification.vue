@@ -1,9 +1,11 @@
 <script lang="ts">
 
 import gdprService from '@/services/localStorage';
-import Vue from 'vue';
+import {
+  defineComponent,
+} from 'vue';
 
-export default Vue.extend({
+export default defineComponent({
   name: 'CookieNotification',
   data() {
     return {
@@ -16,13 +18,15 @@ export default Vue.extend({
   },
   methods: {
     accept(): void {
-      this.$ga.enable();
+      // TODO fix this
+      // this.$ga.enable();
       gdprService.acceptGdpr();
-      this.$ga.page(this.$router);
+      // this.$ga.page(this.$router);
       this.isVisible = false;
     },
     deny(): void {
-      this.$ga.disable();
+      // TODO fix this
+      // this.$ga.disable();
       gdprService.acceptGdpr();
       this.isVisible = false;
     },
@@ -103,16 +107,16 @@ export default Vue.extend({
     }
   }
 
-  .slide-up-enter-active,
-  .slide-up-leave-active {
+  .slide-up-enter-from,
+  .slide-up-leave-to {
     opacity: 1;
     transform: translateY(0);
     transition: transform .33s ease-out,
       opacity .33s ease-out;
   }
 
-  .slide-up-enter,
-  .slide-up-leave-to {
+  .slide-up-enter-to,
+  .slide-up-leave-from {
     opacity: 0;
     transform: translateY(5rem);
   }

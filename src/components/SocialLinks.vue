@@ -1,6 +1,9 @@
 <script lang="ts">
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import Vue from 'vue';
+import {
+  defineComponent,
+} from 'vue';
+
 import IconBase from './icons/IconBase.vue';
 import IconEnvelope from './icons/IconEnvelope.vue';
 import IconGithub from './icons/IconGithub.vue';
@@ -13,7 +16,7 @@ const networkToImageMap: Record<string, string> = {
   Linkedin: 'icon-linkedin',
 };
 
-export default Vue.extend({
+export default defineComponent({
   name: 'SocialLinks',
   components: {
     IconBase,

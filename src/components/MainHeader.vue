@@ -4,9 +4,12 @@ import IconBase from './icons/IconBase.vue';
 import IconBars from './icons/IconBars.vue';
 import MovingSpectrum from './MovingSpectrum.vue';
 
-import Vue from 'vue';
+import {
+  defineComponent,
+} from 'vue';
 
-export default Vue.extend({
+
+export default defineComponent({
   name: 'MainHeader',
   components: {
     IconBars,

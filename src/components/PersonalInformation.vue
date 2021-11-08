@@ -1,8 +1,11 @@
 <script lang="ts">
 import SocialLinks from './SocialLinks.vue';
-import Vue from 'vue';
+import {
+  defineComponent,
+} from 'vue';
 
-export default Vue.extend({
+
+export default defineComponent({
   name: 'PersonalInformation',
   components: {
     SocialLinks,

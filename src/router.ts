@@ -1,8 +1,6 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-Vue.use(VueRouter);
 /* Vue.use(VueMeta); */
 
 export default new VueRouter({

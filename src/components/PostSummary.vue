@@ -1,8 +1,11 @@
 <script lang="ts">
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import Vue from 'vue';
+import {
+  defineComponent,
+} from 'vue';
 
-export default Vue.extend({
+
+export default defineComponent({
   name: 'PostSummary',
   props: {
     post: {

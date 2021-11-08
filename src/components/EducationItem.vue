@@ -1,9 +1,12 @@
 <script lang="ts">
-import Vue from 'vue';
+import {
+  defineComponent,
+} from 'vue';
+
 
 import localizedDate from '@/filters/localizedDate.filter';
 
-export default Vue.extend({
+export default defineComponent({
   name: 'EducationItem',
   props: {
     item: {

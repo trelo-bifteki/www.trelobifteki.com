@@ -1,8 +1,11 @@
 <script lang="ts">
 import localizedDate from '@/filters/localizedDate.filter';
-import Vue from 'vue';
+import {
+  defineComponent,
+} from 'vue';
 
-export default Vue.extend({
+
+export default defineComponent({
   name: 'JobItem',
   props: {
     job: {

@@ -1,12 +1,12 @@
-import Vue from 'vue'
 import App from './App.vue'
 import store from './store'
 import router from './router'
-import VueAnalytics from 'vue-analytics';
+/* import VueAnalytics from 'vue-analytics'; */
+import {
+  createApp,
+} from 'vue';
 
 import './scss/index.scss';
-
-Vue.config.productionTip = false
 
 
 /*
@@ -28,8 +28,10 @@ Vue.use(VueAnalytics, {
 });
 */
 
-new Vue({
+const app = createApp({
   store,
   router,
   render: (h: (app: any) => void): any => h(App),
-}).$mount('#app')
+});
+
+export default app;

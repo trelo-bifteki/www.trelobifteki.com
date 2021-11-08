@@ -1,9 +1,11 @@
 <script lang="ts">
-import Vue from 'vue';
+import {
+  defineComponent,
+} from 'vue';
 import IconBase from '@/components/icons/IconBase.vue'
 import IconChevronUp from '@/components/icons/IconChevronUp.vue';
 
-export default Vue.extend({
+export default defineComponent({
   name: 'BioSummary',
   components: {
     IconBase,
@@ -121,27 +123,27 @@ export default Vue.extend({
   }
 }
 
-.slide-enter-active,
-.slide-leave-active {
+.slide-enter-from,
+.slide-leave-to {
   height: auto;
   transform: scaleY(1);
   transform-origin: top;
   transition: transform .33s  ease-out;
 }
 
-.slide-enter,
-.slide-leave-to {
+.slide-enter-to,
+.slide-leave-from {
   transform: scaleY(0);
 }
 
-.rotate-enter-active,
-.rotate-leave-active {
+.rotate-enter-from,
+.rotate-leave-to {
   transform: rotate(0deg);
   transition: transform .5s ease;
 }
 
-.rotate-enter,
-.rotate-leave-to {
+.rotate-enter-to,
+.rotate-leave-from {
   transform: rotate(180deg);
 }
 
