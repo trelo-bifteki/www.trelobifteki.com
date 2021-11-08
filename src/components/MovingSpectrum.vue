@@ -1,3 +1,13 @@
+<script lang="ts">
+import {
+  defineComponent,
+} from 'vue';
+
+export default defineComponent({
+  name: 'MovingSpectrum',
+});
+</script>
+
 <template>
   <ul class="moving-spectrum">
     <li class="moving-spectrum__item" />
@@ -6,6 +16,7 @@
     <li class="moving-spectrum__item" />
   </ul>
 </template>
+
 <style lang="scss">
 @import '../scss/variables';
 

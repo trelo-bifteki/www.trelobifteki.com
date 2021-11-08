@@ -1,10 +1,13 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-import VueRouter from 'vue-router';
+import {
+  createRouter,
+  createWebHistory,
+} from 'vue-router'
 
 /* Vue.use(VueMeta); */
 
-export default new VueRouter({
-  mode: 'history',
+export default createRouter({
+  history: createWebHistory(),
   routes: [
     {
       path: '/',

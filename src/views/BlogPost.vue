@@ -1,5 +1,8 @@
 <script lang="ts">
-import Vue from 'vue';
+import {
+  defineComponent,
+} from 'vue';
+
 import Prism from 'prismjs';
 import 'prismjs/components/prism-java.min.js';
 import 'prismjs/components/prism-typescript.min.js';
@@ -21,7 +24,7 @@ const {
   mapState,
 } = createNamespacedHelpers('blog');
 
-export default Vue.extend({
+export default defineComponent({
   name: 'BlogPost',
   components: {
     BlogContent,

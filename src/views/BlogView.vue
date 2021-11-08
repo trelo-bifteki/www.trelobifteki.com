@@ -1,5 +1,8 @@
 <script lang="ts">
-import Vue from 'vue';
+import {
+  defineComponent,
+} from 'vue';
+
 import PostSummary from '@/components/PostSummary.vue';
 import SpinningLoader from '@/components/SpinningLoader.vue';
 import {
@@ -17,7 +20,7 @@ const {
 } = createNamespacedHelpers('blog');
 
 
-export default Vue.extend({
+export default defineComponent({
   name: 'BlogView',
   components: {
     PostSummary,

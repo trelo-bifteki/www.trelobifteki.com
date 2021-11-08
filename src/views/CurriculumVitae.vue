@@ -1,6 +1,9 @@
 <script lang="ts">
 
-import Vue from 'vue';
+import {
+  defineComponent,
+} from 'vue';
+
 import {
   createNamespacedHelpers,
 } from 'vuex';
@@ -24,7 +27,7 @@ const {
   mapState,
 } = createNamespacedHelpers('cv');
 
-export default Vue.extend({
+export default defineComponent({
   name: 'CurriculumVitae',
   components: {
     BioSummary,

@@ -1,5 +1,8 @@
 <script lang="ts">
-import Vue from 'vue';
+import {
+  defineComponent,
+} from 'vue';
+
 import {
   createNamespacedHelpers,
 } from 'vuex';
@@ -9,7 +12,7 @@ const {
   mapState,
 } = createNamespacedHelpers('portofolio');
 
-export default Vue.extend({
+export default defineComponent({
   name: 'ProjectList',
   metaInfo: {
     title: 'Projects',

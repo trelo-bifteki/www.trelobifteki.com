@@ -28,10 +28,13 @@ Vue.use(VueAnalytics, {
 });
 */
 
-const app = createApp({
-  store,
-  router,
-  render: (h: (app: any) => void): any => h(App),
+const app = createApp(App);
+
+app.use(store);
+app.use(router);
+
+router.isReady().then(() => {
+  app.mount('#app');
 });
 
 export default app;
