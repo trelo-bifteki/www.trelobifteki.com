@@ -6,7 +6,7 @@ import PersonalInformation from '@/components/PersonalInformation.vue';
 const EXAMPLE_NAME = 'Max Mustermann';
 
 describe('PersonalInformation', () => {
-  const defaultPropsData = {
+  const defaultprops = {
     name: EXAMPLE_NAME,
     title: 'Developer',
     company: 'Acme',
@@ -15,8 +15,8 @@ describe('PersonalInformation', () => {
     profiles: [],
   };
 
-  const getWrapper = (propsData = defaultPropsData): Wrapper<Vue> => shallowMount(PersonalInformation, {
-    propsData,
+  const getWrapper = (props = defaultprops): Wrapper<Vue> => shallowMount(PersonalInformation, {
+    props,
   });
 
   it('renders fullname', () => {

@@ -8,7 +8,7 @@ import {
 
 describe('SocialLinks', () => {
   const getWrapper = (profiles: Array<ResumeProfile>): Wrapper<Vue> => shallowMount(SocialLinks, {
-    propsData: {
+    props: {
       profiles,
     },
   });

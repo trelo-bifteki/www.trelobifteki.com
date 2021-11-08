@@ -14,12 +14,12 @@ describe('CookieNotification', () => {
   };
   const isGdprAccepted = gdprService.isGdprAccepted as jest.Mock;
 
-  const getWrapper = (propsData = {
+  const getWrapper = (props = {
   }): Wrapper<Vue> => shallowMount(CookieNotification, {
     mocks: {
       $ga,
     },
-    propsData,
+    props,
   });
 
   beforeEach(() => {

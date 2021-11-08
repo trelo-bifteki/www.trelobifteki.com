@@ -7,7 +7,7 @@ import {
 
 describe('BlogContent', () => {
   const createWrapper = (content: string): Wrapper<Vue> => shallowMount(BlogContent, {
-    propsData: {
+    props: {
       content,
     },
   });

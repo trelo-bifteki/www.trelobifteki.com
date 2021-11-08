@@ -10,7 +10,7 @@ const defaultPost = {
 
 describe('PostSummary', () => {
   const getWrapper = (post = defaultPost): Wrapper<Vue> => shallowMount(PostSummary, {
-    propsData: {
+    props: {
       post,
     },
     stubs: {

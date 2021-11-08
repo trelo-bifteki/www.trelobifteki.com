@@ -9,10 +9,10 @@ describe('NavigationBar', () => {
     isHorizontal: false,
   };
 
-  const createWrapper = (propsData = defaultProps): Wrapper<Vue> => shallowMount(
+  const createWrapper = (props = defaultProps): Wrapper<Vue> => shallowMount(
     NavigationBar,
     {
-      propsData,
+      props,
       stubs: {
         'router-link': {
           template: '<div class="router-link"><slot /></div>',

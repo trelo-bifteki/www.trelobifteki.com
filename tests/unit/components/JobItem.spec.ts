@@ -11,7 +11,7 @@ import {
 
 describe('JobItem', () => {
   const createWrapper = (job: ResumeWork): Wrapper<Vue> => shallowMount(JobItem, {
-    propsData: {
+    props: {
       job,
     },
   });

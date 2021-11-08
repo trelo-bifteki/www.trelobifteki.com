@@ -7,7 +7,7 @@ describe('NavigationDrawer', () => {
   const createWrapper = (isVisible = false): Wrapper<Vue> => shallowMount(
     NavigationDrawer,
     {
-      propsData: {
+      props: {
         isVisible,
       },
     },

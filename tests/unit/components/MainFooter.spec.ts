@@ -11,7 +11,7 @@ localVue.use(Vuex);
 
 describe('MainFooter', () => {
   const createWrapper = (packageVersion = ''): Wrapper<Vue> => shallowMount(MainFooter, {
-    propsData: {
+    props: {
       packageVersion,
     },
     localVue,

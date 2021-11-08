@@ -19,7 +19,7 @@ const defaultItem = {
 
 describe('EducationItem', ()=> {
   const createWrapper = (item = defaultItem): Wrapper<Vue> => shallowMount(EducationItem, {
-    propsData: {
+    props: {
       item,
     },
   });

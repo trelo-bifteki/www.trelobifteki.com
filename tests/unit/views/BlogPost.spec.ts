@@ -61,7 +61,7 @@ describe('BlogPost', () => {
 
   const getWrapper = (store: Store<RootState>): Wrapper<Vue> => shallowMount(BlogPost, {
     localVue,
-    propsData: {
+    props: {
       postId: 'howto-write-tickets',
     },
     store,

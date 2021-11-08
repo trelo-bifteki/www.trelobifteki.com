@@ -8,7 +8,7 @@ import {
 
 describe('SkillItem', () => {
   const createWrapper = (skill: ResumeSkill): Wrapper<Vue> => shallowMount(SkillItem, {
-    propsData: {
+    props: {
       skill,
     },
   });

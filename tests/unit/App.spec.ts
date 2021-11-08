@@ -4,18 +4,13 @@ import {
 } from '@/store/types';
 import {
   shallowMount,
-  createLocalVue,
-  Wrapper,
 } from '@vue/test-utils';
-import Vuex, {
-  Store,
+import {
+  createStore, Store,
 } from 'vuex';
 
-const localVue = createLocalVue();
-localVue.use(Vuex);
-
 describe('App', () => {
-  const createStore = (): Store<RootState> => new Vuex.Store({
+  const _createStore = (): Store<unknown> => createStore({
     modules: {
       cv: {
         namespaced: true,
@@ -26,18 +21,21 @@ describe('App', () => {
     },
   });
 
-  const createWrapper = (store: Store<RootState>): Wrapper<Vue> => shallowMount(App, {
-    stubs: {
-      'router-view': {
-        template: '<div class="router-view"></div>',
+  const createWrapper = (store: Store<unknown>): any => shallowMount(App, {
+    global: {
+      stubs: {
+        'router-view': {
+          template: '<div class="router-view"></div>',
+        },
       },
+      plugins: [
+        store,
+      ],
     },
-    store,
-    localVue,
   });
 
   it('loads successfully', () => {
-    const store = createStore();
+    const store = _createStore();
     const wrapper = createWrapper(store);
 
     expect(
@@ -46,7 +44,7 @@ describe('App', () => {
   });
 
   it('sets navigation drawer as hidden', () => {
-    const store = createStore();
+    const store = _createStore();
     const wrapper = createWrapper(store);
 
     expect(
