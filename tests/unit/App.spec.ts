@@ -1,8 +1,5 @@
 import App from '@/App.vue';
 import {
-  RootState,
-} from '@/store/types';
-import {
   shallowMount,
 } from '@vue/test-utils';
 import {
