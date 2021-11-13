@@ -1,6 +1,10 @@
 /* eslint-env jest */
 
 import {
+  ComponentPublicInstance,
+} from 'vue';
+
+import {
   shallowMount, VueWrapper,
 } from '@vue/test-utils';
 
@@ -34,7 +38,7 @@ describe('ProjectList.vue', () => {
     },
   });
 
-  const createWrapper = (store: Store<unknown>): VueWrapper<any> => shallowMount(ProjectList, {
+  const createWrapper = (store: Store<unknown>): VueWrapper<ComponentPublicInstance> => shallowMount(ProjectList, {
     global: {
       plugins: [
         store,

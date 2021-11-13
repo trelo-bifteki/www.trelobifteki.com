@@ -1,14 +1,16 @@
 /* eslint-env jest */
 
 import {
-  shallowMount,
-  createLocalVue,
-  Wrapper,
+  shallowMount, VueWrapper,
 } from '@vue/test-utils';
 import CurriculumVitae from '@/views/CurriculumVitae.vue';
-import Vuex, {
+import {
   Store,
+  createStore,
 } from 'vuex';
+import {
+  ComponentPublicInstance,
+} from 'vue';
 import {
   RootState,
 } from '@/store/types';
@@ -18,9 +20,6 @@ import {
 import {
   createResume,
 } from '../mocks';
-
-const localVue = createLocalVue();
-localVue.use(Vuex);
 
 describe('CurriculumVitae', () => {
 
@@ -46,7 +45,7 @@ describe('CurriculumVitae', () => {
     packageVersion: '',
   };
 
-  const createStore = (state: CurriculumVitaeState = emptyState): Store<RootState> => new Vuex.Store({
+  const _createStore = (state: CurriculumVitaeState = emptyState): Store<RootState> => createStore({
     modules: {
       cv: {
         actions,
@@ -57,15 +56,30 @@ describe('CurriculumVitae', () => {
     },
   });
 
-  const createWrapper = (store: Store<RootState>): Wrapper<Vue> => shallowMount(CurriculumVitae, {
-    localVue,
-    store,
-    stubs: [
-      'PersonalInformation',
-      'EducationItem',
-      'JobItem',
-    ],
-  });
+  const createWrapper = (store: Store<RootState>): VueWrapper<ComponentPublicInstance> => shallowMount(
+    CurriculumVitae,
+    {
+      global: {
+        plugins: [
+          store,
+        ],
+        stubs: [
+          'PersonalInformation',
+          'EducationItem',
+          'JobItem',
+        ],
+      },
+    },
+  );
+
+  const initializeWrapper = async  (): Promise<VueWrapper<ComponentPublicInstance>> => {
+    const store = _createStore();
+    const wrapper = createWrapper(store);
+    await wrapper.vm.$nextTick(); // load skills
+    await wrapper.vm.$nextTick(); // load resume
+    await wrapper.vm.$nextTick(); // load Promise.all
+    return wrapper;
+  }
 
   beforeEach(() => {
     getters.basics.mockClear();
@@ -96,11 +110,7 @@ describe('CurriculumVitae', () => {
     getters.work.mockReturnValue([ {
       id: 1,
     } ]);
-    const store = createStore();
-    const wrapper = createWrapper(store);
-    await wrapper.vm.$nextTick();
-    await wrapper.vm.$nextTick();
-
+    const wrapper = await initializeWrapper();
     expect(
       wrapper.find('[qa-ref=curriculum-vitae-job-item]').exists(),
     ).toBe(true);
@@ -111,10 +121,7 @@ describe('CurriculumVitae', () => {
     getters.education.mockReturnValue([ {
       id: 1,
     } ]);
-    const store = createStore();
-    const wrapper = createWrapper(store);
-    await wrapper.vm.$nextTick();
-    await wrapper.vm.$nextTick();
+    const wrapper = await initializeWrapper();
 
     expect(
       wrapper.findComponent({
@@ -128,10 +135,7 @@ describe('CurriculumVitae', () => {
     getters.interests.mockReturnValue([ {
       name: 'test',
     } ]);
-    const store = createStore();
-    const wrapper = createWrapper(store);
-    await wrapper.vm.$nextTick();
-    await wrapper.vm.$nextTick();
+    const wrapper = await initializeWrapper();
 
     expect(
       wrapper.find('.curriculum-vitae__interest').exists(),
