@@ -1,11 +1,13 @@
 import {
-  shallowMount,
-  createLocalVue,
-  Wrapper,
+  ComponentPublicInstance,
+} from 'vue';
+import {
+  shallowMount, VueWrapper,
 } from '@vue/test-utils';
 import BlogPost from '@/views/BlogPost.vue';
-import Vuex, {
+import {
   Store,
+  createStore,
 } from 'vuex';
 import {
   RootState,
@@ -15,9 +17,6 @@ import Vue from 'vue';
 jest.mock('html-loader!@/assets/posts/howto-write-tickets.md', () => '', {
   virtual: true,
 });
-
-const localVue = createLocalVue();
-localVue.use(Vuex);
 
 describe('BlogPost', () => {
   const defaultState = {
@@ -43,7 +42,9 @@ describe('BlogPost', () => {
     updateSelectedPostId: jest.fn(),
   };
 
-  const createStore = (state = defaultState): Store<RootState> => new Vuex.Store({
+  const _createStore = (
+    state = defaultState,
+  ): Store<RootState> => createStore({
     modules: {
       blog: {
         actions,
@@ -59,20 +60,28 @@ describe('BlogPost', () => {
     mutations.updateSelectedPostId.mockClear();
   });
 
-  const getWrapper = (store: Store<RootState>): Wrapper<Vue> => shallowMount(BlogPost, {
-    localVue,
-    props: {
-      postId: 'howto-write-tickets',
+  const getWrapper = (
+    store: Store<RootState>,
+  ): VueWrapper<ComponentPublicInstance> => shallowMount(
+    BlogPost,
+    {
+      props: {
+        postId: 'howto-write-tickets',
+      },
+      global: {
+        plugins: [
+          store,
+        ],
+        stubs: [
+          'SpinningLoader',
+          'BlogContent',
+        ],
+      },
     },
-    store,
-    stubs: [
-      'SpinningLoader',
-      'BlogContent',
-    ],
-  });
+  );
 
   it('renders the loading bar', () => {
-    const store = createStore();
+    const store = _createStore();
     const wrapper = getWrapper(store);
 
     expect(
@@ -81,7 +90,7 @@ describe('BlogPost', () => {
   });
 
   it('removes the loading bar after fininshing promise', async () => {
-    const store = createStore();
+    const store = _createStore();
     const wrapper = getWrapper(store);
 
     await wrapper.vm.$nextTick(); // one for the refreshPosts
@@ -94,7 +103,7 @@ describe('BlogPost', () => {
   });
 
   it('refreshes the posts in the beginning', async () => {
-    const store = createStore();
+    const store = _createStore();
     const wrapper = getWrapper(store);
 
     await wrapper.vm.$nextTick(); // one for the refreshPosts

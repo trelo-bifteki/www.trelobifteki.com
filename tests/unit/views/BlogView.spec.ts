@@ -1,10 +1,13 @@
 import {
+  ComponentPublicInstance,
+} from 'vue';
+import {
   shallowMount,
-  createLocalVue,
-  Wrapper,
+  VueWrapper,
 } from '@vue/test-utils';
-import Vuex, {
+import {
   Store,
+  createStore,
 } from 'vuex';
 import {
   RootState,
@@ -17,10 +20,6 @@ import {
 import PostSummary from '@/components/PostSummary.vue';
 import SpinningLoader from '@/components/SpinningLoader.vue';
 import BlogView from '@/views/BlogView.vue';
-
-const localVue = createLocalVue();
-
-localVue.use(Vuex);
 
 describe('BlogView', () => {
   const actions = {
@@ -44,9 +43,9 @@ describe('BlogView', () => {
     selectedPostId: '',
   });
 
-  const createStore = (
+  const _createStore = (
     state: BlogState = createDefaultState(),
-  ): Store<RootState> => new Vuex.Store({
+  ): Store<RootState> => createStore({
     modules: {
       blog: {
         actions,
@@ -59,12 +58,15 @@ describe('BlogView', () => {
   });
 
   const createWrapper = (
-    store: Store<RootState> = createStore(),
-  ): Wrapper<Vue> => shallowMount(
+    store: Store<RootState> = _createStore(),
+  ): VueWrapper<ComponentPublicInstance> => shallowMount(
     BlogView,
     {
-      localVue,
-      store,
+      global: {
+        plugins: [
+          store,
+        ],
+      },
     },
   );
 
@@ -105,7 +107,7 @@ describe('BlogView', () => {
     const invisiblePost = createPost('another');
     invisiblePost.isVisible = false;
 
-    const store = createStore({
+    const store = _createStore({
       ...createDefaultState(),
       posts: [
         createPost(),
@@ -127,7 +129,7 @@ describe('BlogView', () => {
     const newestPost = createPost('another');
     newestPost.created = post.created + 60000;
 
-    const store = createStore({
+    const store = _createStore({
       ...createDefaultState(),
       posts: [
         createPost(),
