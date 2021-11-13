@@ -1,12 +1,15 @@
 /* eslint-env jest */
 
+import {
+  ComponentPublicInstance,
+} from 'vue';
 import BioSummary from '@/components/BioSummary.vue';
 import {
-  shallowMount, Wrapper,
+  shallowMount, VueWrapper,
 } from '@vue/test-utils';
 
 describe('BioSummary', () => {
-  const createWrapper = (): Wrapper<Vue> => shallowMount(BioSummary);
+  const createWrapper = (): VueWrapper<ComponentPublicInstance> => shallowMount(BioSummary);
 
   it('displays first line', () => {
     const wrapper = createWrapper();

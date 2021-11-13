@@ -1,10 +1,13 @@
+import {
+  ComponentPublicInstance,
+} from 'vue';
 import IconBars from '@/components/icons/IconBars.vue';
 import {
-  shallowMount, Wrapper,
+  shallowMount, VueWrapper,
 } from '@vue/test-utils';
 
 describe('IconBars', () => {
-  const createWrapper = (): Wrapper<Vue> => shallowMount(IconBars);
+  const createWrapper = (): VueWrapper<ComponentPublicInstance> => shallowMount(IconBars);
 
   it('loads successfully', () => {
     const wrapper = createWrapper();

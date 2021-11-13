@@ -1,7 +1,9 @@
 /* eslint-env jest */
-
 import {
-  shallowMount, Wrapper,
+  ComponentPublicInstance,
+} from 'vue';
+import {
+  shallowMount, VueWrapper,
 } from '@vue/test-utils';
 import EducationItem from '@/components/EducationItem.vue';
 import localizedDate from '@/filters/localizedDate.filter';
@@ -18,7 +20,7 @@ const defaultItem = {
 
 
 describe('EducationItem', ()=> {
-  const createWrapper = (item = defaultItem): Wrapper<Vue> => shallowMount(EducationItem, {
+  const createWrapper = (item = defaultItem): VueWrapper<ComponentPublicInstance> => shallowMount(EducationItem, {
     props: {
       item,
     },

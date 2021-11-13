@@ -1,10 +1,13 @@
+import {
+  ComponentPublicInstance,
+} from 'vue';
 import IconHeart from '@/components/icons/IconHeart.vue';
 import {
-  shallowMount, Wrapper,
+  shallowMount, VueWrapper,
 } from '@vue/test-utils';
 
 describe('IconBase', () => {
-  const createWrapper = (): Wrapper<Vue> => shallowMount(IconHeart);
+  const createWrapper = (): VueWrapper<ComponentPublicInstance> => shallowMount(IconHeart);
 
   it('loads successfully', () => {
     const wrapper = createWrapper();

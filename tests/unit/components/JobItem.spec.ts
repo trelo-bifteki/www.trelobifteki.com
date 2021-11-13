@@ -3,14 +3,14 @@ import {
   ResumeWork,
 } from '@/store/cv/types';
 import {
-  shallowMount, Wrapper,
+  shallowMount, VueWrapper,
 } from '@vue/test-utils';
 import {
   createResumeWork,
 } from '../mocks';
 
 describe('JobItem', () => {
-  const createWrapper = (job: ResumeWork): Wrapper<Vue> => shallowMount(JobItem, {
+  const createWrapper = (job: ResumeWork): VueWrapper<ComponentPublicInstance> => shallowMount(JobItem, {
     props: {
       job,
     },

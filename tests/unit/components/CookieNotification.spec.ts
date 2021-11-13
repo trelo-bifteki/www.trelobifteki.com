@@ -1,6 +1,9 @@
+import {
+  ComponentPublicInstance,
+} from 'vue';
 import CookieNotification from '@/components/CookieNotification.vue';
 import {
-  shallowMount, Wrapper,
+  shallowMount, VueWrapper,
 } from '@vue/test-utils';
 import gdprService from '@/services/localStorage';
 
@@ -15,7 +18,7 @@ describe('CookieNotification', () => {
   const isGdprAccepted = gdprService.isGdprAccepted as jest.Mock;
 
   const getWrapper = (props = {
-  }): Wrapper<Vue> => shallowMount(CookieNotification, {
+  }): VueWrapper<ComponentPublicInstance> => shallowMount(CookieNotification, {
     mocks: {
       $ga,
     },

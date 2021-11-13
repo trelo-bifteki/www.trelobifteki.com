@@ -1,4 +1,7 @@
 import {
+  ComponentPublicInstance,
+} from 'vue';
+import {
   createLocalVue,
   shallowMount,
   Wrapper,
@@ -10,7 +13,7 @@ const localVue = createLocalVue();
 localVue.use(Vuex);
 
 describe('MainFooter', () => {
-  const createWrapper = (packageVersion = ''): Wrapper<Vue> => shallowMount(MainFooter, {
+  const createWrapper = (packageVersion = ''): VueWrapper<ComponentPublicInstance> => shallowMount(MainFooter, {
     props: {
       packageVersion,
     },

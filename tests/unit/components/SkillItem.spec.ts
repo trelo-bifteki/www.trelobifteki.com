@@ -1,5 +1,9 @@
+
 import {
-  shallowMount, Wrapper,
+  ComponentPublicInstance,
+} from 'vue';
+import {
+  shallowMount, VueWrapper,
 } from '@vue/test-utils';
 import SkillItem from '@/components/SkillItem.vue';
 import {
@@ -7,7 +11,7 @@ import {
 } from '@/store/cv/types';
 
 describe('SkillItem', () => {
-  const createWrapper = (skill: ResumeSkill): Wrapper<Vue> => shallowMount(SkillItem, {
+  const createWrapper = (skill: ResumeSkill): VueWrapper<ComponentPublicInstance> => shallowMount(SkillItem, {
     props: {
       skill,
     },

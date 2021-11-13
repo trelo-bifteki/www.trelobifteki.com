@@ -1,6 +1,9 @@
+import {
+  ComponentPublicInstance,
+} from 'vue';
 import IconBase from '@/components/icons/IconBase.vue';
 import {
-  shallowMount, Wrapper,
+  shallowMount, VueWrapper,
 } from '@vue/test-utils';
 
 const defaultProps = {
@@ -11,7 +14,7 @@ const defaultProps = {
 };
 
 describe('IconBase', () => {
-  const createWrapper = (props= defaultProps): Wrapper<Vue> => shallowMount(IconBase, {
+  const createWrapper = (props= defaultProps): VueWrapper<ComponentPublicInstance> => shallowMount(IconBase, {
     props,
   });
 

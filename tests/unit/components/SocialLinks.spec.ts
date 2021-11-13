@@ -1,5 +1,8 @@
 import {
-  shallowMount, Wrapper,
+  ComponentPublicInstance,
+} from 'vue';
+import {
+  shallowMount, VueWrapper,
 } from '@vue/test-utils';
 import SocialLinks from '@/components/SocialLinks.vue';
 import {
@@ -7,7 +10,7 @@ import {
 } from '@/store/cv/types';
 
 describe('SocialLinks', () => {
-  const getWrapper = (profiles: Array<ResumeProfile>): Wrapper<Vue> => shallowMount(SocialLinks, {
+  const getWrapper = (profiles: Array<ResumeProfile>): VueWrapper<ComponentPublicInstance> => shallowMount(SocialLinks, {
     props: {
       profiles,
     },

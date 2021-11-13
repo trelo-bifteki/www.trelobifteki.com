@@ -1,5 +1,8 @@
 import {
-  shallowMount, Wrapper,
+  ComponentPublicInstance,
+} from 'vue';
+import {
+  shallowMount, VueWrapper,
 } from '@vue/test-utils';
 import PersonalInformation from '@/components/PersonalInformation.vue';
 
@@ -15,7 +18,7 @@ describe('PersonalInformation', () => {
     profiles: [],
   };
 
-  const getWrapper = (props = defaultprops): Wrapper<Vue> => shallowMount(PersonalInformation, {
+  const getWrapper = (props = defaultprops): VueWrapper<ComponentPublicInstance> => shallowMount(PersonalInformation, {
     props,
   });
 

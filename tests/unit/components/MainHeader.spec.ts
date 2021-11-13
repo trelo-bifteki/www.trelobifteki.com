@@ -1,11 +1,14 @@
 import {
+  ComponentPublicInstance,
+} from 'vue';
+import {
   shallowMount,
-  Wrapper,
+  VueWrapper,
 } from '@vue/test-utils';
 import MainHeader from '@/components/MainHeader.vue';
 
 describe('MainHeader', () => {
-  const createWrapper = (): Wrapper<Vue> => shallowMount(MainHeader);
+  const createWrapper = (): VueWrapper<ComponentPublicInstance> => shallowMount(MainHeader);
 
   it('displays title with my name', () => {
     const wrapper = createWrapper();

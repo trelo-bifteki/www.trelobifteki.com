@@ -1,5 +1,8 @@
 import {
-  shallowMount, Wrapper,
+  ComponentPublicInstance,
+} from 'vue';
+import {
+  shallowMount, VueWrapper,
 } from '@vue/test-utils';
 import PostSummary from '@/components/PostSummary.vue';
 
@@ -9,7 +12,7 @@ const defaultPost = {
 }
 
 describe('PostSummary', () => {
-  const getWrapper = (post = defaultPost): Wrapper<Vue> => shallowMount(PostSummary, {
+  const getWrapper = (post = defaultPost): VueWrapper<ComponentPublicInstance> => shallowMount(PostSummary, {
     props: {
       post,
     },

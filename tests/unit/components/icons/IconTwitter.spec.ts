@@ -1,10 +1,13 @@
+import {
+  ComponentPublicInstance,
+} from 'vue';
 import IconTwitter from '@/components/icons/IconTwitter.vue';
 import {
-  shallowMount, Wrapper,
+  shallowMount, VueWrapper,
 } from '@vue/test-utils';
 
 describe('IconBase', () => {
-  const createWrapper = (): Wrapper<Vue> => shallowMount(IconTwitter);
+  const createWrapper = (): VueWrapper<ComponentPublicInstance> => shallowMount(IconTwitter);
 
   it('loads successfully', () => {
     const wrapper = createWrapper();

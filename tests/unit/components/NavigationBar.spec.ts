@@ -1,5 +1,8 @@
 import {
-  shallowMount, Wrapper,
+  ComponentPublicInstance,
+} from 'vue';
+import {
+  shallowMount, VueWrapper,
 } from '@vue/test-utils';
 import NavigationBar from '@/components/NavigationBar.vue';
 import Vue from 'vue';
@@ -9,7 +12,7 @@ describe('NavigationBar', () => {
     isHorizontal: false,
   };
 
-  const createWrapper = (props = defaultProps): Wrapper<Vue> => shallowMount(
+  const createWrapper = (props = defaultProps): VueWrapper<ComponentPublicInstance> => shallowMount(
     NavigationBar,
     {
       props,

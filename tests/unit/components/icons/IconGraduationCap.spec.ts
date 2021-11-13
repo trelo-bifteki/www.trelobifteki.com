@@ -1,10 +1,13 @@
+import {
+  ComponentPublicInstance,
+} from 'vue';
 import IconGraduationCap from '@/components/icons/IconGraduationCap.vue';
 import {
-  shallowMount, Wrapper,
+  shallowMount, VueWrapper,
 } from '@vue/test-utils';
 
 describe('IconBase', () => {
-  const createWrapper = (): Wrapper<Vue> => shallowMount(IconGraduationCap);
+  const createWrapper = (): VueWrapper<ComponentPublicInstance> => shallowMount(IconGraduationCap);
 
   it('loads successfully', () => {
     const wrapper = createWrapper();

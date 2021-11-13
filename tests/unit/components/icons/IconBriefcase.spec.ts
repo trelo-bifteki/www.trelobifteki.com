@@ -1,10 +1,13 @@
+import {
+  ComponentPublicInstance,
+} from 'vue';
 import IconBriefcase from '@/components/icons/IconBriefcase.vue';
 import {
-  shallowMount, Wrapper,
+  shallowMount, VueWrapper,
 } from '@vue/test-utils';
 
 describe('IconBriefcase', () => {
-  const createWrapper = (): Wrapper<Vue> => shallowMount(IconBriefcase);
+  const createWrapper = (): VueWrapper<ComponentPublicInstance> => shallowMount(IconBriefcase);
 
   it('loads successfully', () => {
     const wrapper = createWrapper();
