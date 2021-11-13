@@ -1,26 +1,20 @@
 /* eslint-env jest */
 
 import {
-  shallowMount,
-  createLocalVue,
-  Wrapper,
+  shallowMount, VueWrapper,
 } from '@vue/test-utils';
 
-import Vuex, {
-  Store,
+import {
+  createStore, Store,
 } from 'vuex';
+
 
 import ProjectList from '@/views/ProjectList.vue';
 import {
   PortofolioState,
 } from '@/store/portofolio/types';
-import {
-  RootState,
-} from '@/store/types';
 
 describe('ProjectList.vue', () => {
-  const localVue = createLocalVue();
-  localVue.use(Vuex);
 
   const emptyState: PortofolioState = {
     projects: [],
@@ -30,7 +24,7 @@ describe('ProjectList.vue', () => {
     loadProjects: jest.fn(),
   };
 
-  const createStore = (state: PortofolioState = emptyState): Store<RootState> => new Vuex.Store({
+  const _createStore = (state: PortofolioState = emptyState): Store<unknown> => createStore({
     modules: {
       portofolio: {
         actions,
@@ -40,9 +34,12 @@ describe('ProjectList.vue', () => {
     },
   });
 
-  const createWrapper = (store: Store<RootState>): Wrapper<Vue> => shallowMount(ProjectList, {
-    localVue,
-    store,
+  const createWrapper = (store: Store<unknown>): VueWrapper<any> => shallowMount(ProjectList, {
+    global: {
+      plugins: [
+        store,
+      ],
+    },
   });
 
   beforeEach(() => {
@@ -50,7 +47,7 @@ describe('ProjectList.vue', () => {
   });
 
   it('loads projects when created', () => {
-    const store = createStore();
+    const store = _createStore();
     createWrapper(store);
 
     expect(

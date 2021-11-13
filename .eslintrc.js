@@ -3,7 +3,7 @@ module.exports = {
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:vue/recommended",
+    "plugin:vue/vue3-recommended",
     '@vue/typescript'
   ],
 
@@ -119,11 +119,6 @@ module.exports = {
     ],
 	  */
   },
-
-  "parserOptions": {
-    "parser": "babel-eslint"
-  },
-
   "overrides": [
     {
       files: [

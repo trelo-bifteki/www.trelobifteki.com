@@ -46,6 +46,6 @@ describe('App', () => {
 
     expect(
       wrapper.find('[qa-ref=app__navigation-drawer]').attributes('isvisible'),
-    ).toBeUndefined();
+    ).toEqual('false');
   })
 });
