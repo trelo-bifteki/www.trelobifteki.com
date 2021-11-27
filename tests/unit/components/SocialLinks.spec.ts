@@ -10,7 +10,9 @@ import {
 } from '@/store/cv/types';
 
 describe('SocialLinks', () => {
-  const getWrapper = (profiles: Array<ResumeProfile>): VueWrapper<ComponentPublicInstance> => shallowMount(SocialLinks, {
+  const getWrapper = (
+    profiles: Array<ResumeProfile>,
+  ): VueWrapper<ComponentPublicInstance> => shallowMount(SocialLinks, {
     props: {
       profiles,
     },
@@ -31,7 +33,7 @@ describe('SocialLinks', () => {
     ]);
 
     expect(
-      wrapper.get(iconClass).exists(),
+      wrapper.find(iconClass).exists(),
     ).toBe(true);
   });
 });

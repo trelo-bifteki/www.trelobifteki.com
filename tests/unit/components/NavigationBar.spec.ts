@@ -5,7 +5,6 @@ import {
   shallowMount, VueWrapper,
 } from '@vue/test-utils';
 import NavigationBar from '@/components/NavigationBar.vue';
-import Vue from 'vue';
 
 describe('NavigationBar', () => {
   const defaultProps = {
@@ -16,9 +15,11 @@ describe('NavigationBar', () => {
     NavigationBar,
     {
       props,
-      stubs: {
-        'router-link': {
-          template: '<div class="router-link"><slot /></div>',
+      global: {
+        stubs: {
+          'router-link': {
+            template: '<div class="router-link"><slot /></div>',
+          },
         },
       },
     },

@@ -16,14 +16,17 @@ describe('PostSummary', () => {
     props: {
       post,
     },
-    stubs: {
-      'router-link': true,
+    global: {
+      stubs: {
+        'router-link': {
+          template: '<div class="router-link"><slot /></div>',
+        },
+      },
     },
   });
 
   it('renders formatted date when date post created field is 1/1/2019', () => {
     const wrapper = getWrapper();
-
     expect(
       wrapper.find('.post-summary__date').text(),
     ).toBe('1/1/2019')

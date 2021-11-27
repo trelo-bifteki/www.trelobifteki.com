@@ -2,22 +2,18 @@ import {
   ComponentPublicInstance,
 } from 'vue';
 import {
-  createLocalVue,
   shallowMount,
-  Wrapper,
+  VueWrapper,
 } from '@vue/test-utils';
 import MainFooter from '@/components/MainFooter.vue';
-import Vuex from 'vuex'
-
-const localVue = createLocalVue();
-localVue.use(Vuex);
 
 describe('MainFooter', () => {
   const createWrapper = (packageVersion = ''): VueWrapper<ComponentPublicInstance> => shallowMount(MainFooter, {
     props: {
       packageVersion,
     },
-    localVue,
+    global: {
+    },
   });
 
   it('renders a non empty package version', () => {

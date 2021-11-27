@@ -8,6 +8,9 @@ import {
 import {
   createResumeWork,
 } from '../mocks';
+import {
+  ComponentPublicInstance,
+} from 'vue';
 
 describe('JobItem', () => {
   const createWrapper = (job: ResumeWork): VueWrapper<ComponentPublicInstance> => shallowMount(JobItem, {
