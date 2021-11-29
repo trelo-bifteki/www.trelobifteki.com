@@ -12,7 +12,27 @@
     ],
     "startDate": "2014-01-01",
     "endDate": "2016-06-01",
-    "Technologies": [
+    "technologies": [
+      "Emacscript 2015",
+      "CSS3",
+      "Spring framework",
+      "Java 7"
+    ]
+  },
+  {
+    "customer": "Deutsche Apotheker- und Ärztebank",
+    "title": "Kreditportal",
+    "description": "Customer service portal for credits. It provides document exchange and messaging features",
+    "position": "Fullstack developer",
+    "tasks": [
+      "Emacscript 2015",
+      "CSS3",
+      "Spring framework",
+      "Java 7"
+    ],
+    "startDate": "2020-01-01",
+    "endDate": "",
+    "technologies": [
       "Emacscript 2015",
       "CSS3",
       "Spring framework",

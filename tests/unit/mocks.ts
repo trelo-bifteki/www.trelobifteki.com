@@ -1,6 +1,9 @@
 import {
   Resume, ResumeLocation, ResumeWork,
 } from '@/store/cv/types';
+import {
+  Project,
+} from '@/store/portofolio/types';
 
 export const createResume = (): Resume => ({
   basics: {
@@ -29,3 +32,11 @@ export const createResumeWork = (): ResumeWork => ({
   url: 'https://www.acme.org',
   summary: 'This is a test summary',
 });
+
+export const createProject = (): Project => ({
+  customer: 'Acme Org',
+  description: 'Another description',
+  title: 'Developer',
+});
+
+export const qaRef = (id: string): string => `[qa-ref=${id}]`;
