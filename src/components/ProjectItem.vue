@@ -31,13 +31,19 @@ export default defineComponent({
       <div class="project-item__label">
         Customer
       </div>
-      <div class="project-item__value">
+      <div
+        class="project-item__value"
+        qa-ref="project-item__customer"
+      >
         {{ project.customer }}
       </div>
       <div class="project-item__label">
         Description
       </div>
-      <div class="project-item__value">
+      <div
+        class="project-item__value"
+        qa-ref="project-item__description"
+      >
         {{ project.description }}
       </div>
       <div class="project-item__label">
