@@ -18,16 +18,16 @@ export default defineComponent({
     class="project-item"
     qa-ref="project-item"
   >
-    <div
-      class="project-item__title"
-      qa-ref="project-item__title"
-    >
-      {{ project.title }}
-    </div>
-    <div class="project-item__duration">
-      2019 &#8212; 2020
-    </div>
     <div class="project-item__properties">
+      <div class="project-item__duration">
+        2019 - 2020
+      </div>
+      <div
+        class="project-item__title"
+        qa-ref="project-item__title"
+      >
+        {{ project.title }}
+      </div>
       <div class="project-item__label">
         Customer
       </div>
@@ -55,7 +55,26 @@ export default defineComponent({
             v-for="skill in project.tasks"
             :key="skill"
           >
+            <span class="project-item__bullet">
+              &dash;&nbsp;
+            </span>
             {{ skill }}
+          </li>
+        </ul>
+      </div>
+      <div class="project-item__label">
+        Technologies
+      </div>
+      <div class="project-item__value">
+        <ul>
+          <li
+            v-for="technology in project.technologies"
+            :key="technology"
+          >
+            <span class="project-item__bullet">
+              &dash;&nbsp;
+            </span>
+            {{ technology }}
           </li>
         </ul>
       </div>
@@ -66,27 +85,21 @@ export default defineComponent({
 <style lang="scss">
 @import "../scss/variables";
 @import "../scss/typography";
+@import "../scss/breakpoints";
 
 .project-item {
   position: relative;
 
+  &__bullet {
+    color: $color-rainbow-blue
+  }
+
   &__duration {
-    color: orchid;
-    padding-left: $space-l
-  }
-
-  &__properties {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    padding-left: $space;
-  }
-
-  &__title {
-    @include headline;
-    color: $color-rainbow-orange;
-    font-size: 130%;
-    font-weight: 300;
-    padding-left: $space-l;
+    align-items: center;
+    color: $color-rainbow-red;
+    display: flex;
+    font-weight: bold;
+    padding: $space;
     position: relative;
 
     &::after {
@@ -95,16 +108,35 @@ export default defineComponent({
       border-radius: 50%;
       content: "";
       height: 1.2rem;
-      left: 1px;
+      left: -15px;
       position: absolute;
-      top: 6px;
+      top: 30%;
       width: 1.2rem;
       z-index: 2;
     }
   }
 
+  &__properties {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding-left: $space;
+
+    @include media-breakpoint-not-small {
+      grid-template-columns: auto 1fr;
+    }
+  }
+
+  &__title {
+    align-items: center;
+    color: $color-rainbow-orange;
+    display: flex;
+    font-size: 130%;
+    font-weight: 300;
+    padding: $space-s $space;
+  }
+
   &__label {
-    color: $color-rainbow-red;
+    color: $color-rainbow-lila;
     padding: $space-s $space;
   }
 
