@@ -1,37 +1,99 @@
 [
   {
+    "customer": "Deutsche Apotheker- und Ärztebank",
+    "title": "Kreditportal",
+    "description": "Customer service portal for credits. It provides document exchange and messaging features",
+    "position": "Fullstack developer",
+    "tasks": [
+      "Build continuous integration pipelines for development and software delivery",
+      "Develop a microfrontend solution for integration with other services",
+      "Extend code coverage with unit testing for frontend and backend",
+      "Implement new features in frontend and backend",
+      "Perform code evaluation with code reviews"
+    ],
+    "startDate": "2020-01-01",
+    "endDate": "",
+    "technologies": [
+      "Vue.JS framework",
+      "Openshift 3.11",
+      "CSS3",
+      "Spring boot framework",
+      "Oracle database",
+      "Gradle",
+      "Jenkins",
+      "Java 8",
+      "Oracle"
+    ]
+  },
+  {
+    "customer": "Check24 Vergleichsportal Baufinanzierung GmbH",
+    "title": "Check24 Vergleichsportal Baufinanzierung",
+    "description": "A comparison portal for mortgages",
+    "startDate": "2016-11-01",
+    "endDate": "2019-07-01",
+    "position": "Fullstack developer",
+    "tasks": [
+      "worked as a feature team leader in a work team for providing new features",
+      "Improve frontend and backend submodules and fix integration with gradle",
+      "Improve customer application form",
+      "Improve and extend web-based email functionality"
+    ],
+    "technologies": [
+      "AngularJS framework",
+      "Vue.JS framework",
+      "NPM",
+      "Spring boot framework",
+      "Oracle database",
+      "Gradle",
+      "Java 8"
+    ]
+  }, {
+    "customer": "Tyntec GmbH",
+    "title": "Curiosity monitoring tool",
+    "description": "A monitoring tool for SMS traffic worldwide",
+    "position": "Java developer",
+    "tasks": [
+      "Extend already existing solution with new features",
+      "Add new graphics and statistics based on ElasticSearch technology"
+    ],
+    "startDate": "2015-01-01",
+    "endDate": "2016-11-01",
+    "technologies": [
+      "AngularJS framework",
+      "ElasticSearch",
+      "Python"
+    ]
+  },
+  {
+    "customer": "Tyntec GmbH",
+    "title": "Chimera administration tool",
+    "description": "An administration tool for configuring SMS providers in different countries",
+    "position": "Java developer",
+    "startDate": "2013-05-01",
+    "endDate": "2015-01-01",
+    "tasks": [
+      "Add new features in already existing solution",
+      "Reorganize code into modules"
+    ],
+    "technologies": [
+      "Primefaces",
+      "J2EE",
+      "Postgresql"
+    ]
+  },
+  {
     "customer": "Hellenic Telecommunications Organization S.A.",
     "title": "OTE IPTV solution",
     "description": "IPTV service for providing Video-On-Demand and live channels",
-    "position": "Fullstack Developer",
+    "position": "Fullstack developer",
     "tasks": [
       "Develop customizations on top of already user interface",
       "Improve Video-On-Demand application by splitting video catalog into chunks",
       "Improve user interface performance by introducing caching",
       "Migrate already existing solution into a new platform"
     ],
-    "startDate": "2014-01-01",
-    "endDate": "2016-06-01",
-    "technologies": [
-      "Emacscript 2015",
-      "CSS3",
-      "Spring framework",
-      "Java 7"
-    ]
-  },
-  {
-    "customer": "Deutsche Apotheker- und Ärztebank",
-    "title": "Kreditportal",
-    "description": "Customer service portal for credits. It provides document exchange and messaging features",
-    "position": "Fullstack developer",
-    "tasks": [
-      "Emacscript 2015",
-      "CSS3",
-      "Spring framework",
-      "Java 7"
-    ],
-    "startDate": "2020-01-01",
-    "endDate": "",
+    "startDate": "2010-01-01",
+    "endDate": "2013-04-01",
     "technologies": [
       "Emacscript 2015",
       "CSS3",

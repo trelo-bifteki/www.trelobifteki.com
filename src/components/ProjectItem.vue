@@ -80,17 +80,18 @@ export default defineComponent({
         Technologies
       </div>
       <div class="project-item__value">
-        <ul>
-          <li
+        <div class="project-item__technologies">
+          <div
             v-for="technology in project.technologies"
             :key="technology"
+            class="project-item__technology"
           >
             <span class="project-item__bullet">
               &dash;&nbsp;
             </span>
             {{ technology }}
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -138,6 +139,20 @@ export default defineComponent({
     @include media-breakpoint-not-small {
       grid-template-columns: auto 1fr;
     }
+  }
+
+  &__technologies {
+    display: flex;
+    flex-direction: column;
+    @include media-breakpoint-not-small {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    max-width: 40rem;
+  }
+
+  &__technology {
+    padding-right: $space-s;
   }
 
   &__title {
