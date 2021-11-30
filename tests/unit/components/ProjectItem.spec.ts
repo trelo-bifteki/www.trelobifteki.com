@@ -5,9 +5,7 @@ import {
   shallowMount, VueWrapper,
 } from '@vue/test-utils';
 import ProjectItem from '@/components/ProjectItem.vue'
-import {
-  Project,
-} from '@/store/portofolio/types';
+
 import {
   createProject, qaRef,
 } from '../mocks';

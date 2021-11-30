@@ -18,6 +18,8 @@ export interface Project {
   customer: string;
   description: string;
   title: string;
+  startDate: string;
+  endDate?: string;
 }
 
 export interface PortofolioMutationTree extends MutationTree<PortofolioState> {

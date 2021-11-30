@@ -3,8 +3,13 @@ import {
   defineComponent,
 } from 'vue';
 
+import DurationLabel from '@/components/DurationLabel.vue';
+
 export default defineComponent({
   name: 'ProjectItem',
+  components: {
+    DurationLabel,
+  },
   props: {
     project: {
       type: Object,
@@ -20,7 +25,10 @@ export default defineComponent({
   >
     <div class="project-item__properties">
       <div class="project-item__duration">
-        2019 - 2020
+        <duration-label
+          :start="project.startDate"
+          :end="project.endDate"
+        />
       </div>
       <div
         class="project-item__title"

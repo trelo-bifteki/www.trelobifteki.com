@@ -37,6 +37,7 @@ export const createProject = (): Project => ({
   customer: 'Acme Org',
   description: 'Another description',
   title: 'Developer',
+  startDate: '2014.12.30',
 });
 
 export const qaRef = (id: string): string => `[qa-ref=${id}]`;
