@@ -17,6 +17,7 @@ export default defineComponent({
     MovingSpectrum,
     NavigationBar,
   },
+  emits: [ 'onMenuClicked' ],
   methods: {
     clickMenu(): void {
       this.$emit('onMenuClicked', true);

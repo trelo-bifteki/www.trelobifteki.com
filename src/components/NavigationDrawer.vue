@@ -11,6 +11,7 @@ export default defineComponent({
       default: false,
     },
   },
+  emits: [ 'toggle' ],
   computed: {
     rootClasses(): string[] {
       const results = [ 'navigation-drawer' ];

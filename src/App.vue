@@ -57,7 +57,7 @@ export default defineComponent({
     id="app"
     class="app"
   >
-    <MainHeader @onMenuClicked="toggleNavigationDrawer(true)" />
+    <MainHeader @on-menu-clicked="toggleNavigationDrawer(true)" />
     <div class="index__container">
       <router-view />
     </div>
