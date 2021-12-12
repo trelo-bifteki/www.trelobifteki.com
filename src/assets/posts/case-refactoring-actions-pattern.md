@@ -1,4 +1,4 @@
-## Summary
+## Preface
 
 At the company I was working there was a specific application and "mechanism" for
 performing specific decisions / actions. These actions had several conditions in order to
@@ -138,7 +138,7 @@ remove this feature.
 
 After building complicated actions I noticed that the conditions were getting
 complicated with many sub conditions and over 5 lines of boolean expressions.
-In order to make this more readable, I tried to utilize a *builder* for
+In order to make this more readable, I tried to utilize a __builder__ for
 conditions to transform expressions into a domain-specific language.
 
 After refactoring, a complicated action was looking like the example below:

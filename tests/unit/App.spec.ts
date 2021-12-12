@@ -1,7 +1,11 @@
 import App from '@/App.vue';
 import {
-  shallowMount,
+  shallowMount, VueWrapper,
 } from '@vue/test-utils';
+import {
+  ComponentPublicInstance,
+} from 'vue';
+
 import {
   createStore, Store,
 } from 'vuex';
@@ -18,7 +22,7 @@ describe('App', () => {
     },
   });
 
-  const createWrapper = (store: Store<unknown>): any => shallowMount(App, {
+  const createWrapper = (store: Store<unknown>): VueWrapper<ComponentPublicInstance> => shallowMount(App, {
     global: {
       stubs: {
         'router-view': {

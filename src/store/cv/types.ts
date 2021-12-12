@@ -9,7 +9,7 @@ import {
 export interface CurriculumVitaeState {
   skills: ReadonlyArray<ResumeSkill>;
   resume: Resume;
-  packageVersion: string;
+  packageVersion?: string;
 }
 
 export interface CvGetterTree extends GetterTree<CurriculumVitaeState, RootState> {

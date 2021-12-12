@@ -12,7 +12,6 @@ import {
 import {
   RootState,
 } from '@/store/types';
-import Vue from 'vue';
 
 jest.mock('html-loader!@/assets/posts/howto-write-tickets.md', () => '', {
   virtual: true,
