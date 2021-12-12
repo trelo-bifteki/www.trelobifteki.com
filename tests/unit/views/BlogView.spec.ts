@@ -71,7 +71,7 @@ describe('BlogView', () => {
   );
 
   beforeEach(() => {
-    actions.refreshPosts.mockClear();
+    actions.refreshPosts.mockReset();
   });
 
   it('should refresh posts when initialized', () => {

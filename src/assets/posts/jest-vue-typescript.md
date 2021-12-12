@@ -38,62 +38,59 @@ quite some time to correct in code:
 
 ## Recipe for stateless components
 
-A _stateless_ component is the one that does not include any bindings/ states
+A _stateless_ component is the one that does not include any bindings or states
 from Vuex or other resources. Inputs and outputs are only defined as
 _properties_ and _events_ respectively.
 
 Let's assume we have the following small component:
 
-```vue
+```typescript
 <script lang="ts">
 import {
-  Component,
-  Prop,
-  Vue,
-} from 'vue-property-decorator';
+  defineComponent,
+} from 'vue';
 
-@Component
-export default class IconBase extends Vue {
-  @Prop({
-    type: [ String, Number ],
-    default: '16px',
-  })
-  width!: string | number;
+export default defineComponent({
+  name: 'IconBase',
+  props: {
+    width: {
+      type: [ String, Number ],
+      default: '16px',
+    },
+    height: {
+      type: [ String, Number ],
+      default: '16px',
+    },
+    iconColor: {
+      type: String,
+      default: 'default',
+    },
+    iconName: {
+      type: String,
+      default: '',
+    },
+    inverted: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  computed: {
+    iconGroupClasses(): string[] {
+      return [
+        'icon-base__group',
+        `icon-base__group--${this.iconColor}`,
+      ];
+    },
+    rootClasses(): string [] {
+      const classes = [ 'icon-base' ];
+      if (this.inverted) {
+        classes.push('icon-base--inverted');
+      }
 
-  @Prop({
-    type: [ String, Number ],
-    default: '16px',
-  })
-  height!: string | number;
-
-  @Prop({
-    type: String,
-    default: 'default',
-  })
-  iconColor!: string;
-
-  @Prop({
-    type: Boolean,
-    default: false,
-  })
-  inverted!: boolean;
-
-  get iconGroupClasses(): string[] {
-    return [
-      'icon-base__group',
-      `icon-base__group--${this.iconColor}`,
-    ];
-  }
-
-  get rootClasses(): string [] {
-    const classes = [ 'icon-base' ];
-    if (this.inverted) {
-      classes.push('icon-base--inverted');
-    }
-
-    return classes;
-  }
-}
+      return classes;
+    },
+  },
+})
 </script>
 <template>
   <svg
@@ -141,29 +138,40 @@ export default class IconBase extends Vue {
 For the component above I created the following unit tests:
 
 ```typescript
+import {
+  ComponentPublicInstance,
+} from 'vue';
 import IconBase from '@/components/icons/IconBase.vue';
 import {
-  shallowMount, Wrapper,
+  shallowMount, VueWrapper,
 } from '@vue/test-utils';
 
 const defaultProps = {
   iconName: 'testName',
   width: '20px',
-  iconColor: 'default',
   inverted: false,
+  iconColor: 'default',
 };
 
 describe('IconBase', () => {
-  const createWrapper = (propsData= defaultProps): Wrapper<IconBase> => shallowMount(IconBase, {
-    propsData,
+  const createWrapper = (props= defaultProps): VueWrapper<ComponentPublicInstance> => shallowMount(IconBase, {
+    props,
   });
 
-  it('loads succesfully', () => {
+  it('loads successfully', () => {
     const wrapper = createWrapper();
 
     expect(
       wrapper.find('.icon-base').exists(),
     ).toBe(true);
+  });
+
+  it('renders parameter iconName as aria-labelledby', () => {
+    const wrapper = createWrapper();
+
+    expect(
+      wrapper.find('.icon-base').attributes('aria-labelledby'),
+    ).toEqual('testName');
   });
 
   it('renders width parameter as icon width', () => {
@@ -208,9 +216,10 @@ The most important rules that I used were the following:
 *   I introduce `defaultProps` with the default and required values
 *   I use `defaultProps` as the default parameter for `createWrapper`
 
-It took me a long research and experiments to find `Wrapper<Component>` as
-return trype for `createWrapper` function. I also introduce the `defaultProps`
-in order to have autocompletion, avoid DRY and type checking.
+It took me a long research and experiments to find
+`VueWrapper<ComponentPublicInstance>` as return trype for `createWrapper`
+function. I also introduce the `defaultProps` in order to have autocompletion,
+avoid DRY and type checking.
 
 A `createWrapper` function is always invoked by every single test. Our goal is
 to make each test completely _stateless_. Always make sure that all your tests
@@ -224,51 +233,53 @@ input and output.
 
 Taking the example below:
 
-```vue
+```typescript
 <script lang="ts">
 import {
-  Component,
-  Vue,
-} from 'vue-property-decorator';
+  defineComponent,
+} from 'vue';
 
 import PostSummary from '@/components/PostSummary.vue';
 import SpinningLoader from '@/components/SpinningLoader.vue';
-
 import {
-  namespace,
-} from 'vuex-class';
+  createNamespacedHelpers,
+} from 'vuex';
+
+
 import {
   BlogPost,
 } from '@/store/blog/types';
 
-const blog = namespace('blog');
+const {
+  mapActions,
+  mapState,
+} = createNamespacedHelpers('blog');
 
-@Component({
+
+export default defineComponent({
   name: 'BlogView',
-  metaInfo: {
-    title: 'Blog',
-  },
   components: {
     PostSummary,
     SpinningLoader,
   },
-})
-export default class BlogView extends Vue {
-
-  @blog.State('posts')
-  readonly posts!: ReadonlyArray<BlogPost>;
-
-  @blog.Action('refreshPosts')
-  readonly refreshPosts!: () => Promise<ReadonlyArray<BlogPost>>;
-
-  isLoading = false;
-
-  get visiblePostsOrderByDateDesc(): ReadonlyArray<BlogPost> {
-    const visiblePosts = this.posts.filter(post => post.isVisible);
-    visiblePosts.sort((one, another) => another.created - one.created);
-    return visiblePosts;
-  }
-
+  metaInfo: {
+    title: 'Blog',
+  },
+  data() {
+    return {
+      isLoading: false,
+    };
+  },
+  computed: {
+    ...mapState([
+      'posts',
+    ]),
+    visiblePostsOrderByDateDesc(): ReadonlyArray<BlogPost> {
+      const visiblePosts = this.posts.filter((post: BlogPost) => post.isVisible);
+      visiblePosts.sort((one: BlogPost, another: BlogPost) => another.created - one.created);
+      return visiblePosts;
+    },
+  },
   async created(): Promise<void> {
     this.isLoading = true;
     try {
@@ -276,8 +287,13 @@ export default class BlogView extends Vue {
     } finally {
       this.isLoading = false;
     }
-  }
-}
+  },
+  methods: {
+    ...mapActions([
+      'refreshPosts',
+    ]),
+  },
+});
 </script>
 
 <template>
@@ -509,4 +525,9 @@ describe('BlogView', () => {
 });
 ```
 
-The `localVue` variable is used to initialize needed _Vuex_
+Basic rules for creating this file are the following:
+
+*   I instantiate `wrapper` in each unit test
+*   I instantiate `store` in each unit test
+*   All action methods are mocked using `jest.fn()`
+*   I reset actions before each test using `actions.refreshPosts.mockClear()`

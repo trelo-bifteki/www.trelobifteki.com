@@ -30,6 +30,11 @@ export default defineComponent({
     font-size: 1.1rem;
     margin-bottom: 5rem;
 
+    code {
+      font-family: $font-family-monospace;
+      font-size: 80%;
+    }
+
     em {
       font-style: italic;
     }
