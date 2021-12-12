@@ -18,15 +18,10 @@ export default defineComponent({
   },
   methods: {
     accept(): void {
-      // TODO fix this
-      // this.$ga.enable();
       gdprService.acceptGdpr();
-      // this.$ga.page(this.$router);
       this.isVisible = false;
     },
     deny(): void {
-      // TODO fix this
-      // this.$ga.disable();
       gdprService.acceptGdpr();
       this.isVisible = false;
     },

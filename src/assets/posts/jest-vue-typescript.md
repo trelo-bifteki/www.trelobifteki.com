@@ -11,7 +11,8 @@ I am writing this guide because it is hard to find good full examples on the
 internet using all technologies mentioned above together. I will also mention
 all parts where it took me the most time to find a solution.
 
-I will also use real examples from the code I developed for my own website.
+I will also use real examples from the code I developed for my own website. I
+omit the styling, since it is not needed for this topic.
 
 ## Eslint configuration
 
@@ -106,33 +107,6 @@ export default defineComponent({
     </g>
   </svg>
 </template>
-
-<style lang="scss">
-@import '../../scss/variables';
-
-.icon-base {
-  display: inline-block;
-  transform: rotate(0deg);
-  transition: transform .33s ease-out;
-  vertical-align: baseline;
-
-  &__group {
-    fill: currentColor;
-
-    &--orange {
-      fill: $color-theme-orange;
-    }
-
-    &--red {
-      fill: $color-theme-red;
-    }
-  }
-
-  &--inverted {
-    transform: rotate(180deg);
-  }
-}
-</style>
 ```
 
 For the component above I created the following unit tests:
@@ -322,56 +296,6 @@ export default defineComponent({
     </section>
   </div>
 </template>
-
-<style lang="scss">
-
-@import "../scss/variables.scss";
-@import "../scss/fluid";
-@import "../scss/typography";
-@import "../scss/breakpoints";
-
-.blog-view {
-  @include body-container;
-
-  &__headline {
-    @include headline;
-
-    color: $color-theme-orange;
-    font-size: $font-size-xxl;
-  }
-
-  &__post {
-    font-size: 1.3rem;
-    margin-left: auto;
-    margin-right: auto;
-    text-decoration: none;
-    width: 100%;
-
-    @include media-breakpoint-not-small {
-      width: 50%;
-
-      &:last-child:nth-child(odd) {
-        width: 100%;
-      }
-    }
-  }
-
-  &__spinner {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    min-height: 10rem;
-    text-align: center;
-  }
-
-  &__container {
-    display: flex;
-    flex-wrap: wrap;
-    padding: $space-xl 0;
-  }
-}
-
-</style>
 ```
 
 I implemented the following unit test for it:
@@ -533,4 +457,182 @@ Basic rules for creating this file are the following:
 *   I reset actions before each test using `actions.refreshPosts.mockClear()`
 
 # Recipe for mocking dependencies
+
+Another case is the need to mock a service (most usually a http service) that
+we use inside a vue component. Let's take the example below:
+
+```typescript
+import gdprService from '@/services/localStorage';
+import {
+  defineComponent,
+} from 'vue';
+
+export default defineComponent({
+  name: 'CookieNotification',
+  data() {
+    return {
+      isVisible: false,
+      googleAnalytics: null,
+    };
+  },
+  mounted() {
+    this.isVisible = !gdprService.isGdprAccepted();
+  },
+  methods: {
+    accept(): void {
+      gdprService.acceptGdpr();
+      this.isVisible = false;
+    },
+    deny(): void {
+      gdprService.acceptGdpr();
+      this.isVisible = false;
+    },
+  },
+});
+</script>
+<template>
+  <transition name="slide-up">
+    <div
+      v-if="isVisible"
+      class="cookie-notification"
+      qa-ref="cookie-notification"
+    >
+      Hey! This site uses cookies for Google Analytics
+      <div class="cookie-notification__actions">
+        <button
+          class="cookie-notification__button cookie-notification__button--ok"
+          qa-ref="cookie-notification-button-yes"
+          @click="accept"
+        >
+          Got it!
+        </button>
+        <button
+          class="cookie-notification__button cookie-notification__button--no"
+          qa-ref="cookie-notification-button-no"
+          @click="deny"
+        >
+          No way!
+        </button>
+      </div>
+    </div>
+  </transition>
+</template>
+
+```
+
+And this is the unit test I have written for this:
+
+```typescript
+import {
+  ComponentPublicInstance,
+} from 'vue';
+import CookieNotification from '@/components/CookieNotification.vue';
+import {
+  shallowMount, VueWrapper,
+} from '@vue/test-utils';
+import {
+  mocked,
+} from 'ts-jest';
+
+import gdprService from '@/services/localStorage';
+
+jest.mock('@/services/localStorage');
+
+describe('CookieNotification', () => {
+  const $ga = {
+    enable: jest.fn(),
+    page: jest.fn(),
+    disable: jest.fn(),
+  };
+
+  const mockedGdprService = mocked(gdprService);
+
+  const getWrapper = (): VueWrapper<ComponentPublicInstance> => shallowMount(CookieNotification, {
+    global: {
+      mocks: {
+        $ga,
+      },
+    },
+  });
+
+  beforeEach(() => {
+    mockedGdprService.acceptGdpr.mockReset();
+    mockedGdprService.isGdprAccepted.mockReset();
+  });
+
+  it('hides the cookie notification by default', () => {
+    mockedGdprService.isGdprAccepted.mockReturnValue(true);
+    const wrapper = getWrapper();
+
+    expect(
+      wrapper.find('.cookie-notification').exists(),
+    ).toBe(false);
+  });
+
+  it('displays the cookie notification after is mounted', async () => {
+    mockedGdprService.isGdprAccepted.mockReturnValue(false);
+    const wrapper = getWrapper();
+    await wrapper.vm.$nextTick();
+    expect(mockedGdprService.isGdprAccepted).toHaveBeenCalled();
+    expect(
+      wrapper.find('.cookie-notification').exists(),
+    ).toBe(true);
+  });
+
+  it('closes the cookie notification after we click OK button', async () => {
+    mockedGdprService.isGdprAccepted.mockReturnValue(false);
+    const wrapper = getWrapper();
+
+    await wrapper.vm.$nextTick();
+
+    const button = wrapper.find('.cookie-notification__button--ok');
+
+    button.trigger('click');
+    await wrapper.vm.$nextTick();
+
+    expect(
+      wrapper.find('.cookie-notification').exists(),
+    ).toBe(false);
+  });
+
+  it('closes the cookie notification after we click NO WAY button', async () => {
+    mockedGdprService.isGdprAccepted.mockReturnValue(false);
+    const wrapper = getWrapper();
+
+    await wrapper.vm.$nextTick();
+
+    const button = wrapper.find('.cookie-notification__button--no');
+    button.trigger('click');
+
+    await wrapper.vm.$nextTick();
+
+    expect(
+      wrapper.find('.cookie-notification').exists(),
+    ).toBe(false);
+  });
+})
+```
+
+The function `mocked` is actually the one that really matters here. It extends
+the type of the injected dependency and allows you to easily work with it. It
+took me a lot of time to find this function, but it made my code much cleaner.
+
+This function is actually the main reason for writing this post, since it is
+almost necessary for writing unit tests with __typescript__ and __jest__.
+
+## challenges
+
+The challenge I usually find when I write unit tests:
+
+*   Mocking dependency injection
+*   Mocking custom events
+*   Interacting with `wrapper.vm` object in __typescript__
+
+My quick tips there:
+
+*   Dependencies shall always return functions, so I can mock them
+*   Create `mocks.ts` file containing functions for generating necessary mock
+    objects
+*   When testing component uses other ones, refer to them using `wrapper.findComponent()`
+*   I avoid using wrapper.vm and focus in testing DOM elements instead.
 

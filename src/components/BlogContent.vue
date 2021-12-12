@@ -30,11 +30,6 @@ export default defineComponent({
     font-size: 1.1rem;
     margin-bottom: 5rem;
 
-    code {
-      font-family: $font-family-monospace;
-      font-size: 80%;
-    }
-
     em {
       font-style: italic;
     }
@@ -90,6 +85,12 @@ export default defineComponent({
 
     li {
       margin: $space-s $space-l;
+
+      code {
+        color: $color-theme-red;
+        font-size: 87.5%;
+        word-break: break-word;
+      }
     }
 
     pre[class*="language-"] {
