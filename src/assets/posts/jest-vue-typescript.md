@@ -1,7 +1,7 @@
 In this tutorial we are going to create freshly hand-made unit tests using the
 following ingredients:
 
-*   Vue.js
+*   Vue3
 *   eslint
 *   Jest
 *   Typescript
@@ -531,3 +531,6 @@ Basic rules for creating this file are the following:
 *   I instantiate `store` in each unit test
 *   All action methods are mocked using `jest.fn()`
 *   I reset actions before each test using `actions.refreshPosts.mockClear()`
+
+# Recipe for mocking dependencies
+

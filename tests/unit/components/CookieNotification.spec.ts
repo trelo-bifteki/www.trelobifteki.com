@@ -5,6 +5,10 @@ import CookieNotification from '@/components/CookieNotification.vue';
 import {
   shallowMount, VueWrapper,
 } from '@vue/test-utils';
+import {
+  mocked,
+} from 'ts-jest';
+
 import gdprService from '@/services/localStorage';
 
 jest.mock('@/services/localStorage');
@@ -15,7 +19,8 @@ describe('CookieNotification', () => {
     page: jest.fn(),
     disable: jest.fn(),
   };
-  const isGdprAccepted = gdprService.isGdprAccepted as jest.Mock;
+
+  const mockedGdprService = mocked(gdprService);
 
   const getWrapper = (): VueWrapper<ComponentPublicInstance> => shallowMount(CookieNotification, {
     global: {
@@ -26,11 +31,12 @@ describe('CookieNotification', () => {
   });
 
   beforeEach(() => {
-    isGdprAccepted.mockClear();
+    mockedGdprService.acceptGdpr.mockReset();
+    mockedGdprService.isGdprAccepted.mockReset();
   });
 
   it('hides the cookie notification by default', () => {
-    isGdprAccepted.mockReturnValue(true);
+    mockedGdprService.isGdprAccepted.mockReturnValue(true);
     const wrapper = getWrapper();
 
     expect(
@@ -39,17 +45,17 @@ describe('CookieNotification', () => {
   });
 
   it('displays the cookie notification after is mounted', async () => {
-    isGdprAccepted.mockReturnValue(false);
+    mockedGdprService.isGdprAccepted.mockReturnValue(false);
     const wrapper = getWrapper();
     await wrapper.vm.$nextTick();
-    expect(isGdprAccepted).toHaveBeenCalled();
+    expect(mockedGdprService.isGdprAccepted).toHaveBeenCalled();
     expect(
       wrapper.find('.cookie-notification').exists(),
     ).toBe(true);
   });
 
   it('closes the cookie notification after we click OK button', async () => {
-    isGdprAccepted.mockReturnValue(false);
+    mockedGdprService.isGdprAccepted.mockReturnValue(false);
     const wrapper = getWrapper();
 
     await wrapper.vm.$nextTick();
@@ -65,7 +71,7 @@ describe('CookieNotification', () => {
   });
 
   it('closes the cookie notification after we click NO WAY button', async () => {
-    isGdprAccepted.mockReturnValue(false);
+    mockedGdprService.isGdprAccepted.mockReturnValue(false);
     const wrapper = getWrapper();
 
     await wrapper.vm.$nextTick();
