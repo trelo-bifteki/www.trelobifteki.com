@@ -190,19 +190,17 @@ The most important rules that I used were the following:
 *   I introduce `defaultProps` with the default and required values
 *   I use `defaultProps` as the default parameter for `createWrapper`
 
-It took me a long research and experiments to find
-`VueWrapper<ComponentPublicInstance>` as return trype for `createWrapper`
-function. I also introduce the `defaultProps` in order to have autocompletion,
-avoid DRY and type checking.
+It took me some time to find `VueWrapper<ComponentPublicInstance>`
+as return trype for `createWrapper`function. I also introduce the
+`defaultProps` in order to have autocompletion, avoid DRY and type checking.
 
 A `createWrapper` function is always invoked by every single test. Our goal is
-to make each test completely _stateless_. Always make sure that all your tests
-will not have conflicts with each other, since they can run _in parallel_ in
-different threads.
+to make each test completely _stateless_ this way. I make sure that all variables
+are initialized for each test, so that tests can be executed concurrently.
 
 ## Recipe for stateful components
 
-A stateful component is a component in my applications and it uses _Vuex_ as
+A _stateful_ component is a component in my applications that uses _Vuex_ as
 input and output.
 
 Taking the example below:
@@ -451,10 +449,13 @@ describe('BlogView', () => {
 
 Basic rules for creating this file are the following:
 
+*   I only make _stateful_ view components. I prefer any dependencies to them
+    to be _stateless_
+
 *   I instantiate `wrapper` in each unit test
 *   I instantiate `store` in each unit test
 *   All action methods are mocked using `jest.fn()`
-*   I reset actions before each test using `actions.refreshPosts.mockClear()`
+*   I reset actions before each test using `actions.refreshPosts.mockReset()`
 
 # Recipe for mocking dependencies
 
