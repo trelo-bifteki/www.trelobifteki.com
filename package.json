@@ -46,6 +46,7 @@
     "html-loader": "1.1.0",
     "husky": "6.0.0",
     "jest": "^27.0.5",
+    "jest-junit": "14.0.1",
     "markdown-loader": "8.0.0",
     "prerender-spa-plugin": "3.4.0",
     "prismjs": "1.27.0",
