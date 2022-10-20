@@ -96,6 +96,13 @@ export default defineComponent({
 
   &__highlight {
     display: flex;
+    text-indent: $space-s;
+
+    &:before {
+      color: $color-rainbow-lila;
+      content: "-";
+      text-indent: 0;
+    }
   }
 
   &__highlight-icon {

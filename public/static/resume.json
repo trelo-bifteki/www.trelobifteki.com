@@ -6,13 +6,13 @@
     "email": "lambrospd@gmail.com",
     "phone": "",
     "url": "https://www.trelobifteki.com",
-    "summary": "Software engineer focused on Web & Mobile technologies. Particularly interested in software development, system integration and service delivery. Great experience in J2EE and Spring Technologies. Delivering solutions routing and IPTV platforms and implementing solutions for backend infrastructure.",
+    "summary": "Software engineer focused on Web technologies. Particularly interested in software development, system integration and service delivery. Great experience in Java and Javascript technologies.",
     "location": {
       "address": "",
       "postalCode": "",
-      "city": "Dusseldorf",
-      "countryCode": "DE",
-      "region": "Northrhein-Westphalia"
+      "city": "Aarau",
+      "countryCode": "CH",
+      "region": "Aargau"
     },
     "profiles": [
       {
@@ -34,16 +34,32 @@
   },
   "work": [
     {
+      "name": "BLS AG",
+      "location": "Bern",
+      "description": "BLS AG is a Swiss railway company",
+      "position": "Software engineer",
+      "url": "https://www.bls.ch",
+      "startDate": "2022-04-01",
+      "summary": "Worked in development team for building API services for customer and ticket services",
+      "highlights": [
+        "Build API services for customer services in Java / Spring Boot",
+        "Build API services for ticket services in Java / Spring Boot",
+        "Build CI/CD automation pipelines in Jenkins"
+      ]
+    },
+    {
       "name": "Deutsche Apotheker- und Ärztebank eG",
       "location": "Dusseldorf",
       "description": "Deutsche Apotheker- und Ärztebank is affiliated to the National Association of German Cooperative Banks (BVR). It offers its services primarily to members of medical professions like physicians, dentists, psychotherapists and pharmacists, their relatives, professional associations of medical professions as well as company clients from the health care industry.",
       "position": "Full-stack software Developer",
       "url": "https://www.apobank.de",
       "startDate": "2019-07-01",
+      "endDate": "2022-04-01",
       "summary": "Worked in a new development team for building extensions and web applications on top of an already existing banking solution",
       "highlights": [
         "Build a team for developing extensions on an already existing banking core platform",
         "Build pipelines automations for delivering software products",
+        "Develop infrastructure services for development environment",
         "Develop applications for mortgages and credits in frontend and backend parts"
       ]
     }, {
@@ -173,7 +189,13 @@
   "languages": [
     {
       "language": "English",
-      "fluency": "Native speaker"
+      "fluency": "C1"
+    }, {
+      "language": "German",
+      "fluency": "C1"
+    }, {
+      "language": "Spanish",
+      "fluency": "A2"
     }
   ],
   "interests": [
