@@ -1,12 +1,13 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const PrerenderSpaPlugin = require('prerender-spa-plugin');
 const RobotsTxtPlugin = require('robotstxt-webpack-plugin');
+const PrerenderSpaPlugin = require('prerender-spa-plugin');
 const SitemapPlugin = require('sitemap-webpack-plugin').default;
 const StyleLintPlugin = require('stylelint-webpack-plugin');
-const fontelloConfig = require('./fontello.config');
+const { defineConfig } = require('@vue/cli-service');
 const path = require('path');
 const webpack = require('webpack');
 const fs = require('fs');
+
 const packageJson = fs.readFileSync('./package.json');
 const version = JSON.parse(packageJson).version || -1;
 const routes =  [
@@ -90,7 +91,8 @@ if (process.env.NODE_ENV === 'production') {
   ];
 }
 
-module.exports = {
+module.exports = defineConfig({
+  transpileDependencies: true,
   productionSourceMap: false,
   configureWebpack: {
     plugins,
@@ -105,4 +107,4 @@ module.exports = {
       .loader('markdown-loader')
       .end();
   },
-};
+});
