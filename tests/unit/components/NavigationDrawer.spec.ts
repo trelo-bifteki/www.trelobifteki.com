@@ -7,7 +7,7 @@ import {
 } from '@vue/test-utils';
 
 describe('NavigationDrawer', () => {
-  const createWrapper = (isVisible = false): VueWrapper<ComponentPublicInstance> => shallowMount(
+  const createWrapper = (isVisible = false) => shallowMount(
     NavigationDrawer,
     {
       props: {

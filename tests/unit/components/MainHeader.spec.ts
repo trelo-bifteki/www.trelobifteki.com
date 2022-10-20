@@ -8,7 +8,7 @@ import {
 import MainHeader from '@/components/MainHeader.vue';
 
 describe('MainHeader', () => {
-  const createWrapper = (): VueWrapper<ComponentPublicInstance> => shallowMount(MainHeader);
+  const createWrapper = () => shallowMount(MainHeader);
 
   it('displays title with my name', () => {
     const wrapper = createWrapper();
