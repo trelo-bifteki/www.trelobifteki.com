@@ -41,7 +41,8 @@ pipeline {
 
     stage('Check unit:e2e') {
       steps {
-        sh 'npm run test:e2e -- --headless --url https://www.trelobifteki.com --config video=false || exit 0'
+        echo 'omit this for now...'
+        /* sh 'npm run test:e2e -- --headless --url https://www.trelobifteki.com --config video=false || exit 0' */
       }
     }
   }
