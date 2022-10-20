@@ -1,9 +1,7 @@
 import {
-  ComponentPublicInstance,
 } from 'vue';
 import {
   shallowMount,
-  VueWrapper,
 } from '@vue/test-utils';
 import MainHeader from '@/components/MainHeader.vue';
 

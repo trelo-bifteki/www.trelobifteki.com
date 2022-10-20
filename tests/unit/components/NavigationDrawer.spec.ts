@@ -1,9 +1,8 @@
 import {
-  ComponentPublicInstance,
 } from 'vue';
 import NavigationDrawer from '@/components/NavigationDrawer.vue';
 import {
-  shallowMount, VueWrapper,
+  shallowMount,
 } from '@vue/test-utils';
 
 describe('NavigationDrawer', () => {
