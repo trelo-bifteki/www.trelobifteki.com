@@ -1,5 +1,28 @@
 [
   {
+    "customer": "BLS AG",
+    "title": "VBE",
+    "description": "Ticket ordering platform for swiss railroad",
+    "position": "Software engineer",
+    "tasks": [
+      "Migrate existing solution from J2EE to Spring framewok / Spring Boot",
+      "Migrate existing solution from JBoss to Openshift cloud solution",
+      "Support & further development of existing solution"
+    ],
+    "startDate": "2022-04-01",
+    "endDate": "",
+    "technologies": [
+      "Jboss",
+      "Spring framework",
+      "Openshift",
+      "Angular",
+      "Maven",
+      "Jenkins",
+      "Java",
+      "Typescript"
+    ]
+  },
+  {
     "customer": "Deutsche Apotheker- und Ärztebank",
     "title": "Kreditportal",
     "description": "Customer service portal for credits. It provides document exchange and messaging features",
@@ -12,7 +35,7 @@
       "Perform code evaluation with code reviews"
     ],
     "startDate": "2020-01-01",
-    "endDate": "",
+    "endDate": "2022-04-01",
     "technologies": [
       "Vue.JS framework",
       "Openshift 3.11",
