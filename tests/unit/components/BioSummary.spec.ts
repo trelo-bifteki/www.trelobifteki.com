@@ -16,7 +16,7 @@ describe('BioSummary', () => {
 
     expect(
       wrapper.find('.bio-summary').text(),
-    ).toContain('Software engineer');
+    ).toContain('software development');
   });
 
   it('does not display further information by default', () => {
@@ -24,7 +24,7 @@ describe('BioSummary', () => {
 
     expect(
       wrapper.find('.bio-summary').text(),
-    ).not.toContain('CHECK24');
+    ).not.toContain('Germany');
   });
 
   it('displays further info after clicking more', async () => {
@@ -35,6 +35,6 @@ describe('BioSummary', () => {
 
     expect(
       wrapper.find('.bio-summary').text(),
-    ).toContain('CHECK24');
+    ).toContain('Germany');
   });
 });

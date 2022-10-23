@@ -27,44 +27,37 @@ export default defineComponent({
 <template>
   <article class="bio-summary">
     <p>
-      Software engineer focused on Web technologies. Particularly interested
-      in software development, system integration and service delivery.
-    </p>
-    <p>
-      Great experience in J2EE and Spring Technologies. Delivering solutions routing and
-      IPTV platforms and implementing solutions for backend infrastructure.
+      My name is Lampros Papadimitriou. I am a full-stack developer focused on Web technologies and interested
+      in software development, information systems and service delivery.
     </p>
 
     <p>
-      Great experience in implemeting UI and Web application. Designing UI application as
-      administrative and end-user application using several tools and frameworks as
-      AngularJS, VueJS, Primefaces / Richfaces and GWT.
+      I have worked in a variety of different projects including telecommunications, banking and
+      transportation sector.
+    </p>
+
+    <p>
+      I'm passionate about new web technologies, intuitive UX and resilient systems
     </p>
 
     <transition name="slide">
       <div
         v-if="showMore"
+        class="bio-summary__more"
         qa-ref="bio-summary-more"
       >
         <p>
-          Great experience UNIX scripting, database development and Java technologies. Good
-          experience in RDBMS and UNIX administration and open-source technologies
-          (Postgres, MySQL, Oracle, Linux, firewalling, Apache).
+          I have worked in several projects in different countries (Greece, Germany, Israel, Sweden) and
+          I am also happy to work in multicultural working environments.
         </p>
 
         <p>
-          Working as Full stack developer for CHECK24 Vergleichsportal GmbH and developing
-          backend and UI components using Microservices architecture.
+          I have working experience in different aspects of software development (frontend, backend, CI/CD,
+          system administration)
         </p>
 
         <p>
-          Worked as external consultant for Ericsson Hellas. Bachelor's degree in Informatics and
-          oriented in Information Systems.
-        </p>
-
-        <p>
-          Working in spare time for website development and experimenting with new
-          technlogies (e.g. VueJs, Material Design, Sass)
+          I strongly believe a great success factor in software development is team work.
         </p>
       </div>
     </transition>
@@ -118,22 +111,25 @@ export default defineComponent({
     width: 100%;
   }
 
+  &__more {
+    height: auto;
+    transform-origin: top;
+  }
+
   &__more-icon {
     margin-left: $space-xs;
   }
 }
 
-.slide-enter-from,
-.slide-leave-to {
-  height: auto;
-  transform: scaleY(1);
-  transform-origin: top;
-  transition: transform .33s  ease-out;
+.slide-enter-active,
+.slide-leave-active {
+  transition: transform .33s ease-in-out, opacity .33s ease-in-out;
 }
 
-.slide-enter-to,
-.slide-leave-from {
-  transform: scaleY(0);
+.slide-enter-from,
+.slide-leave-to {
+  opacity: 0;
+  transform: translateY(-10rem);
 }
 
 .rotate-enter-from,
