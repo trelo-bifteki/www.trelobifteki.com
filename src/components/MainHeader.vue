@@ -83,6 +83,7 @@ export default defineComponent({
       margin: $space-s;
       padding: $space-s;
       transition: background-color .33s ease-out;
+      width: 2.5rem;
 
       &:hover {
         background-color: rgba(255, 255, 255, .2);

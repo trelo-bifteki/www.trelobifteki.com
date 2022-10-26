@@ -27,17 +27,21 @@ export default defineComponent({
 <template>
   <article class="bio-summary">
     <p>
-      My name is Lampros Papadimitriou. I am a full-stack developer focused on Web technologies and interested
-      in software development, information systems and service delivery.
+      👋 My name is Lampros Papadimitriou.
+      🤓 I am a full-stack developer focused on Web technologies
     </p>
 
     <p>
-      I have worked in a variety of different projects including telecommunications, banking and
+      👀 I'm interested in software development, information systems and service delivery.
+    </p>
+
+    <p>
+      👨‍💻 I have worked in a variety of different projects including telecommunications, banking and
       transportation sector.
     </p>
 
     <p>
-      I'm passionate about new web technologies, intuitive UX and resilient systems
+      ❤️ I'm passionate about new web technologies, intuitive UX and resilient systems
     </p>
 
     <transition name="slide">
@@ -47,17 +51,17 @@ export default defineComponent({
         qa-ref="bio-summary-more"
       >
         <p>
-          I have worked in several projects in different countries (Greece, Germany, Israel, Sweden) and
+          🌐 I have worked in several projects in different countries (Greece, Germany, Israel, Sweden) and
           I am also happy to work in multicultural working environments.
         </p>
 
         <p>
-          I have working experience in different aspects of software development (frontend, backend, CI/CD,
+          ✨ I have working experience in different aspects of software development (frontend, backend, CI/CD,
           system administration)
         </p>
 
         <p>
-          I strongly believe a great success factor in software development is team work.
+          🤝 I strongly believe a great success factor in software development is team work.
         </p>
       </div>
     </transition>
