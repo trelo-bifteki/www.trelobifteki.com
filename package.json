@@ -58,7 +58,7 @@
     "sass": "1.55.0",
     "sass-loader": "13.1.0",
     "sitemap-webpack-plugin": "0.9.0",
-    "stylelint": "13.13.1",
+    "stylelint": "15.10.1",
     "stylelint-config-recommended-scss": "4.2.0",
     "stylelint-order": "4.0.0",
     "stylelint-scss": "3.21.0",
