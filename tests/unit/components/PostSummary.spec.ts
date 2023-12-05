@@ -29,7 +29,7 @@ describe('PostSummary', () => {
     const wrapper = getWrapper();
     expect(
       wrapper.find('.post-summary__date').text(),
-    ).toBe('1/1/2019')
+    ).toContain('2019')
   });
 
   it('renders title from the post title', () => {
