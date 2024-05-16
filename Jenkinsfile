@@ -12,7 +12,7 @@ pipeline {
     }
     stage('Check for vulnerabilities') {
       steps {
-        sh 'npm config set cache /media/disk/jenkins/.npm'
+        sh 'npm config set cache /var/lib/jenkins/.npm'
         sh 'npm cache verify'
         sh 'npm audit --parseable --production || exit 0'
         sh 'npm audit --parseable --production || exit 0'
