@@ -2,9 +2,15 @@ pipeline {
   agent {
     docker {
       image "node:20-alpine"
+      args '-v $HOME/.npm:/root/.npm'
     }
   }
   stages {
+    stage('Checkout') {
+      steps {
+        checkout scm
+      }
+    }
     stage('Check for vulnerabilities') {
       steps {
         sh 'npm audit --parseable --production || exit 0'
