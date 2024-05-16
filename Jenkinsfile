@@ -1,8 +1,11 @@
 pipeline {
   agent {
     docker {
-      image "node:20-alpine"
+      image "node:18-alpine"
     }
+  }
+  environment {
+    HOME = '/var/lib/jenkins/workspace/www.trelobifteki.com'
   }
   stages {
     stage('Checkout') {
