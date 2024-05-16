@@ -2,7 +2,6 @@ pipeline {
   agent {
     docker {
       image "node:20-alpine"
-      args '-v $HOME/.npm:/var/lib/jenkins/.npm'
     }
   }
   stages {
@@ -13,6 +12,9 @@ pipeline {
     }
     stage('Check for vulnerabilities') {
       steps {
+        sh 'npm config set cache /media/disk/jenkins/.npm'
+        sh 'npm cache verify'
+        sh 'npm audit --parseable --production || exit 0'
         sh 'npm audit --parseable --production || exit 0'
       }
     }
