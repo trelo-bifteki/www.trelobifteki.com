@@ -80,7 +80,14 @@ if (process.env.NODE_ENV === 'production') {
   plugins = [
     ...plugins,
     new RobotsTxtPlugin(robotsTxtConfig),
-    new SitemapPlugin('https://www.trelobifteki.com', routes),
+    new SitemapPlugin({
+      base: 'https://www.trelobifteki.com',
+      paths: routes,
+      options: {
+        lastmod: true,
+        changefreq: 'weekly',
+      },
+    }),
 	  /*
     new PrerenderSpaPlugin({
       staticDir: path.join(__dirname, 'dist'),
