@@ -11,7 +11,7 @@
     "lint:markdown": "remark src/**/*.md",
     "postlint": "npm run stylelint",
     "stylelint": "stylelint src/**/*.{vue,htm,html,css,sss,less,scss,sass}",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "dependencies": {
     "reset-css": "5.0.2",
