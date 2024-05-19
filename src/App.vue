@@ -81,6 +81,7 @@ export default defineComponent({
 
 <style lang="scss">
 @import 'reset-css';
+@import 'css/variables';
 @import 'scss/variables';
 
 html,

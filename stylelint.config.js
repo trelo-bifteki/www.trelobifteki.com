@@ -15,7 +15,6 @@ module.exports = {
     "block-closing-brace-newline-before": "always",
     "block-opening-brace-newline-after": "always",
     "color-hex-case": "upper",
-    "custom-property-empty-line-before": "always",
     "declaration-block-semicolon-newline-after": "always",
     "declaration-colon-space-after": "always",
     "declaration-no-important": true,

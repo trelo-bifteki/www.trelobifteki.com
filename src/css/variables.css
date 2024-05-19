@@ -1,0 +1,27 @@
+
+:root {
+
+  --space-xs: .3rem;
+  --space-s: .5rem;
+  --space: 1rem;
+  --space-xl: 2rem;
+  --font-size-ml: 110%;
+
+  --color-theme-white: #F8F8F7;
+  --color-theme-orange: #E69D50;
+  --color-theme-gray: #99A2A2;
+  --color-theme-gray-light: gainsboro;
+  --color-theme-red: #AF4C55;
+  --color-theme-lila: #3C4666;
+  --color-theme-lila-accent: #9C27B0;
+
+  --color-gray: #555;
+
+  --font-size-s: 80%;
+  --font-size-ml: 110%;
+  --font-size-l: 130%;
+  --font-size-xl: 140%;
+  --font-size-xxl: 180%;
+
+  --breakbpoint-sm: 576px;
+}

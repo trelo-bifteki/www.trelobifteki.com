@@ -46,47 +46,47 @@ export default defineComponent({
   </article>
 </template>
 
-<style lang="scss">
-
-@import "../scss/variables.scss";
-@import "../scss/breakpoints.scss";
+<style>
 
 .education {
-  margin-top: $space-xxl;
+  margin-top: 0;
+}
 
-  &__row {
-    color: $color-gray;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: $space;
+.education__row {
+  color: var(--color-gray);
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--space);
+}
 
-    @include media-breakpoint-not-small {
-      flex-direction: row;
-    }
+.education__subtitle {
+  flex-grow: 1;
+  font-size: var(--font-size-ml);
+  margin-bottom: var(--space-s);
+}
+
+.education__timeline {
+  font-style: italic;
+}
+
+.education__title {
+  color: var(--color-theme-red);
+  font-size: var(--font-size-l);
+  margin-bottom: var(--space-s);
+}
+
+.education__title:first-child {
+  margin-top: 0;
+}
+
+@media (min-width: 576px) {
+  .education__row {
+    flex-direction: row;
   }
 
-  &__subtitle {
-    flex-grow: 1;
-    font-size: $font-size-ml;
-    margin-bottom: $space-s;
-
-    @include media-breakpoint-not-small {
-      margin-bottom: 0;
-    }
-  }
-
-  &__timeline {
-    font-style: italic;
-  }
-
-  &__title {
-    color: $color-theme-red;
-    font-size: $font-size-l;
-    margin-bottom: $space-s;
-  }
-
-  &:first-child {
-    margin-top: 0;
+  .education__subtitle {
+    margin-bottom: 0;
   }
 }
+
 </style>
