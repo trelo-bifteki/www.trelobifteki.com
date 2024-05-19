@@ -45,7 +45,7 @@
     "eslint-plugin-import": "2.29.1",
     "eslint-plugin-vue": "8.7.1",
     "html-loader": "5.0.0",
-    "husky": "8.0.3",
+    "husky": "9.0.11",
     "jest": "27.5.1",
     "jest-junit": "14.0.1",
     "markdown-loader": "8.0.0",
