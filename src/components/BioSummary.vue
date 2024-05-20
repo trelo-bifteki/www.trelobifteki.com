@@ -67,7 +67,7 @@ export default defineComponent({
     </transition>
 
     <button
-      class="bio-summary__more-button"
+      class="flex justify-center items-center border-t p-4 w-full text-party-pink"
       qa-ref="bio-summary-more-button"
       @click="toggle"
     >
@@ -79,7 +79,7 @@ export default defineComponent({
       </span>
       <transition name="rotate">
         <icon-base
-          class="bio-summary__more-icon"
+          class="ml-2"
           icon-name="icon-chevron"
           :inverted="!showMore"
         >
@@ -90,39 +90,10 @@ export default defineComponent({
   </article>
 </template>
 
-<style lang="scss">
+<style scoped>
 
-@import "../scss/variables";
-
-.bio-summary {
-  p {
-    margin-bottom: $space;
-  }
-
-  &__more-button {
-    align-items: center;
-    background-color: transparent;
-    border-bottom: none;
-    border-left: none;
-    border-right: none;
-    border-top: 1px solid $color-theme-gray-light;
-    color: $color-girl-party-pink;
-    cursor: pointer;
-    display: flex;
-    font-size: 1rem;
-    justify-content: center;
-    padding: $space;
-    width: 100%;
-  }
-
-  &__more {
-    height: auto;
-    transform-origin: top;
-  }
-
-  &__more-icon {
-    margin-left: $space-xs;
-  }
+p {
+  margin-bottom: 1rem;
 }
 
 .slide-enter-active,
