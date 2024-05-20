@@ -7,6 +7,9 @@ import {
 } from '@vue/test-utils';
 import EducationItem from '@/components/EducationItem.vue';
 import localizedDate from '@/filters/localizedDate.filter';
+import {
+  qaRef,
+} from '../mocks';
 
 jest.mock('@/filters/localizedDate.filter');
 
@@ -35,7 +38,7 @@ describe('EducationItem', ()=> {
     const wrapper = createWrapper();
 
     expect(
-      wrapper.find('.education__title').text(),
+      wrapper.find(qaRef('education__title')).text(),
     ).toBe('Test institution');
   });
 
@@ -43,7 +46,7 @@ describe('EducationItem', ()=> {
     const wrapper = createWrapper();
 
     expect(
-      wrapper.find('.education__subtitle').text(),
+      wrapper.find(qaRef('education__subtitle')).text(),
     ).toBe('Test area');
   });
 

@@ -1,8 +1,6 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const RobotsTxtPlugin = require('robotstxt-webpack-plugin');
 const PrerenderSpaPlugin = require('prerender-spa-plugin');
 const SitemapPlugin = require('sitemap-webpack-plugin').default;
-const StyleLintPlugin = require('stylelint-webpack-plugin');
 const { defineConfig } = require('@vue/cli-service');
 const path = require('path');
 const webpack = require('webpack');
@@ -70,10 +68,7 @@ let plugins = [
     'process.env': {
       PACKAGE_VERSION: '"' + version + '"'
     }
-  }),
-  new StyleLintPlugin({
-    files: ['src/**/*.{vue,htm,html,css,sss,less,scss,sass}'],
-  }),
+  })
 ];
 
 if (process.env.NODE_ENV === 'production') {

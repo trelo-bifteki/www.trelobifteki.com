@@ -12,6 +12,7 @@ import MainFooter from '@/components/MainFooter.vue';
 import MainHeader from '@/components/MainHeader.vue';
 import NavigationBar from '@/components/NavigationBar.vue';
 import NavigationDrawer from '@/components/NavigationDrawer.vue';
+import '@/css/style.css';
 
 const {
   mapState,
@@ -55,13 +56,13 @@ export default defineComponent({
 <template>
   <div
     id="app"
-    class="app"
+    class="app flex flex-col min-h-screen font-sans bg-white text-gray-900 leading-normal"
   >
     <MainHeader @on-menu-clicked="toggleNavigationDrawer(true)" />
     <div class="index__container">
       <router-view />
     </div>
-    <div class="app__filler" />
+    <div class="flex-auto" />
     <MainFooter :package-version="packageVersion" />
     <CookieNotification />
     <NavigationDrawer
@@ -69,8 +70,8 @@ export default defineComponent({
       :is-visible="isNavigationDrawerVisible"
       @toggle="toggleNavigationDrawer"
     >
-      <div class="app__drawer-header">
-        <h2 class="app__title">
+      <div class="mb-4">
+        <h2 class="font-light p-4">
           Lampros Papadimitriou
         </h2>
       </div>
@@ -79,19 +80,9 @@ export default defineComponent({
   </div>
 </template>
 
-<style lang="scss">
+<style>
 @import 'reset-css';
 @import 'css/variables';
-@import 'scss/variables';
-
-html,
-body {
-  background-color: $color-white;
-  color: $color-gray-darkest;
-  font-family: $font-family-base;
-  font-size: 100%;
-  line-height: 1.5;
-}
 
 *,
 *:before,
@@ -99,22 +90,4 @@ body {
   box-sizing: border-box;
 }
 
-.app {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-
-  &__drawer-header {
-    margin-bottom: $space;
-  }
-
-  &__filler {
-    flex: 1 1 auto;
-  }
-
-  &__title {
-    font-weight: 300;
-    padding: $space;
-  }
-}
 </style>
