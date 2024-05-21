@@ -24,7 +24,7 @@ export default defineComponent({
   <article class="text-base m-0">
     <h2
       qa-ref="education__title"
-      class="text-red-800 text-xl mb-4"
+      class="text-party-pink text-xl mb-4"
     >
       {{ item.institution }}
     </h2>

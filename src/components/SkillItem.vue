@@ -16,16 +16,16 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="skill-item">
+  <div class="flex py-4 px-0 first:pt-0 justify-center items-center">
     <div
-      class="skill-item__label"
+      class="pr-4 w-40"
       qa-ref="skill-item__label"
     >
       {{ skill.label }}
     </div>
-    <div class="skill-item__progress">
+    <div class="bg-theme-white flex flex-grow overflow-hidden rounded h-4">
       <div
-        class="skill-item__progress-bar"
+        class="bg-theme-orange flex justify-center"
         qa-ref="skill-item__progress-bar"
         role="progressbar"
         :aria-valuenow="skill.level"
@@ -36,41 +36,3 @@ export default defineComponent({
     </div>
   </div>
 </template>
-
-<style lang="scss">
-
-@import "../scss/variables";
-@import "../scss/breakpoints";
-
-.skill-item {
-  display: flex;
-  flex-direction: row;
-  margin: $space 0;
-
-  &__label {
-    margin-right: $space;
-    min-width: 20rem;
-  }
-
-  &__progress {
-    background-color: $color-theme-white;
-    border-radius: .25rem;
-    display: flex;
-    flex-grow: 1;
-    font-size: .75rem;
-    height: 1rem;
-    overflow: hidden;
-  }
-
-  &__progress-bar {
-    background-color: $color-theme-orange;
-    color: $color-theme-white;
-    display: flex;
-    justify-content: center;
-  }
-
-  @include media-breakpoint-medium {
-    flex-direction: column;
-  }
-}
-</style>
