@@ -17,85 +17,68 @@ export default defineComponent({
 <template>
   <!-- eslint-disable vue/no-v-html -->
   <section
-    class="blog-content"
+    class="blog-content text-normal mb-6"
     v-html="content"
   />
   <!-- eslint-enable vue/no-v-html -->
 </template>
-<style lang="scss">
-  @import "../scss/variables";
-  @import "../scss/breakpoints";
+<style>
 
-  .blog-content {
-    font-size: 1.1rem;
-    margin-bottom: 5rem;
+  .blog-content em {
+    font-style: italic;
+  }
 
-    em {
-      font-style: italic;
-    }
+  .blog-content h2 {
+    color: var(--color-theme-red);
+    margin: 1.5rem 0;
+  }
 
-    h2 {
-      color: $color-theme-red;
-      margin: 3rem 0 1.5rem;
-    }
+  .blog-content h3 {
+    color: var(--color-theme-lila);
+    margin: 1rem 0;
+  }
 
-    h3 {
-      color: $color-theme-lila;
-      margin: 2.5rem 0 1.3rem;
-    }
+  .blog-content p {
+    margin-bottom: var(--space);
+    overflow-wrap: break-word;
+  }
 
-    p {
-      margin-bottom: 1rem;
-      overflow-wrap: word-break;
+  .blog-content code {
+    color: var(--color-theme-red);
+    font-size: 87.5%;
+    word-break: break-word;
+  }
 
-      > code {
-        color: $color-theme-red;
-        font-size: 87.5%;
-        word-break: break-word;
-      }
+  .blog-content pre {
+    margin: var(--space) 0;
+  }
 
-      @include media-breakpoint-not-small {
-        margin-bottom: 1.1rem;
-      }
-    }
+  .blog-content pre > code {
+    font-family: monospace;
+  }
 
-    pre {
-      margin: $space-l 0;
+  .blog-content img {
+    display: block;
+    margin: 0 auto;
+    max-width: 80%;
+    text-align: center;
+  }
 
-      > code {
-        font-family: $font-family-monospace;
-      }
-    }
+  .blog-content strong {
+    font-weight: bold;
+  }
 
-    img {
-      display: block;
-      margin: 0 auto;
-      max-width: 80%;
-      text-align: center;
-    }
+  .blog-content ul {
+    list-style-type: disc;
+    margin-bottom: var(--space-l);
+  }
 
-    strong {
-      font-weight: bold;
-    }
+  .blog-content li {
+    margin: var(--space-s) var(--space-l);
+  }
 
-    ul {
-      list-style-type: disc;
-      margin-bottom: $space-l;
-    }
-
-    li {
-      margin: $space-s $space-l;
-
-      code {
-        color: $color-theme-red;
-        font-size: 87.5%;
-        word-break: break-word;
-      }
-    }
-
-    pre[class*="language-"] {
-      font-family: $font-family-monospace;
-      margin: $space 0;
-    }
+  .blog-content pre[class*="language-"] {
+    font-family: monospace;
+    margin: var(--space) 0;
   }
 </style>
