@@ -32,7 +32,7 @@ export default defineComponent({
   <transition name="slide-up">
     <div
       v-if="isVisible"
-      class="cookie-notification"
+      class="cookie-notification bottom-4 rounded shadow text-theme-white py-4 px-6 right-4"
       qa-ref="cookie-notification"
     >
       Hey! This site uses cookies for Google Analytics
@@ -62,16 +62,7 @@ export default defineComponent({
 
   .cookie-notification {
     background-color: #323232;
-    border-radius: 5px;
-    bottom: $space;
-    box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2),
-      0 6px 10px 0 rgba(0, 0, 0, .14),
-      0 1px 18px 0 rgba(0, 0, 0, .12);
-    color: $color-theme-white;
-    font-size: 1rem;
-    padding: $space $space-l;
     position: fixed;
-    right: $space;
 
     &__actions {
       display: inline-block;
