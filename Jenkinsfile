@@ -52,16 +52,16 @@ pipeline {
       }
     }
 
-    stage('Check unit:e2e') {
+    stage('Copy to distribution folder') {
       steps {
-        echo 'omit this for now...'
+        sh "rm -r /dist/* && cp -R dist/* /dist"
         /* sh 'npm run test:e2e -- --headless --url https://www.trelobifteki.com --config video=false || exit 0' */
       }
     }
 
-    stage('Copy to distribution folder') {
+    stage('Check unit:e2e') {
       steps {
-        sh "rm -r /dist/* && cp -R dist/* /dist"
+        echo 'omit this for now...'
         /* sh 'npm run test:e2e -- --headless --url https://www.trelobifteki.com --config video=false || exit 0' */
       }
     }
