@@ -2,6 +2,7 @@ pipeline {
   agent {
     docker {
       image "node:18-alpine"
+      args "-v /var/www/trelobifteki.com/:/dist"
     }
   }
   environment {
@@ -58,10 +59,9 @@ pipeline {
       }
     }
 
-    stage('Rsync') {
-      agent none
+    stage('Copy to distribution folder') {
       steps {
-        sh "rsync -a dist/ /var/www/trelobifteki.com"
+        sh "rm -r /dist/* && cp -R dist/* /dist"
         /* sh 'npm run test:e2e -- --headless --url https://www.trelobifteki.com --config video=false || exit 0' */
       }
     }
