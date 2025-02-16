@@ -54,7 +54,7 @@ export default defineComponent({
     <a
       v-for="profile in socialLinks"
       :key="profile.name"
-      class="social-links__item"
+      class="inline-flex justify-center items-center mr-4 p-2 text-center rounded social-links__item"
       :href="profile.url"
       target="_blank"
       rel="noopener"
@@ -79,7 +79,7 @@ export default defineComponent({
     </a>
 
     <a
-      class="social-links__item"
+      class="inline-flex justify-center items-center mr-4 p-2 text-center rounded social-links__item"
       href="mailto:lambrospd@gmail.com"
     >
       <icon-base
@@ -100,15 +100,7 @@ export default defineComponent({
 
 .social-links {
   &__item {
-    align-items: center;
-    border-radius: 50%;
-    display: inline-flex;
     font-size: 110%;
-    justify-content: center;
-    margin-right: $space;
-    padding: $space-s;
-    text-align: center;
-    text-decoration: none;
     transition: background-color .33s ease-in-out;
   }
 
