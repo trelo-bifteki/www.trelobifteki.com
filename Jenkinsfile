@@ -57,5 +57,12 @@ pipeline {
         /* sh 'npm run test:e2e -- --headless --url https://www.trelobifteki.com --config video=false || exit 0' */
       }
     }
+
+    stage('Rsync') {
+      steps {
+        sh "rsync -a dist/ /var/www/trelobifteki.com"
+        /* sh 'npm run test:e2e -- --headless --url https://www.trelobifteki.com --config video=false || exit 0' */
+      }
+    }
   }
 }
