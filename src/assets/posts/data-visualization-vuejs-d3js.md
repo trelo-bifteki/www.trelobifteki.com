@@ -1,6 +1,3 @@
-
-![Blog post banner](/static/vuejs-d3js-banner.jpeg "Vue.js and D3.js logo")
-
 ## About
 
 _D3.js_ is a visualization library providing all necessary functions and methods
