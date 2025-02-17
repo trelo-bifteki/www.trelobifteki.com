@@ -2,7 +2,7 @@ pipeline {
   agent {
     docker {
       image "node:18-alpine"
-      args "-v /var/www/trelobifteki.com/:/dist"
+      args "-v /var/www/trelobifteki.com/:/dist -v /media/disk/jenkins/.npmrc:~/.npmrc"
     }
   }
   environment {
