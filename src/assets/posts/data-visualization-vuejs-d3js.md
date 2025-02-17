@@ -67,10 +67,10 @@ export default {
 
 This can work quite well in the beginning, but:
 
-*   graph is **not responsive**
-*   data is **static**
-*   it renders the graph **once**
-*   styling is **hardcoded**
+* graph is **not responsive**
+* data is **static**
+* it renders the graph **once**
+* styling is **hardcoded**
 
 In the end, the component is not reusable
 
@@ -254,7 +254,7 @@ with the new values!
 
 Now, in this example:
 
-*   graph is **responsive** (like every SVG must be!)
-*   a property _data_ can be used to **dynamically load data** into graph
-*   graph will **render any changes** into the data automatically
-*   **CSS classes** can be used to override styling (not suggested but possible)
+* graph is **responsive** (like every SVG must be!)
+* a property _data_ can be used to **dynamically load data** into graph
+* graph will **render any changes** into the data automatically
+* **CSS classes** can be used to override styling (not suggested but possible)
