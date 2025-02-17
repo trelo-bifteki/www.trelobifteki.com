@@ -1,11 +1,11 @@
 In this tutorial we are going to create freshly hand-made unit tests using the
 following ingredients:
 
-*   Vue3
-*   eslint
-*   Jest
-*   Typescript
-*   Vuex
+* Vue3
+* eslint
+* Jest
+* Typescript
+* Vuex
 
 I am writing this guide because it is hard to find good full examples on the
 internet using all technologies mentioned above together. I will also mention
@@ -34,8 +34,8 @@ I also suggest that everyone to use them from the very beginning especially
 if you are migrating a project into Typescript. The following rules took me
 quite some time to correct in code:
 
-*   _typescript-eslint/no-explicit-any_
-*   _typescript-eslint/explicity-function-return-type
+* _typescript-eslint/no-explicit-any_
+* _typescript-eslint/explicity-function-return-type
 
 ## Recipe for stateless components
 
@@ -185,10 +185,10 @@ describe('IconBase', () => {
 
 The most important rules that I used were the following:
 
-*   I am trying to use only once `expect` in each function.
-*   I always create the function `createWrapper` with all required inputs
-*   I introduce `defaultProps` with the default and required values
-*   I use `defaultProps` as the default parameter for `createWrapper`
+* I am trying to use only once `expect` in each function.
+* I always create the function `createWrapper` with all required inputs
+* I introduce `defaultProps` with the default and required values
+* I use `defaultProps` as the default parameter for `createWrapper`
 
 It took me some time to find `VueWrapper<ComponentPublicInstance>`
 as return trype for `createWrapper`function. I also introduce the
@@ -449,13 +449,12 @@ describe('BlogView', () => {
 
 Basic rules for creating this file are the following:
 
-*   I only make _stateful_ view components. I prefer any dependencies to them
-    to be _stateless_
-
-*   I instantiate `wrapper` in each unit test
-*   I instantiate `store` in each unit test
-*   All action methods are mocked using `jest.fn()`
-*   I reset actions before each test using `actions.refreshPosts.mockReset()`
+* I only make _stateful_ view components. I prefer any dependencies to them
+  to be _stateless_
+* I instantiate `wrapper` in each unit test
+* I instantiate `store` in each unit test
+* All action methods are mocked using `jest.fn()`
+* I reset actions before each test using `actions.refreshPosts.mockReset()`
 
 # Recipe for mocking dependencies
 
@@ -625,15 +624,15 @@ almost necessary for writing unit tests with __typescript__ and __jest__.
 
 The challenge I usually find when I write unit tests:
 
-*   Mocking dependency injection
-*   Mocking custom events
-*   Interacting with `wrapper.vm` object in __typescript__
+* Mocking dependency injection
+* Mocking custom events
+* Interacting with `wrapper.vm` object in __typescript__
 
 My quick tips there:
 
-*   Dependencies shall always return functions, so I can mock them
-*   Create `mocks.ts` file containing functions for generating necessary mock
-    objects
-*   When testing component uses other ones, refer to them using `wrapper.findComponent()`
-*   I avoid using wrapper.vm and focus in testing DOM elements instead.
+* Dependencies shall always return functions, so I can mock them
+* Create `mocks.ts` file containing functions for generating necessary mock
+  objects
+* When testing component uses other ones, refer to them using `wrapper.findComponent()`
+* I avoid using wrapper.vm and focus in testing DOM elements instead.
 

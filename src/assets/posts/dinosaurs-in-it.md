@@ -26,11 +26,11 @@ work.
 
 How can you distinguish them from the others in five simple steps?
 
--   He _feels_ and _is_ a tyrant in project
--   He lives next to waterfall projects 😉
--   He considers communication between customers and developers BAD
--   His project plan is more important than deliverables
--   He finger-points responsibilities if something goes wrong
+- He _feels_ and _is_ a tyrant in project
+- He lives next to waterfall projects 😉
+- He considers communication between customers and developers BAD
+- His project plan is more important than deliverables
+- He finger-points responsibilities if something goes wrong
 
 The key characteristic of this project manager is _centralised communication_.
 And this is done for two reasons. First, he _wants_ to control and considers
@@ -39,8 +39,8 @@ _his benefit_.
 
 If I am hard with these points, just relax and ask yourself:
 
-*   How often were delivery dates decided _without_ you being asked?
-*   How often requirements changed and you hear about it too late?
+* How often were delivery dates decided _without_ you being asked?
+* How often requirements changed and you hear about it too late?
 
 Tyrannosaurus managers _know_ they should not decide without asking you.
 But they do it nevertheless and since they control information they manipulate it and
@@ -74,10 +74,8 @@ Another great example is this big scandal about manipulating gas emissions in ca
 
 If you feel there is nothing you can do about it and you feel too small for turning the wheel in a project, let me give you three simple tips:
 
-*   __Speak out!__ I spoke about some issues I had with a manager to my team. No comments, just facts. And guess what? All of them had the same experience. In the end with a team decision we threw him out from a project! And people say miracles never happen!
-
-*   __Logs__ As a small test, simply ask your manager to forward you his requests by email. If he is hesitating about it, there is something rotten in this dinosaur.
-
+* __Speak out!__ I spoke about some issues I had with a manager to my team. No comments, just facts. And guess what? All of them had the same experience. In the end with a team decision we threw him out from a project! And people say miracles never happen!
+* __Logs__ As a small test, simply ask your manager to forward you his requests by email. If he is hesitating about it, there is something rotten in this dinosaur.
 * __Persistence__ He is a project manager and you are developer. __So what?__ Do you feel his position as manager is stronger? It is simply not. Companies need months or years to find good developers. HRs are paying lots of money in headhunters and ads. If you do your job right, you actually have the upper hand. If you have a different opinion about something and he plays his title as an argument, throw it back to his face. Don't let him intimidate you.
 
 ## Conclusion

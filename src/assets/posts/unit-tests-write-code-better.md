@@ -39,16 +39,16 @@ function getSessionStorageData(account: Account) {
 
 Before proceeding let's ask ourselves the following questions:
 
-*   Should this method be covered with tests?
-*   Is it difficult to cover this method with tests?
+* Should this method be covered with tests?
+* Is it difficult to cover this method with tests?
 
 ## Unit tests love clean functions
 
 After writing several tests during the day, you find out:
 
-*   You want to provide all inputs needed into a function you want to test
-*   You want to always get a result back from the method you test
-*   You don't want any suprises with concurrency and flaky tests
+* You want to provide all inputs needed into a function you want to test
+* You want to always get a result back from the method you test
+* You don't want any suprises with concurrency and flaky tests
 
 One way to satisfy all the requirements above is a clean function. How to write
 a clean function? Simply follow the rules below.

@@ -6,19 +6,19 @@ I also migrated my personal website to use Jenkins for automatically building an
 
 The technology stack I am using for my website is the following
 
-*   Vue.js
-*   Typescript
-*   NPM
-*   Eslint
-*   Jest
-*   Cypress
+* Vue.js
+* Typescript
+* NPM
+* Eslint
+* Jest
+* Cypress
 
 ## Why Jenkinsfile
 
 I personally prefer to give freedom to developers and let them modify the building process as they need. Each git project also contains the Jenkinsfile in the root folder. We setup a Jenkins project as following:
 
-*   Add a Pipeline option to job
-*   Set "Pipeline Script from SCM"
+* Add a Pipeline option to job
+* Set "Pipeline Script from SCM"
 
 I have worked in the past for projects where the building process and Jenkins were part of the admin team. As frontend developers we had difficulties to introduce new processes and steps in the pipeline and it constrained us to use new technologies we wanted.
 
@@ -68,10 +68,10 @@ production.
 
 The following software has been used for this step:
 
-*   jest
-*   @vue/cli-plugin-unit-jest
-*   jest-junit
-*   Coberture jenkins plugin
+* jest
+* @vue/cli-plugin-unit-jest
+* jest-junit
+* Coberture jenkins plugin
 
 Simple execute the following:
 
@@ -97,9 +97,9 @@ Once it is successfully build, I can execute the smoke test as following:
 
 Some points there:
 
-*   I used `--headless` since this is an automated test (no interaction is required)
-*   I am using the actual URL of my website for end-to-end testing
-*   I deactivated video recording (since I don't need it)
+* I used `--headless` since this is an automated test (no interaction is required)
+* I am using the actual URL of my website for end-to-end testing
+* I deactivated video recording (since I don't need it)
 
 ## Complete example
 
