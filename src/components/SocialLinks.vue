@@ -54,7 +54,8 @@ export default defineComponent({
     <a
       v-for="profile in socialLinks"
       :key="profile.name"
-      class="inline-flex justify-center items-center mr-4 p-2 text-center rounded social-links__item"
+      class="inline-flex justify-center items-center mr-4 p-2 text-center rounded
+            text-lg transition-colors duration-300 ease-in-out sm:text-left"
       :href="profile.url"
       target="_blank"
       rel="noopener"
@@ -93,75 +94,42 @@ export default defineComponent({
   </div>
 </template>
 
-<style lang="scss">
+<style scoped>
 
-@import '../scss/variables';
-@import '../scss/breakpoints';
+.social-links > a:first-child {
+  color: var(--color-rainbow-green);
+}
 
-.social-links {
-  &__item {
-    font-size: 110%;
-    transition: background-color .33s ease-in-out;
-  }
+.social-links > a:first-child:hover {
+  background-color: var(--color-rainbow-green);
+  color: var(--color-rainbow-white);
+}
 
-  > a {
-    &:first-child {
-      color: $color-rainbow-green;
-    }
+.social-links > a:nth-child(2) {
+  color: var(--color-rainbow-yellow);
+}
 
-    &:nth-child(2) {
-      color: $color-rainbow-yellow;
-    }
+.social-links > a:nth-child(2):hover {
+  background-color: var(--color-rainbow-yellow);
+  color: var(--color-rainbow-white);
+}
 
-    &:nth-child(3) {
-      color: $color-rainbow-orange;
-    }
+.social-links > a:nth-child(3) {
+  color: var(--color-rainbow-orange);
+}
 
-    &:nth-child(4) {
-      color: $color-rainbow-lila;
-    }
+.social-links > a:nth-child(3):hover {
+  background-color: var(--color-rainbow-orange);
+  color: var(--color-rainbow-white);
+}
 
-    &:nth-child(5) {
-      color: $color-rainbow-red;
-    }
 
-    &:nth-child(6) {
-      color: $color-rainbow-blue;
-    }
+.social-links > a:nth-child(4) {
+  color: var(--color-rainbow-lila);
+}
 
-    &:first-child:hover {
-      background-color: $color-rainbow-green;
-      color: $color-rainbow-white;
-    }
-
-    &:nth-child(2):hover {
-      background-color: $color-rainbow-yellow;
-      color: $color-rainbow-white;
-    }
-
-    &:nth-child(3):hover {
-      background-color: $color-rainbow-orange;
-      color: $color-rainbow-white;
-    }
-
-    &:nth-child(4):hover {
-      background-color: $color-rainbow-lila;
-      color: $color-rainbow-white;
-    }
-
-    &:nth-child(5):hover {
-      background-color: $color-rainbow-red;
-      color: $color-rainbow-white;
-    }
-
-    &:nth-child(6):hover {
-      background-color: $color-rainbow-blue;
-      color: $color-rainbow-white;
-    }
-  }
-
-  @include media-breakpoint-not-small {
-    text-align: left;
-  }
+.social-links > a:nth-child(4):hover {
+  background-color: var(--color-rainbow-lila);
+  color: var(--color-rainbow-white);
 }
 </style>
