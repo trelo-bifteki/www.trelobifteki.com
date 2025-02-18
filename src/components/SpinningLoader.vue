@@ -10,18 +10,13 @@ export default defineComponent({
 
 </script>
 <template>
-  <div class="spinning-loader" />
+  <div class="spinning-loader rounded-full" />
 </template>
-<style lang="scss">
+<style scoped>
   .spinning-loader {
-    $spinning-loader-border-width: .8rem;
-    $spinning-loader-color-gray: #F8F9FA;
-    $spining-loader-color-blue: #007BFF;
-
     animation: spinning-loader .75s linear infinite;
-    border: $spinning-loader-border-width solid $spinning-loader-color-gray;
-    border-radius: 50%;
-    border-right-color: $spining-loader-color-blue;
+    border: .8rem solid #F8F9FA;
+    border-right-color: #007BFF;
     height: 5rem;
     width: 5rem;
   }
