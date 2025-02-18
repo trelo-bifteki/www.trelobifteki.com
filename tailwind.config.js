@@ -11,8 +11,16 @@ module.exports = {
       'party-pink'       : '#FF0066',
       'theme-orange'     : '#E69D50',
       'theme-white'      : '#F8F8F7',
+      'rainbow-red'      : '#BA2766',
+      'rainbow-blue'     : '#1F98C6',
+      'rainbow-orange'   : '#F97C39',
+      'rainbow-lila'     : '#E52D98',
     },
-    extend: {},
+    extend: {
+      gridTemplateColumns: {
+        'auto-1fr': 'auto 1fr',
+      }
+    },
   },
   plugins: [],
 }

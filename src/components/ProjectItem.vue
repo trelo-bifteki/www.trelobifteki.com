@@ -20,73 +20,73 @@ export default defineComponent({
 </script>
 <template>
   <div
-    class="project-item"
+    class="project-item relative"
     qa-ref="project-item"
   >
-    <div class="project-item__properties">
-      <div class="project-item__duration">
+    <div class="grid md:grid-cols-[auto_1fr] pl-4">
+      <div class="project-item__duration flex relative items-center text-rainbow-red p-4 text-lg">
         <duration-label
           :start="project.startDate"
           :end="project.endDate"
         />
       </div>
       <div
-        class="project-item__title"
+        class="flex items-center text-xl text-rainbow-orange font-light p-4"
         qa-ref="project-item__title"
       >
         {{ project.title }}
       </div>
-      <div class="project-item__label">
+      <div class="p-4 text-rainbow-lila">
         Customer
       </div>
       <div
-        class="project-item__value"
+        class="p-4"
         qa-ref="project-item__customer"
       >
         {{ project.customer }}
       </div>
-      <div class="project-item__label">
+      <div class="p-4 text-rainbow-lila">
         Description
       </div>
       <div
-        class="project-item__value"
+        class="p-4"
         qa-ref="project-item__description"
       >
         {{ project.description }}
       </div>
-      <div class="project-item__label">
+      <div class="p-4 text-rainbow-lila">
         Position
       </div>
-      <div class="project-item__value">
+      <div class="p-4">
         {{ project.position }}
       </div>
-      <div class="project-item__label">
+      <div class="p-4 text-rainbow-lila">
         Tasks
       </div>
-      <div class="project-item__value">
+      <div class="p-4">
         <ul>
           <li
             v-for="skill in project.tasks"
             :key="skill"
           >
-            <span class="project-item__bullet">
+            <span class="text-rainbow-blue">
               &dash;&nbsp;
             </span>
             {{ skill }}
           </li>
         </ul>
       </div>
-      <div class="project-item__label">
+      <div class="p-4 text-rainbow-lila">
         Technologies
       </div>
-      <div class="project-item__value">
-        <div class="project-item__technologies">
+      <div class="p-4">
+        <div class="project-item__technologies flex flex-col md:flex-row md:flex-wrap max-w-xl">
           <div
             v-for="technology in project.technologies"
             :key="technology"
-            class="project-item__technology"
+            class="project-item__technology pr-4"
           >
-            <span class="project-item__bullet">
+            <span class="text-rainbow-blue">
               &dash;&nbsp;
             </span>
             {{ technology }}
@@ -97,91 +97,28 @@ export default defineComponent({
   </div>
 </template>
 
-<style lang="scss">
-@import "../scss/variables";
-@import "../scss/typography";
-@import "../scss/breakpoints";
+<style scoped>
+.project-item__duration::after {
+  background-color: var(--color-rainbow-orange);
+  border: 3px solid white;
+  border-radius: 50%;
+  content: "";
+  height: 1.2rem;
+  left: -15px;
+  position: absolute;
+  top: 30%;
+  width: 1.2rem;
+  z-index: 2;
+}
 
-.project-item {
-  position: relative;
-
-  &__bullet {
-    color: $color-rainbow-blue
-  }
-
-  &__duration {
-    align-items: center;
-    color: $color-rainbow-red;
-    display: flex;
-    font-weight: bold;
-    padding: $space;
-    position: relative;
-
-    &::after {
-      background-color: $color-rainbow-orange;
-      border: 3px solid white;
-      border-radius: 50%;
-      content: "";
-      height: 1.2rem;
-      left: -15px;
-      position: absolute;
-      top: 30%;
-      width: 1.2rem;
-      z-index: 2;
-    }
-  }
-
-  &__properties {
-    display: grid;
-    grid-template-columns: 1fr;
-    padding-left: $space;
-
-    @include media-breakpoint-not-small {
-      grid-template-columns: auto 1fr;
-    }
-  }
-
-  &__technologies {
-    display: flex;
-    flex-direction: column;
-    @include media-breakpoint-not-small {
-      flex-direction: row;
-      flex-wrap: wrap;
-    }
-    max-width: 40rem;
-  }
-
-  &__technology {
-    padding-right: $space-s;
-  }
-
-  &__title {
-    align-items: center;
-    color: $color-rainbow-orange;
-    display: flex;
-    font-size: 130%;
-    font-weight: 300;
-    padding: $space-s $space;
-  }
-
-  &__label {
-    color: $color-rainbow-lila;
-    padding: $space-s $space;
-  }
-
-  &__value {
-    padding: $space-s $space;
-  }
-
-  &::after {
-    border-left: 5px solid $color-rainbow-orange;
+.project-item::after {
+    border-left: 5px solid var(--color-rainbow-orange);
     bottom: 0;
     content: "";
-    left: $space-s;
+    left: var(--space-s);
     position: absolute;
     top: 0;
     width: 1rem;
     z-index: 1;
-  }
 }
 </style>
