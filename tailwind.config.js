@@ -15,6 +15,7 @@ module.exports = {
       'rainbow-blue'     : '#1F98C6',
       'rainbow-orange'   : '#F97C39',
       'rainbow-lila'     : '#E52D98',
+      'post-background'  : '#F6F4F7',
     },
     extend: {
       gridTemplateColumns: {

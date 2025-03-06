@@ -5,6 +5,7 @@ import {
   shallowMount, VueWrapper,
 } from '@vue/test-utils';
 import PostSummary from '@/components/PostSummary.vue';
+import { qaRef } from '../mocks';
 
 const defaultPost = {
   title: 'A post',
@@ -28,7 +29,7 @@ describe('PostSummary', () => {
   it('renders formatted date when date post created field is 1/1/2019', () => {
     const wrapper = getWrapper();
     expect(
-      wrapper.find('.post-summary__date').text(),
+      wrapper.find(qaRef('post-summary__date')).text(),
     ).toContain('2019')
   });
 

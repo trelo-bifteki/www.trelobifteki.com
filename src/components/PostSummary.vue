@@ -28,59 +28,28 @@ export default defineComponent({
 
 <template>
   <router-link
-    class="post-summary"
+    class="post-summary bg-post-background hover:bg-theme-orange
+          p-10 text-center transition-colors duration-300 ease-in-out"
     :to="link"
   >
     <div>
-      <h2 class="post-summary__title">
+      <h2 class="post-summary__title text-rainbow-orange text-3xl pb-4">
         {{ post.title }}
       </h2>
-      <h3 class="post-summary__date">
+      <h3
+        class="text-rainbow-red"
+        qa-ref="post-summary__date"
+      >
         {{ formattedDate }}
       </h3>
     </div>
   </router-link>
 </template>
 
-<style lang="scss">
-  @import "../scss/variables";
-  @import "../scss/breakpoints";
+<style scoped>
 
-  .post-summary {
-    $root: &;
-
-    background-color: $color-theme-orange;
-    color: #333;
-    padding: 5rem 3rem;
-    text-align: center;
-    transition: background-color .33s ease;
-
-    &__title {
-      color: $color-theme-lila;
-      font-size: $font-size-xl;
-      padding-bottom: $space;
-
-      @at-root #{$root}:hover & {
-        color: $color-theme-white;
-      }
-    }
-
-    &__date {
-      color: $color-theme-red;
-    }
-
-    &:nth-child(even) {
-      background-color: #F6F4F7;
-    }
-
-    &:nth-child(odd) {
-      background-color: #FCFAFD;
-    }
-
-    &:hover {
-      background-color: $color-theme-orange;
-      color: $color-theme-white;
-    }
+  .post-summary:hover .post-summary__title {
+    color: var(--color-theme-white);
   }
 
 </style>
